@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
-# Create your views here.
+
+class Home(TemplateView):
+    def get(self, request, *args, **kwargs):
+        from django.http import HttpResponse
+        return HttpResponse('home')
