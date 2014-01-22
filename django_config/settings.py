@@ -39,6 +39,10 @@ INSTALLED_APPS = (
     
     # third-party
     'django_nose',
+    
+    # this project
+    'organizations',
+    'recipes',
 )
 
 MIDDLEWARE_CLASSES = (
