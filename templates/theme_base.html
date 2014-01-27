@@ -5,4 +5,23 @@ A template for displaying the standard site theme with banners, footers, etc.
 Most templates will extend theme_base.html.
 {% endcomment %}
 
+{% block body %}
+  <div id="header">
+    <div id="brand"></div>
+    <div id="login">
+        Login
+    </div>
+    <div id="nav">
+        <ul>
+        {% block nav %}
+            <li><a href="{% url "home" %}">Home</a></li>
+        {% endblock %}
+        </ul>
+    </div>
+  </div>
+  <div id="content">
+  {% block content %}
 
+  {% endblock %}
+  </div>
+{% endblock %}
