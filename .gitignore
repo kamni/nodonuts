@@ -2,7 +2,7 @@
 ###################
 *.pyc
 *.egg-info
-
+.sass-cache/**
 
 # Editor-specific project files #
 #################################
