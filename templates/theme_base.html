@@ -7,14 +7,16 @@ Most templates will extend theme_base.html.
 
 {% block body %}
   <div id="header">
-    <div id="brand"></div>
+    <div id="brand"><a href="{% url "home" %}">{{ settings.SITE_NAME }}</a></div>
     <div id="login">
-        Login
+        <a href="">Login</a>
     </div>
     <div id="nav">
         <ul>
         {% block nav %}
-            <li><a href="{% url "home" %}">Home</a></li>
+          {% for link in links %}
+          <li{% if link.current %} class="current"{% endif %}><a href="{{ link.url }}">{{ link.text }}</a></li>
+          {% endfor %}
         {% endblock %}
         </ul>
     </div>
@@ -22,6 +24,12 @@ Most templates will extend theme_base.html.
   <div id="content">
   {% block content %}
 
+  {% endblock %}
+  </div>
+
+  <div id="footer">
+  {% block footer %}
+    <p>Copyright &copy; {% now "Y" %} {{ settings.SITE_NAME }}. {{ settings.COPYRIGHT_MESSAGE }}</p>
   {% endblock %}
   </div>
 {% endblock %}
