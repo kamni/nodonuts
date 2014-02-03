@@ -24,8 +24,6 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
-
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
@@ -44,6 +42,7 @@ INSTALLED_APPS = (
     
     # third-party
     'django_nose',
+    'social_auth',
     
     # this project
     'organizations',
