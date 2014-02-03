@@ -13,3 +13,5 @@ pystache==0.5.3
 python-openid==2.2.5
 static==1.0.2
 wsgiref==0.1.2
+
+git+ssh://git@github.com/kamni/spaab.git@master
