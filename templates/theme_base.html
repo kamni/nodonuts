@@ -15,7 +15,7 @@ Most templates will extend theme_base.html.
         <ul>
         {% block nav %}
           {% for link in links %}
-          <li{% if link.current %} class="current"{% endif %}><a href="{{ link.url }}">{{ link.text }}</a></li>
+          <li{% if link.current %} class="current"{% endif %}><a href="{{ link.get_url }}">{{ link.text }}</a></li>
           {% endfor %}
         {% endblock %}
         </ul>
