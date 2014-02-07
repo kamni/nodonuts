@@ -16,5 +16,5 @@ and clone it. Then:
     git push origin master
 
 If you want to customize any of the django settings (found in
-{{ django_config/settings.py }}), please create a {{ srv_settings.py }} file in
-the {{ django_config }} folder and override any settings there.
+`django_config/settings.py`), please create a `srv_settings.py` file in
+the `django_config` folder and override any settings there.
