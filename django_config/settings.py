@@ -43,7 +43,6 @@ INSTALLED_APPS = (
     # third-party
     'django_nose',
     'social_auth',
-    'spaab',
     
     # this project
     'organizations',

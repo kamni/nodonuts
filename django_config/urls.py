@@ -6,5 +6,4 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'', include('recipes.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'', include('spaab.urls')),
 )
