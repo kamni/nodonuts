@@ -7,6 +7,7 @@ https://docs.djangoproject.com/en/1.6/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
+from django.conf import global_settings
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
@@ -29,6 +30,10 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+    'constance.context_processors.config',
+)
+
 
 # Application definition
 
@@ -41,6 +46,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     
     # third-party
+    'constance.backends.database',
+    'constance',
     'django_nose',
     'social_auth',
     
@@ -99,6 +106,25 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+# constance settings
+CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
+CONSTANCE_CONFIG = {
+    'SITE_NAME': ('NoDonuts', 'The name to display in headers, title bar, ' +
+                  'and copyright notices'),
+    'SHOW_SITE_NAME': (True, 'Name should be displayed in the header area ' +
+                       'of pages'),
+    'SITE_LOGO': ('', 'The path to the file located in the static folder ' +
+                  'that represents the logo. Leave off any starting slash (/)'),
+    'SHOW_SITE_LOGO': (True, 'Logo, if configured, should be shown in the ' +
+                       'header area of pages'),
+    'COPYRIGHT': ('Copyright', 'The type of intellectual property rights ' +
+                  'that content on this site has. Suggestions: Copyleft, ' +
+                  'Creative Commons Attribution Share-Alike'),
+    'COPYRIGHT_MESSAGE': ('', 'An additional message for your copyright. ' +
+                          'Example: All rights reserved.'),
+                    
+}
 
 USE_HEROKU = True
 ALLOWED_HOSTS = ['*'] # override in srv_settings.py

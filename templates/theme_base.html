@@ -1,4 +1,5 @@
 {% extends "site_base.html" %}
+{% load staticfiles %}
 
 {% comment %}
 A template for displaying the standard site theme with banners, footers, etc.
@@ -7,7 +8,12 @@ Most templates will extend theme_base.html.
 
 {% block body %}
   <div id="header">
-    <div id="brand"><a href="{% url "home" %}">{{ config.SITE_NAME }}</a></div>
+    <div id="brand">
+        <a href="{% url "home" %}">
+            {% if config.SHOW_SITE_LOGO and config.SITE_LOGO %}<img id="logo" src="{% static config.SITE_LOGO %}">{% endif %}
+            {% if config.SHOW_SITE_NAME %}{{ config.SITE_NAME }}{% endif %}
+        </a>
+    </div>
     <div id="login">
     {% if user.is_authenticated %}
         Hello, {{ user }}
@@ -34,7 +40,7 @@ Most templates will extend theme_base.html.
 
   <div id="footer">
   {% block footer %}
-    <p>{{ config.COPYRIGHT|default:"Copyright" }} &copy; {% now "Y" %} {{ config.SITE_NAME }}. {{ config.COPYRIGHT_MESSAGE }}</p>
+    <p>{{ config.COPYRIGHT }} &copy; {% now "Y" %} {{ config.SITE_NAME }}. {{ config.COPYRIGHT_MESSAGE }}</p>
   {% endblock %}
   </div>
 {% endblock %}
