@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -6,6 +5,18 @@ from django.db import models
 class Recipe(models.Model):
     """
     Stores recipes that users can find on the site.
+    
+    :field title: CharField, max_length=150, unique=True
+    :field slug: SlugField, unique=True, defaults to slugified version of title
+    :field short_description: CharField, max_length=200
+    :field image: ImageField, uploads to 'recipes/images', optional
+    :field thumbnail: ImageField, uploads to 'recipes/thumbs', optional
+    :field ingredients: TextField
+    :field instructions: TextField
+    :field featured: BooleanField, defaults to False
+    :field is_public: BooleanField, defaults to True
+    :field added_by: ForeignKey to User
+    :field date_added: DateTimeField, auto_now_add
     """
     title = models.CharField(max_length=150, unique=True)
     slug = models.SlugField(unique=True, blank=True, help_text="URL slug that " +
@@ -13,10 +24,10 @@ class Recipe(models.Model):
                             "leave this field blank, it will default to a " +
                             "slugified version of the title.")
     short_description = models.CharField(max_length=200)
-    image = models.ImageField(upload_to=settings.RECIPE_IMAGE_FOLDER,
+    image = models.ImageField(upload_to='recipes/images', blank=True, null=True,
                               help_text="Display image for the recipe. The " +
                               "ideal image size is 200x200px.")
-    thumbnail = models.ImageField(upload_to=settings.RECIPE_THUMBNAIL_FOLDER,
+    thumbnail = models.ImageField(upload_to='recipes/thumbs', blank=True, null=True,
                                   help_text="Smaller image to use for the " +
                                   "recipe. Ideal image size is 60x60px")
     ingredients = models.TextField(help_text="Ingredients (with measurements)" +
@@ -29,7 +40,7 @@ class Recipe(models.Model):
     is_public = models.BooleanField(default=True, help_text="If false, this " +
                                     "recipe will not show up in public searches")
     added_by = models.ForeignKey(User, help_text="User who created this recipe.")
-    date_added = models.DateTimeField(auto_add_now=True)
+    date_added = models.DateTimeField(auto_now_add=True)
     
     def __repr__(self):
         return "<Recipe: %s (by %s)>" % (self.title, self.added_by)
