@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.template.defaultfilters import slugify
 
 
 class Recipe(models.Model):
@@ -41,6 +42,11 @@ class Recipe(models.Model):
                                     "recipe will not show up in public searches")
     added_by = models.ForeignKey(User, help_text="User who created this recipe.")
     date_added = models.DateTimeField(auto_now_add=True)
+    
+    def save(self, *args, **kwargs):
+        if not self.slug and self.title:
+            self.slug = slugify(self.title)
+        super(Recipe, self).save(*args, **kwargs)
     
     def __repr__(self):
         return "<Recipe: %s (by %s)>" % (self.title, self.added_by)

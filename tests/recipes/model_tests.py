@@ -1,12 +1,13 @@
 from django.db import transaction, IntegrityError
 from django.test import TestCase
+from django_test_utils.model_utils import TestUser
 
 from recipes.models import *
 
 
 class RecipeTests(TestCase):
     def test__init(self):
-        user = make_user()
+        user = TestUser()
         
         # all fields except date_added
         recipe = Recipe.objects.create(title="Fresh Peaches",
@@ -33,52 +34,52 @@ class RecipeTests(TestCase):
         self.assertIsNotNone(recipe.date_added)
         
         # title must be unique
-        self.assertRaises(IntegrityError, Recipe.objects.create,
-                          title="Fresh Peaches", short_description="Hooray!",
-                          ingredients="3 peaches", instructions="Eat them",
-                          added_by=user)
-        transaction.rollback()
+        with transaction.atomic():
+            self.assertRaises(IntegrityError, Recipe.objects.create,
+                              title="Fresh Peaches", short_description="Hooray!",
+                              ingredients="3 peaches", instructions="Eat them",
+                              added_by=user)
         
         # slug must be unique
-        self.assertRaises(IntegrityError, Recipe.objects.create,
-                          title="Celery and Carrots", slug="fresh-strawberries",
-                          short_description="Crunch", 
-                          ingredients="Celery and Carrots",
-                          instructions="Cut into sticks and eat one at a time",
-                          added_by=user)
-        transaction.rollback()
+        with transaction.atomic():
+            self.assertRaises(IntegrityError, Recipe.objects.create,
+                              title="Celery and Carrots", slug="fresh-strawberries",
+                              short_description="Crunch", 
+                              ingredients="Celery and Carrots",
+                              instructions="Cut into sticks and eat one at a time",
+                              added_by=user)
         
         # title required
-        self.assertRaises(IntegrityError, Recipe.objects.create,
-                          short_description="Nothing", ingredients="Nothing",
-                          instructions="Do Nothing", added_by=user)
-        transaction.rollback()
+        with transaction.atomic():
+            self.assertRaises(IntegrityError, Recipe.objects.create,
+                              short_description="Nothing", ingredients="Nothing",
+                              instructions="Do Nothing", added_by=user)
         
         # short_description required
-        self.assertRaises(IntegrityError, Recipe.objects.create,
-                          title="Watermelon", ingredients="1 Watermelon",
-                          instructions="Cut into slices and eat",
-                          added_by=user)
-        transaction.rollback()
+        with transaction.atomic():
+            self.assertRaises(IntegrityError, Recipe.objects.create,
+                              title="Watermelon", ingredients="1 Watermelon",
+                              instructions="Cut into slices and eat",
+                              added_by=user)
         
         # ingredients required
-        self.assertRaises(IntegrityError, Recipe.objects.create,
-                          title="Blueberries", short_description="Very blue",
-                          instructions="Wash, serve with cream", added_by=user)
-        transaction.rollback()
+        with transaction.atomic():
+            self.assertRaises(IntegrityError, Recipe.objects.create,
+                              title="Blueberries", short_description="Very blue",
+                              instructions="Wash, serve with cream", added_by=user)
         
         # instructions required
-        self.assertRaises(IntegrityError, Recipe.objects.create,
-                          title="Sliced Apples",
-                          short_description="Crunchy and Tangy",
-                          ingredients="2 granny smith apples", added_by=user)
-        transaction.rollback()
+        with transaction.atomic():
+            self.assertRaises(IntegrityError, Recipe.objects.create,
+                              title="Sliced Apples",
+                              short_description="Crunchy and Tangy",
+                              ingredients="2 granny smith apples", added_by=user)
         
         # added_by required
-        self.assertRaises(IntegrityError, Recipe.objects.create,
-                          title="An Orange", short_description="Juicy",
-                          ingredients="1 orange", instructions="Peel and eat")
-        transaction.rollback()
+        with transaction.atomic():
+            self.assertRaises(IntegrityError, Recipe.objects.create,
+                              title="An Orange", short_description="Juicy",
+                              ingredients="1 orange", instructions="Peel and eat")
     
     def test__repr(self):
         pass
