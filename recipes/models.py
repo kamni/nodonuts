@@ -30,3 +30,9 @@ class Recipe(models.Model):
                                     "recipe will not show up in public searches")
     added_by = models.ForeignKey(User, help_text="User who created this recipe.")
     date_added = models.DateTimeField(auto_add_now=True)
+    
+    def __repr__(self):
+        return "<Recipe: %s (by %s)>" % (self.title, self.added_by)
+    
+    def __unicode__(self):
+        return unicode(self.title)
