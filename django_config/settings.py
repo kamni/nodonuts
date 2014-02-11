@@ -107,6 +107,10 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+RECIPE_IMAGE_FOLDER = ''
+RECIPE_THUMBNAIL_FOLDER = ''
+
+
 # constance settings
 CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 CONSTANCE_CONFIG = {
