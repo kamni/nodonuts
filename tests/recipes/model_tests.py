@@ -1,6 +1,7 @@
 from django.db import transaction, IntegrityError
 from django.test import TestCase
 from django_test_utils.model_utils import TestUser
+from django_test_utils.random_generators import lorem_ipsum
 
 from recipes.models import *
 
@@ -99,7 +100,42 @@ class RecipeTests(TestCase):
                               ingredients="1 orange", instructions="Peel and eat")
     
     def test__repr(self):
-        pass
+        user = TestUser()
+        recipe = TestRecipe(title="PB&J", added_by=user)
+        self.assertEquals("<Recipe: PB&J (by %s)>" % user, repr(recipe))
     
     def test__unicode(self):
         pass
+    
+
+def TestRecipe(title=None, slug=None, short_description=None, image=None,
+               thumbnail=None, ingredients=None, instructions=None, 
+               featured=False, is_public=True, added_by=None):
+    # generating a unique title
+    if not title:
+        title_base = lorem_ipsum(3)
+        suffix = 1
+        not_unique = True
+        while not_unique:
+            title = "%s %s" % (title_base, suffix)
+            not_unique = Recipe.objects.filter(title=title)
+            suffix += 1
+        
+    return Recipe.objects.create(title=title,
+                                 slug=slug,
+                                 short_description=short_description or lorem_ipsum(3),
+                                 image=image,
+                                 thumbnail=thumbnail,
+                                 ingredients=ingredients or lorem_ipsum(7),
+                                 instructions=instructions or lorem_ipsum(7),
+                                 featured=featured,
+                                 is_public=is_public,
+                                 added_by=added_by or TestUser())
+    
+    
+    
+    
+    is_public = models.BooleanField(default=True, help_text="If false, this " +
+                                    "recipe will not show up in public searches")
+    added_by = models.ForeignKey(User, help_text="User who created this recipe.")
+    date_added = models.DateTimeField(auto_now_add=True)
