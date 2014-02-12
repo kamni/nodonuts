@@ -46,6 +46,9 @@ class Recipe(NullCheckerModel):
     added_by = models.ForeignKey(User, help_text="User who created this recipe.")
     date_added = models.DateTimeField(auto_now_add=True)
     
+    class Meta:
+        ordering = ('title', 'id')
+    
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
