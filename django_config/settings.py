@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'constance.backends.database',
     'constance',
     'django_nose',
+    'tinymce',
     'social_auth',
     
     # this project

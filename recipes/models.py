@@ -34,7 +34,7 @@ class Recipe(NullCheckerModel):
     thumbnail = models.ImageField(upload_to='recipes/thumbs', blank=True, null=True,
                                   help_text="Smaller image to use for the " +
                                   "recipe. Ideal image size is 60x60px")
-    ingredients = NullableTextField(help_text="Ingredients (with measurements)" +
+    ingredients = NullableTextField(help_text="Ingredients (with measurements) " +
                                    "for the recipe, one ingredient per line.")
     instructions = NullableTextField(help_text="Instructions for preparing the " +
                                     "recipe.")
