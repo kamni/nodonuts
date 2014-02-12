@@ -6,6 +6,23 @@ from recipes.models import *
 
 
 class RecipeTests(TestCase):
+    def test_save(self):
+        user = TestUser()
+        
+        # should create slug if it isn't set
+        recipe = Recipe.objects.create(title="Apple Cider",
+                                       short_description="A tasty fall drink",
+                                       ingredients="1 barrel of apples",
+                                       instructions="Get creative",
+                                       added_by=user)
+        self.assertEquals('apple-cider', recipe.slug)
+        
+        # should not change slug if it exists
+        recipe.title = "Apple Juice"
+        recipe.save()
+        recipe = Recipe.objects.get(id=recipe.id)
+        self.assertEquals('apple-cider', recipe.slug)
+    
     def test__init(self):
         user = TestUser()
         
