@@ -105,7 +105,8 @@ class RecipeTests(TestCase):
         self.assertEquals("<Recipe: PB&J (by %s)>" % user, repr(recipe))
     
     def test__unicode(self):
-        pass
+        recipe = TestRecipe(title="Club Soda")
+        self.assertEquals(u"Club Soda", unicode(recipe))
     
 
 def TestRecipe(title=None, slug=None, short_description=None, image=None,
