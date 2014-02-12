@@ -17,4 +17,5 @@ static==1.0.2
 wsgiref==0.1.2
 
 -e git+git://github.com/comoga/django-constance@dc89ec294f#egg=django-constance
+-e git+git://github.com/kamni/django-null-reality#egg=django-null-reality
 -e git+git://github.com/kamni/django-test-utils#egg=django-test-utils

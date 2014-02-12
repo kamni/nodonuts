@@ -2,8 +2,11 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.template.defaultfilters import slugify
 
+from null_reality.models import NullCheckerModel
+from null_reality.fields import NullableCharField, NullableTextField
 
-class Recipe(models.Model):
+
+class Recipe(NullCheckerModel):
     """
     Stores recipes that users can find on the site.
     
@@ -19,21 +22,21 @@ class Recipe(models.Model):
     :field added_by: ForeignKey to User
     :field date_added: DateTimeField, auto_now_add
     """
-    title = models.CharField(max_length=150, unique=True)
+    title = NullableCharField(max_length=150, unique=True)
     slug = models.SlugField(unique=True, blank=True, help_text="URL slug that " +
                             "will be used for this recipe's address. If you " +
                             "leave this field blank, it will default to a " +
                             "slugified version of the title.")
-    short_description = models.CharField(max_length=200)
+    short_description = NullableCharField(max_length=200)
     image = models.ImageField(upload_to='recipes/images', blank=True, null=True,
                               help_text="Display image for the recipe. The " +
                               "ideal image size is 200x200px.")
     thumbnail = models.ImageField(upload_to='recipes/thumbs', blank=True, null=True,
                                   help_text="Smaller image to use for the " +
                                   "recipe. Ideal image size is 60x60px")
-    ingredients = models.TextField(help_text="Ingredients (with measurements)" +
+    ingredients = NullableTextField(help_text="Ingredients (with measurements)" +
                                    "for the recipe, one ingredient per line.")
-    instructions = models.TextField(help_text="Instructions for preparing the " +
+    instructions = NullableTextField(help_text="Instructions for preparing the " +
                                     "recipe.")
     featured = models.BooleanField(default=False, help_text="If true, this " +
                                    "recipe will show up under the 'Featured' " +
@@ -44,7 +47,7 @@ class Recipe(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     
     def save(self, *args, **kwargs):
-        if not self.slug and self.title:
+        if not self.slug:
             self.slug = slugify(self.title)
         super(Recipe, self).save(*args, **kwargs)
     
