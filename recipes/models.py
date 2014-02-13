@@ -99,6 +99,11 @@ class RecipeTag(NullCheckerModel):
     class Meta:
         ordering = ('type', 'tag')
     
+    def save(self, *args, **kwargs):
+        self.tag = self.tag.lower()
+        super(RecipeTag, self).save(*args, **kwargs)
+    
     # TODO: tags stored as lower case
     # TODO: repr and unicode
     # TODO: tests for init, repr, and unicode
+    # TODO: tests for save -- make sure it catches uniqueness issues
