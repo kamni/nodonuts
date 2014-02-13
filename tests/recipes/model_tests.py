@@ -140,3 +140,31 @@ def TestRecipe(title=None, slug=None, short_description=None, image=None,
                                     "recipe will not show up in public searches")
     added_by = models.ForeignKey(User, help_text="User who created this recipe.")
     date_added = models.DateTimeField(auto_now_add=True)
+    
+    
+class RecipeTagTests(TestCase):
+    def test_save(self):
+        pass
+    
+    def test__init(self):
+        # all fields
+        rt = RecipeTag.objects.create(tag="Testing1",
+                                      type=TagType.MEAL,
+                                      is_public=False,
+                                      added_by=TestUser())
+        
+        # bare minium fields
+        
+        # tag must be unique
+        
+        # tag is required
+        
+    
+    def test__repr(self):
+        pass
+    
+    def test__unicode(self):
+        pass
+    
+    # TODO: tests for init, repr, and unicode
+    # TODO: tests for save -- make sure it catches uniqueness issues

@@ -91,7 +91,7 @@ class RecipeTag(NullCheckerModel):
     :field date_added: DateTimeField, auto_now_add
     """
     tag = NullableCharField(max_length=30, unique=True)
-    type = enum.EnumField(TagType)
+    type = enum.EnumField(TagType, default=TagType.OTHER)
     is_public = models.BooleanField(default=True)
     added_by = models.ForeignKey(User, blank=True, null=True)
     date_added = models.DateTimeField(auto_now_add=True)
@@ -102,6 +102,10 @@ class RecipeTag(NullCheckerModel):
     def save(self, *args, **kwargs):
         self.tag = self.tag.lower()
         super(RecipeTag, self).save(*args, **kwargs)
+    
+    def who_added(self):
+        """ Returns a display-friendly version of the user that added the tag """
+        return self.added_by.get_full_name() if self.added_by else "System"
     
     def __repr__(self):
         return "<RecipeTag: %s>" % self.tag
