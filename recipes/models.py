@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.template.defaultfilters import slugify
+from django_enumfield import enum
 
 from null_reality.models import NullCheckerModel
 from null_reality.fields import NullableCharField, NullableTextField
@@ -59,3 +60,31 @@ class Recipe(NullCheckerModel):
     
     def __unicode__(self):
         return unicode(self.title)
+
+
+class TagType(enum.Enum):
+    """
+    Classifications for RecipeTags. 
+    
+    Types:
+        MEAL: a particular kind of eating situation (breakfast, lunch, finger
+            food)
+        INGREDIENT: a classification based on the types of ingredients in a
+            recipe (vegan, low-carb, gluten-free)
+            passover/pesach, finger food)
+    """
+    MEAL = 0
+    INGREDIENT = 1
+
+
+class RecipeTag(models.Model):
+    '''
+    text (required, unique, stored as lower-case
+    type
+    is_public
+    added_by (optional, displays as "system" if no one added it)
+    date_added (auto_add_now)
+    '''
+    pass
+    
+    # TODO: tags stored as lower case
