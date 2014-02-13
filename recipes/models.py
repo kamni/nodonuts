@@ -103,7 +103,8 @@ class RecipeTag(NullCheckerModel):
         self.tag = self.tag.lower()
         super(RecipeTag, self).save(*args, **kwargs)
     
-    # TODO: tags stored as lower case
-    # TODO: repr and unicode
-    # TODO: tests for init, repr, and unicode
-    # TODO: tests for save -- make sure it catches uniqueness issues
+    def __repr__(self):
+        return "<RecipeTag: %s>" % self.tag
+    
+    def __unicode__(self):
+        return unicode(self.tag)
