@@ -152,14 +152,26 @@ class RecipeTagTests(TestCase):
                                       type=TagType.MEAL,
                                       is_public=False,
                                       added_by=TestUser())
+        self.assertIsNotNone(rt.date_added)
+        self.assertEquals('testing1', rt.tag)
         
-        # bare minium fields
+        # bare minimum fields
+        rt = RecipeTag.objects.create(tag="Testing2")
+        self.assertEquals('testing2', rt.tag)
+        self.assertEquals(TagType.OTHER, rt.type)
+        self.assertTrue(rt.is_public)
+        self.assertIsNone(rt.added_by)
+        self.assertIsNotNone(rt.date_added)
         
-        # tag must be unique
+        # tag must be unique, case-insensitive
+        with transaction.atomic():
+            self.assertRaises(IntegrityError, RecipeTag.objects.create,
+                              tag="testing1")
         
         # tag is required
+        with transaction.atomic():
+            self.assertRaises(IntegrityError, RecipeTag.objects.create)
         
-    
     def test__repr(self):
         pass
     
@@ -168,3 +180,4 @@ class RecipeTagTests(TestCase):
     
     # TODO: tests for init, repr, and unicode
     # TODO: tests for save -- make sure it catches uniqueness issues
+    # TODO: verify validation error issues

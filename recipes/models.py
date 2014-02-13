@@ -29,7 +29,7 @@ class Recipe(NullCheckerModel):
                             "leave this field blank, it will default to a " +
                             "slugified version of the title.")
     short_description = NullableCharField(max_length=200)
-    tags = models.ManyToManyField(RecipeTag, blank=True, null=True)
+    tags = models.ManyToManyField('RecipeTag', blank=True, null=True)
     image = models.ImageField(upload_to='recipes/images', blank=True, null=True,
                               help_text="Display image for the recipe. The " +
                               "ideal image size is 200x200px.")
@@ -100,7 +100,8 @@ class RecipeTag(NullCheckerModel):
         ordering = ('type', 'tag')
     
     def save(self, *args, **kwargs):
-        self.tag = self.tag.lower()
+        if self.tag:
+            self.tag = self.tag.lower()
         super(RecipeTag, self).save(*args, **kwargs)
     
     def who_added(self):
