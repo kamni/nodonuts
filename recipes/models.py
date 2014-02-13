@@ -29,6 +29,7 @@ class Recipe(NullCheckerModel):
                             "leave this field blank, it will default to a " +
                             "slugified version of the title.")
     short_description = NullableCharField(max_length=200)
+    tags = models.ManyToManyField(RecipeTag, blank=True, null=True)
     image = models.ImageField(upload_to='recipes/images', blank=True, null=True,
                               help_text="Display image for the recipe. The " +
                               "ideal image size is 200x200px.")
@@ -67,24 +68,37 @@ class TagType(enum.Enum):
     Classifications for RecipeTags. 
     
     Types:
+        OTHER: default tag, an easy way to identify new tags created by users
         MEAL: a particular kind of eating situation (breakfast, lunch, finger
             food)
         INGREDIENT: a classification based on the types of ingredients in a
             recipe (vegan, low-carb, gluten-free)
             passover/pesach, finger food)
     """
-    MEAL = 0
+    OTHER = 0
     INGREDIENT = 1
+    MEAL = 2
 
 
-class RecipeTag(models.Model):
-    '''
-    text (required, unique, stored as lower-case
-    type
-    is_public
-    added_by (optional, displays as "system" if no one added it)
-    date_added (auto_add_now)
-    '''
-    pass
+class RecipeTag(NullCheckerModel):
+    """
+    A way for users to classify recipes.
+    
+    :field tag: CharField, max length=30, unique
+    :field type: EnumField using TagType
+    :field is_public: BooleanField, defaults to True
+    :field added_by: ForeignKey to User, nullable
+    :field date_added: DateTimeField, auto_now_add
+    """
+    tag = NullableCharField(max_length=30, unique=True)
+    type = enum.EnumField(TagType)
+    is_public = models.BooleanField(default=True)
+    added_by = models.ForeignKey(User, blank=True, null=True)
+    date_added = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ('type', 'tag')
     
     # TODO: tags stored as lower case
+    # TODO: repr and unicode
+    # TODO: tests for init, repr, and unicode
