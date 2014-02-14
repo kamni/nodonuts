@@ -207,10 +207,17 @@ class RatingTests(TestCase):
                               recipe=TestRecipe(), rated_by=TestUser())
     
     def test__repr(self):
-        pass
+        rcpe = TestRecipe()
+        user = TestUser()
+        r1 = Rating(recipe=rcpe, rated_by=user)
+        self.assertEquals("<Rating: %s (%s)>" % (rcpe, user), repr(r1))
     
     def test__unicode(self):
-        pass
+        r1 = Rating(liked=True)
+        self.assertEquals(u'liked', unicode(r1))
+        
+        r2 = Rating(liked=False)
+        self.assertEquals(u'disliked', unicode(r2))
 
 
 ############# Test Models ################

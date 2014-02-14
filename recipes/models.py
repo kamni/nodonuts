@@ -146,7 +146,7 @@ class Rating(models.Model):
         return ["disliked", "liked"][int(self.liked)]
     
     def __repr__(self):
-        return "<Rating: %s (%s)>" % (self.rated_by, self.liked_text())
+        return "<Rating: %s (%s)>" % (self.recipe, self.rated_by)
     
     def __unicode__(self):
         return unicode(self.liked_text())
