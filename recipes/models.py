@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.template.defaultfilters import slugify
+from django.utils import timezone
 from django_enumfield import enum
 
 from null_reality.models import NullCheckerModel
@@ -46,7 +47,7 @@ class Recipe(NullCheckerModel):
     is_public = models.BooleanField(default=True, help_text="If false, this " +
                                     "recipe will not show up in public searches")
     added_by = models.ForeignKey(User, help_text="User who created this recipe.")
-    date_added = models.DateTimeField(auto_now_add=True)
+    date_added = models.DateTimeField(default=timezone.now)
     
     class Meta:
         ordering = ('title', 'id')
@@ -93,7 +94,7 @@ class RecipeTag(NullCheckerModel):
     type = enum.EnumField(TagType, default=TagType.OTHER)
     is_public = models.BooleanField(default=True)
     added_by = models.ForeignKey(User, blank=True, null=True)
-    date_added = models.DateTimeField(auto_now_add=True)
+    date_added = models.DateTimeField(default=timezone.now)
     
     class Meta:
         ordering = ('type', 'tag')
