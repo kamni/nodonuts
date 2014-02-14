@@ -23,7 +23,7 @@ class Recipe(NullCheckerModel):
     :field featured: BooleanField, defaults to False
     :field is_public: BooleanField, defaults to True
     :field added_by: ForeignKey to User
-    :field date_added: DateTimeField, auto_now_add
+    :field date_added: DateTimeField, defaults to timezone.now
     """
     title = NullableCharField(max_length=150, unique=True)
     slug = models.SlugField(unique=True, blank=True, help_text="URL slug that " +
@@ -88,12 +88,14 @@ class RecipeTag(NullCheckerModel):
     :field type: EnumField using TagType
     :field is_public: BooleanField, defaults to True
     :field added_by: ForeignKey to User, nullable
-    :field date_added: DateTimeField, auto_now_add
+    :field date_added: DateTimeField, defaults to timezone.now
     """
     tag = NullableCharField(max_length=30, unique=True)
     type = enum.EnumField(TagType, default=TagType.OTHER)
-    is_public = models.BooleanField(default=True)
-    added_by = models.ForeignKey(User, blank=True, null=True)
+    is_public = models.BooleanField(default=True, help_text="Indicates whether " +
+                                    "all users will see this tag")
+    added_by = models.ForeignKey(User, blank=True, null=True,
+                                 help_text="The user who added this tag")
     date_added = models.DateTimeField(default=timezone.now)
     
     class Meta:
@@ -119,3 +121,24 @@ class RecipeTag(NullCheckerModel):
     
     def __unicode__(self):
         return unicode(self.tag)
+
+
+class Rating(models.Model):
+    """
+    A way for users to give a 'like' or a 'dislike' to recipes. Users may only
+    have one rating per recipe.
+    
+    :field recipe: ForeignKey to Recipe
+    :field rated_by: ForeignKey to User
+    :field liked: BooleanField
+    :field last_updated: DateTimeField, auto_now
+    """
+    recipe = models.ForeignKey('Recipe')
+    rated_by = models.ForeignKey(User)
+    liked = models.BooleanField(help_text="Whether the user liked this recipe.")
+    last_updated = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        unique_together = ('recipe', 'rated_by')
+    
+    # TODO: repr and unicode, tests
