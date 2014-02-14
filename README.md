@@ -18,3 +18,13 @@ and clone it. Then:
 If you want to customize any of the django settings (found in
 `django_config/settings.py`), please create a `srv_settings.py` file in
 the `django_config` folder and override any settings there.
+
+## Default Data
+
+The project does not have an initial_data fixture, in order to allow site
+managers to customize their installations. However if you would like to install
+some default data, there are some fixtures available:
+
+Recipe Tags:
+
+    python manage.py loaddata recipe_tags
