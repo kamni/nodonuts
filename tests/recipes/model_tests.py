@@ -124,7 +124,10 @@ class RecipeTagTests(TestCase):
         rt1.clean()
     
     def test_save(self):
-        pass
+        # should lower-case the tag
+        rt = RecipeTag(tag="MMMMM")
+        rt.save()
+        self.assertEquals("mmmmm", rt.tag)
     
     def test__init(self):
         # all fields
