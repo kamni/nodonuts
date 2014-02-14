@@ -166,10 +166,10 @@ class RecipeTagTests(TestCase):
 
 class RatingTests(TestCase):
     def test_liked_text(self):
-        r1 = Rating(liked=True)
+        r1 = Rating(vote=1)
         self.assertEquals("liked", r1.liked_text())
         
-        r2 = Rating(liked=False)
+        r2 = Rating(vote=-1)
         self.assertEquals("disliked", r2.liked_text())
     
     def test__init(self):
@@ -179,29 +179,29 @@ class RatingTests(TestCase):
         rcpe1 = TestRecipe()
         r1 = Rating.objects.create(recipe=rcpe1,
                                    rated_by=rated_by,
-                                   liked=False)
+                                   vote=1)
         self.assertIsNotNone(r1.last_updated)
         
         # recipe and rated_by should be unique
         with transaction.atomic():
             self.assertRaises(IntegrityError, Rating.objects.create,
-                              recipe=rcpe1, rated_by=rated_by, liked=True)
+                              recipe=rcpe1, rated_by=rated_by, vote=1)
         self.assert_(Rating.objects.create(recipe=rcpe1, rated_by=TestUser(),
-                                           liked=True))
+                                           vote=1))
         self.assert_(Rating.objects.create(recipe=TestRecipe(), rated_by=rated_by,
-                                           liked=False))
+                                           vote=-1))
         
         # recipe is required
         with transaction.atomic():
             self.assertRaises(IntegrityError, Rating.objects.create,
-                              rated_by=rated_by, liked=True)
+                              rated_by=rated_by, vote=-1)
         
         # rated_by is required
         with transaction.atomic():
             self.assertRaises(IntegrityError, Rating.objects.create,
-                              recipe=rcpe1, liked=True)
+                              recipe=rcpe1, vote=1)
         
-        # liked is required
+        # vote is required
         with transaction.atomic():
             self.assertRaises(IntegrityError, Rating.objects.create,
                               recipe=TestRecipe(), rated_by=TestUser())
@@ -213,10 +213,10 @@ class RatingTests(TestCase):
         self.assertEquals("<Rating: %s (%s)>" % (rcpe, user), repr(r1))
     
     def test__unicode(self):
-        r1 = Rating(liked=True)
+        r1 = Rating(vote=1)
         self.assertEquals(u'liked', unicode(r1))
         
-        r2 = Rating(liked=False)
+        r2 = Rating(vote=-1)
         self.assertEquals(u'disliked', unicode(r2))
 
 
@@ -264,8 +264,8 @@ def TestRecipeTag(tag=None, type=TagType.OTHER, is_public=True, added_by=None):
                                     added_by=added_by)
 
 
-def TestRating(recipe=None, rated_by=None, liked=True):
+def TestRating(recipe=None, rated_by=None, vote=1):
     return Rating.objects.create(recipe=recipe or TestRecipe(),
                                  rated_by=rated_by or TestUser(),
-                                 liked=liked)
+                                 vote=vote)
     

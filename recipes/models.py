@@ -4,9 +4,10 @@ from django.core.exceptions import ValidationError
 from django.template.defaultfilters import slugify
 from django.utils import timezone
 from django_enumfield import enum
-
 from null_reality.models import NullCheckerModel
 from null_reality.fields import NullableCharField, NullableTextField
+
+from recipes.validators import one_or_negative_one
 
 
 class Recipe(NullCheckerModel):
@@ -133,12 +134,15 @@ class Rating(models.Model):
     
     :field recipe: ForeignKey to Recipe
     :field rated_by: ForeignKey to User
-    :field liked: BooleanField
+    :field vote: SmallIntegerField, can only take values of 1 or -1
     :field last_updated: DateTimeField, auto_now
     """
     recipe = models.ForeignKey('Recipe')
     rated_by = models.ForeignKey(User)
-    liked = models.BooleanField(help_text="Whether the user liked this recipe.")
+    vote = models.SmallIntegerField(validators=[one_or_negative_one],
+                                    help_text="Whether the user liked this " +
+                                    "recipe. A -1 represents a 'dislike' " +
+                                    "and a +1 represents a 'like'")
     last_updated = models.DateTimeField(auto_now=True)
     
     class Meta:
@@ -146,7 +150,7 @@ class Rating(models.Model):
     
     def liked_text(self):
         """ Returns the text for displaying the rating for this user """
-        return ["disliked", "liked"][int(self.liked)]
+        return ["disliked", "liked"][int(self.vote > 0)]
     
     def __repr__(self):
         return "<Rating: %s (%s)>" % (self.recipe, self.rated_by)
