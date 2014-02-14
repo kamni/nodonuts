@@ -141,4 +141,12 @@ class Rating(models.Model):
     class Meta:
         unique_together = ('recipe', 'rated_by')
     
-    # TODO: repr and unicode, tests
+    def liked_text(self):
+        """ Returns the text for displaying the rating for this user """
+        return ["Disliked", "Liked"][int(self.liked)]
+    
+    def __repr__(self):
+        return "<Rating: %s (%s)>" % (self.rated_by, self.liked_text())
+    
+    def __unicode__(self):
+        return unicode(self.liked_text())
