@@ -48,6 +48,9 @@ class Recipe(NullCheckerModel):
                                     "recipe will not show up in public searches")
     added_by = models.ForeignKey(User, help_text="User who created this recipe.")
     date_added = models.DateTimeField(default=timezone.now)
+    popularity = models.DecimalField(max_digits=10, decimal_places=4, default=0,
+                                     help_text="Calculated score based on the " +
+                                     "number of ratings")
     
     class Meta:
         ordering = ('title', 'id')

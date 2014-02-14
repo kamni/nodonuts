@@ -7,7 +7,9 @@ from recipes.models import Recipe, RecipeTag
 
 
 class RecipeAdmin(admin.ModelAdmin):
-    formfield_overrides = {models.TextField: {'widget': TinyMCE(attrs={'cols': 80, 'rows': 15})}}
+    readonly_fields = ['popularity', 'slug']
+    formfield_overrides = {models.TextField: {'widget': TinyMCE(attrs={'cols': 80, 
+                                                                       'rows': 15})}}
 
 
 admin.site.register(Recipe, RecipeAdmin)
