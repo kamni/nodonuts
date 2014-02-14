@@ -108,39 +108,6 @@ class RecipeTests(TestCase):
         recipe = TestRecipe(title="Club Soda")
         self.assertEquals(u"Club Soda", unicode(recipe))
     
-
-def TestRecipe(title=None, slug=None, short_description=None, image=None,
-               thumbnail=None, ingredients=None, instructions=None, 
-               featured=False, is_public=True, added_by=None):
-    # generating a unique title
-    if not title:
-        title_base = lorem_ipsum(3)
-        suffix = 1
-        not_unique = True
-        while not_unique:
-            title = "%s %s" % (title_base, suffix)
-            not_unique = Recipe.objects.filter(title=title)
-            suffix += 1
-        
-    return Recipe.objects.create(title=title,
-                                 slug=slug,
-                                 short_description=short_description or lorem_ipsum(3),
-                                 image=image,
-                                 thumbnail=thumbnail,
-                                 ingredients=ingredients or lorem_ipsum(7),
-                                 instructions=instructions or lorem_ipsum(7),
-                                 featured=featured,
-                                 is_public=is_public,
-                                 added_by=added_by or TestUser())
-    
-    
-    
-    
-    is_public = models.BooleanField(default=True, help_text="If false, this " +
-                                    "recipe will not show up in public searches")
-    added_by = models.ForeignKey(User, help_text="User who created this recipe.")
-    date_added = models.DateTimeField(auto_now_add=True)
-    
     
 class RecipeTagTests(TestCase):
     def test_save(self):
@@ -173,11 +140,54 @@ class RecipeTagTests(TestCase):
             self.assertRaises(IntegrityError, RecipeTag.objects.create)
         
     def test__repr(self):
-        pass
+        rt = TestRecipeTag(tag="yummy1")
+        self.assertEquals("<RecipeTag: yummy1>", repr(rt))
     
     def test__unicode(self):
-        pass
+        rt = TestRecipeTag(tag="yummy2")
+        self.assertEquals(u'yummy2', unicode(rt))
     
-    # TODO: tests for init, repr, and unicode
-    # TODO: tests for save -- make sure it catches uniqueness issues
-    # TODO: verify validation error issues
+    # TODO: verify validation error issues in admin
+
+############# Test Models ################
+
+def TestRecipe(title=None, slug=None, short_description=None, image=None,
+               thumbnail=None, ingredients=None, instructions=None, 
+               featured=False, is_public=True, added_by=None):
+    # generating a unique title
+    if not title:
+        title_base = lorem_ipsum(3)
+        suffix = 1
+        not_unique = True
+        while not_unique:
+            title = "%s %s" % (title_base, suffix)
+            not_unique = Recipe.objects.filter(title=title)
+            suffix += 1
+        
+    return Recipe.objects.create(title=title,
+                                 slug=slug,
+                                 short_description=short_description or lorem_ipsum(3),
+                                 image=image,
+                                 thumbnail=thumbnail,
+                                 ingredients=ingredients or lorem_ipsum(7),
+                                 instructions=instructions or lorem_ipsum(7),
+                                 featured=featured,
+                                 is_public=is_public,
+                                 added_by=added_by or TestUser())
+
+
+def TestRecipeTag(tag=None, type=TagType.OTHER, is_public=True, added_by=None):
+    # genrating unique tag
+    if not tag:
+        tag_base = lorem_ipsum(1)
+        suffix = 1
+        not_unique = True
+        while not_unique:
+            tag = "%s%s" % (tag_base, suffix)
+            not_unique = RecipeTag.objects.filter(tag=tag)
+            suffix += 1
+            
+    return RecipeTag.objects.create(tag=tag,
+                                    type=type,
+                                    is_public=is_public,
+                                    added_by=added_by)
