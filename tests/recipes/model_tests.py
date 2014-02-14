@@ -19,11 +19,11 @@ class RecipeTests(TestCase):
                                        added_by=user)
         self.assertEquals('apple-cider', recipe.slug)
         
-        # should not change slug if it exists
+        # should change the slug to match the title
         recipe.title = "Apple Juice"
         recipe.save()
         recipe = Recipe.objects.get(id=recipe.id)
-        self.assertEquals('apple-cider', recipe.slug)
+        self.assertEquals('apple-juice', recipe.slug)
     
     def test__init(self):
         user = TestUser()
@@ -62,7 +62,7 @@ class RecipeTests(TestCase):
         # slug must be unique
         with transaction.atomic():
             self.assertRaises(IntegrityError, Recipe.objects.create,
-                              title="Celery and Carrots", slug="fresh-strawberries",
+                              title="Fresh-Strawberries", slug="fresh-strawberries",
                               short_description="Crunch", 
                               ingredients="Celery and Carrots",
                               instructions="Cut into sticks and eat one at a time",

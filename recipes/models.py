@@ -26,9 +26,8 @@ class Recipe(NullCheckerModel):
     """
     title = NullableCharField(max_length=150, unique=True)
     slug = models.SlugField(unique=True, blank=True, help_text="URL slug that " +
-                            "will be used for this recipe's address. If you " +
-                            "leave this field blank, it will default to a " +
-                            "slugified version of the title.")
+                            "will be used for this recipe's address. This will " +
+                            "be generated automatically.")
     short_description = NullableCharField(max_length=200)
     tags = models.ManyToManyField('RecipeTag', blank=True, null=True)
     image = models.ImageField(upload_to='recipes/images', blank=True, null=True,
@@ -53,8 +52,7 @@ class Recipe(NullCheckerModel):
         ordering = ('title', 'id')
     
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
+        self.slug = slugify(self.title)
         super(Recipe, self).save(*args, **kwargs)
     
     def __repr__(self):
