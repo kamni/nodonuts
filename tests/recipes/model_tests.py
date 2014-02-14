@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import transaction, IntegrityError
 from django.test import TestCase
 from django_test_utils.model_utils import TestUser
@@ -110,6 +111,18 @@ class RecipeTests(TestCase):
     
     
 class RecipeTagTests(TestCase):
+    def test_clean(self):
+        rt1 = TestRecipeTag(tag="amazing")
+        
+        # should catch duplicates, case-insensitive
+        rt2 = RecipeTag(tag="amazing")
+        self.assertRaises(ValidationError, rt2.clean)
+        rt3 = RecipeTag(tag="AmAzInG")
+        self.assertRaises(ValidationError, rt3.clean)
+        
+        # should not catch self
+        rt1.clean()
+    
     def test_save(self):
         pass
     
@@ -146,8 +159,7 @@ class RecipeTagTests(TestCase):
     def test__unicode(self):
         rt = TestRecipeTag(tag="yummy2")
         self.assertEquals(u'yummy2', unicode(rt))
-    
-    # TODO: verify validation error issues in admin
+
 
 ############# Test Models ################
 
