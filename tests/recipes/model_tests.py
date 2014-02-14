@@ -162,6 +162,24 @@ class RecipeTagTests(TestCase):
     def test__unicode(self):
         rt = TestRecipeTag(tag="yummy2")
         self.assertEquals(u'yummy2', unicode(rt))
+        
+
+class RatingTests(TestCase):
+    def test_liked_text(self):
+        r1 = Rating(liked=True)
+        self.assertEquals("liked", r1.liked_text())
+        
+        r2 = Rating(liked=False)
+        self.assertEquals("disliked", r2.liked_text())
+    
+    def test__init(self):
+        pass
+    
+    def test__repr(self):
+        pass
+    
+    def test__unicode(self):
+        pass
 
 
 ############# Test Models ################
@@ -206,3 +224,10 @@ def TestRecipeTag(tag=None, type=TagType.OTHER, is_public=True, added_by=None):
                                     type=type,
                                     is_public=is_public,
                                     added_by=added_by)
+
+
+def TestRating(recipe=None, rated_by=None, liked=True):
+    return Rating.objects.create(recipe=recipe or TestRecipe(),
+                                 rated_by=rated_by or TestUser(),
+                                 liked=liked)
+    

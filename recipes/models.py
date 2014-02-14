@@ -143,7 +143,7 @@ class Rating(models.Model):
     
     def liked_text(self):
         """ Returns the text for displaying the rating for this user """
-        return ["Disliked", "Liked"][int(self.liked)]
+        return ["disliked", "liked"][int(self.liked)]
     
     def __repr__(self):
         return "<Rating: %s (%s)>" % (self.rated_by, self.liked_text())
