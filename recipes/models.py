@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.core.exceptions import ValidationError
 from django.template.defaultfilters import slugify
 from django_enumfield import enum
 
@@ -98,6 +99,12 @@ class RecipeTag(NullCheckerModel):
     
     class Meta:
         ordering = ('type', 'tag')
+    
+    def clean(self):
+        other_tag = RecipeTag.objects.filter(tag=self.tag.lower()).exclude(id=self.id)
+        if other_tag:
+            raise ValidationError("This tag already exists")
+        return super(RecipeTag, self).clean()
     
     def save(self, *args, **kwargs):
         if self.tag:

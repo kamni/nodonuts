@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.db import models
 from tinymce.widgets import TinyMCE
 
-from recipes.models import Recipe
+from recipes.models import Recipe, RecipeTag
 
 
 class RecipeAdmin(admin.ModelAdmin):
@@ -11,3 +11,4 @@ class RecipeAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Recipe, RecipeAdmin)
+admin.site.register(RecipeTag)
