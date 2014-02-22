@@ -153,7 +153,7 @@ class Rating(models.Model):
     
     def save(self, *args, **kwargs):
         super(Rating, self).save(*args, **kwargs)
-        self._set_recipe_popularity()
+        self.set_recipe_popularity()
         
     def set_recipe_popularity(self):
         """ Updates the popularity on self.recipe based on the newest vote """
@@ -161,7 +161,7 @@ class Rating(models.Model):
         ups = ratings.filter(vote=True).count()
         downs = ratings.filter(vote=False).count()
         self.recipe.popularity = wilson_score_interval(ups, downs)
-        self.recipe.save()     
+        self.recipe.save()
     
     def __repr__(self):
         return "<Rating: %s (%s)>" % (self.recipe, self.rated_by)
