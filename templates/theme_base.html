@@ -7,8 +7,8 @@ Most templates will extend theme_base.html.
 {% endcomment %}
 
 {% block body %}
-  <div id="header" class="top-bar">
-    <div id="brand" class="title-area">
+  <div id="header">
+    <div class="brand">
       <ul>
         <li class="name">
           <h1><a href="{% url "home" %}">
@@ -19,7 +19,7 @@ Most templates will extend theme_base.html.
       </ul>
     </div>
 
-    <div id="login" class="right">
+    <div class="login">
       {% if user.is_authenticated %}
         Hello, {{ user }}
       {% else %}
@@ -29,9 +29,9 @@ Most templates will extend theme_base.html.
   </div>
 
   {% block nav_bar %}
-  <div id="nav-header" class="top-bar">
-    <div id="nav" class="top-bar-section">
-        <ul id="nav-links" class="left">
+  <div id="nav">
+    <div class="nav-container">
+        <ul>
           {% block nav %}
           {% endblock %}
         </ul>
@@ -48,9 +48,11 @@ Most templates will extend theme_base.html.
     {% endblock %}
   </div>
 
-  <div id="footer" style="width:100%; text-align:center">
-  {% block footer %}
-    <p>{{ config.COPYRIGHT }} &copy; {% now "Y" %} {{ config.SITE_NAME }}. {{ config.COPYRIGHT_MESSAGE }}</p>
-  {% endblock %}
+  <div id="footer">
+      <div class="footer-text">
+      {% block footer %}
+        <p>{{ config.COPYRIGHT }} &copy; {% now "Y" %} {{ config.SITE_NAME }}. {{ config.COPYRIGHT_MESSAGE }}</p>
+      {% endblock %}
+      </div>
   </div>
 {% endblock %}
