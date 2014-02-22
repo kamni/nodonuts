@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'constance.backends.database',
     'constance',
     'django_nose',
+    'haystack',
     'tinymce',
     'social_auth',
     
@@ -130,6 +131,16 @@ CONSTANCE_CONFIG = {
                           'Example: All rights reserved.'),
                     
 }
+
+
+# haystack (search) setting
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
+    },
+}
+
 
 USE_HEROKU = True
 ALLOWED_HOSTS = ['*'] # override in srv_settings.py
