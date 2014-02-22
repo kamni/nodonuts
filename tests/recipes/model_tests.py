@@ -228,7 +228,30 @@ class RatingTests(TestCase):
                              recipe.popularity)
     
     def test_set_recipe_popularity(self):
-        self.assertTrue(False, "Not Implemented")
+        recipe = TestRecipe()
+        for i in range(3):
+            TestRating(recipe=recipe, vote=True)
+        expected_rating = Decimal(wilson_score_interval(3, 0)).quantize(Decimal('.0001'))
+        recipe = Recipe.objects.get(id=recipe.id)
+        self.assertEqual(expected_rating, recipe.popularity)
+        
+        # only sets popularity for ratings stored in the db
+        rating = Rating(recipe=recipe, rated_by=TestUser(), vote=False)
+        rating.set_recipe_popularity()
+        recipe = Recipe.objects.get(id=recipe.id)
+        self.assertEqual(expected_rating, recipe.popularity)
+        
+        # default case, and no error/change when calling twice on same 
+        # unchanged rating
+        rating.save()
+        rating.set_recipe_popularity()
+        new_rating = Decimal(wilson_score_interval(3, 1)).quantize(Decimal('.0001'))
+        recipe = Recipe.objects.get(id=recipe.id)
+        self.assertNotEqual(expected_rating, new_rating)
+        self.assertEqual(new_rating, recipe.popularity)
+        rating.set_recipe_popularity()
+        recipe = Recipe.objects.get(id=recipe.id)
+        self.assertEqual(new_rating, recipe.popularity)
     
     def test__repr(self):
         rcpe = TestRecipe()
