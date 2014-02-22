@@ -7,38 +7,48 @@ Most templates will extend theme_base.html.
 {% endcomment %}
 
 {% block body %}
-  <div id="header">
-    <div id="brand">
-        <a href="{% url "home" %}">
+  <div id="header" class="top-bar">
+    <div id="brand" class="title-area">
+      <ul>
+        <li class="name">
+          <h1><a href="{% url "home" %}">
             {% if config.SHOW_SITE_LOGO and config.SITE_LOGO %}<img id="logo" src="{% static config.SITE_LOGO %}">{% endif %}
-            {% if config.SHOW_SITE_NAME %}{{ config.SITE_NAME }}{% endif %}
-        </a>
-    </div>
-    <div id="login">
-    {% if user.is_authenticated %}
-        Hello, {{ user }}
-    {% else %}
-        <a href="{% url "admin:index" %}">Login</a>
-    {% endif %}
+            {% if config.SHOW_SITE_NAME %}{{ config.SITE_NAME }}{% endif %}</a>
+          </h1>
+        </li>
+      </ul>
     </div>
 
-    <div id="nav">
-        <ul>
-        {% block nav %}
-        {% endblock %}
+    <div id="login" class="right">
+      {% if user.is_authenticated %}
+        Hello, {{ user }}
+      {% else %}
+        <a href="{% url "admin:index" %}">Login</a>
+      {% endif %}
+    </div>
+  </div>
+
+  {% block nav_bar %}
+  <div id="nav-header" class="top-bar">
+    <div id="nav" class="top-bar-section">
+        <ul id="nav-links" class="left">
+          {% block nav %}
+          {% endblock %}
         </ul>
     </div>
   </div>
+  {% endblock %}
+
   <div id="content">
-  {% block content %}
+    {% block content %}
     <h1>Work in Progress</h1>
     <p>Hello there! It looks like we're still building this page, but please
        check back soon to see our latest updates.
     </p>
-  {% endblock %}
+    {% endblock %}
   </div>
 
-  <div id="footer">
+  <div id="footer" style="width:100%; text-align:center">
   {% block footer %}
     <p>{{ config.COPYRIGHT }} &copy; {% now "Y" %} {{ config.SITE_NAME }}. {{ config.COPYRIGHT_MESSAGE }}</p>
   {% endblock %}
