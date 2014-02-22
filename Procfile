@@ -1,1 +1,1 @@
-web: gunicorn django_config.wsgi
+web: gunicorn nodonuts.wsgi

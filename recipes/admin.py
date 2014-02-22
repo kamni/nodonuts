@@ -1,4 +1,3 @@
-from aloha.widgets import AlohaWidget
 from django.contrib import admin
 from django.db import models
 from tinymce.widgets import TinyMCE

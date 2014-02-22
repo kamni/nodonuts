@@ -66,9 +66,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'django_config.urls'
+ROOT_URLCONF = 'nodonuts.urls'
 
-WSGI_APPLICATION = 'django_config.wsgi.application'
+WSGI_APPLICATION = 'nodonuts.wsgi.application'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
