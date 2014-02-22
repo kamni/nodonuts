@@ -7,7 +7,7 @@ from django_enumfield import enum
 from null_reality.models import NullCheckerModel
 from null_reality.fields import NullableCharField, NullableTextField
 
-from recipes.validators import one_or_negative_one
+from recipes.utils import wilson_score_interval
 
 
 class Recipe(NullCheckerModel):
@@ -139,18 +139,29 @@ class Rating(models.Model):
     """
     recipe = models.ForeignKey('Recipe')
     rated_by = models.ForeignKey(User)
-    vote = models.SmallIntegerField(validators=[one_or_negative_one],
-                                    help_text="Whether the user liked this " +
-                                    "recipe. A -1 represents a 'dislike' " +
-                                    "and a +1 represents a 'like'")
+    vote = models.BooleanField("Whether the user up-voted or down-voted this " +
+                               "recipe. 'False' represents a 'dislike' and " +
+                               "'True' represents a 'like'")
     last_updated = models.DateTimeField(auto_now=True)
     
     class Meta:
         unique_together = ('recipe', 'rated_by')
     
     def liked_text(self):
-        """ Returns the text for displaying the rating for this user """
+        """Returns the text for displaying the rating for this user"""
         return ["disliked", "liked"][int(self.vote > 0)]
+    
+    def save(self, *args, **kwargs):
+        super(Rating, self).save(*args, **kwargs)
+        self._set_recipe_popularity()
+        
+    def set_recipe_popularity(self):
+        """ Updates the popularity on self.recipe based on the newest vote """
+        ratings = Rating.objects.filter(recipe=self.recipe)
+        ups = ratings.filter(vote=True).count()
+        downs = ratings.filter(vote=False).count()
+        self.recipe.popularity = wilson_score_interval(ups, downs)
+        self.recipe.save()     
     
     def __repr__(self):
         return "<Rating: %s (%s)>" % (self.recipe, self.rated_by)

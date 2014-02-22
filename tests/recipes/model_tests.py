@@ -165,13 +165,6 @@ class RecipeTagTests(TestCase):
         
 
 class RatingTests(TestCase):
-    def test_liked_text(self):
-        r1 = Rating(vote=1)
-        self.assertEquals("liked", r1.liked_text())
-        
-        r2 = Rating(vote=-1)
-        self.assertEquals("disliked", r2.liked_text())
-    
     def test__init(self):
         rated_by = TestUser()
         
@@ -205,6 +198,19 @@ class RatingTests(TestCase):
         with transaction.atomic():
             self.assertRaises(IntegrityError, Rating.objects.create,
                               recipe=TestRecipe(), rated_by=TestUser())
+    
+    def test_liked_text(self):
+        r1 = Rating(vote=1)
+        self.assertEquals("liked", r1.liked_text())
+        
+        r2 = Rating(vote=-1)
+        self.assertEquals("disliked", r2.liked_text())
+    
+    def test_save(self):
+        self.assertTrue(False, "Not Implemented")
+    
+    def test_set_recipe_popularity(self):
+        self.assertTrue(False, "Not Implemented")
     
     def test__repr(self):
         rcpe = TestRecipe()
