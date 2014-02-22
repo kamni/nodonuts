@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 from django.core.exceptions import ValidationError
 from django.db import transaction, IntegrityError
 from django.test import TestCase
@@ -5,6 +7,7 @@ from django_test_utils.model_utils import TestUser
 from django_test_utils.random_generators import lorem_ipsum
 
 from recipes.models import *
+from recipes.utils import wilson_score_interval
 
 
 class RecipeTests(TestCase):
@@ -17,13 +20,13 @@ class RecipeTests(TestCase):
                                        ingredients="1 barrel of apples",
                                        instructions="Get creative",
                                        added_by=user)
-        self.assertEquals('apple-cider', recipe.slug)
+        self.assertEqual('apple-cider', recipe.slug)
         
         # should change the slug to match the title
         recipe.title = "Apple Juice"
         recipe.save()
         recipe = Recipe.objects.get(id=recipe.id)
-        self.assertEquals('apple-juice', recipe.slug)
+        self.assertEqual('apple-juice', recipe.slug)
     
     def test__init(self):
         user = TestUser()
@@ -47,7 +50,7 @@ class RecipeTests(TestCase):
                                        ingredients="1 cup strawberries",
                                        instructions="Pop in mouth. Enjoy!",
                                        added_by=user)
-        self.assertEquals("fresh-strawberries", recipe.slug)
+        self.assertEqual("fresh-strawberries", recipe.slug)
         self.assertFalse(recipe.featured)
         self.assertTrue(recipe.is_public)
         self.assertIsNotNone(recipe.date_added)
@@ -103,11 +106,11 @@ class RecipeTests(TestCase):
     def test__repr(self):
         user = TestUser()
         recipe = Recipe(title="PB&J", added_by=user)
-        self.assertEquals("<Recipe: PB&J (by %s)>" % user, repr(recipe))
+        self.assertEqual("<Recipe: PB&J (by %s)>" % user, repr(recipe))
     
     def test__unicode(self):
         recipe = Recipe(title="Club Soda")
-        self.assertEquals(u"Club Soda", unicode(recipe))
+        self.assertEqual(u"Club Soda", unicode(recipe))
     
     
 class RecipeTagTests(TestCase):
@@ -127,7 +130,7 @@ class RecipeTagTests(TestCase):
         # should lower-case the tag
         rt = RecipeTag(tag="MMMMM")
         rt.save()
-        self.assertEquals("mmmmm", rt.tag)
+        self.assertEqual("mmmmm", rt.tag)
     
     def test__init(self):
         # all fields
@@ -136,12 +139,12 @@ class RecipeTagTests(TestCase):
                                       is_public=False,
                                       added_by=TestUser())
         self.assertIsNotNone(rt.date_added)
-        self.assertEquals('testing1', rt.tag)
+        self.assertEqual('testing1', rt.tag)
         
         # bare minimum fields
         rt = RecipeTag.objects.create(tag="Testing2")
-        self.assertEquals('testing2', rt.tag)
-        self.assertEquals(TagType.OTHER, rt.type)
+        self.assertEqual('testing2', rt.tag)
+        self.assertEqual(TagType.OTHER, rt.type)
         self.assertTrue(rt.is_public)
         self.assertIsNone(rt.added_by)
         self.assertIsNotNone(rt.date_added)
@@ -157,11 +160,11 @@ class RecipeTagTests(TestCase):
         
     def test__repr(self):
         rt = RecipeTag(tag="yummy1")
-        self.assertEquals("<RecipeTag: yummy1>", repr(rt))
+        self.assertEqual("<RecipeTag: yummy1>", repr(rt))
     
     def test__unicode(self):
         rt = RecipeTag(tag="yummy2")
-        self.assertEquals(u'yummy2', unicode(rt))
+        self.assertEqual(u'yummy2', unicode(rt))
         
 
 class RatingTests(TestCase):
@@ -201,13 +204,28 @@ class RatingTests(TestCase):
     
     def test_liked_text(self):
         r1 = Rating(vote=1)
-        self.assertEquals("liked", r1.liked_text())
+        self.assertEqual("liked", r1.liked_text())
         
         r2 = Rating(vote=-1)
-        self.assertEquals("disliked", r2.liked_text())
+        self.assertEqual("disliked", r2.liked_text())
     
     def test_save(self):
-        self.assertTrue(False, "Not Implemented")
+        recipe = TestRecipe()
+        self.assertEqual(0, recipe.popularity)
+        
+        for i in range(1, 5):
+            TestRating(recipe=recipe, vote=True)
+            recipe = Recipe.objects.get(id=recipe.id)
+            wsi = wilson_score_interval(i, 0)
+            self.assertEqual(Decimal(wsi).quantize(Decimal('.0001')), 
+                             recipe.popularity)
+        
+        for i in range(1, 5):
+            TestRating(recipe=recipe, vote=False)
+            recipe = Recipe.objects.get(id=recipe.id)
+            wsi = wilson_score_interval(4, i)
+            self.assertEqual(Decimal(wsi).quantize(Decimal('.0001')), 
+                             recipe.popularity)
     
     def test_set_recipe_popularity(self):
         self.assertTrue(False, "Not Implemented")
@@ -216,21 +234,21 @@ class RatingTests(TestCase):
         rcpe = TestRecipe()
         user = TestUser()
         r1 = Rating(recipe=rcpe, rated_by=user)
-        self.assertEquals("<Rating: %s (%s)>" % (rcpe, user), repr(r1))
+        self.assertEqual("<Rating: %s (%s)>" % (rcpe, user), repr(r1))
     
     def test__unicode(self):
         r1 = Rating(vote=1)
-        self.assertEquals(u'liked', unicode(r1))
+        self.assertEqual(u'liked', unicode(r1))
         
         r2 = Rating(vote=-1)
-        self.assertEquals(u'disliked', unicode(r2))
+        self.assertEqual(u'disliked', unicode(r2))
 
 
 ############# Test Models ################
 
 def TestRecipe(title=None, slug=None, short_description=None, image=None,
                thumbnail=None, ingredients=None, instructions=None, 
-               featured=False, is_public=True, added_by=None):
+               featured=False, is_public=True, added_by=None, popularity=None):
     # generating a unique title
     if not title:
         title_base = lorem_ipsum(3)
@@ -270,7 +288,7 @@ def TestRecipeTag(tag=None, type=TagType.OTHER, is_public=True, added_by=None):
                                     added_by=added_by)
 
 
-def TestRating(recipe=None, rated_by=None, vote=1):
+def TestRating(recipe=None, rated_by=None, vote=True):
     return Rating.objects.create(recipe=recipe or TestRecipe(),
                                  rated_by=rated_by or TestUser(),
                                  vote=vote)
