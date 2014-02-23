@@ -133,37 +133,50 @@ def generate_test_data():
         
         return " ".join(instructions)
 
+    print "Making users..."
+    users = [TestUser() for i in range(30)]\
+    
+    print "Creating tags..."
     call_command('loaddata', 'recipe_tags')
-
-    users = [TestUser() for i in range(30)]
-    for i in range(250):
+    for i in range(10):
+        TestRecipeTag(is_public=bool(random.randint(0, 1)),
+                      added_by=random.choice(users))
+    
+    print "Adding recipes and ratings...",
+    for i in range(250):        
+        title = make_title()
+        while Recipe.objects.filter(title=title):
+            title = make_title()
+        
         featured = random.randint(1, 20) == 1
         is_public = random.randint(1, 30) != 1
-        recipe = TestRecipe(title=make_title, ingredients=make_ingredients_list(),
+        recipe = TestRecipe(title=title, ingredients=make_ingredients_list(),
                              instructions=make_instructions(), 
                              featured=featured, is_public=is_public,
                              added_by=random.choice(users))
         
-        for i in range(1, 4):
-            TestRecipeTag()
+        selected_tags = []
+        num_tags = random.randint(1, 4)
+        tags = RecipeTag.objects.all()
+        while len(selected_tags) < num_tags:
+            tag = random.choice(tags)
+            if tag not in selected_tags:
+                selected_tags.append(tag)
+        for tag in selected_tags:
+            recipe.tags.add(tag)
         
-        for i in range(random.randint(0, 20)):
-            TestRating
-        
-        # randomly feature some recipes, make some non-public recipes
-    '''
-    def TestRecipe(title=None, slug=None, short_description=None, image=None,
-               thumbnail=None, ingredients=None, instructions=None, 
-               featured=False, is_public=True, added_by=None, popularity=None):
-    '''
-    import pdb; pdb.set_trace()
+        rated_users = []
+        num_ratings = random.randint(0, 20)
+        while len(rated_users) < num_ratings:
+            rated_by = random.choice(users)
+            if rated_by not in rated_users:
+                rated_users.append(rated_by)
+        for user in rated_users:
+            vote = random.randint(1, 10) != 10
+            TestRating(recipe=recipe, rated_by=user, vote=vote)
     
-# randomly generate a title
-# randomly generate some users
-# randomly generate some ratings
-# randomly generate ingredients (title should include one)
-# randomly generate instructions
-# randomly generate some tags
+    print "30 users and 250 recipes created. Done!"
+
 
 if __name__ == '__main__':
     generate_test_data()
