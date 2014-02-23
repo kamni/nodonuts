@@ -5,6 +5,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'', include('recipes.urls')),
+    url(r'^search/', include('haystack.urls')),
     url(r'^site-manager/', include(admin.site.urls)),
     url(r'^tinymce/', include('tinymce.urls')),
 )
