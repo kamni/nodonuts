@@ -8,10 +8,11 @@ import sys
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)).rsplit(os.sep, 2)[0])
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "nodonuts.settings")
 
+from django.core.management import call_command
 from django_test_utils.model_utils import TestUser
 
 from recipes.models import Recipe, RecipeTag, Rating
-from tests.recipes.model_tests import TestRating
+from tests.recipes.model_tests import TestRecipe, TestRecipeTag, TestRating
 
 
 QUANTITIES = ['1', '1/2', '1/4', '1/8', '2', '2 1/2', '3', '3 1/2', '8', '16']
@@ -132,9 +133,28 @@ def generate_test_data():
         
         return " ".join(instructions)
 
-    '''users = [TestUser() for i in range(30)]
+    call_command('loaddata', 'recipe_tags')
+
+    users = [TestUser() for i in range(30)]
     for i in range(250):
-        ingredients 
+        featured = random.randint(1, 20) == 1
+        is_public = random.randint(1, 30) != 1
+        recipe = TestRecipe(title=make_title, ingredients=make_ingredients_list(),
+                             instructions=make_instructions(), 
+                             featured=featured, is_public=is_public,
+                             added_by=random.choice(users))
+        
+        for i in range(1, 4):
+            TestRecipeTag()
+        
+        for i in range(random.randint(0, 20)):
+            TestRating
+        
+        # randomly feature some recipes, make some non-public recipes
+    '''
+    def TestRecipe(title=None, slug=None, short_description=None, image=None,
+               thumbnail=None, ingredients=None, instructions=None, 
+               featured=False, is_public=True, added_by=None, popularity=None):
     '''
     import pdb; pdb.set_trace()
     
