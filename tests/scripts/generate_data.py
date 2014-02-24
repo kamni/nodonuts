@@ -40,12 +40,13 @@ WEIGHED_INGREDIENTS = ['potatoes', 'beef', 'pork', 'tofu', 'shrimp',
 LIQUID_INGREDIENTS = ['sherry', 'milk', 'water', 'beer']
 
 NAMES = ["Betty's", "Tom's", "Frank's", "Ella's", "Mark's", "Amy's", 
-         "Constance's", "Patricia's", "Ellen's", "Eric's", "Sam's", "David"]
+         "Constance's", "Patricia's", "Ellen's", "Eric's", "Sam's", "David's"]
 
 ADJECTIVES = ['Amazing', 'Awesome', 'Delicious', 'Quick', 'Easy', 'Tasty',
              'Effortless', 'Savory', 'Sweet']
 
-DAYS_OF_THE_WEEK = ['Sunday', 'Wednesday', 'Friday', 'Midweek', 'Weekend']
+DAYS_OF_THE_WEEK = ['Sunday', 'Wednesday', 'Friday', 'Midweek', 'Weekend',
+                    'Everyday', 'Morning', 'Tea Time']
 
 COOKING_METHOD = ['Crockpot', 'Dutch Oven', 'Fried', 'Sauteed', 'Seasoned',
                   'Barbequed', 'Frozen', 'Baked', 'Roasted', 'Stuffed']
@@ -119,9 +120,16 @@ def generate_test_data():
                            SINGLE_INGREDIENTS, DISH):
             use = random.randint(0, 1)
             if use or word_group in (SINGLE_INGREDIENTS, DISH):
-                words.append(random.choice(word_group))
+                title_word = random.choice(word_group)
+                
+                # we have to pull this one out individually because title-
+                # casing words like "Amy's" does strange things with the
+                # capitalization
+                if word_group == SINGLE_INGREDIENTS:
+                    title_word = title_word.title()
+                words.append(title_word)
 
-        return " ".join(words).title()
+        return " ".join(words)
     
     def make_instructions():
         instructions = []
@@ -142,7 +150,7 @@ def generate_test_data():
         TestRecipeTag(is_public=bool(random.randint(0, 1)),
                       added_by=random.choice(users))
     
-    print "Adding recipes and ratings...",
+    print "Adding recipes and ratings..."
     for i in range(250):        
         title = make_title()
         while Recipe.objects.filter(title=title):
