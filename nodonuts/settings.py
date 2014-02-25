@@ -45,7 +45,7 @@ INSTALLED_APPS = (
     'django_nose',
     'haystack',
     'tinymce',
-    'social_auth',
+    'social.apps.django_app.default', 
     
     # this project
     'organizations',
