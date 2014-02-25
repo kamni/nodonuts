@@ -7,22 +7,56 @@ their members can add new recipes that can be searched and rated by other
 users; organization staff can setup meetings and events, and members can sign
 up to bring food to those events.
 
-## Heroku Installation
+## NOTE:
 
-This project is already configured to run on Heroku. Simply create a Heroku app
-and clone it. Then:
+Setup and configuration assumes that you are working on a *nix-based server.
+Please adapt these instructions accordingly if you are working on a Windows
+machine.
 
-    git remote add origin https://github.com/kamni/nodonuts.git
-    git push origin master
+## Basic Installation
 
-If you want to customize any of the django settings (found in
-`nodonuts/settings.py`), please create a `srv_settings.py` file in
-the `nodonuts` folder and override any settings there.
+Clone the repository to the location on your server where you plan to host the
+project:
 
-## Configuration
+    git clone https://github.com/kamni/nodonuts.git
 
-Configuration assumes that you are working on a *nix-based server. Please adapt
-these instructions accordingly if you are working on a Windows machine.
+Create a virtualenv outside of the project:
+
+    virtualenv --no-site-packages venv
+    . venv/bin/activate
+
+Install the requirements:
+
+    pip install -r nodonuts/requirements.txt
+
+If you are not planning to use sqlite (not recommended for larger sites), you
+should install either postgres libraries
+
+    pip install psycopg2
+
+or mysql libraries
+
+    pip install mysql-python
+
+depending on which database you plan to use.
+
+To configure Django settings, make a copy of `srv_settings.py.example` and
+edit to fit your needs (see Django's own documentation regarding settings.py):
+
+    cd nodonuts/
+    cp nodonuts/srv_settings.py.example nodonuts/srv_settings.py
+    vi srv_settings.py # or your editor of choice
+
+Next, prepare static resources (css/js/images) for being served:
+
+    python manage.py collectstatic
+
+Finally, follow any additional instructions for setting up a Django project for
+your particular web host or server. There is a `Procfile.sample` and a
+`passenger_wsgi.py.sample` (for gunicorn and passenger, respectively) to get
+you started.
+
+## Search Configuration
 
 This project uses django-haystack on top of Whoosh to run its search queries.
 In order to run searches you must do the following:
