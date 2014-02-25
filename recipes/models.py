@@ -27,9 +27,9 @@ class Recipe(NullCheckerModel):
     :field date_added: DateTimeField, defaults to timezone.now
     """
     title = NullableCharField(max_length=150, unique=True)
-    slug = models.SlugField(unique=True, blank=True, help_text="URL slug that " +
-                            "will be used for this recipe's address. This will " +
-                            "be generated automatically.")
+    slug = models.SlugField(max_length=150, unique=True, blank=True, 
+                            help_text="URL slug that will be used for this " +
+                            "recipe's address. This will be generated automatically.")
     short_description = NullableCharField(max_length=200)
     tags = models.ManyToManyField('RecipeTag', blank=True, null=True)
     image = models.ImageField(upload_to='recipes/images', blank=True, null=True,
