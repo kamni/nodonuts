@@ -20,12 +20,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '+*smmhy!zvhsosmy^vah6mvi$j7nquwpg^2!m!h-*mq3@w1ye@'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-TEMPLATE_DEBUG = True
-
-
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
@@ -75,30 +69,10 @@ WSGI_APPLICATION = 'nodonuts.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
-
-
-# Nose configuration
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-NOSE_ARGS = ['-s', '--logging-level=CRITICAL']
-
-
-# Database
-# https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 
 # Static asset configuration
@@ -109,7 +83,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_ROOT = 'uploads'
 MEDIA_URL = '/media/'
 
 
@@ -142,8 +116,9 @@ HAYSTACK_CONNECTIONS = {
 }
 
 
-USE_HEROKU = True
-ALLOWED_HOSTS = ['*'] # override in srv_settings.py
+# Nose configuration
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+NOSE_ARGS = ['-s', '--logging-level=CRITICAL']
 
 
 # Developer settings that won't be available on the live site
@@ -152,21 +127,11 @@ try:
 except ImportError:
     pass
 
-# Production server settings that we don't want to keep in the repositiory
+# Production server settings that we don't want to keep in the repository
 try:
     from srv_settings import *
 except ImportError:
     pass
 
 
-#### HEROKU ####
-
-if USE_HEROKU:
-    # Parse database configuration from $DATABASE_URL
-    import dj_database_url
-    DATABASES['default'] =  dj_database_url.config()
-    
-    # Honor the 'X-Forwarded-Proto' header for request.is_secure()
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-    
     
