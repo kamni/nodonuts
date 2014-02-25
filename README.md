@@ -51,6 +51,10 @@ Next, prepare static resources (css/js/images) for being served:
 
     python manage.py collectstatic
 
+Sync your db:
+
+    python manage.py syncdb
+
 Finally, follow any additional instructions for setting up a Django project for
 your particular web host or server. There is a `Procfile.sample` and a
 `passenger_wsgi.py.sample` (for gunicorn and passenger, respectively) to get
