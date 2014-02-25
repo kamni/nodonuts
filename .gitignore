@@ -17,6 +17,7 @@ src/**
 *.db
 *.log
 dev_settings.py
+srv_settings.py
 
 
 # Test files #
