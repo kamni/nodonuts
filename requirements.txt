@@ -16,7 +16,7 @@ six==1.5.2
 static==1.0.2
 wsgiref==0.1.2
 
--e git://github.com/comoga/django-constance@dc89ec294f67ae620ca2dc6d4019e1ecbe339917#egg=django_constance-master
--e git://github.com/kamni/django-test-utils#egg=django_test_utils-master
--e git://github.com/kamni/django-null-reality#egg=null_reality-master
+-e git://github.com/comoga/django-constance@dc89ec294f67ae620ca2dc6d4019e1ecbe339917#egg=django_constance
+-e git://github.com/kamni/django-test-utils#egg=django_test_utils
+-e git://github.com/kamni/django-null-reality#egg=null_reality
 
