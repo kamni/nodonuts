@@ -27,6 +27,7 @@ Create a virtualenv outside of the project:
 
 Install the requirements:
 
+    cd nodonuts
     pip install -r nodonuts/requirements.txt
 
 If you are not planning to use sqlite (not recommended for larger sites), you
@@ -43,9 +44,8 @@ depending on which database you plan to use.
 To configure Django settings, make a copy of `srv_settings.py.example` and
 edit to fit your needs (see Django's own documentation regarding settings.py):
 
-    cd nodonuts/
     cp nodonuts/srv_settings.py.example nodonuts/srv_settings.py
-    vi srv_settings.py # or your editor of choice
+    vi nodonunts/srv_settings.py # or your editor of choice
 
 Next, prepare static resources (css/js/images) for being served:
 
@@ -79,6 +79,16 @@ section for some auto-generated options).
 
 These indexes will need to be rebuilt whenever new recipes/tags are added or
 recipes change.
+
+### Configuration Note:
+
+Whoosh relies on files for storing search indexes. While Whoosh3 may be
+working toward database storage for indexes, this feature is not yet available
+for django-haystack and this project.
+
+This may cause issues on servers that lack persistant storage (Heroku) or
+servers managed by puppet, because the search indexes may be wiped out
+immediately after generating them.
 
 ## Default Data
 
