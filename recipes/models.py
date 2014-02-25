@@ -160,7 +160,7 @@ class Rating(models.Model):
         ratings = Rating.objects.filter(recipe=self.recipe)
         ups = ratings.filter(vote=True).count()
         downs = ratings.filter(vote=False).count()
-        self.recipe.popularity = wilson_score_interval(ups, downs)
+        self.recipe.popularity = str(wilson_score_interval(ups, downs))
         self.recipe.save()
     
     def __repr__(self):
