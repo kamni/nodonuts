@@ -56,11 +56,18 @@
       @extend .name;
     }
   }
+  .name h1 {
+    font-size: 1.8rem;
+  }
 
   #nav {
     @extend .top-bar-section;
     ul li > a {
       padding: .45rem 0 .35rem 0;
+      font-size: 1.0rem;
+    }
+    ul li > a.button {
+      font-size: 1.0rem;
     }
     .nav-links {
       @extend .right;
@@ -101,7 +108,7 @@
 }
 
 img#logo {
-  height: 80%;
-  max-height: 80%;
+  height: 75%;
+  max-height: 75%;
 }
 
