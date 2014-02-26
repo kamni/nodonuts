@@ -116,7 +116,6 @@
 img#logo {
   padding-right: .5rem;
   margin-bottom: .4rem;
-  height: 75%;
-  max-height: 75%;
+  height: .75 * $topbar-height;
 }
 
