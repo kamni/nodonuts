@@ -1,6 +1,9 @@
 @import "partials/base";
-@import "compass/css3/images";
-@import "compass/css3/opacity";
+
+@import
+  "compass/css3/border-radius",
+  "compass/css3/images",
+  "compass/css3/opacity";
 
 @import
 //   "foundation/components/accordion",
@@ -39,7 +42,9 @@
 //   "foundation/components/offcanvas",
 //   "foundation/components/visibility";
 
-#content {}
+.card {
+  @include border-radius($global-radius, $global-radius);
+}
 
 #footer{
   @include grid-row();
@@ -103,6 +108,7 @@
 }
 
 #construction-panel {
+  @extend .card;
   @include grid-row();
   @include panel($background-color1);
 
