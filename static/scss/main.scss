@@ -2,6 +2,7 @@
 
 @import
   "compass/css3/border-radius",
+  "compass/css3/box-shadow",
   "compass/css3/images",
   "compass/css3/opacity";
 
@@ -44,6 +45,7 @@
 
 .card {
   @include border-radius($global-radius, $global-radius);
+  @include single-box-shadow(scale-color($complement-color1, $lightness: -42%));
 }
 
 #footer{
@@ -110,7 +112,7 @@
 #construction-panel {
   @extend .card;
   @include grid-row();
-  @include panel($background-color1);
+  @include panel($neutral-color1);
 
   #construction-message {
     @include grid-column(8);
