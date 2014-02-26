@@ -35,11 +35,15 @@ Most templates will extend theme_base.html.
     </section>
   </div>
 
+  <div class="spacer"><div class="container">&nbsp;</div></div>
+
   <div id="content">
     {% block content %}
       {% include "partials/_under_construction.html" %}
     {% endblock %}
   </div>
+
+  <div class="spacer"><div class="container">&nbsp;</div></div>
 
   <div id="footer">
       <div class="footer-text">
