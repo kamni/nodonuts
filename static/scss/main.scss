@@ -52,7 +52,9 @@
   @extend .top-bar;
   .brand {
     @extend .title-area;
-    ul li { @extend .name; }
+    ul li {
+      @extend .name;
+    }
   }
   .login { @extend .right; }
   #nav {
@@ -64,4 +66,36 @@
   }
 }
 
+#construction-panel {
+  @include grid-row();
+  #construction-message {
+    @include grid-column(8);
+  }
+  #construction-image {
+    @include grid-column(4);
+  }
+}
+
+#front-page-login {
+  @include grid-row();
+}
+
+.section {
+  @include grid-row();
+  .section-main {
+    @include grid-column(8);
+  }
+  .section-aside {
+    @include grid-column(4);
+  }
+}
+
+.container {
+  @include grid-column(12);
+}
+
+img#logo {
+  height: 80%;
+  max-height: 80%;
+}
 
