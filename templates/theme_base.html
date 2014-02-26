@@ -7,8 +7,8 @@ Most templates will extend theme_base.html.
 {% endcomment %}
 
 {% block body %}
-  <div class="top-bar">
-    <ul class="title-area">
+  <div id="header">
+    <ul class="brand">
       <li class="name">
         <h1><a href="{% url "home" %}">
             {% if config.SHOW_SITE_LOGO %}<img id="logo" src="{% static config.SITE_LOGO %}" />{% endif %}
@@ -17,8 +17,8 @@ Most templates will extend theme_base.html.
       </li>
     </ul>
 
-    <section class="top-bar-section">
-      <ul class="right">
+    <div id="nav">
+      <ul class="nav-links">
         {% block nav_bar %}
         <li class="divider"></li>
         <!--<li><a href="">About</a></li>-->
@@ -32,7 +32,7 @@ Most templates will extend theme_base.html.
         </li>
         {% endblock %}
       </ul>
-    </section>
+    </div>
   </div>
 
   <div class="spacer"><div class="container">&nbsp;</div></div>

@@ -56,12 +56,14 @@
       @extend .name;
     }
   }
-  .login { @extend .right; }
+
   #nav {
-    @extend .top-bar;
-    .nav-container {
-      @extend .top-bar-section;
-      ul { @extend .left; }
+    @extend .top-bar-section;
+    ul li > a {
+      padding: .45rem 0 .35rem 0;
+    }
+    .nav-links {
+      @extend .right;
     }
   }
 }
