@@ -51,8 +51,8 @@
 
 #header {
   @extend .top-bar;
-  @include filter-gradient($primary-color, scale-color($primary-color, $lightness: 14%));
-  @include background(linear-gradient(top, $primary-color, scale-color($primary-color, $lightness: 14%)));
+  @include filter-gradient($main-color1, scale-color($main-color1, $lightness: 14%));
+  @include background(linear-gradient(top, $main_color1, scale-color($main-color1, $lightness: 14%)));
 
   .brand {
     @extend .title-area;
@@ -72,6 +72,7 @@
     }
     ul li > a.button {
       font-size: 1.0rem;
+      @include button-style($secondary-color, true)
     }
     .nav-links {
       @extend .right;
@@ -81,6 +82,7 @@
 
 #construction-panel {
   @include grid-row();
+  @include panel($background-color1);
 
   #construction-message {
     @include grid-column(8);

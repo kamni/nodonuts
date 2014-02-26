@@ -1,11 +1,14 @@
-$main-color1: #E77E23;          // orange
-$main-color2: #E76613;          // darker orange
-$complement-color1: #368ABB;    // blue
-$complement-color2: #2A6C85;    // darker blue
+@import "foundation/functions";
+
+$main-color1: #e77e23;          // orange
+$main-color2: #ce6306;          // darker orange
+$complement-color1: #368aBB;    // blue
+$complement-color2: #2a6c85;    // darker blue
+$background-color1: #fff;       // white
 
 
 $primary-color: $main-color1;
-$secondary-color: #e7e7e7;
+$secondary-color: $background-color1;
 $alert-color: #f04124;
 $success-color: #43AC6A;
 $warning-color: #f08a24;
