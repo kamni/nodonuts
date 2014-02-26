@@ -54,6 +54,9 @@
   @include filter-gradient($main-color1, scale-color($main-color1, $lightness: 14%));
   @include background(linear-gradient(top, $main_color1, scale-color($main-color1, $lightness: 14%)));
 
+  border-top: 1px solid scale-color($main-color1, $lightness: -28%);
+  border-bottom: 1px solid scale-color($main-color1, $lightness: 42%);
+
   .brand {
     @extend .title-area;
     ul li {
