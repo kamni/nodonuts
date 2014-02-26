@@ -54,7 +54,7 @@ body {
   color: #222222;
   padding: 0;
   margin: 0;
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: Verdana, Geneva, Helvetica, sans-serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -553,7 +553,7 @@ button, .button {
   border-style: solid;
   border-width: 0px;
   cursor: pointer;
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: Verdana, Geneva, Helvetica, sans-serif;
   font-weight: normal;
   line-height: normal;
   margin: 0 0 1.25rem;
@@ -2834,7 +2834,7 @@ label.error {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_labels\.scss}line{font-family:\0000387}}
 .label {
   font-weight: normal;
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: Verdana, Geneva, Helvetica, sans-serif;
   text-align: center;
   text-decoration: none;
   line-height: 1;
@@ -3102,7 +3102,7 @@ meta.foundation-mq-topbar {
     color: white;
     padding: 12px 0 12px 0;
     padding-left: 15px;
-    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-family: Verdana, Geneva, Helvetica, sans-serif;
     font-size: 0.8125rem;
     font-weight: normal;
     background: #333333; }
@@ -3620,8 +3620,8 @@ p {
 /* Default header styles */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_type\.scss}line{font-family:\00003260}}
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-weight: 300;
+  font-family: "Lilita One", Verdana, Geneva, Helvetica, sans-serif;
+  font-weight: 400;
   font-style: normal;
   color: #222222;
   text-rendering: optimizeLegibility;
