@@ -1,5 +1,5 @@
 @import "partials/base";
-//@import "foundation";
+@import "compass/css3/images";
 
 @import
 //   "foundation/components/accordion",
@@ -42,6 +42,7 @@
 
 #footer{
   @include grid-row();
+
   .footer-text {
     @extend .text-center;
     @include grid-column(12);
@@ -50,11 +51,8 @@
 
 #header {
   @extend .top-bar;
-
-background: -webkit-linear-gradient($primary-color, scale-color($primary-color, $lightness: 14%)); /* For Safari 5.1 to 6.0 */
-background: -o-linear-gradient($primary-color, scale-color($primary-color, $lightness: 14%)); /* For Opera 11.1 to 12.0 */
-background: -moz-linear-gradient($primary-color, scale-color($primary-color, $lightness: 14%)); /* For Firefox 3.6 to 15 */
-background: linear-gradient($primary-color, scale-color($primary-color, $lightness: 14%)); /* Standard syntax */
+  @include filter-gradient($primary-color, scale-color($primary-color, $lightness: 14%));
+  @include background(linear-gradient(top, $primary-color, scale-color($primary-color, $lightness: 14%)));
 
   .brand {
     @extend .title-area;
@@ -65,9 +63,9 @@ background: linear-gradient($primary-color, scale-color($primary-color, $lightne
   .name h1 {
     font-size: 1.8rem;
   }
-
   #nav {
     @extend .top-bar-section;
+
     ul li > a {
       padding: .45rem 0 .35rem 0;
       font-size: 1.0rem;
@@ -83,6 +81,7 @@ background: linear-gradient($primary-color, scale-color($primary-color, $lightne
 
 #construction-panel {
   @include grid-row();
+
   #construction-message {
     @include grid-column(8);
   }
@@ -97,6 +96,7 @@ background: linear-gradient($primary-color, scale-color($primary-color, $lightne
 
 .section {
   @include grid-row();
+
   .section-main {
     @include grid-column(8);
   }
