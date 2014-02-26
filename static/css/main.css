@@ -586,12 +586,12 @@ button, .button {
     color: white; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_buttons\.scss}line{font-family:\00003207}}
   button.secondary, .button.secondary {
-    background-color: white;
-    border-color: #cccccc;
+    background-color: #fffefc;
+    border-color: #ffdc97;
     color: #333333; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_buttons\.scss}line{font-family:\00003144}}
     button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
-      background-color: #cccccc; }
+      background-color: #ffdc97; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_buttons\.scss}line{font-family:\00003150}}
     button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
       color: #333333; }
@@ -682,8 +682,8 @@ button, .button {
       background-color: #e77e23; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_buttons\.scss}line{font-family:\00003223}}
     button.disabled.secondary, button[disabled].secondary, .button.disabled.secondary, .button[disabled].secondary {
-      background-color: white;
-      border-color: #cccccc;
+      background-color: #fffefc;
+      border-color: #ffdc97;
       color: #333333;
       cursor: default;
       opacity: 0.7;
@@ -691,13 +691,13 @@ button, .button {
       box-shadow: none; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_buttons\.scss}line{font-family:\00003144}}
       button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
-        background-color: #cccccc; }
+        background-color: #ffdc97; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_buttons\.scss}line{font-family:\00003150}}
       button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
         color: #333333; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_buttons\.scss}line{font-family:\00003168}}
       button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
-        background-color: white; }
+        background-color: #fffefc; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_buttons\.scss}line{font-family:\00003224}}
     button.disabled.success, button[disabled].success, .button.disabled.success, .button[disabled].success {
       background-color: #43ac6a;
@@ -2864,7 +2864,7 @@ label.error {
     color: white; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_labels\.scss}line{font-family:\0000397}}
   .label.secondary {
-    background-color: white;
+    background-color: #fffefc;
     color: #333333; }
 
 /* Panels */
@@ -3116,10 +3116,10 @@ meta.foundation-mq-topbar {
         background: #af5c13; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_top-bar\.scss}line{font-family:\00003309}}
     .top-bar-section ul li > a.button.secondary, #header #nav ul li > a.button.secondary {
-      background: white; }
+      background: #fffefc; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_top-bar\.scss}line{font-family:\00003311}}
       .top-bar-section ul li > a.button.secondary:hover, #header #nav ul li > a.button.secondary:hover {
-        background: #e3e3e3; }
+        background: #ffebc4; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_top-bar\.scss}line{font-family:\00003315}}
     .top-bar-section ul li > a.button.success, #header #nav ul li > a.button.success {
       background: #43ac6a; }
@@ -3134,7 +3134,7 @@ meta.foundation-mq-topbar {
         background: #d42b0f; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_top-bar\.scss}line{font-family:\00003331}}
   .top-bar-section ul li:hover > a, #header #nav ul li:hover > a {
-    background: #272727;
+    background: #ce6306;
     color: white; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_top-bar\.scss}line{font-family:\00003338}}
   .top-bar-section ul li.active > a, #header #nav ul li.active > a {
@@ -3145,7 +3145,7 @@ meta.foundation-mq-topbar {
       background: #ce6c17;
       color: white; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_top-bar\.scss}line{font-family:\00003349}}
-  .top-bar-section .has-form, #header #nav .has-form {
+  .top-bar-section .has-form, #header #nav .has-form, #header #nav .has-button {
     padding: 15px; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_top-bar\.scss}line{font-family:\00003352}}
   .top-bar-section .has-dropdown, #header #nav .has-dropdown {
@@ -3197,7 +3197,7 @@ meta.foundation-mq-topbar {
           line-height: 22.5px;
           display: block; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_top-bar\.scss}line{font-family:\00003402}}
-      .top-bar-section .dropdown li.has-form, #header #nav .dropdown li.has-form {
+      .top-bar-section .dropdown li.has-form, #header #nav .dropdown li.has-form, .top-bar-section .dropdown #header #nav li.has-button, #header #nav .dropdown li.has-button {
         padding: 8px 15px; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_top-bar\.scss}line{font-family:\00003403}}
       .top-bar-section .dropdown li .button, #header #nav .dropdown li .button {
@@ -3273,7 +3273,7 @@ meta.foundation-mq-topbar {
           display: none; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_top-bar\.scss}line{font-family:\00003465}}
     .top-bar-section li.hover > a:not(.button), #header #nav li.hover > a:not(.button) {
-      background: #272727;
+      background: #ce6306;
       color: white; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_top-bar\.scss}line{font-family:\00003471}}
     .top-bar-section li:not(.has-form) a:not(.button), #header #nav li:not(.has-form) a:not(.button) {
@@ -3282,7 +3282,7 @@ meta.foundation-mq-topbar {
       background: #e77e23; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_top-bar\.scss}line{font-family:\00003475}}
       .top-bar-section li:not(.has-form) a:not(.button):hover, #header #nav li:not(.has-form) a:not(.button):hover {
-        background: #272727; }
+        background: #ce6306; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_top-bar\.scss}line{font-family:\00003479}}
     .top-bar-section li.active:not(.has-form) a:not(.button), #header #nav li.active:not(.has-form) a:not(.button) {
       padding: 0 15px;
@@ -3353,7 +3353,7 @@ meta.foundation-mq-topbar {
       height: 45px;
       width: 0; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_top-bar\.scss}line{font-family:\00003567}}
-    .top-bar-section .has-form, #header #nav .has-form {
+    .top-bar-section .has-form, #header #nav .has-form, #header #nav .has-button {
       background: #e77e23;
       padding: 0 15px;
       height: 45px; }
@@ -3374,7 +3374,7 @@ meta.foundation-mq-topbar {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_top-bar\.scss}line{font-family:\00003597}}
   .no-js .top-bar-section ul li:hover > a, .no-js #header #nav ul li:hover > a, #header .no-js #nav ul li:hover > a {
-    background: #272727;
+    background: #ce6306;
     color: white; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_top-bar\.scss}line{font-family:\00003603}}
   .no-js .top-bar-section ul li:active > a, .no-js #header #nav ul li:active > a, #header .no-js #nav ul li:active > a {
@@ -3974,25 +3974,38 @@ blockquote p {
   #header .name h1, #header .brand ul li h1 {
     font-size: 1.8rem; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000369}}
-  #header #nav ul li > a {
-    padding: .45rem 0 .35rem 0;
-    font-size: 1.0rem; }
+  #header #nav .nav-links {
+    background: transparent; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000373}}
-  #header #nav ul li > a.button {
-    font-size: 1.0rem;
-    background-color: white;
-    border-color: #cccccc;
-    color: #333333;
-    -webkit-border-radius: 3px;
-    border-radius: 3px; }
+    #header #nav .nav-links li:not(.has-form) a:not(.button) {
+      background: transparent; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000376}}
+      #header #nav .nav-links li:not(.has-form) a:not(.button):hover {
+        background-color: #ce6306; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000380}}
+    #header #nav .nav-links li > a {
+      font-size: 1.0rem;
+      padding: .45rem 0 .35rem 0;
+      background: transparent; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000385}}
+      #header #nav .nav-links li > a.button {
+        background-color: #fffefc;
+        border-color: #ffdc97;
+        color: #333333;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        font-size: 1.0rem; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_buttons\.scss}line{font-family:\00003144}}
-    #header #nav ul li > a.button:hover, #header #nav ul li > a.button:focus {
-      background-color: #cccccc; }
+        #header #nav .nav-links li > a.button:hover, #header #nav .nav-links li > a.button:focus {
+          background-color: #ffdc97; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_buttons\.scss}line{font-family:\00003150}}
-    #header #nav ul li > a.button:hover, #header #nav ul li > a.button:focus {
-      color: #333333; }
+        #header #nav .nav-links li > a.button:hover, #header #nav .nav-links li > a.button:focus {
+          color: #333333; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000391}}
+  #header #nav .has-button {
+    background: transparent; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000383}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000398}}
 #construction-panel {
   width: 100%;
   margin-left: auto;
@@ -4003,10 +4016,10 @@ blockquote p {
   *zoom: 1;
   border-style: solid;
   border-width: 1px;
-  border-color: #e3e3e3;
+  border-color: #ffebc4;
   margin-bottom: 1.25rem;
   padding: 1.25rem;
-  background: white; }
+  background: #fffefc; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_global\.scss}line{font-family:\00003130}}
   #construction-panel:before, #construction-panel:after {
     content: " ";
@@ -4030,20 +4043,20 @@ blockquote p {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000360}}
     #construction-panel h1.subheader, #construction-panel h2.subheader, #construction-panel h3.subheader, #construction-panel h4.subheader, #construction-panel h5.subheader, #construction-panel h6.subheader {
       line-height: 1.4; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003102}}
   #construction-panel #construction-message {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 66.66667%;
     float: left; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000390}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003105}}
   #construction-panel #construction-image {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 33.33333%;
     float: left; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000395}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003110}}
 #front-page-login {
   width: 100%;
   margin-left: auto;
@@ -4060,7 +4073,7 @@ blockquote p {
   #front-page-login:after {
     clear: both; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000399}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003114}}
 .section {
   width: 100%;
   margin-left: auto;
@@ -4076,27 +4089,27 @@ blockquote p {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_global\.scss}line{font-family:\00003131}}
   .section:after {
     clear: both; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003102}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003117}}
   .section .section-main {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 66.66667%;
     float: left; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003105}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003120}}
   .section .section-aside {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 33.33333%;
     float: left; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003110}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003125}}
 .container {
   padding-left: 0.9375rem;
   padding-right: 0.9375rem;
   width: 100%;
   float: left; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003114}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003129}}
 .spacer {
   width: 100%;
   margin-left: auto;
@@ -4113,7 +4126,7 @@ blockquote p {
   .spacer:after {
     clear: both; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003118}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003133}}
 img#logo {
   padding-right: .5rem;
   margin-bottom: .4rem;

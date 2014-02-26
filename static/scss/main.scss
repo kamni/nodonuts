@@ -66,16 +66,31 @@
   #nav {
     @extend .top-bar-section;
 
-    ul li > a {
-      padding: .45rem 0 .35rem 0;
-      font-size: 1.0rem;
-    }
-    ul li > a.button {
-      font-size: 1.0rem;
-      @include button-style($secondary-color, true)
-    }
     .nav-links {
       @extend .right;
+      background: transparent;
+
+      li:not(.has-form) a:not(.button) {
+        background: transparent;
+
+        &:hover {
+          background-color: $topbar-link-bg-hover;
+        }
+      }
+      li > a {
+        font-size: 1.0rem;
+        padding: .45rem 0 .35rem 0;
+        background: transparent;
+
+        &.button {
+          @include button-style($secondary-color, true);
+          font-size: 1.0rem;
+        }
+      }
+    }
+    .has-button {
+      @extend .has-form;
+      background: transparent;
     }
   }
 }

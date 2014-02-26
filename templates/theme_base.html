@@ -23,7 +23,7 @@ Most templates will extend theme_base.html.
         <li class="divider"></li>
         <li><a href="">About</a></li>
         <li class="divider"></li>
-        <li class="has-form">
+        <li class="has-button">
           {% if user.is_authenticated %}
             <a href="{% url "logout" %}" class="small button">Sign Out</a>
           {% else %}
