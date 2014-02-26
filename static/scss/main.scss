@@ -48,6 +48,16 @@
   @include single-box-shadow(scale-color($complement-color1, $lightness: -42%));
 }
 
+.header-button {
+  @include button-style($secondary-color, true);
+}
+
+.small-centered {
+  margin-left: auto;
+  margin-right: auto;
+  float: none !important;
+}
+
 #footer{
   @include grid-row();
 
@@ -97,7 +107,7 @@
         background: transparent;
 
         &.button {
-          @include button-style($secondary-color, true);
+          @extend .header-button;
           font-size: 1.0rem;
         }
       }
@@ -105,6 +115,27 @@
     .has-button {
       @extend .has-form;
       background: transparent;
+    }
+  }
+}
+
+
+
+#search {
+  @extend .top-bar;
+  background-color: $main_color2;
+  height: .8* $topbar-height;
+  border-bottom: 1px solid scale-color($main-color2, $lightness: -20%);
+
+  .search-bar {
+    @include grid-column(4);
+    @extend .small-centered;
+
+    input {
+      display: inline-block;
+    }
+    .button {
+      @extend .header-button;
     }
   }
 }
