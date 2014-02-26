@@ -50,6 +50,12 @@
 
 #header {
   @extend .top-bar;
+
+background: -webkit-linear-gradient($primary-color, scale-color($primary-color, $lightness: 14%)); /* For Safari 5.1 to 6.0 */
+background: -o-linear-gradient($primary-color, scale-color($primary-color, $lightness: 14%)); /* For Opera 11.1 to 12.0 */
+background: -moz-linear-gradient($primary-color, scale-color($primary-color, $lightness: 14%)); /* For Firefox 3.6 to 15 */
+background: linear-gradient($primary-color, scale-color($primary-color, $lightness: 14%)); /* Standard syntax */
+
   .brand {
     @extend .title-area;
     ul li {
@@ -108,6 +114,8 @@
 }
 
 img#logo {
+  padding-right: .5rem;
+  margin-bottom: .4rem;
   height: 75%;
   max-height: 75%;
 }
