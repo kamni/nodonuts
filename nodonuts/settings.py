@@ -92,8 +92,6 @@ CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 CONSTANCE_CONFIG = {
     'SITE_NAME': ('NoDonuts', 'The name to display in headers, title bar, ' +
                   'and copyright notices'),
-    'SHOW_SITE_NAME': (True, 'Name should be displayed in the header area ' +
-                       'of pages'),
     'SITE_LOGO': ('img/logo.png', 'The path to the file located in the static folder ' +
                   'that represents the logo. Leave off any starting slash (/)'),
     'SHOW_SITE_LOGO': (True, 'Logo, if configured, should be shown in the ' +

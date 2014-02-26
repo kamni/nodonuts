@@ -7,44 +7,37 @@ Most templates will extend theme_base.html.
 {% endcomment %}
 
 {% block body %}
-  <div id="header">
-    <div class="brand">
-      <ul>
-        <li class="name">
-          <h1><a href="{% url "home" %}">
-            {% if config.SHOW_SITE_LOGO and config.SITE_LOGO %}<img id="logo" src="{% static config.SITE_LOGO %}">{% endif %}
-            {% if config.SHOW_SITE_NAME %}{{ config.SITE_NAME }}{% endif %}</a>
-          </h1>
+  <div class="top-bar">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="{% url "home" %}">
+            {% if config.SHOW_SITE_LOGO %}<img id="logo" src="{% static config.SITE_LOGO %}" />{% endif %}
+            {{ config.SITE_NAME }}
+        </a></h1>
+      </li>
+    </ul>
+
+    <section class="top-bar-section">
+      <ul class="right">
+        {% block nav_bar %}
+        <li class="divider"></li>
+        <!--<li><a href="">About</a></li>-->
+        <li class="divider"></li>
+        <li class="has-form">
+          {% if user.is_authenticated %}
+            <a href="{% url "logout" %}" class="small button">Sign Out</a>
+          {% else %}
+            <a href="{% url "admin:index" %}" class="small button">Log In</a>
+          {% endif %}
         </li>
+        {% endblock %}
       </ul>
-    </div>
-
-    <div class="login">
-      {% if user.is_authenticated %}
-        Hello, {{ user }}
-      {% else %}
-        <a href="{% url "admin:index" %}">Login</a>
-      {% endif %}
-    </div>
+    </section>
   </div>
 
-  {% block nav_bar %}
-  <div id="nav">
-    <div class="nav-container">
-        <ul>
-          {% block nav %}
-          {% endblock %}
-        </ul>
-    </div>
-  </div>
-  {% endblock %}
-
-  <div id="content" style="background-image: url({% static "img/dimpled.png" %})">
+  <div id="content">
     {% block content %}
-    <h1>Work in Progress</h1>
-    <p>Hello there! It looks like we're still building this page, but please
-       check back soon to see our latest updates.
-    </p>
+      {% include "partials/_under_construction.html" %}
     {% endblock %}
   </div>
 
