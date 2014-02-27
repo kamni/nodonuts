@@ -20,12 +20,14 @@
   </div>
 
   <div id="search-content">
+    {% if tags %}
     <div class="tags">
       <h3>Tags</h3>
     </div>
+    {% endif %}
 
     {% if query %}
-      <div class="results">
+      <div class="results{% if not tags %}-fullwidth{% endif %}">
             <h3>Results</h3>
 
             {% for result in page.object_list %}
