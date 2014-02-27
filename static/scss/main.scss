@@ -45,6 +45,7 @@
 //   "foundation/components/visibility";
 
 .card {
+  @include panel($neutral-color1);
   @include border-radius($global-radius, $global-radius);
   @include single-box-shadow(scale-color($complement-color1, $lightness: -42%));
 }
@@ -169,10 +170,25 @@
   }
 }
 
+#search-options {
+  @extend .card;
+  @include grid-row();
+}
+
+#search-content {
+  @include grid-row();
+
+  .tags {
+    @include grid-column(3);
+  }
+  .results {
+    @include grid-column(9);
+  }
+}
+
 #construction-panel {
   @extend .card;
   @include grid-row();
-  @include panel($neutral-color1);
 
   #construction-message {
     @include grid-column(8);

@@ -36,6 +36,7 @@ Most templates will extend theme_base.html.
   </div>
 
   <div id="search">
+    {% block search_bar %}
     <form method="get" action="{% url "haystack_search" %}">
       <div class="search-bar">
         <ul>
@@ -44,6 +45,7 @@ Most templates will extend theme_base.html.
         </ul>
       </div>
     </form>
+    {% endblock %}
   </div>
 
   <div class="spacer"><div class="container">&nbsp;</div></div>
