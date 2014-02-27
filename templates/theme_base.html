@@ -37,7 +37,7 @@ Most templates will extend theme_base.html.
 
   <div id="search">
     {% block search_bar %}
-    <form method="get" action="{% url "haystack_search" %}">
+    <form method="get" action="{% url "recipe_search" %}">
       <div class="search-bar">
         <ul>
           <li class="search-input"><input id="id_q" name="q" type="text" placeholder="search" /></li>

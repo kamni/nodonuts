@@ -3,7 +3,7 @@
 
 {% block content %}
   {% if not featured_recipes and not newest_recipes %}
-    {% include "_under_construction.html" %}
+    {% include "partials/_under_construction.html" %}
   {% else %}
     {% if tags %}
     <div id="tags">
@@ -11,14 +11,13 @@
     </div>
     {% endif %}
 
-    {% endif %}
     <div id="results{% if not tags %}-fullwidth{% endif %}">
       {% if featured_recipes %}
       <div id="featured-recipes">
       </div>
       {% endif %}
 
-      {% if newest-recipes %}
+      {% if newest_recipes %}
       <div id="newest-recipes">
       </div>
       {% endif %}
