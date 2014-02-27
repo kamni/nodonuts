@@ -11,7 +11,7 @@ Most templates will extend theme_base.html.
     <ul class="brand">
       <li class="name">
         <h1><a href="{% url "home" %}">
-            {% if config.SHOW_SITE_LOGO %}<img id="logo" src="{% static config.SITE_LOGO %}" />{% endif %}
+            {% if config.SHOW_SITE_LOGO %}<img id="logo" src="{% static config.SITE_LOGO %}" alt="logo" />{% endif %}
             {{ config.SITE_NAME }}
         </a></h1>
       </li>
@@ -36,14 +36,14 @@ Most templates will extend theme_base.html.
   </div>
 
   <div id="search">
-    <div class="search-bar">
-        <form method="get" action="{% url "haystack_search" %}">
-          <ul>
-            <li style="display:inline-block"><input id="id_q" name="q" type="text"></li>
-            <li style="display:inline-block"><input type="submit" value="Search" class="button"></li>
-          </ul>
-        </form>
-    </div>
+    <form method="get" action="{% url "haystack_search" %}">
+      <div class="search-bar">
+        <ul>
+          <li class="search-input"><input id="id_q" name="q" type="text" placeholder="search" /></li>
+          <li><button type="submit"><img src="{% static "img/search.png" %}" alt="search" /></button></li>
+        </ul>
+      </div>
+    </form>
   </div>
 
   <div class="spacer"><div class="container">&nbsp;</div></div>

@@ -1,6 +1,7 @@
 @import "partials/base";
 
 @import
+  "compass",
   "compass/css3/border-radius",
   "compass/css3/box-shadow",
   "compass/css3/images",
@@ -120,7 +121,6 @@
 }
 
 
-
 #search {
   @extend .top-bar;
   background-color: $main_color2;
@@ -130,6 +130,35 @@
   .search-bar {
     @include grid-column(4);
     @extend .small-centered;
+
+    ul {
+      text-align: center;
+
+      li {
+        display: inline-block;
+
+        &.search-input {
+          width: 80%;
+        }
+        button[type="submit"] {
+          border: 1px solid scale-color($main-color2, $lightness: -14%);
+          padding: 5px;
+          margin: 5px 0 0 0;
+          vertical-align: middle;
+          background: transparent;
+
+          &:hover {
+            background-color: $primary-color;
+          }
+          img {
+            height: .45 * $topbar-height;
+          }
+        }
+        input[type="text"] {
+          @include border-radius($global-radius, $global-radius);
+        }
+      }
+    }
 
     input {
       display: inline-block;
