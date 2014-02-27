@@ -36,43 +36,43 @@
           {% with result.object as recipe %}
           <div class="recipe-summary">
             {% with recipe.get_image_url as image_url %}
-            <div class="recipe-{% if image_url %}image{% else %}holder{% endif %}">
-              <img src="{% if image_url %}{{ image_url }}{% else %}{% static "img/large-bowl.png" %}{% endif %}" />
+            <div class="recipe-image">
+              <img src="{% if image_url %}{{ image_url }}{% else %}{% static "img/large-bowl.png" %}{% endif %}" {% if not image_url %}class="recipe-holder" {% endif %}/>
             </div>
             {% endwith %}
-          </div>
 
-          <div class="recipe-text">
-            <h2><a href="">{{ recipe.title }}</a></h2>
-            {% with recipe.likes as likes %}
-            {% with recipe.dislikes as dislikes %}
-              <p>
-              {% if likes or dislikes %}
-              <img src="{% static "img/thumbs-up.png" %}" /> {{ likes }} Like{{ likes|pluralize }}
-              <img src="{% static "img/thumbs-down.png" %}" /> {{ dislikes }} Dislike{{ dislikes|pluralize }}
-              {% endif %}
-              </p>
-            {% endwith %}
-            {% endwith %}
-            <p>{{ recipe.description }}  <a href="">More</a></p>
-            <p>{% for tag in recipe.tags.all %}<span class="tag">{{ tag }}</span>{% endfor %}</p>
+            <div class="recipe-text">
+              <h2><a href="">{{ recipe.title }}</a></h2>
+              {% with recipe.likes as likes %}
+              {% with recipe.dislikes as dislikes %}
+                <p>
+                {% if likes or dislikes %}
+                  <img src="{% static "img/thumbs-up.png" %}" /> {{ likes }} Like{{ likes|pluralize }}
+                  <img src="{% static "img/thumbs-down.png" %}" /> {{ dislikes }} Dislike{{ dislikes|pluralize }}
+                {% endif %}
+                </p>
+              {% endwith %}
+              {% endwith %}
+
+              <p>{{ recipe.description }}  <a href="">More</a></p>
+              <p>{% for tag in recipe.tags.all %}<span class="tag">{{ tag }}</span>{% endfor %}</p>
+            </div>
           </div>
           {% endwith %}
-        </div>
         {% empty %}
           <p>No results found.</p>
         {% endfor %}
 
-            {% if page.has_previous or page.has_next %}
-                <div>
-                    {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
-                    |
-                    {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
-                </div>
-            {% endif %}
-        {% else %}
-            <p>Enter a search term in the form above to start searching.</p>
+        {% if page.has_previous or page.has_next %}
+        <div class="next-previous">
+          {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
+          <span class="link-like">|</span>
+          {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
+        </div>
         {% endif %}
+      {% else %}
+        <p>Enter search words in the form above to start searching.</p>
+      {% endif %}
     </div>
   </div>
 {% endblock %}

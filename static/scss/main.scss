@@ -181,6 +181,12 @@
   .tags {
     @include grid-column(3);
   }
+  .results, .results-fullwidth {
+    //@include panel(scale-color($main-color1, $lightness: 14%));
+    @include panel($complement-color2);
+    @include border-radius($global-radius, $global-radius);
+    margin-top: 5px;
+  }
   .results {
     @include grid-column(9);
   }
@@ -232,5 +238,27 @@ img#logo {
 
 img.recipe-holder {
   @include opacity(.40);
+}
+
+.recipe-summary {
+  @extend .card;
+  @include grid-row();
+
+  margin-bottom: 5px;
+
+  .recipe-image {
+    @include grid-column(3);
+  }
+  .recipe-text {
+    @include grid-column(9);
+  }
+}
+
+.next-previous {
+  color: $main-color2;
+
+  & a, .link-like {
+    color: $neutral-color1;
+  }
 }
 
