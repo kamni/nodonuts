@@ -48,8 +48,8 @@
             {% with recipe.dislikes as dislikes %}
               <p>
               {% if likes or dislikes %}
-              <img src="{% static "img/thumbs-up.png" %}" /> {{ likes }} Like{% likes|pluralize %}
-              <img src="{% static "img/thumbs-down.png" %}" /> {{ dislikes }} Dislike{% dislikes|pluralize %}
+              <img src="{% static "img/thumbs-up.png" %}" /> {{ likes }} Like{{ likes|pluralize }}
+              <img src="{% static "img/thumbs-down.png" %}" /> {{ dislikes }} Dislike{{ dislikes|pluralize }}
               {% endif %}
               </p>
             {% endwith %}
@@ -57,6 +57,7 @@
             <p>{{ recipe.description }}  <a href="">More</a></p>
             <p>{% for tag in recipe.tags.all %}<span class="tag">{{ tag }}</span>{% endfor %}</p>
           </div>
+          {% endwith %}
         </div>
         {% empty %}
           <p>No results found.</p>
