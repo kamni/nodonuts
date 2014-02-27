@@ -16,11 +16,17 @@ class RecipeManager(models.Manager):
     """
     def filter_featured(self, limit=None):
         # TODO: implement and docs
-        return []
+        query = self.filter(featured=True, is_public=True)
+        if limit:
+            query = query[:limit]
+        return query
     
     def filter_newest(self, limit=None):
         # TODO: implement and docs
-        return []
+        query = self.order_by('-date_added')
+        if limit:
+            query = query[:limit]
+        return query
 
 
 class Recipe(NullCheckerModel):
@@ -69,7 +75,7 @@ class Recipe(NullCheckerModel):
     objects = RecipeManager()
     
     class Meta:
-        ordering = ('title', 'id')
+        ordering = ('-popularity', 'title')
     
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
