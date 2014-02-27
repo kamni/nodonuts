@@ -10,6 +10,19 @@ from null_reality.fields import NullableCharField, NullableTextField
 from recipes.utils import wilson_score_interval
 
 
+class RecipeManager(models.Manager):
+    """
+    # TODO: docs, tests
+    """
+    def filter_featured(self, limit=None):
+        # TODO: implement and docs
+        return []
+    
+    def filter_newest(self, limit=None):
+        # TODO: implement and docs
+        return []
+
+
 class Recipe(NullCheckerModel):
     """
     Stores recipes that users can find on the site.
@@ -52,6 +65,8 @@ class Recipe(NullCheckerModel):
     popularity = models.DecimalField(max_digits=10, decimal_places=4, default=0,
                                      help_text="Calculated score based on the " +
                                      "number of ratings")
+    
+    objects = RecipeManager()
     
     class Meta:
         ordering = ('title', 'id')
@@ -103,7 +118,7 @@ class RecipeTag(NullCheckerModel):
     date_added = models.DateTimeField(default=timezone.now)
     
     class Meta:
-        ordering = ('type', 'tag')
+        ordering = ('-type', 'tag')
     
     def clean(self):
         other_tag = RecipeTag.objects.filter(tag=self.tag.lower()).exclude(id=self.id)

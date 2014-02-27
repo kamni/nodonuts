@@ -101,7 +101,10 @@ CONSTANCE_CONFIG = {
                   'Creative Commons Attribution Share-Alike'),
     'COPYRIGHT_MESSAGE': ('', 'An additional message for your copyright. ' +
                           'Example: All rights reserved.'),
-                    
+    'FEATURED_RECIPE_COUNT': (8, 'How many featured recipes should be shown ' +
+                                   'on the home page.'),
+    'NEWEST_RECIPE_COUNT': (8, 'How many of the newest recipes should be ' +
+                               'shown on the home page.'),
 }
 
 

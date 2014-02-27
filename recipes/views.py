@@ -1,9 +1,19 @@
+from constance import config
 from django.views.generic import FormView, TemplateView
 from haystack.views import SearchView
+
+from recipes.models import Recipe, RecipeTag
 
 
 class Home(TemplateView):
     template_name = "home.html"
+    
+    def get_context_data(self, **kwargs):
+        return {'featured_recipes': Recipe.objects.filter_featured(
+                                    limit=config.FEATURED_RECIPE_COUNT),
+                'newest_recipes': Recipe.objects.filter_newest(
+                                    limit=config.NEWEST_RECIPE_COUNT),
+                'tags': RecipeTag.objects.all()}
     
 
 class RecipeSearch(FormView):
