@@ -11,7 +11,7 @@
     "pk": 2,
     "model": "recipes.recipetag",
     "fields": {
-      "name": "diary-free",
+      "name": "dairy-free",
       "type": 1
     }
   },
