@@ -8,12 +8,19 @@
   <div id="home-content">
     {% if tags %}
     <div class="tags">
-      <ul>
-      {% for tag in tags %}
-        {% ifchanged tag.type %}<li class="tag-header"><h2>{{ tag.get_label }}</h2></li>{% endifchanged %}
-        <li><a href="{% url "recipe_search" %}?q={{ tag.name|urlencode }}">{{ tag.name }}</a></li>
-      {% endfor %}
-      </ul>
+      <div class="tags-inner">
+        <div class="tags-list">
+          <ul>
+          {% for tag in tags %}
+            {% ifchanged tag.type %}
+              <li class="tag-header{% if not forloop.first %} tag-header-middle{% endif %}"><h2>{{ tag.get_type_label }}</h2></li>{% endifchanged %}
+            <li><a href="{% url "recipe_search" %}?q={{ tag.name|urlencode }}">{{ tag.name }}</a></li>
+          {% endfor %}
+          </ul>
+        </div>
+
+        <div class="tags-spacer"></div>
+      </div>
     </div>
     {% endif %}
 

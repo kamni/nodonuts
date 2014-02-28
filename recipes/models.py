@@ -93,7 +93,7 @@ class TagType(enum.Enum):
     Classifications for RecipeTags. 
     
     Types:
-        MISCELLANEOUS_TAGS: default tag, an easy way to identify new tags 
+        MISCELLANEOUS: default tag, an easy way to identify new tags 
                 created by users
         MEALS: a particular kind of eating situation (breakfast, lunch, finger
             food)
@@ -103,7 +103,7 @@ class TagType(enum.Enum):
     """
     INGREDIENTS = 1
     MEALS = 2
-    MISCELLANEOUS_TAGS = 100
+    MISCELLANEOUS = 100
 
 
 class RecipeTag(NullCheckerModel):
@@ -116,8 +116,8 @@ class RecipeTag(NullCheckerModel):
     :field added_by: ForeignKey to User, nullable
     :field date_added: DateTimeField, defaults to timezone.now
     """
-    name = NullableCharField(max_length=30, unique=True)
-    type = enum.EnumField(TagType, default=TagType.MISCELLANEOUS_TAGS)
+    name = NullableCharField(max_length=15, unique=True)
+    type = enum.EnumField(TagType, default=TagType.MISCELLANEOUS)
     is_public = models.BooleanField(default=True, help_text="Indicates whether " +
                                     "all users will see this tag")
     added_by = models.ForeignKey(User, blank=True, null=True,
@@ -132,6 +132,10 @@ class RecipeTag(NullCheckerModel):
         if other_tag:
             raise ValidationError("This tag already exists")
         return super(RecipeTag, self).clean()
+    
+    def get_type_label(self):
+        # TODO: docs, tests
+        return TagType.label(self.type)
     
     def save(self, *args, **kwargs):
         if self.name:
