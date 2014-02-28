@@ -187,10 +187,13 @@
       .tags-list {
         @include grid-column(11);
         background-color: $neutral-color1;
-        border-left: 1px solid $neutral-color2;
-        border-right: 1px solid $neutral-color2;
+        border-left: 1px solid $complement-color2;
+        border-right: 1px solid $complement-color2;
         padding: 0;
 
+        h1, h2 {
+          color: $complement-color2;
+        }
         ul {
           margin: 0 0 .5rem 0;
         }
@@ -199,14 +202,14 @@
           padding-left: 1.25rem;
           line-height: 2rem;
 
-          &:hover {
+          &:not(.tag-header):hover {
             background-color: scale-color($neutral-color1, $lightness: -14%);
           }
         }
         .tag-header {
           padding-top: .5rem;
-          border-bottom: 1px solid $neutral-color2;
-          border-top: 1px solid $neutral-color2;
+          border-bottom: 1px solid $complement-color2;
+          border-top: 1px solid $complement-color2;
 
           h2 {
             font-variant: small-caps;
