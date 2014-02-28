@@ -3942,7 +3942,7 @@ blockquote p {
   .show-for-print {
     display: inherit !important; } }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000347}}
-.card, #search-options, #construction-panel, .recipe-summary {
+.card-no-shadow, .card, #search-options, #construction-panel, .recipe-summary {
   border-style: solid;
   border-width: 1px;
   border-color: #ffebc4;
@@ -3951,28 +3951,31 @@ blockquote p {
   background: #fffefc;
   -webkit-border-radius: 10px 10px;
   -moz-border-radius: 10px / 10px;
-  border-radius: 10px / 10px;
-  -webkit-box-shadow: 0px 0px 5px #1f506c;
-  -moz-box-shadow: 0px 0px 5px #1f506c;
-  box-shadow: 0px 0px 5px #1f506c; }
+  border-radius: 10px / 10px; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000348}}
-  .card > :first-child, #search-options > :first-child, #construction-panel > :first-child, .recipe-summary > :first-child {
+  .card-no-shadow > :first-child, .card > :first-child, #search-options > :first-child, #construction-panel > :first-child, .recipe-summary > :first-child {
     margin-top: 0; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000349}}
-  .card > :last-child, #search-options > :last-child, #construction-panel > :last-child, .recipe-summary > :last-child {
+  .card-no-shadow > :last-child, .card > :last-child, #search-options > :last-child, #construction-panel > :last-child, .recipe-summary > :last-child {
     margin-bottom: 0; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000354}}
-  .card h1, #search-options h1, #construction-panel h1, .recipe-summary h1, .card h2, #search-options h2, #construction-panel h2, .recipe-summary h2, .card h3, #search-options h3, #construction-panel h3, .recipe-summary h3, .card h4, #search-options h4, #construction-panel h4, .recipe-summary h4, .card h5, #search-options h5, #construction-panel h5, .recipe-summary h5, .card h6, #search-options h6, #construction-panel h6, .recipe-summary h6, .card p, #search-options p, #construction-panel p, .recipe-summary p {
+  .card-no-shadow h1, .card h1, #search-options h1, #construction-panel h1, .recipe-summary h1, .card-no-shadow h2, .card h2, #search-options h2, #construction-panel h2, .recipe-summary h2, .card-no-shadow h3, .card h3, #search-options h3, #construction-panel h3, .recipe-summary h3, .card-no-shadow h4, .card h4, #search-options h4, #construction-panel h4, .recipe-summary h4, .card-no-shadow h5, .card h5, #search-options h5, #construction-panel h5, .recipe-summary h5, .card-no-shadow h6, .card h6, #search-options h6, #construction-panel h6, .recipe-summary h6, .card-no-shadow p, .card p, #search-options p, #construction-panel p, .recipe-summary p {
     color: #333333; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000358}}
-  .card h1, #search-options h1, #construction-panel h1, .recipe-summary h1, .card h2, #search-options h2, #construction-panel h2, .recipe-summary h2, .card h3, #search-options h3, #construction-panel h3, .recipe-summary h3, .card h4, #search-options h4, #construction-panel h4, .recipe-summary h4, .card h5, #search-options h5, #construction-panel h5, .recipe-summary h5, .card h6, #search-options h6, #construction-panel h6, .recipe-summary h6 {
+  .card-no-shadow h1, .card h1, #search-options h1, #construction-panel h1, .recipe-summary h1, .card-no-shadow h2, .card h2, #search-options h2, #construction-panel h2, .recipe-summary h2, .card-no-shadow h3, .card h3, #search-options h3, #construction-panel h3, .recipe-summary h3, .card-no-shadow h4, .card h4, #search-options h4, #construction-panel h4, .recipe-summary h4, .card-no-shadow h5, .card h5, #search-options h5, #construction-panel h5, .recipe-summary h5, .card-no-shadow h6, .card h6, #search-options h6, #construction-panel h6, .recipe-summary h6 {
     line-height: 1;
     margin-bottom: 0.625rem; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000360}}
-    .card h1.subheader, #search-options h1.subheader, #construction-panel h1.subheader, .recipe-summary h1.subheader, .card h2.subheader, #search-options h2.subheader, #construction-panel h2.subheader, .recipe-summary h2.subheader, .card h3.subheader, #search-options h3.subheader, #construction-panel h3.subheader, .recipe-summary h3.subheader, .card h4.subheader, #search-options h4.subheader, #construction-panel h4.subheader, .recipe-summary h4.subheader, .card h5.subheader, #search-options h5.subheader, #construction-panel h5.subheader, .recipe-summary h5.subheader, .card h6.subheader, #search-options h6.subheader, #construction-panel h6.subheader, .recipe-summary h6.subheader {
+    .card-no-shadow h1.subheader, .card h1.subheader, #search-options h1.subheader, #construction-panel h1.subheader, .recipe-summary h1.subheader, .card-no-shadow h2.subheader, .card h2.subheader, #search-options h2.subheader, #construction-panel h2.subheader, .recipe-summary h2.subheader, .card-no-shadow h3.subheader, .card h3.subheader, #search-options h3.subheader, #construction-panel h3.subheader, .recipe-summary h3.subheader, .card-no-shadow h4.subheader, .card h4.subheader, #search-options h4.subheader, #construction-panel h4.subheader, .recipe-summary h4.subheader, .card-no-shadow h5.subheader, .card h5.subheader, #search-options h5.subheader, #construction-panel h5.subheader, .recipe-summary h5.subheader, .card-no-shadow h6.subheader, .card h6.subheader, #search-options h6.subheader, #construction-panel h6.subheader, .recipe-summary h6.subheader {
       line-height: 1.4; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000353}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000352}}
+.card, #search-options, #construction-panel, .recipe-summary {
+  -webkit-box-shadow: 0px 0px 5px #1f506c;
+  -moz-box-shadow: 0px 0px 5px #1f506c;
+  box-shadow: 0px 0px 5px #1f506c; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000357}}
 .header-button, #header #nav .nav-links li > a.button, #search .search-bar .button {
   background-color: #fffefc;
   border-color: #ffdc97;
@@ -3986,13 +3989,13 @@ blockquote p {
   .header-button:hover, #header #nav .nav-links li > a.button:hover, #search .search-bar .button:hover, .header-button:focus, #header #nav .nav-links li > a.button:focus, #search .search-bar .button:focus {
     color: #333333; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000357}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000361}}
 .small-centered, #search .search-bar {
   margin-left: auto;
   margin-right: auto;
   float: none !important; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000363}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000367}}
 #footer {
   width: 100%;
   margin-left: auto;
@@ -4008,14 +4011,14 @@ blockquote p {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_global\.scss}line{font-family:\00003131}}
   #footer:after {
     clear: both; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000366}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000370}}
   #footer .footer-text {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 100%;
     float: left; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000372}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000376}}
 #header {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFE77E23', endColorstr='#FFEA9042');
@@ -4026,76 +4029,76 @@ blockquote p {
   background: linear-gradient(top, #e77e23, #ea9042);
   border-top: 1px solid #f1b47f;
   border-bottom: 1px solid #c06415; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000386}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000390}}
   #header .name h1, #header .brand ul li h1 {
     font-size: 1.8rem; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000392}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000396}}
   #header #nav ul > .divider {
     height: 52.25px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000395}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000399}}
   #header #nav .nav-links {
     background: transparent; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000399}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003103}}
     #header #nav .nav-links li:not(.has-form) a:not(.button) {
       background: transparent; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003102}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003106}}
       #header #nav .nav-links li:not(.has-form) a:not(.button):hover {
         background-color: #ce6306; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003106}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003110}}
     #header #nav .nav-links li > a {
       font-size: 1.0rem;
       padding: .45rem 0 .35rem 0;
       background: transparent; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003111}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003115}}
       #header #nav .nav-links li > a.button {
         font-size: 1.0rem; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003117}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003121}}
   #header #nav .has-button {
     background: transparent; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003125}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003129}}
 #search {
   background-color: #ce6306;
   height: 44px;
   border-bottom: 1px solid #a54f05; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003131}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003135}}
   #search .search-bar {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 33.33333%;
     float: left; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003135}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003139}}
     #search .search-bar ul {
       text-align: center; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003138}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003142}}
       #search .search-bar ul li {
         display: inline-block; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003141}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003145}}
         #search .search-bar ul li.search-input {
           width: 80%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003144}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003148}}
         #search .search-bar ul li button[type="submit"] {
           border: 1px solid #b15505;
           padding: 5px;
           margin: 5px 0 0 0;
           vertical-align: middle;
           background: transparent; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003151}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003155}}
           #search .search-bar ul li button[type="submit"]:hover {
             background-color: #e77e23; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003154}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003158}}
           #search .search-bar ul li button[type="submit"] img {
             height: 24.75px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003158}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003162}}
         #search .search-bar ul li input[type="text"] {
           -webkit-border-radius: 10px 10px;
           -moz-border-radius: 10px / 10px;
           border-radius: 10px / 10px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003164}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003168}}
     #search .search-bar input {
       display: inline-block; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003173}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003177}}
 #search-options {
   width: 100%;
   margin-left: auto;
@@ -4112,8 +4115,8 @@ blockquote p {
   #search-options:after {
     clear: both; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003178}}
-#search-content, #home-content {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003182}}
+#search-content {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -4122,20 +4125,20 @@ blockquote p {
   max-width: 62.5rem;
   *zoom: 1; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_global\.scss}line{font-family:\00003130}}
-  #search-content:before, #search-content:after, #home-content:before, #home-content:after {
+  #search-content:before, #search-content:after {
     content: " ";
     display: table; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_global\.scss}line{font-family:\00003131}}
-  #search-content:after, #home-content:after {
+  #search-content:after {
     clear: both; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003181}}
-  #search-content .tags, #home-content .tags {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003185}}
+  #search-content .tags {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 25%;
     float: left; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003184}}
-    #search-content .tags .tags-inner, #home-content .tags .tags-inner {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003188}}
+    #search-content .tags .tags-inner {
       width: 100%;
       margin-left: auto;
       margin-right: auto;
@@ -4144,14 +4147,14 @@ blockquote p {
       max-width: 62.5rem;
       *zoom: 1; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_global\.scss}line{font-family:\00003130}}
-      #search-content .tags .tags-inner:before, #search-content .tags .tags-inner:after, #home-content .tags .tags-inner:before, #home-content .tags .tags-inner:after {
+      #search-content .tags .tags-inner:before, #search-content .tags .tags-inner:after {
         content: " ";
         display: table; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_global\.scss}line{font-family:\00003131}}
-      #search-content .tags .tags-inner:after, #home-content .tags .tags-inner:after {
+      #search-content .tags .tags-inner:after {
         clear: both; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003187}}
-      #search-content .tags .tags-inner .tags-list, #home-content .tags .tags-inner .tags-list {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003191}}
+      #search-content .tags .tags-inner .tags-list {
         padding-left: 0.9375rem;
         padding-right: 0.9375rem;
         width: 91.66667%;
@@ -4160,43 +4163,43 @@ blockquote p {
         border-left: 1px solid #0f5f8e;
         border-right: 1px solid #0f5f8e;
         padding: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003194}}
-        #search-content .tags .tags-inner .tags-list h1, #search-content .tags .tags-inner .tags-list h2, #home-content .tags .tags-inner .tags-list h1, #home-content .tags .tags-inner .tags-list h2 {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003198}}
+        #search-content .tags .tags-inner .tags-list h1, #search-content .tags .tags-inner .tags-list h2 {
           color: #0f5f8e; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003197}}
-        #search-content .tags .tags-inner .tags-list ul, #home-content .tags .tags-inner .tags-list ul {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003201}}
+        #search-content .tags .tags-inner .tags-list ul {
           margin: 0 0 .5rem 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003200}}
-        #search-content .tags .tags-inner .tags-list li, #home-content .tags .tags-inner .tags-list li {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003204}}
+        #search-content .tags .tags-inner .tags-list li {
           list-style: none;
           padding-left: 1.25rem;
           line-height: 2rem; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003205}}
-          #search-content .tags .tags-inner .tags-list li:not(.tag-header):hover, #home-content .tags .tags-inner .tags-list li:not(.tag-header):hover {
-            background-color: #ffe6b5; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003209}}
-        #search-content .tags .tags-inner .tags-list .tag-header, #home-content .tags .tags-inner .tags-list .tag-header {
+          #search-content .tags .tags-inner .tags-list li:not(.tag-header):hover {
+            background-color: #ffe6b5; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003213}}
+        #search-content .tags .tags-inner .tags-list .tag-header {
           padding-top: .5rem;
           border-bottom: 1px solid #0f5f8e;
           border-top: 1px solid #0f5f8e; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003214}}
-          #search-content .tags .tags-inner .tags-list .tag-header h2, #home-content .tags .tags-inner .tags-list .tag-header h2 {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003218}}
+          #search-content .tags .tags-inner .tags-list .tag-header h2 {
             font-variant: small-caps;
             font-size: 1.5rem; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003219}}
-        #search-content .tags .tags-inner .tags-list .tag-header-middle, #home-content .tags .tags-inner .tags-list .tag-header-middle {
-          margin-top: .5rem; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003223}}
-      #search-content .tags .tags-inner .tags-spacer, #home-content .tags .tags-inner .tags-spacer {
+        #search-content .tags .tags-inner .tags-list .tag-header-middle {
+          margin-top: .5rem; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003227}}
+      #search-content .tags .tags-inner .tags-spacer {
         padding-left: 0.9375rem;
         padding-right: 0.9375rem;
         width: 8.33333%;
         float: left; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003228}}
-  #search-content .recipe-list, #home-content .recipe-list {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003232}}
+  #search-content .recipe-list {
     margin-left: -1rem; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003231}}
-  #search-content .results, #search-content .results-fullwidth, #search-content .recipe-list, #search-content .recipe-list-fullwidth, #home-content .results, #home-content .results-fullwidth, #home-content .recipe-list, #home-content .recipe-list-fullwidth {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003235}}
+  #search-content .results, #search-content .results-fullwidth, #search-content .recipe-list, #search-content .recipe-list-fullwidth {
     border-style: solid;
     border-width: 1px;
     border-color: #0d557e;
@@ -4208,44 +4211,112 @@ blockquote p {
     border-radius: 10px / 10px;
     margin-top: 5px; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000348}}
-    #search-content .results > :first-child, #search-content .results-fullwidth > :first-child, #search-content .recipe-list > :first-child, #search-content .recipe-list-fullwidth > :first-child, #home-content .results > :first-child, #home-content .results-fullwidth > :first-child, #home-content .recipe-list > :first-child, #home-content .recipe-list-fullwidth > :first-child {
+    #search-content .results > :first-child, #search-content .results-fullwidth > :first-child, #search-content .recipe-list > :first-child, #search-content .recipe-list-fullwidth > :first-child {
       margin-top: 0; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000349}}
-    #search-content .results > :last-child, #search-content .results-fullwidth > :last-child, #search-content .recipe-list > :last-child, #search-content .recipe-list-fullwidth > :last-child, #home-content .results > :last-child, #home-content .results-fullwidth > :last-child, #home-content .recipe-list > :last-child, #home-content .recipe-list-fullwidth > :last-child {
+    #search-content .results > :last-child, #search-content .results-fullwidth > :last-child, #search-content .recipe-list > :last-child, #search-content .recipe-list-fullwidth > :last-child {
       margin-bottom: 0; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000355}}
-    #search-content .results h1, #search-content .results h2, #search-content .results h3, #search-content .results h4, #search-content .results h5, #search-content .results h6, #search-content .results p, #search-content .results-fullwidth h1, #search-content .results-fullwidth h2, #search-content .results-fullwidth h3, #search-content .results-fullwidth h4, #search-content .results-fullwidth h5, #search-content .results-fullwidth h6, #search-content .results-fullwidth p, #search-content .recipe-list h1, #search-content .recipe-list h2, #search-content .recipe-list h3, #search-content .recipe-list h4, #search-content .recipe-list h5, #search-content .recipe-list h6, #search-content .recipe-list p, #search-content .recipe-list-fullwidth h1, #search-content .recipe-list-fullwidth h2, #search-content .recipe-list-fullwidth h3, #search-content .recipe-list-fullwidth h4, #search-content .recipe-list-fullwidth h5, #search-content .recipe-list-fullwidth h6, #search-content .recipe-list-fullwidth p, #home-content .results h1, #home-content .results h2, #home-content .results h3, #home-content .results h4, #home-content .results h5, #home-content .results h6, #home-content .results p, #home-content .results-fullwidth h1, #home-content .results-fullwidth h2, #home-content .results-fullwidth h3, #home-content .results-fullwidth h4, #home-content .results-fullwidth h5, #home-content .results-fullwidth h6, #home-content .results-fullwidth p, #home-content .recipe-list h1, #home-content .recipe-list h2, #home-content .recipe-list h3, #home-content .recipe-list h4, #home-content .recipe-list h5, #home-content .recipe-list h6, #home-content .recipe-list p, #home-content .recipe-list-fullwidth h1, #home-content .recipe-list-fullwidth h2, #home-content .recipe-list-fullwidth h3, #home-content .recipe-list-fullwidth h4, #home-content .recipe-list-fullwidth h5, #home-content .recipe-list-fullwidth h6, #home-content .recipe-list-fullwidth p {
+    #search-content .results h1, #search-content .results h2, #search-content .results h3, #search-content .results h4, #search-content .results h5, #search-content .results h6, #search-content .results p, #search-content .results-fullwidth h1, #search-content .results-fullwidth h2, #search-content .results-fullwidth h3, #search-content .results-fullwidth h4, #search-content .results-fullwidth h5, #search-content .results-fullwidth h6, #search-content .results-fullwidth p, #search-content .recipe-list h1, #search-content .recipe-list h2, #search-content .recipe-list h3, #search-content .recipe-list h4, #search-content .recipe-list h5, #search-content .recipe-list h6, #search-content .recipe-list p, #search-content .recipe-list-fullwidth h1, #search-content .recipe-list-fullwidth h2, #search-content .recipe-list-fullwidth h3, #search-content .recipe-list-fullwidth h4, #search-content .recipe-list-fullwidth h5, #search-content .recipe-list-fullwidth h6, #search-content .recipe-list-fullwidth p {
       color: white; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000358}}
-    #search-content .results h1, #search-content .results h2, #search-content .results h3, #search-content .results h4, #search-content .results h5, #search-content .results h6, #search-content .results-fullwidth h1, #search-content .results-fullwidth h2, #search-content .results-fullwidth h3, #search-content .results-fullwidth h4, #search-content .results-fullwidth h5, #search-content .results-fullwidth h6, #search-content .recipe-list h1, #search-content .recipe-list h2, #search-content .recipe-list h3, #search-content .recipe-list h4, #search-content .recipe-list h5, #search-content .recipe-list h6, #search-content .recipe-list-fullwidth h1, #search-content .recipe-list-fullwidth h2, #search-content .recipe-list-fullwidth h3, #search-content .recipe-list-fullwidth h4, #search-content .recipe-list-fullwidth h5, #search-content .recipe-list-fullwidth h6, #home-content .results h1, #home-content .results h2, #home-content .results h3, #home-content .results h4, #home-content .results h5, #home-content .results h6, #home-content .results-fullwidth h1, #home-content .results-fullwidth h2, #home-content .results-fullwidth h3, #home-content .results-fullwidth h4, #home-content .results-fullwidth h5, #home-content .results-fullwidth h6, #home-content .recipe-list h1, #home-content .recipe-list h2, #home-content .recipe-list h3, #home-content .recipe-list h4, #home-content .recipe-list h5, #home-content .recipe-list h6, #home-content .recipe-list-fullwidth h1, #home-content .recipe-list-fullwidth h2, #home-content .recipe-list-fullwidth h3, #home-content .recipe-list-fullwidth h4, #home-content .recipe-list-fullwidth h5, #home-content .recipe-list-fullwidth h6 {
+    #search-content .results h1, #search-content .results h2, #search-content .results h3, #search-content .results h4, #search-content .results h5, #search-content .results h6, #search-content .results-fullwidth h1, #search-content .results-fullwidth h2, #search-content .results-fullwidth h3, #search-content .results-fullwidth h4, #search-content .results-fullwidth h5, #search-content .results-fullwidth h6, #search-content .recipe-list h1, #search-content .recipe-list h2, #search-content .recipe-list h3, #search-content .recipe-list h4, #search-content .recipe-list h5, #search-content .recipe-list h6, #search-content .recipe-list-fullwidth h1, #search-content .recipe-list-fullwidth h2, #search-content .recipe-list-fullwidth h3, #search-content .recipe-list-fullwidth h4, #search-content .recipe-list-fullwidth h5, #search-content .recipe-list-fullwidth h6 {
       line-height: 1;
       margin-bottom: 0.625rem; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000360}}
-      #search-content .results h1.subheader, #search-content .results h2.subheader, #search-content .results h3.subheader, #search-content .results h4.subheader, #search-content .results h5.subheader, #search-content .results h6.subheader, #search-content .results-fullwidth h1.subheader, #search-content .results-fullwidth h2.subheader, #search-content .results-fullwidth h3.subheader, #search-content .results-fullwidth h4.subheader, #search-content .results-fullwidth h5.subheader, #search-content .results-fullwidth h6.subheader, #search-content .recipe-list h1.subheader, #search-content .recipe-list h2.subheader, #search-content .recipe-list h3.subheader, #search-content .recipe-list h4.subheader, #search-content .recipe-list h5.subheader, #search-content .recipe-list h6.subheader, #search-content .recipe-list-fullwidth h1.subheader, #search-content .recipe-list-fullwidth h2.subheader, #search-content .recipe-list-fullwidth h3.subheader, #search-content .recipe-list-fullwidth h4.subheader, #search-content .recipe-list-fullwidth h5.subheader, #search-content .recipe-list-fullwidth h6.subheader, #home-content .results h1.subheader, #home-content .results h2.subheader, #home-content .results h3.subheader, #home-content .results h4.subheader, #home-content .results h5.subheader, #home-content .results h6.subheader, #home-content .results-fullwidth h1.subheader, #home-content .results-fullwidth h2.subheader, #home-content .results-fullwidth h3.subheader, #home-content .results-fullwidth h4.subheader, #home-content .results-fullwidth h5.subheader, #home-content .results-fullwidth h6.subheader, #home-content .recipe-list h1.subheader, #home-content .recipe-list h2.subheader, #home-content .recipe-list h3.subheader, #home-content .recipe-list h4.subheader, #home-content .recipe-list h5.subheader, #home-content .recipe-list h6.subheader, #home-content .recipe-list-fullwidth h1.subheader, #home-content .recipe-list-fullwidth h2.subheader, #home-content .recipe-list-fullwidth h3.subheader, #home-content .recipe-list-fullwidth h4.subheader, #home-content .recipe-list-fullwidth h5.subheader, #home-content .recipe-list-fullwidth h6.subheader {
+      #search-content .results h1.subheader, #search-content .results h2.subheader, #search-content .results h3.subheader, #search-content .results h4.subheader, #search-content .results h5.subheader, #search-content .results h6.subheader, #search-content .results-fullwidth h1.subheader, #search-content .results-fullwidth h2.subheader, #search-content .results-fullwidth h3.subheader, #search-content .results-fullwidth h4.subheader, #search-content .results-fullwidth h5.subheader, #search-content .results-fullwidth h6.subheader, #search-content .recipe-list h1.subheader, #search-content .recipe-list h2.subheader, #search-content .recipe-list h3.subheader, #search-content .recipe-list h4.subheader, #search-content .recipe-list h5.subheader, #search-content .recipe-list h6.subheader, #search-content .recipe-list-fullwidth h1.subheader, #search-content .recipe-list-fullwidth h2.subheader, #search-content .recipe-list-fullwidth h3.subheader, #search-content .recipe-list-fullwidth h4.subheader, #search-content .recipe-list-fullwidth h5.subheader, #search-content .recipe-list-fullwidth h6.subheader {
         line-height: 1.4; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003236}}
-    #search-content .results .recipe-text h1, #search-content .results h2, #search-content .results h3, #search-content .results h4, #search-content .results h5, #search-content .results h6, #search-content .results-fullwidth .recipe-text h1, #search-content .results-fullwidth h2, #search-content .results-fullwidth h3, #search-content .results-fullwidth h4, #search-content .results-fullwidth h5, #search-content .results-fullwidth h6, #search-content .recipe-list .recipe-text h1, #search-content .recipe-list h2, #search-content .recipe-list h3, #search-content .recipe-list h4, #search-content .recipe-list h5, #search-content .recipe-list h6, #search-content .recipe-list-fullwidth .recipe-text h1, #search-content .recipe-list-fullwidth h2, #search-content .recipe-list-fullwidth h3, #search-content .recipe-list-fullwidth h4, #search-content .recipe-list-fullwidth h5, #search-content .recipe-list-fullwidth h6, #home-content .results .recipe-text h1, #home-content .results h2, #home-content .results h3, #home-content .results h4, #home-content .results h5, #home-content .results h6, #home-content .results-fullwidth .recipe-text h1, #home-content .results-fullwidth h2, #home-content .results-fullwidth h3, #home-content .results-fullwidth h4, #home-content .results-fullwidth h5, #home-content .results-fullwidth h6, #home-content .recipe-list .recipe-text h1, #home-content .recipe-list h2, #home-content .recipe-list h3, #home-content .recipe-list h4, #home-content .recipe-list h5, #home-content .recipe-list h6, #home-content .recipe-list-fullwidth .recipe-text h1, #home-content .recipe-list-fullwidth h2, #home-content .recipe-list-fullwidth h3, #home-content .recipe-list-fullwidth h4, #home-content .recipe-list-fullwidth h5, #home-content .recipe-list-fullwidth h6 {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003240}}
+    #search-content .results .recipe-text h1, #search-content .results h2, #search-content .results h3, #search-content .results h4, #search-content .results h5, #search-content .results h6, #search-content .results-fullwidth .recipe-text h1, #search-content .results-fullwidth h2, #search-content .results-fullwidth h3, #search-content .results-fullwidth h4, #search-content .results-fullwidth h5, #search-content .results-fullwidth h6, #search-content .recipe-list .recipe-text h1, #search-content .recipe-list h2, #search-content .recipe-list h3, #search-content .recipe-list h4, #search-content .recipe-list h5, #search-content .recipe-list h6, #search-content .recipe-list-fullwidth .recipe-text h1, #search-content .recipe-list-fullwidth h2, #search-content .recipe-list-fullwidth h3, #search-content .recipe-list-fullwidth h4, #search-content .recipe-list-fullwidth h5, #search-content .recipe-list-fullwidth h6 {
       color: #333333; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003239}}
-    #search-content .results h1, #search-content .results h2, #search-content .results h3, #search-content .results h4, #search-content .results h5, #search-content .results h6, #search-content .results-fullwidth h1, #search-content .results-fullwidth h2, #search-content .results-fullwidth h3, #search-content .results-fullwidth h4, #search-content .results-fullwidth h5, #search-content .results-fullwidth h6, #search-content .recipe-list h1, #search-content .recipe-list h2, #search-content .recipe-list h3, #search-content .recipe-list h4, #search-content .recipe-list h5, #search-content .recipe-list h6, #search-content .recipe-list-fullwidth h1, #search-content .recipe-list-fullwidth h2, #search-content .recipe-list-fullwidth h3, #search-content .recipe-list-fullwidth h4, #search-content .recipe-list-fullwidth h5, #search-content .recipe-list-fullwidth h6, #home-content .results h1, #home-content .results h2, #home-content .results h3, #home-content .results h4, #home-content .results h5, #home-content .results h6, #home-content .results-fullwidth h1, #home-content .results-fullwidth h2, #home-content .results-fullwidth h3, #home-content .results-fullwidth h4, #home-content .results-fullwidth h5, #home-content .results-fullwidth h6, #home-content .recipe-list h1, #home-content .recipe-list h2, #home-content .recipe-list h3, #home-content .recipe-list h4, #home-content .recipe-list h5, #home-content .recipe-list h6, #home-content .recipe-list-fullwidth h1, #home-content .recipe-list-fullwidth h2, #home-content .recipe-list-fullwidth h3, #home-content .recipe-list-fullwidth h4, #home-content .recipe-list-fullwidth h5, #home-content .recipe-list-fullwidth h6 {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003243}}
+    #search-content .results h1, #search-content .results h2, #search-content .results h3, #search-content .results h4, #search-content .results h5, #search-content .results h6, #search-content .results-fullwidth h1, #search-content .results-fullwidth h2, #search-content .results-fullwidth h3, #search-content .results-fullwidth h4, #search-content .results-fullwidth h5, #search-content .results-fullwidth h6, #search-content .recipe-list h1, #search-content .recipe-list h2, #search-content .recipe-list h3, #search-content .recipe-list h4, #search-content .recipe-list h5, #search-content .recipe-list h6, #search-content .recipe-list-fullwidth h1, #search-content .recipe-list-fullwidth h2, #search-content .recipe-list-fullwidth h3, #search-content .recipe-list-fullwidth h4, #search-content .recipe-list-fullwidth h5, #search-content .recipe-list-fullwidth h6 {
       color: #fffefc; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003242}}
-    #search-content .results p, #search-content .results-fullwidth p, #search-content .recipe-list p, #search-content .recipe-list-fullwidth p, #home-content .results p, #home-content .results-fullwidth p, #home-content .recipe-list p, #home-content .recipe-list-fullwidth p {
-      color: #333333; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003246}}
-  #search-content .results, #search-content .recipe-list, #home-content .results, #home-content .recipe-list {
+    #search-content .results p, #search-content .results-fullwidth p, #search-content .recipe-list p, #search-content .recipe-list-fullwidth p {
+      color: #333333; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003250}}
+  #search-content .results, #search-content .recipe-list {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 75%;
     float: left; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003249}}
-  #search-content .results-fullwidth, #search-content .recipe-list-fullwidth, #home-content .results-fullwidth, #home-content .recipe-list-fullwidth {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003253}}
+  #search-content .results-fullwidth, #search-content .recipe-list-fullwidth {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 100%;
     float: left; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003256}}
+  #search-content #featured-recipes {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 62.5rem;
+    *zoom: 1; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_global\.scss}line{font-family:\00003130}}
+    #search-content #featured-recipes:before, #search-content #featured-recipes:after {
+      content: " ";
+      display: table; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_global\.scss}line{font-family:\00003131}}
+    #search-content #featured-recipes:after {
+      clear: both; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003259}}
+  #search-content #newest-recipes {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 62.5rem;
+    *zoom: 1; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_global\.scss}line{font-family:\00003130}}
+    #search-content #newest-recipes:before, #search-content #newest-recipes:after {
+      content: " ";
+      display: table; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_global\.scss}line{font-family:\00003131}}
+    #search-content #newest-recipes:after {
+      clear: both; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003262}}
+    #search-content #newest-recipes .new-cards {
+      padding-left: 0.9375rem;
+      padding-right: 0.9375rem;
+      width: 100%;
+      float: left; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003265}}
+      #search-content #newest-recipes .new-cards ul.new-recipe-list {
+        display: block;
+        padding: 0;
+        margin: 0 -0.625rem;
+        *zoom: 1; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_global\.scss}line{font-family:\00003130}}
+        #search-content #newest-recipes .new-cards ul.new-recipe-list:before, #search-content #newest-recipes .new-cards ul.new-recipe-list:after {
+          content: " ";
+          display: table; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_global\.scss}line{font-family:\00003131}}
+        #search-content #newest-recipes .new-cards ul.new-recipe-list:after {
+          clear: both; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_block-grid\.scss}line{font-family:\0000336}}
+        #search-content #newest-recipes .new-cards ul.new-recipe-list > li {
+          display: block;
+          height: auto;
+          float: left;
+          padding: 0 0.625rem 1.25rem; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_block-grid\.scss}line{font-family:\0000347}}
+        #search-content #newest-recipes .new-cards ul.new-recipe-list > li {
+          width: 25%;
+          padding: 0 0.625rem 1.25rem;
+          list-style: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_block-grid\.scss}line{font-family:\0000354}}
+          #search-content #newest-recipes .new-cards ul.new-recipe-list > li:nth-of-type(n) {
+            clear: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_block-grid\.scss}line{font-family:\0000355}}
+          #search-content #newest-recipes .new-cards ul.new-recipe-list > li:nth-of-type(4n+1) {
+            clear: both; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003254}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003272}}
 #construction-panel {
   width: 100%;
   margin-left: auto;
@@ -4261,20 +4332,20 @@ blockquote p {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_global\.scss}line{font-family:\00003131}}
   #construction-panel:after {
     clear: both; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003258}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003276}}
   #construction-panel #construction-message {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 66.66667%;
     float: left; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003261}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003279}}
   #construction-panel #construction-image {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 33.33333%;
     float: left; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003266}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003284}}
 #front-page-login {
   width: 100%;
   margin-left: auto;
@@ -4291,7 +4362,7 @@ blockquote p {
   #front-page-login:after {
     clear: both; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003270}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003288}}
 .section {
   width: 100%;
   margin-left: auto;
@@ -4307,27 +4378,27 @@ blockquote p {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_global\.scss}line{font-family:\00003131}}
   .section:after {
     clear: both; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003273}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003291}}
   .section .section-main {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 66.66667%;
     float: left; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003276}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003294}}
   .section .section-aside {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 33.33333%;
     float: left; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003281}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003299}}
 .container {
   padding-left: 0.9375rem;
   padding-right: 0.9375rem;
   width: 100%;
   float: left; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003285}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003303}}
 .spacer {
   width: 100%;
   margin-left: auto;
@@ -4344,18 +4415,18 @@ blockquote p {
   .spacer:after {
     clear: both; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003289}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003307}}
 img#logo {
   padding-right: .5rem;
   margin-bottom: .4rem;
   height: 41.25px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003295}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003313}}
 img.recipe-holder {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
   opacity: 0.4; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003299}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003317}}
 .recipe-summary {
   width: 100%;
   margin-left: auto;
@@ -4372,22 +4443,22 @@ img.recipe-holder {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_global\.scss}line{font-family:\00003131}}
   .recipe-summary:after {
     clear: both; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003305}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003323}}
   .recipe-summary .recipe-image {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 25%;
     float: left; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003308}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003326}}
   .recipe-summary .recipe-text {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 75%;
     float: left; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003313}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003331}}
 .next-previous {
   color: #ce6306; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003316}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003334}}
   .next-previous a, .next-previous .link-like {
     color: #fffefc; }

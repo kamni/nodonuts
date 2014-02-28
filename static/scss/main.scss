@@ -44,9 +44,13 @@
 //   "foundation/components/offcanvas",
 //   "foundation/components/visibility";
 
-.card {
+.card-no-shadow {
   @include panel($neutral-color1);
   @include border-radius($global-radius, $global-radius);
+}
+
+.card {
+  @extend .card-no-shadow;
   @include single-box-shadow(scale-color($complement-color1, $lightness: -42%));
 }
 
@@ -175,7 +179,7 @@
   @include grid-row();
 }
 
-#search-content, #home-content {
+#search-content {
   @include grid-row();
 
   .tags {
@@ -248,6 +252,20 @@
   }
   .results-fullwidth, .recipe-list-fullwidth {
     @include grid-column(12);
+  }
+  #featured-recipes {
+    @include grid-row();
+  }
+  #newest-recipes {
+    @include grid-row();
+
+    .new-cards {
+      @include grid-column(12);
+
+      ul.new-recipe-list {
+        @include block-grid(4);
+      }
+    }
   }
 }
 

@@ -1,11 +1,12 @@
 {% extends "theme_base.html" %}
 
+{% load staticfiles %}
 
 {% block content %}
   {% if not featured_recipes and not newest_recipes %}
     {% include "partials/_under_construction.html" %}
   {% else %}
-  <div id="home-content">
+  <div id="search-content">
     {% if tags %}
     <div class="tags">
       <div class="tags-inner">
@@ -27,13 +28,27 @@
     <div class="recipe-list{% if not tags %}-fullwidth{% endif %}">
       {% if featured_recipes %}
       <div id="featured-recipes">
-        There are featured recipes
+        <h2>Featured Recipes</h2>
+        <p>There are featured recipes</p>
       </div>
       {% endif %}
 
       {% if newest_recipes %}
       <div id="newest-recipes">
-        There are newest recipes
+        <div class="new-cards">
+          <h2>Newest Recipes</h2>
+
+          <ul class="new-recipe-list">
+            {% for recipe in newest_recipes %}
+            <li>
+              <p class="card-no-shadow">
+                <img src="{% if image_url %}{{ image_url }}{% else %}{% static "img/large-bowl.png" %}{% endif %}" {% if not image_url %}class="recipe-holder" {% endif %}/><br />
+                <a href="">{{ recipe.title }}</a>
+              </p>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
       {% endif %}
     </div>
