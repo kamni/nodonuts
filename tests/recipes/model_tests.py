@@ -115,55 +115,55 @@ class RecipeTests(TestCase):
     
 class RecipeTagTests(TestCase):
     def test_clean(self):
-        rt1 = TestRecipeTag(tag="amazing")
+        rt1 = TestRecipeTag(name="amazing")
         
         # should catch duplicates, case-insensitive
-        rt2 = RecipeTag(tag="amazing")
+        rt2 = RecipeTag(name="amazing")
         self.assertRaises(ValidationError, rt2.clean)
-        rt3 = RecipeTag(tag="AmAzInG")
+        rt3 = RecipeTag(name="AmAzInG")
         self.assertRaises(ValidationError, rt3.clean)
         
         # should not catch self
         rt1.clean()
     
     def test_save(self):
-        # should lower-case the tag
-        rt = RecipeTag(tag="MMMMM")
+        # should lower-case the name
+        rt = RecipeTag(name="MMMMM")
         rt.save()
-        self.assertEqual("mmmmm", rt.tag)
+        self.assertEqual("mmmmm", rt.name)
     
     def test__init(self):
         # all fields
-        rt = RecipeTag.objects.create(tag="Testing1",
+        rt = RecipeTag.objects.create(name="Testing1",
                                       type=TagType.MEAL,
                                       is_public=False,
                                       added_by=TestUser())
         self.assertIsNotNone(rt.date_added)
-        self.assertEqual('testing1', rt.tag)
+        self.assertEqual('testing1', rt.name)
         
         # bare minimum fields
-        rt = RecipeTag.objects.create(tag="Testing2")
-        self.assertEqual('testing2', rt.tag)
+        rt = TestRecipeTag(name="Testing2")
+        self.assertEqual('testing2', rt.name)
         self.assertEqual(TagType.OTHER, rt.type)
         self.assertTrue(rt.is_public)
         self.assertIsNone(rt.added_by)
         self.assertIsNotNone(rt.date_added)
         
-        # tag must be unique, case-insensitive
+        # name must be unique, case-insensitive
         with transaction.atomic():
             self.assertRaises(IntegrityError, RecipeTag.objects.create,
-                              tag="testing1")
+                              name="testing1")
         
-        # tag is required
+        # name is required
         with transaction.atomic():
             self.assertRaises(IntegrityError, RecipeTag.objects.create)
         
     def test__repr(self):
-        rt = RecipeTag(tag="yummy1")
+        rt = RecipeTag(name="yummy1")
         self.assertEqual("<RecipeTag: yummy1>", repr(rt))
     
     def test__unicode(self):
-        rt = RecipeTag(tag="yummy2")
+        rt = RecipeTag(name="yummy2")
         self.assertEqual(u'yummy2', unicode(rt))
         
 
@@ -294,18 +294,18 @@ def TestRecipe(title=None, slug=None, short_description=None, image=None,
                                  added_by=added_by or TestUser())
 
 
-def TestRecipeTag(tag=None, type=TagType.OTHER, is_public=True, added_by=None):
-    # generating unique tag
-    if not tag:
-        tag_base = lorem_ipsum(1)
+def TestRecipeTag(name=None, type=TagType.OTHER, is_public=True, added_by=None):
+    # generating unique name
+    if not name:
+        name_base = lorem_ipsum(1)
         suffix = 1
         not_unique = True
         while not_unique:
-            tag = "%s%s" % (tag_base, suffix)
-            not_unique = RecipeTag.objects.filter(tag=tag)
+            name = "%s%s" % (name_base, suffix)
+            not_unique = RecipeTag.objects.filter(name=name)
             suffix += 1
             
-    return RecipeTag.objects.create(tag=tag,
+    return RecipeTag.objects.create(name=name,
                                     type=type,
                                     is_public=is_public,
                                     added_by=added_by)

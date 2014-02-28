@@ -4,7 +4,7 @@ from django.test import TestCase
 
 from recipes.models import Recipe, RecipeTag
 from recipes.views import *
-from tests.model_tests import TestRecipe, TestRecipeTag
+from tests.recipes.model_tests import TestRecipe, TestRecipeTag
 
 
 class HomeTests(TestCase):

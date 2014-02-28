@@ -109,13 +109,13 @@ class RecipeTag(NullCheckerModel):
     """
     A way for users to classify recipes.
     
-    :field tag: CharField, max length=30, unique
+    :field name: CharField, max length=30, unique
     :field type: EnumField using TagType
     :field is_public: BooleanField, defaults to True
     :field added_by: ForeignKey to User, nullable
     :field date_added: DateTimeField, defaults to timezone.now
     """
-    tag = NullableCharField(max_length=30, unique=True)
+    name = NullableCharField(max_length=30, unique=True)
     type = enum.EnumField(TagType, default=TagType.OTHER)
     is_public = models.BooleanField(default=True, help_text="Indicates whether " +
                                     "all users will see this tag")
@@ -124,17 +124,17 @@ class RecipeTag(NullCheckerModel):
     date_added = models.DateTimeField(default=timezone.now)
     
     class Meta:
-        ordering = ('-type', 'tag')
+        ordering = ('-type', 'name')
     
     def clean(self):
-        other_tag = RecipeTag.objects.filter(tag=self.tag.lower()).exclude(id=self.id)
+        other_tag = RecipeTag.objects.filter(name=self.name.lower()).exclude(id=self.id)
         if other_tag:
             raise ValidationError("This tag already exists")
         return super(RecipeTag, self).clean()
     
     def save(self, *args, **kwargs):
-        if self.tag:
-            self.tag = self.tag.lower()
+        if self.name:
+            self.name = self.name.lower()
         super(RecipeTag, self).save(*args, **kwargs)
     
     def who_added(self):
@@ -142,10 +142,10 @@ class RecipeTag(NullCheckerModel):
         return self.added_by.get_full_name() if self.added_by else "System"
     
     def __repr__(self):
-        return "<RecipeTag: %s>" % self.tag
+        return "<RecipeTag: %s>" % self.name
     
     def __unicode__(self):
-        return unicode(self.tag)
+        return unicode(self.name)
 
 
 class Rating(models.Model):
