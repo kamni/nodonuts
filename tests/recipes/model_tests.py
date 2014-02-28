@@ -135,7 +135,7 @@ class RecipeTagTests(TestCase):
     def test__init(self):
         # all fields
         rt = RecipeTag.objects.create(name="Testing1",
-                                      type=TagType.MEAL,
+                                      type=TagType.MEALS,
                                       is_public=False,
                                       added_by=TestUser())
         self.assertIsNotNone(rt.date_added)
@@ -144,7 +144,7 @@ class RecipeTagTests(TestCase):
         # bare minimum fields
         rt = TestRecipeTag(name="Testing2")
         self.assertEqual('testing2', rt.name)
-        self.assertEqual(TagType.OTHER, rt.type)
+        self.assertEqual(TagType.MISCELLANEOUS_TAGS, rt.type)
         self.assertTrue(rt.is_public)
         self.assertIsNone(rt.added_by)
         self.assertIsNotNone(rt.date_added)
@@ -294,7 +294,8 @@ def TestRecipe(title=None, slug=None, short_description=None, image=None,
                                  added_by=added_by or TestUser())
 
 
-def TestRecipeTag(name=None, type=TagType.OTHER, is_public=True, added_by=None):
+def TestRecipeTag(name=None, type=TagType.MISCELLANEOUS_TAGS, 
+                  is_public=True, added_by=None):
     # generating unique name
     if not name:
         name_base = lorem_ipsum(1)

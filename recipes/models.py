@@ -93,16 +93,17 @@ class TagType(enum.Enum):
     Classifications for RecipeTags. 
     
     Types:
-        OTHER: default tag, an easy way to identify new tags created by users
-        MEAL: a particular kind of eating situation (breakfast, lunch, finger
+        MISCELLANEOUS_TAGS: default tag, an easy way to identify new tags 
+                created by users
+        MEALS: a particular kind of eating situation (breakfast, lunch, finger
             food)
-        INGREDIENT: a classification based on the types of ingredients in a
+        INGREDIENTS: a classification based on the types of ingredients in a
             recipe (vegan, low-carb, gluten-free)
             passover/pesach, finger food)
     """
-    OTHER = 0
-    INGREDIENT = 1
-    MEAL = 2
+    INGREDIENTS = 1
+    MEALS = 2
+    MISCELLANEOUS_TAGS = 100
 
 
 class RecipeTag(NullCheckerModel):
@@ -116,7 +117,7 @@ class RecipeTag(NullCheckerModel):
     :field date_added: DateTimeField, defaults to timezone.now
     """
     name = NullableCharField(max_length=30, unique=True)
-    type = enum.EnumField(TagType, default=TagType.OTHER)
+    type = enum.EnumField(TagType, default=TagType.MISCELLANEOUS_TAGS)
     is_public = models.BooleanField(default=True, help_text="Indicates whether " +
                                     "all users will see this tag")
     added_by = models.ForeignKey(User, blank=True, null=True,
@@ -124,7 +125,7 @@ class RecipeTag(NullCheckerModel):
     date_added = models.DateTimeField(default=timezone.now)
     
     class Meta:
-        ordering = ('-type', 'name')
+        ordering = ('type', 'name')
     
     def clean(self):
         other_tag = RecipeTag.objects.filter(name=self.name.lower()).exclude(id=self.id)

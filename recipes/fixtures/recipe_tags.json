@@ -3,7 +3,7 @@
     "pk": 1,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "dairy",
+      "name": "dairy",
       "type": 1
     }
   },
@@ -11,7 +11,7 @@
     "pk": 2,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "diary-free",
+      "name": "diary-free",
       "type": 1
     }
   },
@@ -19,7 +19,7 @@
     "pk": 3,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "fish",
+      "name": "fish",
       "type": 1
     }
   },
@@ -27,7 +27,7 @@
     "pk": 4,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "gluten-free",
+      "name": "gluten-free",
       "type": 1
     }
   },
@@ -35,7 +35,7 @@
     "pk": 5,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "halal",
+      "name": "halal",
       "type": 1
     }
   },
@@ -43,7 +43,7 @@
     "pk": 6,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "juice",
+      "name": "juice",
       "type": 1
     }
   },
@@ -51,7 +51,7 @@
     "pk": 7,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "kosher",
+      "name": "kosher",
       "type": 1
     }
   },
@@ -59,7 +59,7 @@
     "pk": 8,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "low-carb",
+      "name": "low-carb",
       "type": 1
     }
   },
@@ -67,7 +67,7 @@
     "pk": 9,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "low-fat",
+      "name": "low-fat",
       "type": 1
     }
   },
@@ -75,7 +75,7 @@
     "pk": 10,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "meat",
+      "name": "meat",
       "type": 1
     }
   },
@@ -83,7 +83,7 @@
     "pk": 11,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "nuts",
+      "name": "nuts",
       "type": 1
     }
   },
@@ -91,7 +91,7 @@
     "pk": 12,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "nut-free",
+      "name": "nut-free",
       "type": 1
     }
   },
@@ -99,7 +99,7 @@
     "pk": 13,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "raw",
+      "name": "raw",
       "type": 1
     }
   },
@@ -107,7 +107,7 @@
     "pk": 14,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "vegan",
+      "name": "vegan",
       "type": 1
     }
   },
@@ -115,7 +115,7 @@
     "pk": 15,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "vegetarian",
+      "name": "vegetarian",
       "type": 1
     }
   },
@@ -123,7 +123,7 @@
     "pk": 16,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "appetizer",
+      "name": "appetizer",
       "type": 2
     }
   },
@@ -131,7 +131,7 @@
     "pk": 17,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "beverage",
+      "name": "beverage",
       "type": 2
     }
   },
@@ -139,7 +139,7 @@
     "pk": 18,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "breakfast",
+      "name": "breakfast",
       "type": 2
     }
   },
@@ -147,7 +147,7 @@
     "pk": 19,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "dessert",
+      "name": "dessert",
       "type": 2
     }
   },
@@ -155,7 +155,7 @@
     "pk": 20,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "entree",
+      "name": "entree",
       "type": 2
     }
   },
@@ -163,7 +163,7 @@
     "pk": 21,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "finger food",
+      "name": "finger food",
       "type": 2
     }
   },
@@ -171,7 +171,7 @@
     "pk": 22,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "lunch",
+      "name": "lunch",
       "type": 2
     }
   },
@@ -179,7 +179,7 @@
     "pk": 23,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "side",
+      "name": "side",
       "type": 2
     }
   },
@@ -187,7 +187,7 @@
     "pk": 24,
     "model": "recipes.recipetag",
     "fields": {
-      "tag": "snack",
+      "name": "snack",
       "type": 2
     }
   }
