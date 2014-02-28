@@ -21,7 +21,7 @@
     {% endwith %}
     {% endwith %}
 
-    <p>{{ recipe.description }}  <a href="">More</a></p>
+    <p>{{ recipe.short_description }}  <a href="">More</a></p>
     <p>{% for tag in recipe.tags.all %}<span class="tag">{{ tag }}</span>{% endfor %}</p>
   </div>
 </div>

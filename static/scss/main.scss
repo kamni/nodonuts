@@ -186,6 +186,10 @@
     @include panel($complement-color2);
     @include border-radius($global-radius, $global-radius);
     margin-top: 5px;
+
+    & h1, h2, h3, h4, h5, h6, p {
+      color: $neutral-color3;
+    }
   }
   .results {
     @include grid-column(9);
