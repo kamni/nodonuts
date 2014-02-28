@@ -175,14 +175,13 @@
   @include grid-row();
 }
 
-#search-content {
+#search-content, #home-content {
   @include grid-row();
 
   .tags {
     @include grid-column(3);
   }
-  .results, .results-fullwidth {
-    //@include panel(scale-color($main-color1, $lightness: 14%));
+  .results, .results-fullwidth, .recipe-list, .recipe-list-fullwidth {
     @include panel($complement-color2);
     @include border-radius($global-radius, $global-radius);
     margin-top: 5px;
@@ -191,10 +190,10 @@
       color: $neutral-color3;
     }
   }
-  .results {
+  .results, .recipe-list {
     @include grid-column(9);
   }
-  .results-fullwidth {
+  .results-fullwidth, .recipe-list-fullwidth {
     @include grid-column(12);
   }
 }

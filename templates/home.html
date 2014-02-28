@@ -5,13 +5,19 @@
   {% if not featured_recipes and not newest_recipes %}
     {% include "partials/_under_construction.html" %}
   {% else %}
+  <div id="home-content">
     {% if tags %}
-    <div id="tags">
-      There are tags
+    <div class="tags">
+      <ul>
+      {% for tag in tags %}
+        {% ifchanged tag.type %}<li class="tag-header"><h2>{{ tag.get_label }}</h2></li>{% endifchanged %}
+        <li><a href="{% url "recipe_search" %}?q={{ tag.name|urlencode }}">{{ tag.name }}</a></li>
+      {% endfor %}
+      </ul>
     </div>
     {% endif %}
 
-    <div id="results{% if not tags %}-fullwidth{% endif %}">
+    <div class="recipe-list{% if not tags %}-fullwidth{% endif %}">
       {% if featured_recipes %}
       <div id="featured-recipes">
         There are featured recipes
@@ -24,5 +30,6 @@
       </div>
       {% endif %}
     </div>
+  </div>
   {% endif %}
 {% endblock %}
