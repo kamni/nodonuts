@@ -222,12 +222,21 @@
       }
     }
   }
+  .recipe-list {
+    margin-left: -1rem;
+  }
   .results, .results-fullwidth, .recipe-list, .recipe-list-fullwidth {
     @include panel($complement-color2);
     @include border-radius($global-radius, $global-radius);
     margin-top: 5px;
 
-    & h1, h2, h3, h4, h5, h6, p {
+    .recipe-text h1, h2, h3, h4, h5, h6 {
+      color: $neutral-color3;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: $neutral-color1;
+    }
+    & p {
       color: $neutral-color3;
     }
   }
