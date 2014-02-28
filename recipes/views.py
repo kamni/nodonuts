@@ -13,7 +13,7 @@ class Home(TemplateView):
                                     limit=config.FEATURED_RECIPE_COUNT),
                 'newest_recipes': Recipe.objects.filter_newest(
                                     limit=config.NEWEST_RECIPE_COUNT),
-                'tags': RecipeTag.objects.all()}
+                'tags': RecipeTag.objects.filter_list(exclude_miscellaneous=True)}
     
 
 class RecipeSearch(FormView):

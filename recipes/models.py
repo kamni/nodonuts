@@ -106,6 +106,18 @@ class TagType(enum.Enum):
     MISCELLANEOUS = 100
 
 
+class RecipeTagManager(models.Manager):
+    """
+    TODO: docs and tests
+    """
+    def filter_list(self, exclude_miscellaneous=False):
+        # TODO: docs and tests
+        tags = RecipeTag.objects.exclude(recipe__isnull=True)
+        if exclude_miscellaneous:
+            tags = tags.exclude(type=TagType.MISCELLANEOUS)
+        return tags
+
+
 class RecipeTag(NullCheckerModel):
     """
     A way for users to classify recipes.
@@ -123,6 +135,8 @@ class RecipeTag(NullCheckerModel):
     added_by = models.ForeignKey(User, blank=True, null=True,
                                  help_text="The user who added this tag")
     date_added = models.DateTimeField(default=timezone.now)
+    
+    objects = RecipeTagManager()
     
     class Meta:
         ordering = ('type', 'name')
