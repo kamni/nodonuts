@@ -21,7 +21,7 @@ Most templates will extend theme_base.html.
       <ul class="nav-links">
         {% block nav_bar %}
         <li class="divider"></li>
-        <li><a href="">About</a></li>
+        <li><a href="{% url "home" %}">Home</a></li>
         <li class="divider"></li>
         <li class="has-button">
           {% if user.is_authenticated %}
