@@ -1,5 +1,8 @@
 import datetime
+
+from django.utils import timezone
 from haystack import indexes
+
 from recipes.models import Recipe
 
 
@@ -14,7 +17,7 @@ class RecipeIndex(indexes.SearchIndex, indexes.Indexable):
         return Recipe
 
     def index_queryset(self, using=None):
-        return self.get_model().objects.filter(date_added__lte=datetime.datetime.now())
+        return self.get_model().objects.filter(date_added__lte=timezone.now())
     
     def prepare(self, object):
         self.prepared_data = super(RecipeIndex, self).prepare(object)
