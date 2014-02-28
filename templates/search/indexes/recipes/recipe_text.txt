@@ -1,5 +1,5 @@
 {{ object.title }}
 {{ object.ingredients }}
 {% for rtag in object.tags.all %}
-  {{ rtag.tag }}
+  {{ rtag.name }}
 {% endfor %}

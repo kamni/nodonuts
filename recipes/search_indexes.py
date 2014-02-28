@@ -21,5 +21,5 @@ class RecipeIndex(indexes.SearchIndex, indexes.Indexable):
     
     def prepare(self, object):
         self.prepared_data = super(RecipeIndex, self).prepare(object)
-        self.prepared_data['tags'] = [rtag.tag for rtag in object.tags.all()]
+        self.prepared_data['tags'] = [rtag.name for rtag in object.tags.all()]
         return self.prepared_data
