@@ -10,6 +10,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "nodonuts.settings")
 
 from django.core.management import call_command
 from django_test_utils.model_utils import TestUser
+from django_test_utils.random_generators import lorem_ipsum
 
 from recipes.models import Recipe, RecipeTag, Rating
 from tests.recipes.model_tests import TestRecipe, TestRecipeTag, TestRating
@@ -158,10 +159,12 @@ def generate_test_data():
         
         featured = random.randint(1, 20) == 1
         is_public = random.randint(1, 30) != 1
-        recipe = TestRecipe(title=title, ingredients=make_ingredients_list(),
-                             instructions=make_instructions(), 
-                             featured=featured, is_public=is_public,
-                             added_by=random.choice(users))
+        recipe = TestRecipe(title=title, 
+                            short_description=lorem_ipsum(random.randint(5, 8)),
+                            ingredients=make_ingredients_list(),
+                            instructions=make_instructions(), 
+                            featured=featured, is_public=is_public,
+                            added_by=random.choice(users))
         
         selected_tags = []
         num_tags = random.randint(1, 4)
