@@ -7,23 +7,7 @@
     {% include "partials/_under_construction.html" %}
   {% else %}
   <div id="search-content">
-    {% if tags %}
-    <div class="tags">
-      <div class="tags-inner">
-        <div class="tags-list">
-          <ul>
-          {% for tag in tags %}
-            {% ifchanged tag.type %}
-              <li class="tag-header{% if not forloop.first %} tag-header-middle{% endif %}"><h2>{{ tag.get_type_label }}</h2></li>{% endifchanged %}
-            <li><a href="{% url "recipe_search" %}?q={{ tag.name|urlencode }}">{{ tag.name }}</a></li>
-          {% endfor %}
-          </ul>
-        </div>
-
-        <div class="tags-spacer"></div>
-      </div>
-    </div>
-    {% endif %}
+    {% include "recipes/partials/_tags.html" %}
 
     <div class="recipe-list{% if not tags %}-fullwidth{% endif %}">
       {% if featured_recipes %}
