@@ -5,7 +5,48 @@
 {% block search_bar %}{% endblock %}
 
 {% block content %}
-  <div id="search-options">
+  <div id="search-content">
+    {% include "recipes/partials/_tags.html" %}
+
+    <div class="wrapper">
+
+    <div class="recipe-list{% if not tags %}-fullwidth{% endif %}">
+      <div id="search-options">
+        <h2>Search</h2>
+
+        <form method="get" action=".">
+          <table>
+            {{ form.as_table }}
+            <tr>
+              <td>&nbsp;</td>
+              <td>
+                <input type="submit" value="Search">
+              </td>
+            </tr>
+            </table>
+        </form>
+      </div>
+
+      {% if query %}
+
+      {% else %}
+      <div class="no-results">
+        <p>Enter search words in the form above to start searching.</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  </div>
+
+
+
+
+
+<!--
+  <div id="search-content">
+    {% include "recipes/partials/_tags.html" %}
+
+    <div id="search-options">
     <h2>Search</h2>
 
     <form method="get" action=".">
@@ -21,11 +62,8 @@
     </form>
   </div>
 
-  <div id="search-content">
-    {% include "recipes/partials/_tags.html" %}
-
     {% if query %}
-      <div class="results{% if not tags %}-fullwidth{% endif %}">
+      <div class="recipe-list{% if not tags %}-fullwidth{% endif %}">
         <h3>Results</h3>
 
         {% for result in page.object_list %}
@@ -46,8 +84,10 @@
         </div>
         {% endif %}
       {% else %}
-        <p>Enter search words in the form above to start searching.</p>
+        <div class="card">
+          <p>Enter search words in the form above to start searching.</p>
+        </div>
       {% endif %}
     </div>
-  </div>
+  </div>-->
 {% endblock %}

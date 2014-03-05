@@ -25,7 +25,7 @@
           <ul class="new-recipe-list">
             {% for recipe in newest_recipes %}
             <li>
-              <p class="card-no-shadow">
+              <p class="small-recipe">
                 <img src="{% if image_url %}{{ image_url }}{% else %}{% static "img/large-bowl.png" %}{% endif %}" {% if not image_url %}class="recipe-holder" {% endif %}/><br />
                 <a href="">{{ recipe.title }}</a>
               </p>
