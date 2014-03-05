@@ -1,6 +1,8 @@
 @import "foundation/functions";
 @import "colors";
 
+$include-html-top-bar-classes: true;
+
 $topbar-bg-color: $primary-color;
 // $topbar-bg: $topbar-bg-color;
 

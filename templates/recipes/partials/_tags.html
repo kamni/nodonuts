@@ -6,7 +6,7 @@
       {% for tag in tags %}
         {% ifchanged tag.type %}
           <li class="tag-header{% if not forloop.first %} tag-header-middle{% endif %}"><h2>{{ tag.get_type_label }}</h2></li>{% endifchanged %}
-        <li><a href="{% url "recipe_search" %}?q={{ tag.name|urlencode }}">{{ tag.name }}</a></li>
+        <li><a href="{% url "recipe_search" %}?q={{ '"'|urlencode }}{{ tag.name|urlencode }}{{ '"'|urlencode }}">{{ tag.name }}</a></li>
       {% endfor %}
       </ul>
     </div>
