@@ -265,7 +265,7 @@
       ul.new-recipe-list {
         @include block-grid(4);
 
-        li {
+        li > p.card-no-shadow {
 
         }
       }
