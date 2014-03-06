@@ -27,15 +27,16 @@
           {% if page.object_list %}
             <h3>Results</h3>
 
+            {% with "recipe-summary" as recipe_div_class %}
             {% for result in page.object_list %}
               {% with result.object as recipe %}
-              {% with "recipe-summary" as recipe_div_class %}
                 {% include "recipes/partials/_recipe_summary.html" %}
               {% endwith %}
               {% endwith %}
             {% empty %}
               <p>No results found.</p>
             {% endfor %}
+            {% endwith %}
 
             {% if page.has_previous or page.has_next %}
               <div class="next-previous">

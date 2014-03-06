@@ -26,7 +26,7 @@
 //   "foundation/components/keystrokes",
    "foundation/components/labels",
 //   "foundation/components/magellan",
-//   "foundation/components/orbit",
+   "foundation/components/orbit",
 //   "foundation/components/pagination",
    "foundation/components/panels",
 //   "foundation/components/pricing-tables",
@@ -295,7 +295,7 @@
     @extend .card;
   }
   #featured-recipes {
-    @include grid-row();
+    @include grid-column(12);
   }
   #newest-recipes {
     @extend .wrapper;

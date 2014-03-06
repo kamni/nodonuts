@@ -11,12 +11,22 @@
 
     <div class="recipe-list{% if not tags %}-fullwidth{% endif %}">
       {% if featured_recipes %}
-      <div id="featured-recipes">
-        <h2>Featured Recipes</h2>
-        <p>There are featured recipes</p>
+      <div class="wrapper">
+        <div id="featured-recipes">
+          <h2>Featured Recipes</h2>
+
+          <ul data-orbit>
+            {% with "recipe-summary" as recipe_div_class %}
+              {% for recipe in featured_recipes %}
+                <li>{% include "recipes/partials/_recipe_summary.html" %}</li>
+              {% endfor %}
+            {% endwith %}
+          </ul>
+        </div>
       </div>
       {% endif %}
 
+      {% comment %}
       {% if newest_recipes %}
       <div id="newest-recipes">
         <div class="new-cards">
@@ -43,6 +53,7 @@
         </div>
       </div>
       {% endif %}
+      {% endcomment %}
     </div>
   </div>
   {% endif %}
