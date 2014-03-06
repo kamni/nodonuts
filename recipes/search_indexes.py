@@ -9,6 +9,7 @@ from recipes.models import Recipe
 class RecipeIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
     tags = indexes.MultiValueField()
+    date_added = indexes.DateTimeField(model_attr='date_added')
     popularity = indexes.DecimalField(model_attr='popularity')
     
     # TODO: filter by added_by, is_public -- do in a custom search class

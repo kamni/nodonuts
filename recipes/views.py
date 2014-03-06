@@ -23,10 +23,6 @@ class RecipeSearchView(SearchView):
     TODO: docs and tests
     """
     
-    def get_results(self):
-        """Overrides the parent method to sort results by popularity"""
-        return self.form.search().order_by('-popularity')
-    
     def get_selected_tags(self):
         """Determines which tags should show up as 'selected' in the view"""
         selected = []
@@ -97,7 +93,7 @@ class SearchView(object):
 
         if self.searchqueryset is not None:
             kwargs['searchqueryset'] = self.searchqueryset
-
+        
         return self.form_class(data, **kwargs)
 
     def get_query(self):
