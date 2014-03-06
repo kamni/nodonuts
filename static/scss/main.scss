@@ -49,6 +49,16 @@
   @include grid-row();
 }
 
+.tag {
+  @include border-radius($global-radius, $global-radius);
+  background-color: scale-color($main-color1, $lightness: 56%);
+  color: $complement-color2;
+  padding-left: .75rem;
+  padding-right: .75rem;
+  margin-left: .1rem;
+  margin-right: .1rem;
+}
+
 @mixin card(
   $background-color,
   $with-shadow: false,
