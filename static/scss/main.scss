@@ -269,8 +269,14 @@
     @include border-radius($global-radius, $global-radius);
     margin-top: 5px;
 
-    .recipe-text h1, h2, h3, h4, h5, h6 {
-      color: $neutral-color3;
+    .recipe-text {
+      h1, h2, h3 {
+        color: $complement-color1;
+      }
+
+      h4, h5, h6 {
+        color: $neutral-color3;
+      }
     }
     h1, h2, h3, h4, h5, h6 {
       color: $neutral-color1;
@@ -382,5 +388,9 @@ img.recipe-holder {
   & a, .link-like {
     color: $neutral-color1;
   }
+}
+
+.link-like {
+  color: $main-color1  !important;
 }
 

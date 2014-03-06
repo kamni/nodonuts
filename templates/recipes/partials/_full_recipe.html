@@ -1,6 +1,8 @@
 {% load staticfiles %}
 
 <div {% if recipe_id %}id="{{ recipe_id }}" {% endif %}class="{{ recipe_div_class }} reveal-modal" data-reveal>
+  <div><a href="#" class="close-reveal-modal">X</a></div>
+
   {% with recipe.get_image_url as image_url %}
     <div class="recipe-image">
       <img src="{% if image_url %}{{ image_url }}{% else %}{% static "img/large-bowl.png" %}{% endif %}" {% if not image_url %}class="recipe-holder" {% endif %}/>
@@ -8,7 +10,7 @@
   {% endwith %}
 
   <div class="recipe-text">
-    <h3><a href="">{{ recipe.title }}</a></h3>
+    <h3 class="link-like">{{ recipe.title }}</h3>
 
     {% with recipe.likes as likes %}
     {% with recipe.dislikes as dislikes %}
