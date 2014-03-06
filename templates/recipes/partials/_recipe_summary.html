@@ -8,20 +8,20 @@
   {% endwith %}
 
   <div class="recipe-text">
-    <h3><a href="">{{ recipe.title }}</a></h3>
+    {% with recipe.summary_id as recipe_id %}
+      <h3><a href="#" data-reveal-id="{{ recipe_id }}">{{ recipe.title }}</a></h3>
 
-    {% with recipe.likes as likes %}
-    {% with recipe.dislikes as dislikes %}
-      <p>
+      {% with recipe.likes as likes %}
+      {% with recipe.dislikes as dislikes %}
+        <p>
         {% if likes or dislikes %}
           <img src="{% static "img/thumbs-up.png" %}" /> {{ likes }} Like{{ likes|pluralize }}
           <img src="{% static "img/thumbs-down.png" %}" /> {{ dislikes }} Dislike{{ dislikes|pluralize }}
         {% endif %}
-      </p>
-    {% endwith %}
-    {% endwith %}
+        </p>
+      {% endwith %}
+      {% endwith %}
 
-    {% with recipe.summary_id as recipe_id %}
       {% with "recipe-full" as recipe_div_class %}
         {% include "recipes/partials/_full_recipe.html" %}
       {% endwith %}
