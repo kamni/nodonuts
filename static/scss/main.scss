@@ -62,6 +62,17 @@
   }
 }
 
+.card-header {
+  @include grid-column(6);
+  margin-left: -1rem;
+  text-align: left;
+}
+.card-link {
+  @include grid-column(6);
+  text-align: right;
+  padding-top: 1rem;
+}
+
 .card {
   @include card($neutral-color1, $with-shadow: true, $shadow-color: $complement-color2);
 }
