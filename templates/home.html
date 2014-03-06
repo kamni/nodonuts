@@ -24,12 +24,17 @@
 
           <ul class="new-recipe-list">
             {% for recipe in newest_recipes %}
+            {% with recipe.summary_id as recipe_id %}
+              {% with "recipe-full" as recipe_div_class %}
+                {% include "recipes/partials/_full_recipe.html" %}
+              {% endwith %}
             <li>
-              <p class="small-recipe">
+              <p class="small-recipe" data-reveal-id="{{ recipe_id }}">
                 <img src="{% if image_url %}{{ image_url }}{% else %}{% static "img/large-bowl.png" %}{% endif %}" {% if not image_url %}class="recipe-holder" {% endif %}/><br />
                 <a href="">{{ recipe.title }}</a>
               </p>
             </li>
+            {% endwith %}
             {% endfor %}
           </ul>
         </div>
