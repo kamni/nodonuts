@@ -2,6 +2,10 @@
 
 {% load staticfiles %}
 
+{% block head_extra %}
+<script type="text/javascript" src="{% static "js/search.js" %}"></script>
+{% endblock %}
+
 {% block search_bar %}{% endblock %}
 
 {% block content %}
