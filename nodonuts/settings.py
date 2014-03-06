@@ -105,6 +105,8 @@ CONSTANCE_CONFIG = {
                                    'on the home page.'),
     'NEWEST_RECIPE_COUNT': (8, 'How many of the newest recipes should be ' +
                                'shown on the home page.'),
+    'SEARCH_RESULTS_PER_PAGE': (10, 'Number of search results to show on ' +
+                                    'search page.'),
 }
 
 

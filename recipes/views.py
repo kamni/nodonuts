@@ -22,6 +22,7 @@ class RecipeSearchView(SearchView):
     """
     TODO: docs and tests
     """
+    results_per_page = config.SEARCH_RESULTS_PER_PAGE
     
     def get_selected_tags(self):
         """Determines which tags should show up as 'selected' in the view"""
