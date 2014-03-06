@@ -21,5 +21,11 @@ extend theme_base.html
     {% block body %}
     <h1>Under Construction</h1>
     {% endblock %}
+
+    <script type="text/javascript" src="{% static "bower_components/modernizr/modernizr.js" %}"></script>
+    <script type="text/javascript" src="{% static "bower_components/foundation/js/foundation.min.js" %}"></script>
+    <script type="text/javascript">
+      $(document).foundation();
+    </script>
   </body>
 </html>

@@ -21,7 +21,13 @@
     {% endwith %}
     {% endwith %}
 
-    <p>{{ recipe.short_description }}  <a href="">More</a></p>
+    {% with recipe.summary_id as recipe_id %}
+      {% with "recipe-full" as recipe_div_class %}
+        {% include "recipes/partials/_full_recipe.html" %}
+      {% endwith %}
+      <p>{{ recipe.short_description }}  <a href="#" data-reveal-id="{{ recipe_id }}">More</a></p>
+    {% endwith %}
+
     <p>{% for tag in recipe.tags.all %}<span class="tag">{{ tag }}</span>{% endfor %}</p>
   </div>
 </div>

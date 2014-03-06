@@ -81,6 +81,10 @@ class Recipe(NullCheckerModel):
         self.slug = slugify(self.title)
         super(Recipe, self).save(*args, **kwargs)
     
+    def summary_id(self):
+        """TODO: docs and tests"""
+        return "-".join(("summary", self.slug))
+    
     def __repr__(self):
         return "<Recipe: %s (by %s)>" % (self.title, self.added_by)
     
