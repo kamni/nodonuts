@@ -4124,7 +4124,7 @@ blockquote p {
       padding-left: 1.25rem;
       line-height: 2rem; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003216}}
-      #search-content #tags .tags-inner .tags-list li:not(.tag-header):not(.tag-info):hover, #search-content #tags .tags-inner .tags-list li .query {
+      #search-content #tags .tags-inner .tags-list li:not(.tag-header):not(.tag-info):hover, #search-content #tags .tags-inner .tags-list li.query {
         background-color: #ffe6b5; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003220}}
     #search-content #tags .tags-inner .tags-list .tag-info {

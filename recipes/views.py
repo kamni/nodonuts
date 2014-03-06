@@ -1,3 +1,5 @@
+import re
+
 from constance import config
 from django.views.generic import FormView, TemplateView
 from haystack.views import SearchView
@@ -25,9 +27,17 @@ class RecipeSearchView(SearchView):
         """Overrides the parent method to sort results by popularity"""
         return self.form.search().order_by('-popularity')
     
+    def get_selected_tags(self):
+        """Determines which tags should show up as 'selected' in the view"""
+        selected = []
+        for match in re.finditer(r'".+?"', self.query):
+            selected.append(self.query[match.start()+1:match.end()-1])
+        return selected
+    
     def extra_context(self):
         return {'is_search': True,
-                'tags': RecipeTag.objects.filter_list(exclude_miscellaneous=True)}
+                'tags': RecipeTag.objects.filter_list(exclude_miscellaneous=True),
+                'selected_tags': self.get_selected_tags()}
 
 '''    
 class SearchView(object):

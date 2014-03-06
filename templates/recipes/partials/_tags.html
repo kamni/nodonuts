@@ -6,8 +6,15 @@
           <li class="tag-info">{% if is_search %}Search tags...{% else %}Search by tag...{% endif %}</li>
           {% for tag in tags %}
             {% ifchanged tag.type %}
-              <li class="tag-header{% if not forloop.first %} tag-header-middle{% endif %}"><h2>{{ tag.get_type_label }}</h2></li>{% endifchanged %}
-            <li><a href="{% url "recipe_search" %}?q={{ '"'|urlencode }}{{ tag.name|urlencode }}{{ '"'|urlencode }}">{{ tag.name }}</a></li>
+              <li class="tag-header{% if not forloop.first %} tag-header-middle{% endif %}"><h2>{{ tag.get_type_label }}</h2></li>
+            {% endifchanged %}
+            {% if is_search %}
+              {% with tag.name as tagname %}
+              <li{% if tagname in selected_tags %} class="query"{% endif %}><a href="#">{{ tagname }}</a></li>
+              {% endwith %}
+            {% else %}
+              <li><a href="{% url "recipe_search" %}?q={{ '"'|urlencode }}{{ tag.name|urlencode }}{{ '"'|urlencode }}">{{ tag.name }}</a></li>
+            {% endif %}
           {% endfor %}
       </ul>
     </div>
