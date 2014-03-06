@@ -24,7 +24,7 @@
     {% endwith %}
 
     <p>{{ recipe.short_description }}</p>
-    <p>{% for tag in recipe.tags.all %}<span class="tag">{{ tag }}</span>{% endfor %}</p>
+    <p>{% for tag in recipe.tags.all %}<a href="{% url "recipe_search" %}?q={{ tag }}" class="tag">{{ tag }}</a>{% endfor %}</p>
     {{ recipe.ingredients|safe }}
     <p>&nbsp;</p>
     {{ recipe.instructions|safe }}
