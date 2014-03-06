@@ -213,9 +213,14 @@
           padding-left: 1.25rem;
           line-height: 2rem;
 
-          &:not(.tag-header):hover {
+          &:not(.tag-header):not(.tag-info):hover, .query {
             background-color: scale-color($neutral-color1, $lightness: -14%);
           }
+        }
+        .tag-info {
+          font-variant: small-caps;
+          font-weight: bold;
+          color: $main-color2;
         }
         .tag-header {
           padding-top: .5rem;

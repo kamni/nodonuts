@@ -26,7 +26,8 @@ class RecipeSearchView(SearchView):
         return self.form.search().order_by('-popularity')
     
     def extra_context(self):
-        return {'tags': RecipeTag.objects.filter_list(exclude_miscellaneous=True)}
+        return {'is_search': True,
+                'tags': RecipeTag.objects.filter_list(exclude_miscellaneous=True)}
 
 '''    
 class SearchView(object):
