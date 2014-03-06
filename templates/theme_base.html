@@ -7,48 +7,48 @@ Most templates will extend theme_base.html.
 {% endcomment %}
 
 {% block body %}
-  <div id="header">
-    <ul class="brand">
-      <li class="name">
-        <h1><a href="{% url "home" %}">
+  <div class="fixed">
+    <div id="header">
+      <ul class="brand">
+        <li class="name">
+          <h1><a href="{% url "home" %}">
             {% if config.SHOW_SITE_LOGO %}<img id="logo" src="{% static config.SITE_LOGO %}" alt="logo" />{% endif %}
             {{ config.SITE_NAME }}
-        </a></h1>
-      </li>
-    </ul>
-
-    <div id="nav">
-      <ul class="nav-links">
-        {% block nav_bar %}
-        <li class="divider"></li>
-        <li><a href="{% url "home" %}">Home</a></li>
-        <li class="divider"></li>
-        <li class="has-button">
-          {% if user.is_authenticated %}
-            <a href="{% url "logout" %}" class="small button">Sign Out</a>
-          {% else %}
-            <a href="{% url "admin:index" %}" class="small button">Log In</a>
-          {% endif %}
+          </a></h1>
         </li>
-        {% endblock %}
       </ul>
-    </div>
-  </div>
 
-  <div id="search">
-    {% block search_bar %}
-    <form method="get" action="{% url "recipe_search" %}">
-      <div class="search-bar">
-        <ul>
-          <li class="search-input"><input id="id_q" name="q" type="text" placeholder="keyword search" /></li>
-          <li><button type="submit"><img src="{% static "img/search.png" %}" alt="search" /></button></li>
+      <div id="nav">
+        <ul class="nav-links">
+          {% block nav_bar %}
+          <li class="divider"></li>
+          <li><a href="{% url "home" %}">Home</a></li>
+          <li class="divider"></li>
+          <li class="has-button">
+            {% if user.is_authenticated %}
+              <a href="{% url "logout" %}" class="small button">Sign Out</a>
+            {% else %}
+              <a href="{% url "admin:index" %}" class="small button">Log In</a>
+            {% endif %}
+          </li>
+          {% endblock %}
         </ul>
       </div>
-    </form>
-    {% endblock %}
-  </div>
+    </div>
 
-  <div class="spacer"><div class="container">&nbsp;</div></div>
+    <div id="search">
+      {% block search_bar %}
+      <form method="get" action="{% url "recipe_search" %}">
+        <div class="search-bar">
+          <ul>
+            <li class="search-input"><input id="id_q" name="q" type="text" placeholder="keyword search" /></li>
+            <li><button type="submit"><img src="{% static "img/search.png" %}" alt="search" /></button></li>
+          </ul>
+        </div>
+      </form>
+      {% endblock %}
+    </div>
+  </div>
 
   <div id="content">
     {% block content %}

@@ -3,7 +3,7 @@
   <div class="tags-inner">
     <div class="tags-list">
       <ul>
-          <li class="tag-info">{% if is_search %}Search tags...{% else %}Search by tag...{% endif %}</li>
+          <li class="tag-info">{% if is_search %}Add tags to search:{% else %}Search by tag...{% endif %}</li>
           {% for tag in tags %}
             {% ifchanged tag.type %}
               <li class="tag-header{% if not forloop.first %} tag-header-middle{% endif %}"><h2>{{ tag.get_type_label }}</h2></li>

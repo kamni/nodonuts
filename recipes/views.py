@@ -15,7 +15,7 @@ class Home(TemplateView):
                                     limit=config.FEATURED_RECIPE_COUNT),
                 'newest_recipes': Recipe.objects.filter_newest(
                                     limit=config.NEWEST_RECIPE_COUNT),
-                'tags': RecipeTag.objects.filter_list(exclude_miscellaneous=True)}
+                'tags': RecipeTag.objects.filter_list(exclude_miscellaneous=False)}
     
 
 class RecipeSearchView(SearchView):
@@ -32,7 +32,7 @@ class RecipeSearchView(SearchView):
     
     def extra_context(self):
         return {'is_search': True,
-                'tags': RecipeTag.objects.filter_list(exclude_miscellaneous=True),
+                'tags': RecipeTag.objects.filter_list(exclude_miscellaneous=False),
                 'selected_tags': self.get_selected_tags()}
 
 '''    

@@ -97,6 +97,10 @@
   float: none !important;
 }
 
+#content {
+   padding-top: 2* $topbar-height; // to clear fixed header and search bar
+}
+
 #footer{
   @extend .wrapper;
 
