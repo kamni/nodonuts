@@ -1,6 +1,8 @@
 from django import forms
 from haystack.forms import SearchForm
 
+from recipes.models import ServingSize
+
 
 class RecipeSearchForm(SearchForm):
     order = forms.ChoiceField(required=False, label="Sort Results By",
@@ -8,6 +10,8 @@ class RecipeSearchForm(SearchForm):
                                        ('newest', 'newest'),
                                        ('alphabeta', 'alphabetical (A-Z)'),
                                        ('alphabetz', 'alphabetical (Z-A)')))
+    ss = forms.ChoiceField(required=False, label="Serving Size",
+                           choices=ServingSize.choices())
     
     def order_by(self, query, ordering=None):
         if ordering == 'newest':
@@ -26,7 +30,8 @@ class RecipeSearchForm(SearchForm):
         
         qstring = self.cleaned_data.get('q')
         ordering = self.cleaned_data.get('order')
-        if not (qstring or ordering):
+        srv_size = self.cleaned_data.get('ss')
+        if not (qstring or ordering or srv_size):
             return self.no_query_found()
         
         if qstring:
@@ -34,6 +39,9 @@ class RecipeSearchForm(SearchForm):
         else:
             query = self.searchqueryset.all()
             
+        if ss:
+            query = query.filter(serving_size=ss)
+        
         if self.load_all:
             query = query.load_all()
 
