@@ -4827,4 +4827,5 @@ img.recipe-holder {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003419}}
 .rating {
-  height: 1.2em; }
+  height: 1.2em;
+  display: inline-block !important; }
