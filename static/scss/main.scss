@@ -383,6 +383,7 @@ img.recipe-holder {
 }
 .recipe-slider {
   @include maintain-ratio($ratio: 2 1);
+  overflow: hidden;
 }
 .recipe-summary, .recipe-slider {
   @include grid-row();
