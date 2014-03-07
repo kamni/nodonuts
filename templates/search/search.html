@@ -30,7 +30,9 @@
             {% with "recipe-summary" as recipe_div_class %}
             {% for result in page.object_list %}
               {% with result.object as recipe %}
-                {% include "recipes/partials/_recipe_summary.html" %}
+              {% with "recipes/partials/_recipe_summary.html" as template_name %}
+                {% include "recipes/partials/_recipe_wrapper.html" %}
+              {% endwith %}
               {% endwith %}
             {% empty %}
               <p>No results found.</p>

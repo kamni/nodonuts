@@ -1,0 +1,17 @@
+{% comment %}
+Several of these variables are duplicated in both the summary and the full
+recipe modal. We want to minimize hits to the database, so we're wrapping
+everything in a single block of 'with' statements.
+{% endcomment %}
+
+{% with recipe.get_image_url as image_url %}
+{% with recipe.summary_id as recipe_id %}
+{% with recipe.likes as likes %}
+{% with recipe.dislikes as dislikes %}
+{% with recipe.tags.all as tags %}
+  {% include template_name %}
+{% endwith %}
+{% endwith %}
+{% endwith %}
+{% endwith %}
+{% endwith %}

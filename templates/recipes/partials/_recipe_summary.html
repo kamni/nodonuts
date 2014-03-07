@@ -1,24 +1,8 @@
-{% comment %}
-Several of these variables are duplicated in both the summary and the full
-recipe modal. We want to minimize hits to the database, so we're wrapping
-everything in a single block of 'with' statements.
-{% endcomment %}
+{% include "recipes/partials/_recipe_text.html" %}
 
-{% with recipe.get_image_url as image_url %}
-{% with recipe.summary_id as recipe_id %}
-{% with recipe.likes as likes %}
-{% with recipe.dislikes as dislikes %}
-{% with recipe.tags.all as tags %}
-  {% include "recipes/partials/_recipe_text.html" %}
-
-  {% with True as full_recipe %}
-  {% with "recipe-full" as recipe_div_class %}
-      {% include "recipes/partials/_recipe_text.html" %}
-  {% endwith %}
-  {% endwith %}
-{% endwith %}
-{% endwith %}
-{% endwith %}
+{% with True as full_recipe %}
+{% with "recipe-full" as recipe_div_class %}
+    {% include "recipes/partials/_recipe_text.html" %}
 {% endwith %}
 {% endwith %}
 

@@ -18,7 +18,9 @@
           <ul data-orbit>
             {% with "recipe-summary" as recipe_div_class %}
               {% for recipe in featured_recipes %}
+                {% with "recipes/partials/_recipe_summary.html" as template_name %}
                 <li>{% include "recipes/partials/_recipe_summary.html" %}</li>
+                {% endwith %}
               {% endfor %}
             {% endwith %}
           </ul>
@@ -26,7 +28,6 @@
       </div>
       {% endif %}
 
-      {% comment %}
       {% if newest_recipes %}
       <div id="newest-recipes">
         <div class="new-cards">
@@ -38,8 +39,12 @@
           <ul class="new-recipe-list">
             {% for recipe in newest_recipes %}
             {% with recipe.summary_id as recipe_id %}
+              {% with True as full_recipe %}
               {% with "recipe-full" as recipe_div_class %}
-                {% include "recipes/partials/_full_recipe.html" %}
+              {% with "recipes/partials/_recipe_text.html" as template_name %}
+                {% include "recipes/partials/_recipe_wrapper.html" %}
+              {% endwith %}
+              {% endwith %}
               {% endwith %}
             <li>
               <p class="small-recipe" data-reveal-id="{{ recipe_id }}">
@@ -53,7 +58,6 @@
         </div>
       </div>
       {% endif %}
-      {% endcomment %}
     </div>
   </div>
   {% endif %}
