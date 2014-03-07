@@ -25,9 +25,12 @@ extend theme_base.html
     {% endblock %}
 
     <script type="text/javascript" src="{% static "bower_components/modernizr/modernizr.js" %}"></script>
-    <script type="text/javascript" src="{% static "bower_components/foundation/js/foundation.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/foundation.nodonuts.min.js" %}"></script>
+    {% block body_script_includes %}{% endblock %}
+
     <script type="text/javascript">
-      $(document).foundation();
+      {% block foundation_script %}$(document).foundation();{% endblock %}
+      {% block body_script %}{% endblock %}
     </script>
   </body>
 </html>

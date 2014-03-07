@@ -15,7 +15,7 @@
         <div id="featured-recipes">
           <h2>Featured Recipes</h2>
 
-          <ul data-orbit>
+          <ul id="slideshow" data-orbit>
             {% with "recipe-slider" as recipe_div_class %}
             {% with "recipes/partials/_recipe_summary.html" as template_name %}
               {% for recipe in featured_recipes %}
@@ -61,4 +61,14 @@
     </div>
   </div>
   {% endif %}
+{% endblock %}
+
+{% block foundation_script %}
+$(document).foundation('orbit', {
+  timer_speed: 8000,
+  pause_on_hover: true,
+  resume_on_mouseout: true,
+  slide_number: false,
+  variable_height: true,
+});
 {% endblock %}
