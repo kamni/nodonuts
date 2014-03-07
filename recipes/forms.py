@@ -3,13 +3,19 @@ from haystack.forms import SearchForm
 
 
 class RecipeSearchForm(SearchForm):
-    order = forms.ChoiceField(required=False, label="Order Results By",
+    order = forms.ChoiceField(required=False, label="Sort Results By",
                               choices=(('popularity', 'popularity'),
-                                       ('newest', 'newest')))
+                                       ('newest', 'newest'),
+                                       ('alphabeta', 'alphabetical (A-Z)'),
+                                       ('alphabetz', 'alphabetical (Z-A)')))
     
     def order_by(self, query, ordering=None):
         if ordering == 'newest':
             return query.order_by('-date_added')
+        if ordering == 'alphabeta':
+            return query.order_by('title')
+        if ordering == 'alphabetz':
+            return query.order_by('-title')
         if ordering == 'popularity' or ordering is None:
             return query.order_by('-popularity')
         return query

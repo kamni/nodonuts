@@ -11,6 +11,7 @@ class RecipeIndex(indexes.SearchIndex, indexes.Indexable):
     tags = indexes.MultiValueField()
     date_added = indexes.DateTimeField(model_attr='date_added')
     popularity = indexes.DecimalField(model_attr='popularity')
+    title = indexes.CharField(model_attr="title")
     
     # TODO: filter by added_by, is_public -- do in a custom search class
 
