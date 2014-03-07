@@ -310,6 +310,7 @@
   }
   #featured-recipes {
     @include grid-column(12);
+    padding-bottom: 2rem;
   }
   #newest-recipes {
     @extend .wrapper;
@@ -380,10 +381,13 @@ img#logo {
 img.recipe-holder {
   @include opacity(.40);
 }
-.recipe-summary {
+.recipe-slider {
+  @include maintain-ratio($ratio: 2 1);
+}
+.recipe-summary, .recipe-slider {
   @include grid-row();
 }
-.recipe-summary, .recipe-full {
+.recipe-summary, .recipe-full, .recipe-slider {
   @extend .card;
 
   margin-bottom: 5px;
@@ -394,6 +398,10 @@ img.recipe-holder {
   .recipe-text {
     @include grid-column(9);
   }
+}
+
+.orbit-slides-container {
+  @include maintain-ratio($ratio: 28 15);
 }
 
 .next-previous {

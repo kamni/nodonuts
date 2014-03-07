@@ -16,12 +16,12 @@
           <h2>Featured Recipes</h2>
 
           <ul data-orbit>
-            {% with "recipe-summary" as recipe_div_class %}
+            {% with "recipe-slider" as recipe_div_class %}
+            {% with "recipes/partials/_recipe_summary.html" as template_name %}
               {% for recipe in featured_recipes %}
-                {% with "recipes/partials/_recipe_summary.html" as template_name %}
-                <li>{% include "recipes/partials/_recipe_summary.html" %}</li>
-                {% endwith %}
+                <li>{% include "recipes/partials/_recipe_wrapper.html" %}</li>
               {% endfor %}
+            {% endwith %}
             {% endwith %}
           </ul>
         </div>
