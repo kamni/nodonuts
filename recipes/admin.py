@@ -10,7 +10,7 @@ class RatingAdmin(admin.ModelAdmin):
 
 
 class RecipeAdmin(admin.ModelAdmin):
-    readonly_fields = ['popularity', 'slug']
+    readonly_fields = ['popularity', 'likes', 'dislikes', 'slug']
     formfield_overrides = {models.TextField: {'widget': TinyMCE(attrs={'cols': 80, 
                                                                        'rows': 15})}}
 

@@ -71,6 +71,12 @@ class Recipe(NullCheckerModel):
     popularity = models.DecimalField(max_digits=10, decimal_places=4, default=0,
                                      help_text="Calculated score based on the " +
                                      "number of ratings")
+    likes = models.PositiveIntegerField(default=0, help_text="Denormalized count " +
+                                        "of the number of people who liked this " +
+                                        "recipe.")
+    dislikes = models.PositiveIntegerField(default=0, help_text="Denormalized count " +
+                                          "of the number of people who disliked this " +
+                                          "recipe.")
     
     objects = RecipeManager()
     
@@ -205,6 +211,8 @@ class Rating(models.Model):
         ups = ratings.filter(vote=True).count()
         downs = ratings.filter(vote=False).count()
         self.recipe.popularity = str(wilson_score_interval(ups, downs))
+        self.recipe.likes = ups
+        self.recipe.dislikes = downs
         self.recipe.save()
     
     def __repr__(self):
