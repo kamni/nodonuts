@@ -9,6 +9,7 @@
 
   <div class="recipe-image">
     <img src="{% if image_url %}{{ image_url }}{% else %}{% static "img/large-bowl.png" %}{% endif %}" {% if not image_url %}class="recipe-holder" {% endif %}/>
+    <p><small><em>Posted {{ recipe.date_added|timesince }} ago</em></small></p>
   </div>
 
   <div class="recipe-text">

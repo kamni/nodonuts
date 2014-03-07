@@ -4,8 +4,8 @@ from haystack.forms import SearchForm
 
 class RecipeSearchForm(SearchForm):
     order = forms.ChoiceField(required=False, label="Order Results By",
-                              choices=(('newest', 'newest'),
-                                       ('popularity', 'popularity')))
+                              choices=(('popularity', 'popularity'),
+                                       ('newest', 'newest')))
     
     def order_by(self, query, ordering=None):
         if ordering == 'newest':
