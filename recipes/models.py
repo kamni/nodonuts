@@ -18,7 +18,7 @@ class RecipeManager(models.Manager):
     """
     def filter_featured(self, limit=None):
         # TODO: implement and docs
-        query = self.filter(featured=True, is_public=True)
+        query = self.filter(featured=True, is_public=True).order_by('-date_added')
         if limit:
             query = query[:limit]
         return query
@@ -35,7 +35,7 @@ class Recipe(NullCheckerModel):
     """
     Stores recipes that users can find on the site.
     
-    :field title: CharField, max_length=150, unique=True
+    :field title: CharField, max_length=80, unique=True
     :field slug: SlugField, unique=True, defaults to slugified version of title
     :field short_description: CharField, max_length=200
     :field image: ImageField, uploads to 'recipes/images', optional
