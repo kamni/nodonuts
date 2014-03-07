@@ -1,7 +1,6 @@
 Django==1.6.1
 PIL==1.1.7
 Whoosh==2.6.0
-django-enumfield==1.0.1
 django-haystack==2.1.0
 django-nose==1.2
 django-picklefield==0.3.1
@@ -9,9 +8,12 @@ django-tinymce==1.5.2
 httplib2==0.8
 nose==1.3.0
 oauth2==1.5.211
+oauthlib==0.6.1
 pystache==0.5.3
 python-openid==2.2.5
 python-social-auth==0.1.21
+requests==2.2.1
+requests-oauthlib==0.4.0
 six==1.5.2
 static==1.0.2
 wsgiref==0.1.2
@@ -19,4 +21,5 @@ wsgiref==0.1.2
 -e git://github.com/comoga/django-constance@dc89ec294f67ae620ca2dc6d4019e1ecbe339917#egg=django_constance
 -e git://github.com/kamni/django-test-utils#egg=django_test_utils
 -e git://github.com/kamni/django-null-reality#egg=null_reality
+-e git://github.com/kamni/django-enumfield#egg=django_enumfield
 
