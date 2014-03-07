@@ -120,6 +120,10 @@ class Recipe(NullCheckerModel):
         self.ingredients = re.sub("<p>", "", re.sub("</p>", "<br />", self.ingredients))
         super(Recipe, self).save(*args, **kwargs)
     
+    def serving_size_label(self):
+        """TODO: docs and tests"""
+        return ServingSize.label(self.serving_size)
+    
     def summary_id(self):
         """TODO: docs and tests"""
         return "-".join(("summary", self.slug))
