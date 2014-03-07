@@ -14,15 +14,7 @@
 
     <div id="search-results{% if not tags %}-fullwidth{% endif %}">
       <div class="wrapper">
-        <div class="search-options">
-          <h2>Search</h2>
-
-          <form id="search-form" method="get" action=".">
-            {{ form.q }}
-            <label for="id_order">{{ form.order.label }}:</label> {{ form.order }}
-            <input type="submit" value="Search Recipes">
-          </form>
-        </div>
+        {% include "search/partials/_search_form.html" %}
 
         <div class="recipe-list-fullwidth">
           {% if page.object_list %}

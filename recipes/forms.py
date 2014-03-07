@@ -1,17 +1,23 @@
 from django import forms
+from django.utils.translation import ugettext_lazy as _
 from haystack.forms import SearchForm
 
 from recipes.models import ServingSize
 
 
 class RecipeSearchForm(SearchForm):
+    q = forms.CharField(required=False, label=_('Search'),
+                        widget=forms.TextInput(attrs={'placeholder': 
+                                                      'Enter search terms, ' +
+                                                      'or leave blank to see ' +
+                                                      'all recipes'}))
     order = forms.ChoiceField(required=False, label="Sort Results By",
                               choices=(('popularity', 'popularity'),
                                        ('newest', 'newest'),
                                        ('alphabeta', 'alphabetical (A-Z)'),
                                        ('alphabetz', 'alphabetical (Z-A)')))
     ss = forms.ChoiceField(required=False, label="Serving Size",
-                           choices=ServingSize.choices())
+                           choices=[(None, "-------")] + ServingSize.choices())
     
     def order_by(self, query, ordering=None):
         if ordering == 'newest':
@@ -30,8 +36,12 @@ class RecipeSearchForm(SearchForm):
         
         qstring = self.cleaned_data.get('q')
         ordering = self.cleaned_data.get('order')
-        srv_size = self.cleaned_data.get('ss')
-        if not (qstring or ordering or srv_size):
+        try:
+            srv_size = int(self.cleaned_data.get('ss'))
+        except ValueError:
+            srv_size = None
+        
+        if not (qstring or ordering or srv_size is not None):
             return self.no_query_found()
         
         if qstring:
@@ -39,8 +49,8 @@ class RecipeSearchForm(SearchForm):
         else:
             query = self.searchqueryset.all()
             
-        if ss:
-            query = query.filter(serving_size=ss)
+        if srv_size is not None:
+            query = query.filter(serving_size=srv_size)
         
         if self.load_all:
             query = query.load_all()

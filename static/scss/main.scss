@@ -274,6 +274,19 @@
   }
   .search-options {
     @extend .card;
+
+    .search-filter {
+      width: 100%;
+      background-color: scale-color($main-color1, $lightness: 70%);
+      padding: 10px;
+      border: 1px solid scale-color($main-color1, $lightness: 42%);
+
+      th {
+        text-align: right;
+        width: 25%;
+        padding-right: 1rem;
+      }
+    }
   }
   .recipe-list {
     margin-left: -1rem;
