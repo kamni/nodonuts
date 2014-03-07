@@ -1,3 +1,5 @@
+import re
+
 from django.contrib.auth.models import User
 from django.db import models
 from django.core.exceptions import ValidationError
@@ -85,6 +87,7 @@ class Recipe(NullCheckerModel):
     
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
+        self.ingredients = re.sub("<p>", "", re.sub("</p>", "<br />", self.ingredients))
         super(Recipe, self).save(*args, **kwargs)
     
     def summary_id(self):
