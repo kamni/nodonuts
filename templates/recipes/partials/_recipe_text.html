@@ -1,0 +1,37 @@
+{% load staticfiles %}
+
+{% if full_recipe %}
+<div {% if recipe_id %}id="{{ recipe_id }}" {% endif %}class="{{ recipe_div_class }} reveal-modal" data-reveal>
+  <div><a href="#" class="close-reveal-modal">X</a></div>
+{% else %}
+<div class="{{ recipe_div_class }}">
+{% endif %}
+
+  <div class="recipe-image">
+    <img src="{% if image_url %}{{ image_url }}{% else %}{% static "img/large-bowl.png" %}{% endif %}" {% if not image_url %}class="recipe-holder" {% endif %}/>
+  </div>
+
+  <div class="recipe-text">
+    <h3><a href="#" data-reveal-id="{{ recipe_id }}">{{ recipe.title }}</a></h3>
+
+    <p>
+      {% if likes or dislikes %}
+        <img src="{% static "img/thumbs-up.png" %}" /> {{ likes }} Like{{ likes|pluralize }}
+        <img src="{% static "img/thumbs-down.png" %}" /> {{ dislikes }} Dislike{{ dislikes|pluralize }}
+      {% endif %}
+    </p>
+
+
+    <p>{{ recipe.short_description }}
+      {% if not full_recipe %} <a href="#" data-reveal-id="{{ recipe_id }}">Full Recipe...</a>{% endif %}
+    </p>
+
+    <p>{% for tag in tags %}<a href="{% url "recipe_search" %}?q={{ '"'|urlencode }}{{ tag }}{{ '"'|urlencode }}" class="tag">{{ tag }}</a>{% endfor %}</p>
+
+    {% if full_recipe %}
+      {{ recipe.ingredients|safe }}
+      <p>&nbsp;</p>
+      {{ recipe.instructions|safe }}
+    {% endif %}
+  </div>
+</div>
