@@ -161,6 +161,7 @@ def generate_test_data():
         is_public = random.randint(1, 30) != 1
         recipe = TestRecipe(title=title, 
                             short_description=lorem_ipsum(random.randint(5, 8)),
+                            serving_size=random.randint(0, 9),
                             ingredients=make_ingredients_list(),
                             instructions=make_instructions(), 
                             featured=featured, is_public=is_public,

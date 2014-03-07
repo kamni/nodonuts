@@ -269,9 +269,10 @@ class RatingTests(TestCase):
 
 ############# Test Models ################
 
-def TestRecipe(title=None, slug=None, short_description=None, image=None,
-               thumbnail=None, ingredients=None, instructions=None, 
-               featured=False, is_public=True, added_by=None, popularity=None):
+def TestRecipe(title=None, slug=None, short_description=None, 
+               serving_size=ServingSize.FIVE_TO_SIX, image=None, thumbnail=None, 
+               ingredients=None, instructions=None, featured=False, 
+               is_public=True, added_by=None, popularity=None):
     # generating a unique title
     if not title:
         title_base = lorem_ipsum(3)
@@ -285,6 +286,7 @@ def TestRecipe(title=None, slug=None, short_description=None, image=None,
     return Recipe.objects.create(title=title,
                                  slug=slug,
                                  short_description=short_description or lorem_ipsum(3),
+                                 serving_size=serving_size,
                                  image=image,
                                  thumbnail=thumbnail,
                                  ingredients=ingredients or lorem_ipsum(7),
