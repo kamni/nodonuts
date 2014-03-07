@@ -63,11 +63,11 @@
   {% endif %}
 {% endblock %}
 
-{% block foundation_script %}
+{% block body_script %}
 $(document).foundation('orbit', {
   timer_speed: 8000,
   pause_on_hover: true,
-  resume_on_mouseout: true,
+  resume_on_mouseout: false,
   slide_number: false,
   variable_height: true,
 });
