@@ -11,6 +11,8 @@ extend theme_base.html
   <head>
     <title>{{ config.SITE_NAME }}{% if title_extra %}: {{ title_extra }}{% endif %}</title>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="{% static "img/favicon.ico" %}" type="image/x-icon">
+    <link rel="icon" href="{% static "img/favicon.ico" %}" type="image/x-icon">
     <link href='http://fonts.googleapis.com/css?family=Lilita+One' rel='stylesheet' type='text/css'>
     <link href="{% static "css/main.css" %}" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="{% static "bower_components/jquery/dist/jquery.min.js" %}"></script>
