@@ -12,6 +12,33 @@ from null_reality.fields import NullableCharField, NullableTextField
 from recipes.utils import wilson_score_interval
 
 
+class ServingSize(enum.Enum):
+    """TODO: docs"""
+    ONE_TO_TWO = 0
+    THREE_TO_FOUR = 1
+    FIVE_TO_SIX = 2
+    SEVEN_TO_NINE = 3
+    TEN_TO_TWELVE = 4
+    TWELVE_TO_FIFTEEN = 5
+    FIFTEEN_TO_TWENTY = 6
+    TWENTY_TO_THIRTY = 7
+    THIRTY_TO_FIFTY = 8
+    MORE = 9
+
+    @classmethod
+    def labels(cls):
+        return {0: "1-2 people",
+                1: "3-4 people",
+                2: "5-6 people",
+                3: "7-9 people",
+                4: "10-12 people",
+                5: "12-15 people",
+                6: "15-20 people",
+                7: "20-30 people",
+                8: "30-50 people",
+                9: "A small army"}
+
+
 class RecipeManager(models.Manager):
     """
     # TODO: docs, tests
@@ -52,6 +79,9 @@ class Recipe(NullCheckerModel):
                             help_text="URL slug that will be used for this " +
                             "recipe's address. This will be generated automatically.")
     short_description = NullableCharField(max_length=200)
+    serving_size = enum.EnumField(ServingSize, default=2, 
+                                  help_text="Number of people this recipe " +
+                                  "serves")
     tags = models.ManyToManyField('RecipeTag', blank=True, null=True)
     image = models.ImageField(upload_to='recipes/images', blank=True, null=True,
                               help_text="Display image for the recipe. The " +
