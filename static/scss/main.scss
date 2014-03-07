@@ -310,7 +310,7 @@
   }
   #featured-recipes {
     @include grid-column(12);
-    padding-bottom: 2rem;
+    padding-bottom: 1.5rem;
   }
   #newest-recipes {
     @extend .wrapper;
@@ -334,6 +334,19 @@
         }
       }
     }
+  }
+}
+
+#search-form {
+  input[type="submit"] {
+    display: block;
+  }
+  label {
+    display: inline-block;
+  }
+  select {
+    width: 60%;
+    display: inline-block;
   }
 }
 

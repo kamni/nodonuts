@@ -11,7 +11,7 @@ class RecipeSearchForm(SearchForm):
         if ordering == 'newest':
             return query.order_by('-date_added')
         if ordering == 'popularity' or ordering is None:
-            return query.order_by('popularity')
+            return query.order_by('-popularity')
         return query
     
     def search(self):

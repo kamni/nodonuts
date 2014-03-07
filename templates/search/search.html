@@ -17,8 +17,9 @@
         <div class="search-options">
           <h2>Search</h2>
 
-          <form method="get" action=".">
+          <form id="search-form" method="get" action=".">
             {{ form.q }}
+            <label for="id_order">{{ form.order.label }}:</label> {{ form.order }}
             <input type="submit" value="Search Recipes">
           </form>
         </div>
