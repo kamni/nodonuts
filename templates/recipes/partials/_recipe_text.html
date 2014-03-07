@@ -16,13 +16,13 @@
 
     <p>
       {% if likes or dislikes %}
-        <img src="{% static "img/thumbs-up.png" %}" /> {{ likes }} Like{{ likes|pluralize }}
-        <img src="{% static "img/thumbs-down.png" %}" /> {{ dislikes }} Dislike{{ dislikes|pluralize }}
+        <img src="{% static "img/thumbs-up.png" %}" class="rating" /> {{ likes }} Like{{ likes|pluralize }}
+        <img src="{% static "img/thumbs-down.png" %}" class="rating" /> {{ dislikes }} Dislike{{ dislikes|pluralize }}
       {% endif %}
     </p>
 
     <p>{{ recipe.short_description }}
-      {% if not full_recipe %} <a href="#" data-reveal-id="{{ recipe_id }}">Full Recipe...</a>{% endif %}
+      {% if not full_recipe %}<br /><a href="#" data-reveal-id="{{ recipe_id }}">Full Recipe...</a>{% endif %}
     </p>
 
     <p>{% for tag in tags %}<a href="{% url "recipe_search" %}?q={{ '"'|urlencode }}{{ tag }}{{ '"'|urlencode }}" class="tag">{{ tag }}</a>{% endfor %}</p>

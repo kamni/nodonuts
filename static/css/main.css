@@ -4811,3 +4811,7 @@ img.recipe-holder {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003407}}
 .link-like {
   color: #e77e23 !important; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\00003411}}
+.rating {
+  height: 1.2em; }
