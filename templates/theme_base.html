@@ -6,6 +6,10 @@ A template for displaying the standard site theme with banners, footers, etc.
 Most templates will extend theme_base.html.
 {% endcomment %}
 
+{% block head_css %}
+  <link href="{% static "css/nodonuts.css" %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
 {% block body %}
   <div class="fixed">
     <div id="header">

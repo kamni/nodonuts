@@ -4323,7 +4323,7 @@ blockquote p {
 /* mixins */
 /* classes */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000343}}
-.wrapper, .spacer, #footer {
+.wrapper, .spacer, #footer, #search-content, #search-content #tags .tags-inner, #search-content #newest-recipes {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -4332,11 +4332,11 @@ blockquote p {
   max-width: 62.5rem;
   *zoom: 1; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_global\.scss}line{font-family:\00003130}}
-  .wrapper:before, .spacer:before, #footer:before, .wrapper:after, .spacer:after, #footer:after {
+  .wrapper:before, .spacer:before, #footer:before, #search-content:before, #search-content #tags .tags-inner:before, #search-content #newest-recipes:before, .wrapper:after, .spacer:after, #footer:after, #search-content:after, #search-content #tags .tags-inner:after, #search-content #newest-recipes:after {
     content: " ";
     display: table; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_global\.scss}line{font-family:\00003131}}
-  .wrapper:after, .spacer:after, #footer:after {
+  .wrapper:after, .spacer:after, #footer:after, #search-content:after, #search-content #tags .tags-inner:after, #search-content #newest-recipes:after {
     clear: both; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000346}}
@@ -4376,7 +4376,7 @@ blockquote p {
   padding-top: 1rem; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000370}}
-.card, .section, #construction-panel {
+.card, .section, #construction-panel, #search-content .search-options, #search-content .no-results, .recipe-summary, .recipe-full, .recipe-slider {
   border-style: solid;
   border-width: 1px;
   border-color: #ffebc4;
@@ -4390,20 +4390,20 @@ blockquote p {
   -moz-box-shadow: 0px 0px 5px #093752;
   box-shadow: 0px 0px 5px #093752; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000348}}
-  .card > :first-child, .section > :first-child, #construction-panel > :first-child {
+  .card > :first-child, .section > :first-child, #construction-panel > :first-child, #search-content .search-options > :first-child, #search-content .no-results > :first-child, .recipe-summary > :first-child, .recipe-full > :first-child, .recipe-slider > :first-child {
     margin-top: 0; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000349}}
-  .card > :last-child, .section > :last-child, #construction-panel > :last-child {
+  .card > :last-child, .section > :last-child, #construction-panel > :last-child, #search-content .search-options > :last-child, #search-content .no-results > :last-child, .recipe-summary > :last-child, .recipe-full > :last-child, .recipe-slider > :last-child {
     margin-bottom: 0; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000354}}
-  .card h1, .section h1, #construction-panel h1, .card h2, .section h2, #construction-panel h2, .card h3, .section h3, #construction-panel h3, .card h4, .section h4, #construction-panel h4, .card h5, .section h5, #construction-panel h5, .card h6, .section h6, #construction-panel h6, .card p, .section p, #construction-panel p {
+  .card h1, .section h1, #construction-panel h1, #search-content .search-options h1, #search-content .no-results h1, .recipe-summary h1, .recipe-full h1, .recipe-slider h1, .card h2, .section h2, #construction-panel h2, #search-content .search-options h2, #search-content .no-results h2, .recipe-summary h2, .recipe-full h2, .recipe-slider h2, .card h3, .section h3, #construction-panel h3, #search-content .search-options h3, #search-content .no-results h3, .recipe-summary h3, .recipe-full h3, .recipe-slider h3, .card h4, .section h4, #construction-panel h4, #search-content .search-options h4, #search-content .no-results h4, .recipe-summary h4, .recipe-full h4, .recipe-slider h4, .card h5, .section h5, #construction-panel h5, #search-content .search-options h5, #search-content .no-results h5, .recipe-summary h5, .recipe-full h5, .recipe-slider h5, .card h6, .section h6, #construction-panel h6, #search-content .search-options h6, #search-content .no-results h6, .recipe-summary h6, .recipe-full h6, .recipe-slider h6, .card p, .section p, #construction-panel p, #search-content .search-options p, #search-content .no-results p, .recipe-summary p, .recipe-full p, .recipe-slider p {
     color: #333333; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000358}}
-  .card h1, .section h1, #construction-panel h1, .card h2, .section h2, #construction-panel h2, .card h3, .section h3, #construction-panel h3, .card h4, .section h4, #construction-panel h4, .card h5, .section h5, #construction-panel h5, .card h6, .section h6, #construction-panel h6 {
+  .card h1, .section h1, #construction-panel h1, #search-content .search-options h1, #search-content .no-results h1, .recipe-summary h1, .recipe-full h1, .recipe-slider h1, .card h2, .section h2, #construction-panel h2, #search-content .search-options h2, #search-content .no-results h2, .recipe-summary h2, .recipe-full h2, .recipe-slider h2, .card h3, .section h3, #construction-panel h3, #search-content .search-options h3, #search-content .no-results h3, .recipe-summary h3, .recipe-full h3, .recipe-slider h3, .card h4, .section h4, #construction-panel h4, #search-content .search-options h4, #search-content .no-results h4, .recipe-summary h4, .recipe-full h4, .recipe-slider h4, .card h5, .section h5, #construction-panel h5, #search-content .search-options h5, #search-content .no-results h5, .recipe-summary h5, .recipe-full h5, .recipe-slider h5, .card h6, .section h6, #construction-panel h6, #search-content .search-options h6, #search-content .no-results h6, .recipe-summary h6, .recipe-full h6, .recipe-slider h6 {
     line-height: 1;
     margin-bottom: 0.625rem; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000360}}
-    .card h1.subheader, .section h1.subheader, #construction-panel h1.subheader, .card h2.subheader, .section h2.subheader, #construction-panel h2.subheader, .card h3.subheader, .section h3.subheader, #construction-panel h3.subheader, .card h4.subheader, .section h4.subheader, #construction-panel h4.subheader, .card h5.subheader, .section h5.subheader, #construction-panel h5.subheader, .card h6.subheader, .section h6.subheader, #construction-panel h6.subheader {
+    .card h1.subheader, .section h1.subheader, #construction-panel h1.subheader, #search-content .search-options h1.subheader, #search-content .no-results h1.subheader, .recipe-summary h1.subheader, .recipe-full h1.subheader, .recipe-slider h1.subheader, .card h2.subheader, .section h2.subheader, #construction-panel h2.subheader, #search-content .search-options h2.subheader, #search-content .no-results h2.subheader, .recipe-summary h2.subheader, .recipe-full h2.subheader, .recipe-slider h2.subheader, .card h3.subheader, .section h3.subheader, #construction-panel h3.subheader, #search-content .search-options h3.subheader, #search-content .no-results h3.subheader, .recipe-summary h3.subheader, .recipe-full h3.subheader, .recipe-slider h3.subheader, .card h4.subheader, .section h4.subheader, #construction-panel h4.subheader, #search-content .search-options h4.subheader, #search-content .no-results h4.subheader, .recipe-summary h4.subheader, .recipe-full h4.subheader, .recipe-slider h4.subheader, .card h5.subheader, .section h5.subheader, #construction-panel h5.subheader, #search-content .search-options h5.subheader, #search-content .no-results h5.subheader, .recipe-summary h5.subheader, .recipe-full h5.subheader, .recipe-slider h5.subheader, .card h6.subheader, .section h6.subheader, #construction-panel h6.subheader, #search-content .search-options h6.subheader, #search-content .no-results h6.subheader, .recipe-summary h6.subheader, .recipe-full h6.subheader, .recipe-slider h6.subheader {
       line-height: 1.4; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/main\.scss}line{font-family:\0000373}}
@@ -4608,3 +4608,276 @@ small > em {
     padding-right: 0.9375rem;
     width: 33.33333%;
     float: left; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\000038}}
+#search-content #tags {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  width: 25%;
+  float: left; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\0000314}}
+  #search-content #tags .tags-inner .tags-list {
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    width: 91.66667%;
+    float: left;
+    background-color: #fffefc;
+    border-left: 1px solid #0f5f8e;
+    border-right: 1px solid #0f5f8e;
+    padding: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\0000321}}
+    #search-content #tags .tags-inner .tags-list h1, #search-content #tags .tags-inner .tags-list h2 {
+      color: #0f5f8e; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\0000324}}
+    #search-content #tags .tags-inner .tags-list ul {
+      margin: 0 0 .5rem 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\0000327}}
+    #search-content #tags .tags-inner .tags-list li {
+      list-style: none;
+      padding-left: 1.25rem;
+      line-height: 2rem; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\0000332}}
+      #search-content #tags .tags-inner .tags-list li:not(.tag-header):not(.tag-info):hover, #search-content #tags .tags-inner .tags-list li.query {
+        background-color: #ffe6b5; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\0000336}}
+    #search-content #tags .tags-inner .tags-list .tag-info {
+      font-variant: small-caps;
+      font-weight: bold;
+      color: #ce6306; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\0000341}}
+    #search-content #tags .tags-inner .tags-list .tag-header {
+      padding-top: .5rem;
+      border-bottom: 1px solid #0f5f8e;
+      border-top: 1px solid #0f5f8e; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\0000346}}
+      #search-content #tags .tags-inner .tags-list .tag-header h2 {
+        font-variant: small-caps;
+        font-size: 1.5rem; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\0000351}}
+    #search-content #tags .tags-inner .tags-list .tag-header-middle {
+      margin-top: .5rem; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\0000355}}
+  #search-content #tags .tags-inner .tags-spacer {
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    width: 8.33333%;
+    float: left; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\0000360}}
+#search-content #search-results {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  width: 75%;
+  float: left; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\0000363}}
+#search-content #search-results-fullwidth {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  width: 100%;
+  float: left; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\0000369}}
+#search-content .search-options .search-filter {
+  width: 100%;
+  background-color: #f8d8bd;
+  padding: 10px;
+  border: 1px solid #f1b47f; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\0000375}}
+  #search-content .search-options .search-filter th {
+    text-align: right;
+    width: 25%;
+    padding-right: 1rem; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\0000382}}
+#search-content .recipe-list {
+  margin-left: -1rem; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\0000385}}
+#search-content .recipe-list, #search-content .recipe-list-fullwidth {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #0d557e;
+  margin-bottom: 1.25rem;
+  padding: 1.25rem;
+  background: #0f5f8e;
+  -webkit-border-radius: 10px 10px;
+  -moz-border-radius: 10px / 10px;
+  border-radius: 10px / 10px;
+  margin-top: 5px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000348}}
+  #search-content .recipe-list > :first-child, #search-content .recipe-list-fullwidth > :first-child {
+    margin-top: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000349}}
+  #search-content .recipe-list > :last-child, #search-content .recipe-list-fullwidth > :last-child {
+    margin-bottom: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000355}}
+  #search-content .recipe-list h1, #search-content .recipe-list h2, #search-content .recipe-list h3, #search-content .recipe-list h4, #search-content .recipe-list h5, #search-content .recipe-list h6, #search-content .recipe-list p, #search-content .recipe-list-fullwidth h1, #search-content .recipe-list-fullwidth h2, #search-content .recipe-list-fullwidth h3, #search-content .recipe-list-fullwidth h4, #search-content .recipe-list-fullwidth h5, #search-content .recipe-list-fullwidth h6, #search-content .recipe-list-fullwidth p {
+    color: white; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000358}}
+  #search-content .recipe-list h1, #search-content .recipe-list h2, #search-content .recipe-list h3, #search-content .recipe-list h4, #search-content .recipe-list h5, #search-content .recipe-list h6, #search-content .recipe-list-fullwidth h1, #search-content .recipe-list-fullwidth h2, #search-content .recipe-list-fullwidth h3, #search-content .recipe-list-fullwidth h4, #search-content .recipe-list-fullwidth h5, #search-content .recipe-list-fullwidth h6 {
+    line-height: 1;
+    margin-bottom: 0.625rem; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000360}}
+    #search-content .recipe-list h1.subheader, #search-content .recipe-list h2.subheader, #search-content .recipe-list h3.subheader, #search-content .recipe-list h4.subheader, #search-content .recipe-list h5.subheader, #search-content .recipe-list h6.subheader, #search-content .recipe-list-fullwidth h1.subheader, #search-content .recipe-list-fullwidth h2.subheader, #search-content .recipe-list-fullwidth h3.subheader, #search-content .recipe-list-fullwidth h4.subheader, #search-content .recipe-list-fullwidth h5.subheader, #search-content .recipe-list-fullwidth h6.subheader {
+      line-height: 1.4; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\0000391}}
+  #search-content .recipe-list .recipe-text h1, #search-content .recipe-list .recipe-text h2, #search-content .recipe-list .recipe-text h3, #search-content .recipe-list-fullwidth .recipe-text h1, #search-content .recipe-list-fullwidth .recipe-text h2, #search-content .recipe-list-fullwidth .recipe-text h3 {
+    color: #368abb; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\0000395}}
+  #search-content .recipe-list .recipe-text h4, #search-content .recipe-list .recipe-text h5, #search-content .recipe-list .recipe-text h6, #search-content .recipe-list-fullwidth .recipe-text h4, #search-content .recipe-list-fullwidth .recipe-text h5, #search-content .recipe-list-fullwidth .recipe-text h6 {
+    color: #333333; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\0000399}}
+  #search-content .recipe-list h1, #search-content .recipe-list h2, #search-content .recipe-list h3, #search-content .recipe-list h4, #search-content .recipe-list h5, #search-content .recipe-list h6, #search-content .recipe-list-fullwidth h1, #search-content .recipe-list-fullwidth h2, #search-content .recipe-list-fullwidth h3, #search-content .recipe-list-fullwidth h4, #search-content .recipe-list-fullwidth h5, #search-content .recipe-list-fullwidth h6 {
+    color: #fffefc; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\00003102}}
+  #search-content .recipe-list p, #search-content .recipe-list-fullwidth p {
+    color: #333333; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\00003106}}
+#search-content .recipe-list {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  width: 75%;
+  float: left; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\00003109}}
+#search-content .recipe-list-fullwidth {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  width: 100%;
+  float: left; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\00003115}}
+#search-content #featured-recipes {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  width: 100%;
+  float: left;
+  padding-bottom: 1.5rem; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\00003122}}
+#search-content #newest-recipes .new-cards {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  width: 100%;
+  float: left; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\00003125}}
+  #search-content #newest-recipes .new-cards ul.new-recipe-list {
+    display: block;
+    padding: 0;
+    margin: 0 -0.625rem;
+    *zoom: 1; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_global\.scss}line{font-family:\00003130}}
+    #search-content #newest-recipes .new-cards ul.new-recipe-list:before, #search-content #newest-recipes .new-cards ul.new-recipe-list:after {
+      content: " ";
+      display: table; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_global\.scss}line{font-family:\00003131}}
+    #search-content #newest-recipes .new-cards ul.new-recipe-list:after {
+      clear: both; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_block-grid\.scss}line{font-family:\0000336}}
+    #search-content #newest-recipes .new-cards ul.new-recipe-list > li {
+      display: block;
+      height: auto;
+      float: left;
+      padding: 0 0.625rem 1.25rem; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_block-grid\.scss}line{font-family:\0000347}}
+    #search-content #newest-recipes .new-cards ul.new-recipe-list > li {
+      width: 25%;
+      padding: 0 0.625rem 1.25rem;
+      list-style: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_block-grid\.scss}line{font-family:\0000354}}
+      #search-content #newest-recipes .new-cards ul.new-recipe-list > li:nth-of-type(n) {
+        clear: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_block-grid\.scss}line{font-family:\0000355}}
+      #search-content #newest-recipes .new-cards ul.new-recipe-list > li:nth-of-type(4n+1) {
+        clear: both; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\00003128}}
+    #search-content #newest-recipes .new-cards ul.new-recipe-list li > p.small-recipe {
+      border-style: solid;
+      border-width: 1px;
+      border-color: #ffebc4;
+      margin-bottom: 1.25rem;
+      padding: 1.25rem;
+      background: #fffefc;
+      -webkit-border-radius: 10px 10px;
+      -moz-border-radius: 10px / 10px;
+      border-radius: 10px / 10px;
+      width: 100%;
+      height: 0;
+      padding-bottom: 133.33333% !important;
+      overflow: hidden;
+      font-size: 80%;
+      text-align: center; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000348}}
+      #search-content #newest-recipes .new-cards ul.new-recipe-list li > p.small-recipe > :first-child {
+        margin-top: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000349}}
+      #search-content #newest-recipes .new-cards ul.new-recipe-list li > p.small-recipe > :last-child {
+        margin-bottom: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000354}}
+      #search-content #newest-recipes .new-cards ul.new-recipe-list li > p.small-recipe h1, #search-content #newest-recipes .new-cards ul.new-recipe-list li > p.small-recipe h2, #search-content #newest-recipes .new-cards ul.new-recipe-list li > p.small-recipe h3, #search-content #newest-recipes .new-cards ul.new-recipe-list li > p.small-recipe h4, #search-content #newest-recipes .new-cards ul.new-recipe-list li > p.small-recipe h5, #search-content #newest-recipes .new-cards ul.new-recipe-list li > p.small-recipe h6, #search-content #newest-recipes .new-cards ul.new-recipe-list li > p.small-recipe p {
+        color: #333333; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000358}}
+      #search-content #newest-recipes .new-cards ul.new-recipe-list li > p.small-recipe h1, #search-content #newest-recipes .new-cards ul.new-recipe-list li > p.small-recipe h2, #search-content #newest-recipes .new-cards ul.new-recipe-list li > p.small-recipe h3, #search-content #newest-recipes .new-cards ul.new-recipe-list li > p.small-recipe h4, #search-content #newest-recipes .new-cards ul.new-recipe-list li > p.small-recipe h5, #search-content #newest-recipes .new-cards ul.new-recipe-list li > p.small-recipe h6 {
+        line-height: 1;
+        margin-bottom: 0.625rem; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_panels\.scss}line{font-family:\0000360}}
+        #search-content #newest-recipes .new-cards ul.new-recipe-list li > p.small-recipe h1.subheader, #search-content #newest-recipes .new-cards ul.new-recipe-list li > p.small-recipe h2.subheader, #search-content #newest-recipes .new-cards ul.new-recipe-list li > p.small-recipe h3.subheader, #search-content #newest-recipes .new-cards ul.new-recipe-list li > p.small-recipe h4.subheader, #search-content #newest-recipes .new-cards ul.new-recipe-list li > p.small-recipe h5.subheader, #search-content #newest-recipes .new-cards ul.new-recipe-list li > p.small-recipe h6.subheader {
+          line-height: 1.4; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\00003135}}
+      #search-content #newest-recipes .new-cards ul.new-recipe-list li > p.small-recipe img {
+        padding-bottom: .5rem; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\00003145}}
+#search-form input[type="submit"] {
+  display: block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\00003148}}
+#search-form label {
+  display: inline-block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\00003151}}
+#search-form select {
+  width: 60%;
+  display: inline-block; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\00003156}}
+.recipe-slider {
+  width: 100%;
+  height: 0;
+  padding-bottom: 42.85714% !important;
+  overflow: hidden; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\00003160}}
+.recipe-summary, .recipe-slider {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: 62.5rem;
+  *zoom: 1; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_global\.scss}line{font-family:\00003130}}
+  .recipe-summary:before, .recipe-summary:after, .recipe-slider:before, .recipe-slider:after {
+    content: " ";
+    display: table; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/bower_components\/foundation\/scss\/foundation\/components\/_global\.scss}line{font-family:\00003131}}
+  .recipe-summary:after, .recipe-slider:after {
+    clear: both; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\00003163}}
+.recipe-summary, .recipe-full, .recipe-slider {
+  margin-bottom: 5px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\00003168}}
+  .recipe-summary .recipe-image, .recipe-full .recipe-image, .recipe-slider .recipe-image {
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    width: 25%;
+    float: left; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\00003171}}
+    .recipe-summary .recipe-image p, .recipe-full .recipe-image p, .recipe-slider .recipe-image p {
+      line-height: .5rem !important;
+      display: block;
+      text-align: center;
+      padding-top: .5rem; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\00003178}}
+  .recipe-summary .recipe-text, .recipe-full .recipe-text, .recipe-slider .recipe-text {
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    width: 75%;
+    float: left; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/nodonuts\.scss}line{font-family:\00003182}}
+.rating {
+  height: 1.2em;
+  display: inline-block !important; }

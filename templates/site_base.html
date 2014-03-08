@@ -9,13 +9,17 @@ extend theme_base.html
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{ config.SITE_NAME }}{% if title_extra %}: {{ title_extra }}{% endif %}</title>
+    <title>{% block title %}{{ config.SITE_NAME }}{% endblock %}</title>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="{% static "img/favicon.ico" %}" type="image/x-icon">
     <link rel="icon" href="{% static "img/favicon.ico" %}" type="image/x-icon">
     <link href='http://fonts.googleapis.com/css?family=Lilita+One' rel='stylesheet' type='text/css'>
-    <link href="{% static "css/main.css" %}" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="{% static "bower_components/jquery/dist/jquery.min.js" %}"></script>
+    {% block head_css %}
+      <link href="{% static "css/main.css" %}" rel="stylesheet" type="text/css">
+    {% endblock %}
+    {% block head_script %}
+      <script type="text/javascript" src="{% static "bower_components/jquery/dist/jquery.min.js" %}"></script>
+    {% endblock %}
     {% block head_extra %}{% endblock %}
   </head>
 

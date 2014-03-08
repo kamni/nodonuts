@@ -9,56 +9,23 @@
   "compass/css3/opacity";
 
 @import
-//   "foundation/components/accordion",
-//   "foundation/components/alert-boxes",
    "foundation/components/block-grid",
-//   "foundation/components/breadcrumbs",
    "foundation/components/button-groups",
    "foundation/components/buttons",
    "foundation/components/clearing",
    "foundation/components/dropdown",
    "foundation/components/dropdown-buttons",
-//   "foundation/components/flex-video",
    "foundation/components/forms",
    "foundation/components/grid",
    "foundation/components/inline-lists",
-//   "foundation/components/joyride",
-//   "foundation/components/keystrokes",
    "foundation/components/labels",
-//   "foundation/components/magellan",
    "foundation/components/orbit",
-//   "foundation/components/pagination",
    "foundation/components/panels",
-//   "foundation/components/pricing-tables",
-//   "foundation/components/progress-bars",
    "foundation/components/reveal",
-//   "foundation/components/side-nav",
-//   "foundation/components/split-buttons",
-//   "foundation/components/sub-nav",
-//   "foundation/components/switch",
-//   "foundation/components/tables",
-//   "foundation/components/tabs",
-//   "foundation/components/thumbs",
-//   "foundation/components/tooltips",
    "foundation/components/top-bar",
    "foundation/components/type";
-//   "foundation/components/offcanvas",
-//   "foundation/components/visibility";
 
-.wrapper {
-  @include grid-row();
-}
-
-.tag {
-  @include border-radius($global-radius, $global-radius);
-  background-color: scale-color($main-color1, $lightness: 56%);
-  color: $complement-color2;
-  padding-left: .75rem;
-  padding-right: .75rem;
-  margin-left: .1rem;
-  margin-right: .1rem;
-}
-
+/* mixins */
 @mixin card(
   $background-color,
   $with-shadow: false,
@@ -72,6 +39,24 @@
   }
 }
 
+/* classes */
+.wrapper {
+  @include grid-row();
+}
+.small-centered {
+  margin-left: auto;
+  margin-right: auto;
+  float: none !important;
+}
+.tag {
+  @include border-radius($global-radius, $global-radius);
+  background-color: scale-color($main-color1, $lightness: 56%);
+  color: $complement-color2;
+  padding-left: .75rem;
+  padding-right: .75rem;
+  margin-left: .1rem;
+  margin-right: .1rem;
+}
 .card-header {
   @include grid-column(6);
   margin-left: -1rem;
@@ -82,25 +67,59 @@
   text-align: right;
   padding-top: 1rem;
 }
-
 .card {
   @include card($neutral-color1, $with-shadow: true, $shadow-color: $complement-color2);
 }
-
 .header-button {
   @include button-style($secondary-color, true);
 }
+.section {
+  @extend .card;
+  @include grid-row();
 
-.small-centered {
-  margin-left: auto;
-  margin-right: auto;
-  float: none !important;
+  .section-main {
+    @include grid-column(8);
+  }
+  .section-aside {
+    @include grid-column(4);
+  }
+}
+.container {
+  @include grid-column(12);
+}
+.spacer {
+  @extend .wrapper;
+  height: 1rem;
+}
+.next-previous {
+  color: $main-color2;
+  text-align: right;
+
+  & a, .link-like {
+    color: $neutral-color1;
+  }
+}
+.link-like {
+  color: $main-color1  !important;
 }
 
+/* elements */
+img#logo {
+  padding-right: .5rem;
+  margin-bottom: .4rem;
+  height: .75 * $topbar-height;
+}
+img.recipe-holder {
+  @include opacity(.40);
+}
+small > em {
+  color: $neutral-color2;
+}
+
+/* divs */
 #content {
    padding-top: 2* $topbar-height; // to clear fixed header and search bar
 }
-
 #footer{
   @extend .wrapper;
 
@@ -109,7 +128,6 @@
     @include grid-column(12);
   }
 }
-
 #header {
   @extend .top-bar;
   @include filter-gradient($main-color1, scale-color($main-color1, $lightness: 14%));
@@ -161,8 +179,6 @@
     }
   }
 }
-
-
 #search {
   @extend .top-bar;
   background-color: $main_color2;
@@ -210,159 +226,6 @@
     }
   }
 }
-
-#search-content {
-  @extend .wrapper;
-
-  #tags {
-    @include grid-column(3);
-
-    .tags-inner {
-      @extend .wrapper;
-
-      .tags-list {
-        @include grid-column(11);
-        background-color: $neutral-color1;
-        border-left: 1px solid $complement-color2;
-        border-right: 1px solid $complement-color2;
-        padding: 0;
-
-        h1, h2 {
-          color: $complement-color2;
-        }
-        ul {
-          margin: 0 0 .5rem 0;
-        }
-        li {
-          list-style: none;
-          padding-left: 1.25rem;
-          line-height: 2rem;
-
-          &:not(.tag-header):not(.tag-info):hover, &.query {
-            background-color: scale-color($neutral-color1, $lightness: -14%);
-          }
-        }
-        .tag-info {
-          font-variant: small-caps;
-          font-weight: bold;
-          color: $main-color2;
-        }
-        .tag-header {
-          padding-top: .5rem;
-          border-bottom: 1px solid $complement-color2;
-          border-top: 1px solid $complement-color2;
-
-          h2 {
-            font-variant: small-caps;
-            font-size: 1.5rem;
-          }
-        }
-        .tag-header-middle {
-          margin-top: .5rem;
-        }
-      }
-      .tags-spacer {
-        @include grid-column(1);
-      }
-    }
-  }
-  #search-results {
-    @include grid-column(9);
-  }
-  #search-results-fullwidth {
-    @include grid-column(12);
-  }
-  .search-options {
-    @extend .card;
-
-    .search-filter {
-      width: 100%;
-      background-color: scale-color($main-color1, $lightness: 70%);
-      padding: 10px;
-      border: 1px solid scale-color($main-color1, $lightness: 42%);
-
-      th {
-        text-align: right;
-        width: 25%;
-        padding-right: 1rem;
-      }
-    }
-  }
-  .recipe-list {
-    margin-left: -1rem;
-  }
-  .recipe-list, .recipe-list-fullwidth {
-    @include panel($complement-color2);
-    @include border-radius($global-radius, $global-radius);
-    margin-top: 5px;
-
-    .recipe-text {
-      h1, h2, h3 {
-        color: $complement-color1;
-      }
-
-      h4, h5, h6 {
-        color: $neutral-color3;
-      }
-    }
-    h1, h2, h3, h4, h5, h6 {
-      color: $neutral-color1;
-    }
-    & p {
-      color: $neutral-color3;
-    }
-  }
-  .recipe-list {
-    @include grid-column(9);
-  }
-  .recipe-list-fullwidth {
-    @include grid-column(12);
-  }
-  .no-results {
-    @extend .card;
-  }
-  #featured-recipes {
-    @include grid-column(12);
-    padding-bottom: 1.5rem;
-  }
-  #newest-recipes {
-    @extend .wrapper;
-
-    .new-cards {
-      @include grid-column(12);
-
-      ul.new-recipe-list {
-        @include block-grid(4);
-
-        li > p.small-recipe {
-          @include card($neutral-color1);
-          @include maintain-ratio($ratio: 3 4);
-          overflow: hidden;
-          font-size: .8 * $base-font-size;
-          text-align: center;
-
-          img {
-            padding-bottom: .5rem;
-          }
-        }
-      }
-    }
-  }
-}
-
-#search-form {
-  input[type="submit"] {
-    display: block;
-  }
-  label {
-    display: inline-block;
-  }
-  select {
-    width: 60%;
-    display: inline-block;
-  }
-}
-
 #construction-panel {
   @extend .card;
   @include grid-row();
@@ -375,83 +238,5 @@
   }
 }
 
-#front-page-login {
-  @extend .wrapper;
-}
 
-.section {
-  @extend .wrapper;
 
-  .section-main {
-    @include grid-column(8);
-  }
-  .section-aside {
-    @include grid-column(4);
-  }
-}
-
-.container {
-  @include grid-column(12);
-}
-
-.spacer {
-  @extend .wrapper;
-}
-
-img#logo {
-  padding-right: .5rem;
-  margin-bottom: .4rem;
-  height: .75 * $topbar-height;
-}
-
-img.recipe-holder {
-  @include opacity(.40);
-}
-.recipe-slider {
-  @include maintain-ratio($ratio: 7 3);
-  overflow: hidden;
-}
-.recipe-summary, .recipe-slider {
-  @include grid-row();
-}
-.recipe-summary, .recipe-full, .recipe-slider {
-  @extend .card;
-
-  margin-bottom: 5px;
-
-  .recipe-image {
-    @include grid-column(3);
-
-    p {
-      line-height: .5rem !important;
-      display: block;
-      text-align: center;
-      padding-top: .5rem;
-    }
-  }
-  .recipe-text {
-    @include grid-column(9);
-  }
-}
-
-.next-previous {
-  color: $main-color2;
-  text-align: right;
-
-  & a, .link-like {
-    color: $neutral-color1;
-  }
-}
-
-.link-like {
-  color: $main-color1  !important;
-}
-
-.rating {
-  height: 1.2em;
-  display: inline-block !important;
-}
-
-small > em {
-  color: $neutral-color2;
-}

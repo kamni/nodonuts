@@ -1,0 +1,28 @@
+{% extends "theme_base.html" %}
+
+{% load staticfiles %}
+
+{% block head_css %}
+  <link href="{% static "css/docs.css" %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block search_bar %}
+  <form method="get" action="{{ search }}">
+    <div class="search-bar">
+      <ul>
+        <li class="search-input"><input id="q" name="q" type="text" placeholder="search the docs" /></li>
+        <li><button type="submit"><img src="{% static "img/search.png" %}" alt="search" /></button></li>
+      </ul>
+    </div>
+  </form>
+{% endblock %}
+
+{% block content %}
+  <div class="section">
+      <div class="container">
+          {% block main_content %}{% endblock %}
+      </div>
+  </div>
+{% endblock %}
+
+
