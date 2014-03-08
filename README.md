@@ -73,12 +73,19 @@ section for some auto-generated options).
     cd <path-to-nodonuts-project>
     mkdir nodonuts/whoosh_index
 
-3. Generate the search indexes:
+3. Generate the search indexes for the first time:
 
     python manage.py rebuild_index
 
-These indexes will need to be rebuilt whenever new recipes/tags are added or
-recipes change.
+These indexes will need to be updated whenever new recipes/tags are added or
+recipes change.  You can do this manually by running:
+
+    python manage.py update_index recipes
+
+To automate this, you may consider creating a cron job on your server. Here is
+an example entry:
+
+    0 * * * *  cd <path to project> && <path to venv>/bin/python manage.py update_index recipes
 
 ### Configuration Note:
 
@@ -89,6 +96,38 @@ for django-haystack and this project.
 This may cause issues on servers that lack persistant storage (Heroku) or
 servers managed by puppet, because the search indexes may be wiped out
 immediately after generating them.
+
+### Advanced configuration: automated updates for search indexes using Celerybeat
+
+Search index updates can be run just fine using a cron job. However, if your
+host does not support custom cron jobs or you would like a more configurable
+approach, you may also want to use Celerybeat.
+
+Django-celery is an app that integrates the task queue library, Celery, with
+Django. It has a sub-project, Celerybeat, that will run tasks periodically,
+similar to cron jobs.
+
+Celery/Celerybeat is included as part of this project, along with configuration
+to run the `update_index` command once per hour. By default, django-celery uses
+the database queue backend, which should be sufficient for most uses of this
+site, but it can be configured to use several popular queueing systems,
+including RabbitMQ and Redis.
+
+You can change the default settings by uncommenting the Celery configuration
+lines in `srv_settings.py.example` (assumed to be copied into your
+`srv_settings.py`). For more information on configuration, please
+[visit the Celery docs](http://celery.readthedocs.org/en/latest/django/index.html)
+for more information. You may also want to read the
+[section on brokers](http://docs.celeryproject.org/en/latest/getting-started/brokers/index.html).
+
+Django-celery does not run by itself. For simple development use, you can run
+the following command:
+
+    python manage.py celerybeat
+
+For production, celery should be daemonized. Celery has a
+[tutorial on writing a daemon](http://celery.readthedocs.org/en/latest/tutorials/daemonizing.html?highlight=celerybeat%20daemon)
+for celerybeat.
 
 ## Default Data
 
