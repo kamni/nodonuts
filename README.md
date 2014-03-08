@@ -51,7 +51,7 @@ Next, prepare static resources (css/js/images) for being served:
 
     python manage.py collectstatic
 
-Sync your db:
+Sync your db and create a superuser:
 
     python manage.py syncdb
 
@@ -61,6 +61,28 @@ your particular web host or server. There is a `Procfile.sample` and a
 you started.
 
 ## Django Constance Settings
+
+Some Django configuration is available through the admin interface without
+needing to access settings.py.  The Django admin is available at
+[http://<project_url>/site-manager/], and you should log in as the superuser
+you created during the initial setup.
+
+Find the `Constance` section and click `Change`. You will see several
+configuration options available, along with explanations of what the options
+mean. Of particular note:
+
+* SITE_NAME: change this if you want it to be something other than 'NoDonuts'
+* SITE_LOGO: if you put a file called 'img/logo.png' into folder where you
+collect your static files, this will override the default logo. However, if you
+need to have your logo named something else, you can change which file the logo
+points to.
+* SHOW_SITE_LOGO: Set to False if you only want the site's name to be displayed
+* DISPLAY_DOC_LINKS: Whether to show the documentation that is included with
+this project to other users. Please see the section on 'Documentation' for more
+information.
+
+Depending on your server, you may need to restart it in order for the new
+settings to take effect.
 
 ## Search Configuration
 

@@ -158,5 +158,5 @@ CONSTANCE_CONFIG = {
     'SEARCH_RESULTS_PER_PAGE': (10, 'Number of search results to show on ' +
                                     'search page.'),
     'DISPLAY_DOC_LINKS': (INCLUDE_DOC_URLS and DISPLAY_DOC_LINKS, 'Show links ' +
-                          'to the docs in the nav bar'),
+                          'to the project documentation in the nav bar'),
 }  
