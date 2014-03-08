@@ -1,7 +1,20 @@
 {% extends "theme_base.html" %}
 {% load i18n %}
+{% load staticfiles %}
 
 {% block title %}{{ block.super }} » {{ project.name }}{% for p in doc.parents %} » {{ p.title|striptags|safe }}{% endfor %} » {{ doc.title|striptags|safe }}{% endblock %}
+
+{% block search_bar %}
+  <form method="get" action="{{ search }}">
+    <div class="search-bar">
+      <ul>
+        <li class="search-input"><input id="q" name="q" type="text" placeholder="search the docs" /></li>
+        <li><button type="submit"><img src="{% static "img/search.png" %}" alt="search" /></button></li>
+      </ul>
+    </div>
+  </form>
+{% endblock %}
+
 
 {% block content %}
 <div class="pagination-top">
@@ -61,12 +74,7 @@
     {{ doc.toc|safe }}
 </div>
     {% endblock %}
-<div class="box">
-    <h2>{% trans "Search" %}</h2>
-    <form method="GET" action="{{ search }}">
-    <input type="text" id="q" name="q" /><input type="submit" value="{% trans "Search" %}" />
-    </form>
-</div>
+
     {{ block.super }}
 {% endblock sidebar %}
 {% endblock content %}
