@@ -92,29 +92,6 @@ MEDIA_ROOT = 'uploads'
 MEDIA_URL = '/media/'
 
 
-# constance settings
-CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
-CONSTANCE_CONFIG = {
-    'SITE_NAME': ('NoDonuts', 'The name to display in headers, title bar, ' +
-                  'and copyright notices'),
-    'SITE_LOGO': ('img/logo.png', 'The path to the file located in the static folder ' +
-                  'that represents the logo. Leave off any starting slash (/)'),
-    'SHOW_SITE_LOGO': (True, 'Logo, if configured, should be shown in the ' +
-                       'header area of pages'),
-    'COPYRIGHT': ('Copyright', 'The type of intellectual property rights ' +
-                  'that content on this site has. Suggestions: Copyleft, ' +
-                  'Creative Commons Attribution Share-Alike'),
-    'COPYRIGHT_MESSAGE': ('', 'An additional message for your copyright. ' +
-                          'Example: All rights reserved.'),
-    'FEATURED_RECIPE_COUNT': (8, 'How many featured recipes should be shown ' +
-                                   'on the home page.'),
-    'NEWEST_RECIPE_COUNT': (8, 'How many of the newest recipes should be ' +
-                               'shown on the home page.'),
-    'SEARCH_RESULTS_PER_PAGE': (10, 'Number of search results to show on ' +
-                                    'search page.'),
-}
-
-
 # haystack (search) setting
 HAYSTACK_CONNECTIONS = {
     'default': {
@@ -160,4 +137,26 @@ except ImportError:
     pass
 
 
-    
+# constance settings
+CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
+CONSTANCE_CONFIG = {
+    'SITE_NAME': ('NoDonuts', 'The name to display in headers, title bar, ' +
+                  'and copyright notices'),
+    'SITE_LOGO': ('img/logo.png', 'The path to the file located in the static folder ' +
+                  'that represents the logo. Leave off any starting slash (/)'),
+    'SHOW_SITE_LOGO': (True, 'Logo, if configured, should be shown in the ' +
+                       'header area of pages'),
+    'COPYRIGHT': ('Copyright', 'The type of intellectual property rights ' +
+                  'that content on this site has. Suggestions: Copyleft, ' +
+                  'Creative Commons Attribution Share-Alike'),
+    'COPYRIGHT_MESSAGE': ('', 'An additional message for your copyright. ' +
+                          'Example: All rights reserved.'),
+    'FEATURED_RECIPE_COUNT': (8, 'How many featured recipes should be shown ' +
+                                   'on the home page.'),
+    'NEWEST_RECIPE_COUNT': (8, 'How many of the newest recipes should be ' +
+                               'shown on the home page.'),
+    'SEARCH_RESULTS_PER_PAGE': (10, 'Number of search results to show on ' +
+                                    'search page.'),
+    'DISPLAY_DOC_LINKS': (INCLUDE_DOC_URLS and DISPLAY_DOC_LINKS, 'Show links ' +
+                          'to the docs in the nav bar'),
+}  

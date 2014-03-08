@@ -60,6 +60,8 @@ your particular web host or server. There is a `Procfile.sample` and a
 `passenger_wsgi.py.sample` (for gunicorn and passenger, respectively) to get
 you started.
 
+## Django Constance Settings
+
 ## Search Configuration
 
 This project uses django-haystack on top of Whoosh to run its search queries.
@@ -154,6 +156,9 @@ you want anyone who visits the site to be able to find the docs easily, you
 should also change:
 
     DISPLAY_DOC_LINKS = True
+
+If INCLUDE_DOC_URLS is set to True, you can also update DISPLAY_DOC_LINKS
+using the `Constance` configuration in the database.
 
 3. Generate the docs (WARNING: this will also rebuild any of your recipe search
 indexes, and will make the recipe search unavailable until the docs are
