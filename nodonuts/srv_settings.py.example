@@ -16,6 +16,9 @@ DATABASES = {
 STATIC_ROOT = os.path.join(BASE_DIR, '..', 'public', 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'public', 'media')
 
+# Sphinx settings
+INCLUDE_DOC_URLS = False
+DISPLAY_DOC_LINKS = False
 
 # Celery configuration, if using celery to handle updating search indexes.
 # See http://docs.celeryproject.org/en/latest/getting-started/brokers/index.html

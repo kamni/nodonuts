@@ -138,6 +138,8 @@ CELERY_TIMEZONE = TIME_ZONE
 
 # Sphinx config
 SPHINXDOC_BUILD_DIR = os.path.join(BASE_DIR, 'docs', 'build')
+INCLUDE_DOC_URLS = False
+DISPLAY_DOC_LINKS = False
 
 
 # Nose configuration

@@ -129,6 +129,40 @@ For production, celery should be daemonized. Celery has a
 [tutorial on writing a daemon](http://celery.readthedocs.org/en/latest/tutorials/daemonizing.html?highlight=celerybeat%20daemon)
 for celerybeat.
 
+## Documentation
+
+Documentation is located in the `docs` folder and uses django-sphinxdoc to
+generate and display content. You should read more on [Sphinx](http://sphinx-doc.org/)
+and [django-sphinxdoc](https://bitbucket.org/ssc/django-sphinxdoc) if you want
+to modify any of the documentation.
+
+The documentation is meant to be displayed online as part of the nodonuts web
+app, but it doesn't display by default. To enable it, do the following:
+
+1. Insert the fixture that points the db towards the nodonuts docs:
+
+    python manage.py loaddata docs
+
+2. Change the Sphinx configuration in `srv_settings.py` to make the urls
+accessible:
+
+    INCLUDE_DOC_URLS = True
+
+This will make [http://<project_url>/docs/nodonuts/] accessible if you visit
+the link directly, but it will not show up in the navigation bar as a link. If
+you want anyone who visits the site to be able to find the docs easily, you
+should also change:
+
+    DISPLAY_DOC_LINKS = True
+
+3. Generate the docs (WARNING: this will also rebuild any of your recipe search
+indexes, and will make the recipe search unavailable until the docs are
+finished generating):
+
+    python manage.py updatedoc -b nodonuts
+
+This same step will need to be run again if the docs change.
+
 ## Default Data
 
 The project does not have an initial_data fixture, in order to allow site
