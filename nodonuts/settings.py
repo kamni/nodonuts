@@ -129,7 +129,7 @@ CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
 CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
 CELERYBEAT_SCHEDULE = {
     'update-recipe-search-index': {
-        'task': 'recipes.tasks.update_recipe_indices',
+        'task': 'recipes.tasks.update_recipe_indexes',
         'schedule': datetime.timedelta(hours=1),
     },
 }

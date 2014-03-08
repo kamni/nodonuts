@@ -1,7 +1,6 @@
 import datetime
 import logging
 
-from celery.decorators import periodic_task
 from django.core.management import call_command
 
 from nodonuts import celery_app
