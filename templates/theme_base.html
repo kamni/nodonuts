@@ -23,6 +23,9 @@ Most templates will extend theme_base.html.
           {% block nav_bar %}
           <li class="divider"></li>
           <li><a href="{% url "home" %}">Home</a></li>
+          {% if config.DISPLAY_DOC_LINKS %}
+            <li><a href="{% url "doc-index" "nodonuts" %}">Docs</a></li>
+          {% endif %}
           <li class="divider"></li>
           <li class="has-button">
             {% if user.is_authenticated %}
