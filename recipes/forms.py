@@ -2,7 +2,7 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 from haystack.forms import SearchForm
 
-from recipes.models import ServingSize
+from recipes.models import Recipe, ServingSize
 
 
 class RecipeSearchForm(SearchForm):
@@ -62,4 +62,4 @@ class RecipeSearchForm(SearchForm):
         if self.load_all:
             query = query.load_all()
 
-        return self.order_by(query, self.order)
+        return self.order_by(query, self.order).models(Recipe)
