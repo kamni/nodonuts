@@ -1,0 +1,1 @@
+from nodonuts.celery import app as celery_app

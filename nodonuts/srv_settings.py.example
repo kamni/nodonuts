@@ -15,3 +15,9 @@ DATABASES = {
 
 STATIC_ROOT = os.path.join(BASE_DIR, '..', 'public', 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'public', 'media')
+
+
+# Celery configuration, if using celery to handle updating search indexes.
+# See http://docs.celeryproject.org/en/latest/getting-started/brokers/index.html
+# BROKER_URL = 'django://'
+# CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'

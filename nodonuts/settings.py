@@ -7,12 +7,14 @@ https://docs.djangoproject.com/en/1.6/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
+import datetime
+import os
+
 from django.conf import global_settings
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -43,7 +45,9 @@ INSTALLED_APPS = (
     'constance.backends.database',
     'constance',
     'django_nose',
+    'djcelery',
     'haystack',
+    'kombu.transport.django',
     'social.apps.django_app.default',
     'sphinxdoc',
     'tinymce',
@@ -118,6 +122,11 @@ HAYSTACK_CONNECTIONS = {
         'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
     },
 }
+
+# celery settings, configured for db queue. Please update in srv_settings.py
+BROKER_URL = 'django://'
+CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
+CELERY_TIMEZONE = TIME_ZONE
 
 
 # Sphinx config
