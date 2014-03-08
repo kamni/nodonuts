@@ -21,3 +21,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'public', 'media')
 # See http://docs.celeryproject.org/en/latest/getting-started/brokers/index.html
 # BROKER_URL = 'django://'
 # CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
+# CELERYBEAT_SCHEDULE = {
+#     'update-recipe-search-index': {
+#         'task': 'recipe.tasks.update_recipe_indices',
+#         'schedule': datetime.timedelta(hours=1),
+#     },
+# }

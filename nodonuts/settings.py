@@ -126,6 +126,13 @@ HAYSTACK_CONNECTIONS = {
 # celery settings, configured for db queue. Please update in srv_settings.py
 BROKER_URL = 'django://'
 CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
+CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
+CELERYBEAT_SCHEDULE = {
+    'update-recipe-search-index': {
+        'task': 'recipes.tasks.update_recipe_indices',
+        'schedule': datetime.timedelta(hours=1),
+    },
+}
 CELERY_TIMEZONE = TIME_ZONE
 
 
