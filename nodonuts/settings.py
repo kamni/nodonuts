@@ -44,8 +44,9 @@ INSTALLED_APPS = (
     'constance',
     'django_nose',
     'haystack',
+    'social.apps.django_app.default',
+    'sphinxdoc',
     'tinymce',
-    'social.apps.django_app.default', 
     
     # this project
     'organizations',
@@ -117,6 +118,10 @@ HAYSTACK_CONNECTIONS = {
         'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
     },
 }
+
+
+# Sphinx config
+SPHINXDOC_BUILD_DIR = os.path.join(BASE_DIR, 'docs', 'build')
 
 
 # Nose configuration
