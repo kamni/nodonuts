@@ -4,10 +4,30 @@
   text-align: center;
   font-size: .8em;
 }
-
 .next-previous-doc {
   padding-top: 1em;
   padding-bottom: 1em;
+}
+ul li {
+
+  a.reference {
+    font-weight: bold;
+    color: $complement-color1;
+  }
+  ul li {
+
+    a.reference {
+      color: $main-color2;
+    }
+    ul li {
+
+      a.reference {
+        font-weight: normal;
+        color: $complement-color2;
+      }
+    }
+  }
+
 }
 
 
