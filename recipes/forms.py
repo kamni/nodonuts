@@ -1,4 +1,5 @@
 from django import forms
+from django.utils.http import urlquote
 from django.utils.translation import ugettext_lazy as _
 from haystack.forms import SearchForm
 from haystack.query import SQ
@@ -23,9 +24,10 @@ class RecipeSearchForm(SearchForm):
     
     def base_query_link(self):
         """TODO: docs and tests"""
-        return "?q=%s&amp;order=%s&amp;ss=%s" % (self.q, self.order, 
-                                                 self.ss if self.ss is not None
-                                                 else '')
+        tags = urlquote(' '.join(self.tags)) if self.tags else ''
+        ss = self.ss if self.ss else ''
+        return "?q=%s&amp;order=%s&amp;tags=%s&amp;ss=%s" % (self.q, self.order, 
+                                                             tags, ss)
     
     def order_by(self, query, ordering=None):
         if ordering == 'newest':
