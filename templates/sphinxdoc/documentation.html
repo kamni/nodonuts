@@ -15,43 +15,36 @@
 {% endblock %}
 
 {% block main_content %}
-<!--<div class="pagination-top">-->
 <div>
 
   {% if doc.prev or doc.next %}
-    <!--<span class="alignleft">-->
     <span>
         {% if doc.prev %}
           {% trans "Prev:" %} <a href="{{ doc.prev.link }}">{{ doc.prev.title|safe }}</a>
         {% endif %}</span>
-	<!--<span class="alignright">-->
 	<span>
         {% if doc.next %}
           {% trans "Next:" %} <a href="{{ doc.next.link }}">{{ doc.next.title|safe }}</a>
-        {% endif %}</span><!--<div class="clearboth">.</div>-->
+        {% endif %}</span>
   {% endif %}
 </div>
 
-<!--<div class="sphinx">-->
-<div>
+<div class="sphinx-doc">
     {% block doc_body %}
     {{ doc.body|safe }}
     {% endblock %}
 </div>
 
-<!--<div class="pagination-bottom">-->
 <div>
     {% if doc.prev or doc.next %}
-    <!--<span class="alignleft">-->
     <span>
         {% if doc.prev %}
           {% trans "Prev:" %} <a href="{{ doc.prev.link }}">{{ doc.prev.title|safe }}</a>
         {% endif %}</span>
-	<!--<span class="alignright">-->
 	<span>
         {% if doc.next %}
           {% trans "Next:" %} <a href="{{ doc.next.link }}">{{ doc.next.title|safe }}</a>
-        {% endif %}</span><!--<div class="clearboth">.</div>-->
+        {% endif %}</span>
     {% endif %}
 
 
@@ -60,7 +53,6 @@
 
 {% block sidebar %}
   {% block doc_toc %}
-    <!--<div class="box">-->
     <div>
       <h2>{% trans "Contents" %}</h2>
       {{ doc.toc|safe }}
