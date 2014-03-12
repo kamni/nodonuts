@@ -18,9 +18,21 @@
 {% endblock %}
 
 {% block content %}
-  <div class="section">
-      <div class="container">
-          {% block main_content %}{% endblock %}
+  <div class="section card">
+      <div class="section-fullwidth">
+        {% block fullwidth_content %}{% endblock %}
+      </div>
+
+      <div class="section-aside">
+        {% block sidebar %}{% endblock %}
+      </div>
+
+      <div class="section-main">
+        {% block main_content %}{% endblock %}
+      </div>
+
+      <div class="section-fullwidth">
+        {% block fullwidth_content2 %}{% endblock %}
       </div>
   </div>
 {% endblock %}

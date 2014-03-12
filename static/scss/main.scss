@@ -10,6 +10,7 @@
 
 @import
    "foundation/components/block-grid",
+   "foundation/components/breadcrumbs",
    "foundation/components/button-groups",
    "foundation/components/buttons",
    "foundation/components/clearing",
@@ -74,14 +75,16 @@
   @include button-style($secondary-color, true);
 }
 .section {
-  @extend .card;
-  @include grid-row();
+  @extend .wrapper;
 
   .section-main {
     @include grid-column(8);
   }
   .section-aside {
     @include grid-column(4);
+  }
+  .section-fullwidth {
+    @include grid-column(12);
   }
 }
 .container {

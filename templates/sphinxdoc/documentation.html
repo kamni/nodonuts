@@ -1,73 +1,87 @@
-{% extends "theme_base.html" %}
+{% extends "sphinxdoc/docs_base.html" %}
 {% load i18n %}
 {% load staticfiles %}
 
 {% block title %}{{ block.super }} » {{ project.name }}{% for p in doc.parents %} » {{ p.title|striptags|safe }}{% endfor %} » {{ doc.title|striptags|safe }}{% endblock %}
 
-
-
-
-{% block content %}
-<div class="pagination-top">
-    <div class="breadcrumbs">
-		» <a href="{{ project.get_absolute_url }}">
-            {% blocktrans with project_name=project.name %}{{ project_name }} documentation{% endblocktrans %}</a>
+{% block fullwidth_content %}
+  <ul class="breadcrumbs">
+    <li><a href="{{ project.get_absolute_url }}">{{ project_name }} {% trans "Documentation" %}</a></li>
     {% for p in doc.parents %}
-    	» <a href="{{ p.link }}">{{ p.title|safe }}</a>
+      <li><a href="{{ p.link }}">{{ p.title|safe }}</a></li>
     {% endfor %}
-    	» {{ doc.title|safe }}
-	</div>
-    {% if doc.prev or doc.next %}
-    <span class="alignleft">
+    <li class="current">{{ doc.title|safe }}</li>
+  </ul>
+{% endblock %}
+
+{% block main_content %}
+<!--<div class="pagination-top">-->
+<div>
+
+  {% if doc.prev or doc.next %}
+    <!--<span class="alignleft">-->
+    <span>
         {% if doc.prev %}
           {% trans "Prev:" %} <a href="{{ doc.prev.link }}">{{ doc.prev.title|safe }}</a>
         {% endif %}</span>
-	<span class="alignright">
+	<!--<span class="alignright">-->
+	<span>
         {% if doc.next %}
           {% trans "Next:" %} <a href="{{ doc.next.link }}">{{ doc.next.title|safe }}</a>
-        {% endif %}</span><div class="clearboth">.</div>
-    {% endif %}
+        {% endif %}</span><!--<div class="clearboth">.</div>-->
+  {% endif %}
 </div>
 
-<div class="sphinx">
+<!--<div class="sphinx">-->
+<div>
     {% block doc_body %}
     {{ doc.body|safe }}
     {% endblock %}
 </div>
 
-<div class="pagination-bottom">
+<!--<div class="pagination-bottom">-->
+<div>
     {% if doc.prev or doc.next %}
-    <span class="alignleft">
+    <!--<span class="alignleft">-->
+    <span>
         {% if doc.prev %}
           {% trans "Prev:" %} <a href="{{ doc.prev.link }}">{{ doc.prev.title|safe }}</a>
         {% endif %}</span>
-	<span class="alignright">
+	<!--<span class="alignright">-->
+	<span>
         {% if doc.next %}
           {% trans "Next:" %} <a href="{{ doc.next.link }}">{{ doc.next.title|safe }}</a>
-        {% endif %}</span><div class="clearboth">.</div>
+        {% endif %}</span><!--<div class="clearboth">.</div>-->
     {% endif %}
-	<div class="breadcrumbs">
-        » <a href="{{ project.get_absolute_url }}">{% blocktrans with project_name=project.name %}{{ project_name }} documentation{% endblocktrans %}</a>
-    {% for p in doc.parents %}
-    	» <a href="{{ p.link }}">{{ p.title|safe }}</a>
-    {% endfor %}
-    	» {{ doc.title|safe }}
-	</div>
-	<div class="meta">
-        {% trans "Last update:" %} {{ update_date|date:"SHORT_DATETIME_FORMAT" }} (<a href="http://www.timeanddate.com/worldclock/city.html?n=37">CET</a>)
-	</div>
+
+
 </div>
+{% endblock %}
 
 {% block sidebar %}
-    {% block doc_toc %}
-<div class="box">
-    <h2>{% trans "Contents" %}</h2>
-    {{ doc.toc|safe }}
-</div>
-    {% endblock %}
+  {% block doc_toc %}
+    <!--<div class="box">-->
+    <div>
+      <h2>{% trans "Contents" %}</h2>
+      {{ doc.toc|safe }}
+    </div>
+  {% endblock %}
 
-    {{ block.super }}
-{% endblock sidebar %}
-{% endblock content %}
+  {{ block.super }}
+{% endblock %}
+
+{% block fullwidth_content2 %}
+  <ul class="breadcrumbs">
+    <li><a href="{{ project.get_absolute_url }}">{{ project_name }} {% trans "Documentation" %}</a></li>
+    {% for p in doc.parents %}
+      <li><a href="{{ p.link }}">{{ p.title|safe }}</a></li>
+    {% endfor %}
+    <li class="current">{{ doc.title|safe }}</li>
+  </ul>
+
+  <div class="meta">
+    {% trans "Last update:" %} {{ update_date|date:"SHORT_DATETIME_FORMAT" }} (<a href="http://www.timeanddate.com/worldclock/city.html?n=1">UTC</a>)
+  </div>
+{% endblock %}
 
 
