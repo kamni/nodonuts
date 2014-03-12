@@ -9,9 +9,7 @@ class RecipeSearchForm(SearchForm):
     """TODO: docs and tests"""
     q = forms.CharField(required=False, label=_('Search'),
                         widget=forms.TextInput(attrs={'placeholder': 
-                                                      'Enter search terms, ' +
-                                                      'or leave blank to see ' +
-                                                      'all recipes'}))
+                                'Enter search terms, or leave blank to see all recipes'}))
     order = forms.ChoiceField(required=False, label="Sort Results By",
                               choices=(('popularity', 'popularity'),
                                        ('newest', 'newest'),
@@ -19,6 +17,8 @@ class RecipeSearchForm(SearchForm):
                                        ('alphabetz', 'alphabetical (Z-A)')))
     ss = forms.ChoiceField(required=False, label="Serving Size",
                            choices=[(None, "-------")] + ServingSize.choices())
+    tags = forms.CharField(required=False, widget=forms.TextInput(attrs = {'placeholder':
+                                'Tags separated by commas'}))
     
     def base_query_link(self):
         """TODO: docs and tests"""
@@ -47,6 +47,11 @@ class RecipeSearchForm(SearchForm):
             self.ss = int(self.cleaned_data.get('ss'))
         except ValueError:
             self.ss = None
+        try:
+            #import pdb; pdb.set_trace()
+            tags = self.cleaned_data.get('tags')
+        except:
+            pass
         
         if not (self.q or self.order or self.ss is not None):
             return self.no_query_found()

@@ -5,6 +5,10 @@
     {{ form.q }}
     <table class="search-filter">
       <tr>
+          <th><label for="id_tags">{{ form.tags.label }}:</label></th>
+          <td>{{ form.tags }}</td>
+      </tr>
+      <tr>
           <th><label for="id_order">{{ form.order.label }}:</label></th>
           <td>{{ form.order }}</td>
       </tr>
