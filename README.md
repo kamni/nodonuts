@@ -190,6 +190,14 @@ finished generating):
 
 This same step will need to be run again if the docs change.
 
+### Making changes as a developer
+
+If you make changes to the documentation as a developer, you will need to run
+the following commands before committing your changes:
+
+    cd <path to project>/docs
+    make json
+
 ## Default Data
 
 The project does not have an initial_data fixture, in order to allow site
