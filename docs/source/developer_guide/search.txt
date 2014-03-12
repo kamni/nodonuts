@@ -9,10 +9,68 @@ called Whoosh to index all of its recipes.
     Currently there is a bug in django-haystack that causes errors during
     update to cascade across all other updates. Until this is fixed in the
     main version of django-haystack, this project uses a custom fork of the
-    project.  Please see references below for a link to the forked project.
+    project.  Please see references at the bottom of this documentation for a
+    link to the forked project.
 
 Configuring Search
 ==================
+
+Whoosh generates file-based search indexes that are used to run queries
+without hitting the database. In order for the search to work correctly, the
+search indexes have to be regenerated on a regular basis.
+
+.. rubric::Initial Search Index Creation
+
+Create a folder in ``nodonuts`` called ``whoosh_index`` and run the following
+command to generate the initial set of indexes:
+
+    python manage.py rebuild_index
+
+.. rubric::Updating Search Indexes
+
+The search indexes will need to be updated whenever new recipes/tags are added
+or recipes change.  You can do this manually by running:
+
+    python manage.py update_index recipes
+
+To automate this, you may consider creating a cron job on your server. Here is
+an example entry that updates the recipes once every hour:
+
+    0 * * * *  cd <path to project> && <path to venv>/bin/python manage.py update_index recipes
+
+.. rubric::Advanced Update
+
+If you want something more advanced or your hosting provider does not support
+cron jobs, you can also use `Celerybeat <http://celery.readthedocs.org/en/latest/>`_.
+This project is already configured to use Celery's database task queue backend
+to update the recipes once per hour.
+
+If you would like the search indexes to update more frequently (or less
+frequently), you can adjust the `CELERYBEAT_SCHEDULE` setting in your
+`srv_settings.py` file.  Adjust the `schedule` value to be whatever frequency
+you would like it to check for updates. For example, if you want it to run
+every 15 minutes, your config might look like:
+
+    CELERYBEAT_SCHEDULE = {
+        'update-recipe-search-index': {
+            'task': 'recipe.tasks.update_recipe_indices',
+            'schedule': datetime.timedelta(minutes=15),
+        },
+    }
+
+To run celerybeat in a development environment, you can use:
+
+    python manage.py celerybeat
+
+For production, celery should be daemonized. Celery has a
+`tutorial on writing a daemon <http://celery.readthedocs.org/en/latest/tutorials/daemonizing.html?highlight=celerybeat%20daemon>`_
+for celerybeat.
+
+.. rubric::Configuring Number of Search Results Per Page
+
+By default, the search returns 10 results per page. You can change this from
+the `Django admin </site-manager/>`_ by going to `Constance - Config </site-manager/constance/config/>`_
+and updating the SEARCH_RESULTS_PER_PAGE setting.
 
 
 Search Basics
@@ -77,7 +135,7 @@ Advanced Search Syntax
 The syntax for the search is fairly straightforward:
 
 *
-
+links to Celery config
 
 .. seealso::
 
