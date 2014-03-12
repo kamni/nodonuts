@@ -1,6 +1,7 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 from haystack.forms import SearchForm
+from haystack.query import SQ
 
 from recipes.models import Recipe, ServingSize
 
@@ -18,7 +19,7 @@ class RecipeSearchForm(SearchForm):
     ss = forms.ChoiceField(required=False, label="Serving Size",
                            choices=[(None, "-------")] + ServingSize.choices())
     tags = forms.CharField(required=False, widget=forms.TextInput(attrs = {'placeholder':
-                                'Tags separated by commas'}))
+                                'Tags separated by spaces'}))
     
     def base_query_link(self):
         """TODO: docs and tests"""
@@ -43,17 +44,13 @@ class RecipeSearchForm(SearchForm):
         
         self.q = self.cleaned_data.get('q')
         self.order = self.cleaned_data.get('order')
+        self.tags = [tag.strip() for tag in self.cleaned_data.get('tags').split(' ') if tag.strip()]
         try:
             self.ss = int(self.cleaned_data.get('ss'))
         except ValueError:
             self.ss = None
-        try:
-            #import pdb; pdb.set_trace()
-            tags = self.cleaned_data.get('tags')
-        except:
-            pass
         
-        if not (self.q or self.order or self.ss is not None):
+        if not (self.q or self.order or self.tags or self.ss is not None):
             return self.no_query_found()
         
         if self.q:
@@ -63,6 +60,11 @@ class RecipeSearchForm(SearchForm):
             
         if self.ss is not None:
             query = query.filter(serving_size=self.ss)
+            
+        sq = SQ()
+        for tag in self.tags:
+            sq.add(SQ(tags=tag), SQ.AND)
+        query = query.filter(sq)
         
         if self.load_all:
             query = query.load_all()
