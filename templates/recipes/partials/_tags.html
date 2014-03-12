@@ -13,7 +13,7 @@
               <li{% if tagname in selected_tags %} class="query"{% endif %} onclick="toggleTag(this, '{{ tagname }}')"><a name="{{ tagname }}">{{ tagname }}</a></li>
               {% endwith %}
             {% else %}
-              <li><a href="{% url "recipe_search" %}?q={{ '"'|urlencode }}{{ tag.name|urlencode }}{{ '"'|urlencode }}">{{ tag.name }}</a></li>
+              <li><a href="{% url "recipe_search" %}?tags={{ tag.name|urlencode }}">{{ tag.name }}</a></li>
             {% endif %}
           {% endfor %}
       </ul>
