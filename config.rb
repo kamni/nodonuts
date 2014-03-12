@@ -10,7 +10,8 @@ http_images_path = "/static/img/"
 http_javascripts_path = "static/js/"
 
 # Change this variable to 'production' for compressed css files
-environment = :development
+#environment = :development
+environmant = :production
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
