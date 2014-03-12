@@ -3,21 +3,36 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to NoDonuts's documentation!
-====================================
+NoDonuts: Let's get the junk food out of our campaigns!
+=======================================================
 
-Contents:
+NoDonuts is a site dedicated to providing healthy recipe alternatives for
+organizations that need to feed their volunteers and participants, and helping
+those organizations coordinate people to food.
+
+This is the documentation for NoDonuts. You can search the documentation by
+using the 'search the docs' bar above.
+
+.. _Affero GPL v3: http://www.gnu.org/licenses/agpl-3.0.html
+.. _Github repository: https://github.com/kamni/nodonuts
+
+This is an open source project licensed under the `Affero GPL v3`_.  If you
+would like to contribute to the project, you can visit the project's
+`Github repository`_.
+
+
+
+Table of Contents:
+==================
 
 .. toctree::
    :maxdepth: 2
 
 
 
-Indices and tables
+General References
 ==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+* :ref:`List of all pages in the documentation <genindex>`
 
 
