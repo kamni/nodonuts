@@ -28,7 +28,9 @@ Most templates will extend theme_base.html.
           <li class="divider"></li>
           <li><a href="{% url "home" %}">Home</a></li>
           {% if config.DISPLAY_DOC_LINKS %}
-            <li><a href="{% url "doc-index" "nodonuts" %}">Docs</a></li>
+            {% if user.is_superuser or not config.SUPERUSER_DOCS_ONLY %}
+              <li><a href="{% url "doc-index" "nodonuts" %}">Docs</a></li>
+            {% endif %}
           {% endif %}
           <li class="divider"></li>
           <li class="has-button">

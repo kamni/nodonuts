@@ -115,8 +115,8 @@ CELERY_TIMEZONE = TIME_ZONE
 
 # Sphinx config
 SPHINXDOC_BUILD_DIR = 'build'
-INCLUDE_DOC_URLS = False
-DISPLAY_DOC_LINKS = False
+INCLUDE_DOC_URLS = True
+DISPLAY_DOC_LINKS = True
 
 
 # Nose configuration
@@ -159,4 +159,6 @@ CONSTANCE_CONFIG = {
                                     'search page.'),
     'DISPLAY_DOC_LINKS': (INCLUDE_DOC_URLS and DISPLAY_DOC_LINKS, 'Show links ' +
                           'to the project documentation in the nav bar'),
+    'SUPERUSER_DOCS_ONLY': (True, 'If documentation links are available, only ' +
+                            'show docs to superusers.')
 }  
