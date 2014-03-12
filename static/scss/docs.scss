@@ -1,5 +1,8 @@
 @import "main";
 
+.admonition-title {
+  font-weight: bold;
+}
 .meta {
   text-align: center;
   font-size: .8em;
@@ -7,6 +10,32 @@
 .next-previous-doc {
   padding-top: 1em;
   padding-bottom: 1em;
+}
+.note {
+  @include card($neutral-color1);
+}
+dt {
+  padding-left: 1em;
+  color: $main-color1;
+}
+dd {
+  padding-left: 2em;
+  color: $neutral-color3;
+  font-style: italic;
+}
+h1 {
+  color: $complement-color1 !important;
+}
+h2 {
+  color: $main-color2 !important;
+}
+h3 {
+  color: $complement-color2 !important;
+  padding-top: .5rem;
+}
+pre {
+  @include card(scale-color($neutral-color2, $lightness: 90%));
+  color: $neutral-color3;
 }
 ul li {
 

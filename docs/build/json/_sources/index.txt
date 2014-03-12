@@ -6,7 +6,7 @@ NoDonuts: Let's get the junk food out of our campaigns!
 
 NoDonuts is a site dedicated to providing healthy recipe alternatives for
 organizations that need to feed their volunteers and participants, and helping
-those organizations coordinate people to food.
+those organizations coordinate members who are able to bring food.
 
 This is the documentation for NoDonuts. You can search the documentation by
 using the 'search the docs' bar above.
