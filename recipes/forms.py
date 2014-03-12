@@ -54,9 +54,6 @@ class RecipeSearchForm(SearchForm):
         except ValueError:
             self.ss = None
         
-        if not (self.q or self.order or self.tags or self.ss is not None):
-            return self.no_query_found()
-        
         if self.q:
             query = self.searchqueryset.auto_query(self.q)
         else:
