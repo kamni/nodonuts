@@ -11,15 +11,65 @@ called Whoosh to index all of its recipes.
     main version of django-haystack, this project uses a custom fork of the
     project.  Please see references below for a link to the forked project.
 
+Configuring Search
+==================
 
-There are two types of searches: a keyword search and a tag search.
 
-Searching from the Home Page
-============================
+Search Basics
+=============
 
-Searching from the search page
+The search page is located at http://<project_url>`/search/ </search/>`_. There
+are four GET parameters that can be used with the search:
 
-Search syntax
+:dfn:`q`
+    Keyword search terms. These will match any recipes that have these terms in
+    the title, ingredients, or tags.
+:dfn:`tags`
+    Tag literals, separated by spaces. These will match the tags in a recipe
+:dfn:`ss`
+    Serving size -- i.e., how many people this recipe will serve. The number
+    entered must match one of the following:
+
+    * 0: 1-2 people
+    * 1: 3-4 people
+    * 2: 5-6 people
+    * 3: 7-9 people
+    * 4: 10-12 people
+    * 5: 12-15 people
+    * 6: 15-20 people
+    * 7: 20-30 people
+    * 8: 30-50 people
+    * 9: More than 50 people
+
+    These options can be found in recipes.models.ServingSize. People using the
+    search will not have to enter these numbers manually, as the form provides
+    a dropdown with the appropriate options.
+:dfn:`order`
+    Order that the tags should be returned. The options currently are:
+
+    * popularity
+    * newest
+    * alphabeta (alphabetical ordering A-Z)
+    * alphabetz (alphabetical ordering Z-A)
+
+    These options can be found in recipes.forms.RecipeSearchForm.
+
+.. rubric::Searching from the Home Page
+
+Most pages (including the home page) have a keyword search bar (i.e., the bar
+passes the `q` parameter for anything entered in the search bar).  Clicking the
+search icon next to the bar, with or without keywords entered, will go directly
+to the `search </search/>`_ page. If no search terms are entered, the user will
+see a page with 0 results; otherwise, the page returns a list of any recipes
+that match the keywords.
+
+
+
+.. rubric::Searching from the Search Page
+
+Advanced Search Syntax
+======================
+
 
 
 

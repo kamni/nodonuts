@@ -1,5 +1,3 @@
-.. versionadded: 0.1
-
 Searching Recipes
 =================
 
@@ -13,7 +11,57 @@ called Whoosh to index all of its recipes.
     main version of django-haystack, this project uses a custom fork of the
     project.  Please see references below for a link to the forked project.
 
+The search page is located at `/search/`_. There are four GET parameters that
+can be used with the search:
 
+:dfn:`q`
+    Keyword search terms. These will match any recipes that have these terms in
+    the title, ingredients, or tags.
+:dfn:`tags`
+    Tag literals, separated by spaces. These will match the tags in a recipe
+:dfn:`ss`
+    Serving size -- i.e., how many people this recipe will serve. The number
+    entered must match one of the following:
+
+    * 0: 1-2 people
+    * 1: 3-4 people
+    * 2: 5-6 people
+    * 3: 7-9 people
+    * 4: 10-12 people
+    * 5: 12-15 people
+    * 6: 15-20 people
+    * 7: 20-30 people
+    * 8: 30-50 people
+    * 9: More than 50 people
+
+    These options can be found in recipes.models.ServingSize. People using the
+    search will not have to enter these numbers manually, as the form provides
+    a dropdown with the appropriate options.
+:dfn:`order`
+    Order that the tags should be returned. The options currently are:
+
+    * popularity
+    * newest
+    * alphabeta (alphabetical ordering A-Z)
+    * alphabetz (alphabetical ordering Z-A)
+
+    These options can be found in recipes.forms.RecipeSearchForm.
+
+
+
+Searching from the Home Page
+============================
+
+Searching from the search page
+
+Search syntax
+
+
+
+
+The syntax for the search is fairly straightforward:
+
+*
 
 
 .. seealso::

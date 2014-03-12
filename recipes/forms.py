@@ -9,14 +9,16 @@ from recipes.models import Recipe, ServingSize
 
 class RecipeSearchForm(SearchForm):
     """TODO: docs and tests"""
+    ORDERING_OPTIONS = (('popularity', 'popularity'),
+                       ('newest', 'newest'),
+                       ('alphabeta', 'alphabetical (A-Z)'),
+                       ('alphabetz', 'alphabetical (Z-A)'))
+                       
     q = forms.CharField(required=False, label=_('Search'),
                         widget=forms.TextInput(attrs={'placeholder': 
                                 'Enter search terms, or leave blank to see all recipes'}))
     order = forms.ChoiceField(required=False, label="Sort Results By",
-                              choices=(('popularity', 'popularity'),
-                                       ('newest', 'newest'),
-                                       ('alphabeta', 'alphabetical (A-Z)'),
-                                       ('alphabetz', 'alphabetical (Z-A)')))
+                              choices=ORDERING_OPTIONS)
     ss = forms.ChoiceField(required=False, label="Serving Size",
                            choices=[(None, "-------")] + ServingSize.choices())
     tags = forms.CharField(required=False, widget=forms.TextInput(attrs = {'placeholder':
