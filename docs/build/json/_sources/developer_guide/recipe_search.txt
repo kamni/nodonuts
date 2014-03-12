@@ -1,0 +1,185 @@
+Searching Recipes
+=================
+
+NoDonuts uses a plugin called Haystack to manage searches, and a search engine
+called Whoosh to index all of its recipes.
+
+.. note::
+
+    Currently there is a bug in django-haystack that causes errors during
+    update to cascade across all other updates. Until this is fixed in the
+    main version of django-haystack, this project uses a custom fork of the
+    project.  Please see references at the bottom of this documentation for a
+    link to the forked project.
+
+Configuring Search
+==================
+
+Whoosh generates file-based search indexes that are used to run queries
+without hitting the database. In order for the search to work correctly, the
+search indexes have to be regenerated on a regular basis.
+
+.. rubric::Initial Search Index Creation
+
+Create a folder in ``nodonuts`` called ``whoosh_index`` and run the following
+command to generate the initial set of indexes:
+
+    python manage.py rebuild_index
+
+.. rubric::Updating Search Indexes
+
+The search indexes will need to be updated whenever new recipes/tags are added
+or recipes change.  You can do this manually by running:
+
+    python manage.py update_index recipes
+
+To automate this, you may consider creating a cron job on your server. Here is
+an example entry that updates the recipes once every hour:
+
+    0 * * * *  cd <path to project> && <path to venv>/bin/python manage.py update_index recipes
+
+.. rubric::Advanced Update
+
+If you want something more advanced or your hosting provider does not support
+cron jobs, you can also use `Celerybeat <http://celery.readthedocs.org/en/latest/>`_.
+This project is already configured to use Celery's database task queue backend
+to update the recipes once per hour.
+
+If you would like the search indexes to update more frequently (or less
+frequently), you can adjust the `CELERYBEAT_SCHEDULE` setting in your
+`srv_settings.py` file.  Adjust the `schedule` value to be whatever frequency
+you would like it to check for updates. For example, if you want it to run
+every 15 minutes, your config might look like:
+
+    ```CELERYBEAT_SCHEDULE = {
+        'update-recipe-search-index': {
+            'task': 'recipe.tasks.update_recipe_indices',
+            'schedule': datetime.timedelta(minutes=15),
+        },
+    }```
+
+To run celerybeat in a development environment, you can use:
+
+    python manage.py celerybeat
+
+For production, celery should be daemonized. Celery has a
+`tutorial on writing a daemon <http://celery.readthedocs.org/en/latest/tutorials/daemonizing.html?highlight=celerybeat%20daemon>`_
+for celerybeat.
+
+.. rubric::Configuring Number of Search Results Per Page
+
+By default, the search returns 10 results per page. You can change this from
+the `Django admin </site-manager/>`_ by going to `Constance - Config </site-manager/constance/config/>`_
+and updating the SEARCH_RESULTS_PER_PAGE setting.
+
+
+Search Basics
+=============
+
+The search page is located at http://<project_url>`/search/ </search/>`_. There
+are four GET parameters that can be used with the search:
+
+:dfn:`q`
+    Keyword search terms. These will match any recipes that have these terms in
+    the title, ingredients, or tags.
+:dfn:`tags`
+    Tag literals, separated by spaces. These will match the tags in a recipe
+:dfn:`ss`
+    Serving size -- i.e., how many people this recipe will serve. The number
+    entered must match one of the following:
+
+    * 0: 1-2 people
+    * 1: 3-4 people
+    * 2: 5-6 people
+    * 3: 7-9 people
+    * 4: 10-12 people
+    * 5: 12-15 people
+    * 6: 15-20 people
+    * 7: 20-30 people
+    * 8: 30-50 people
+    * 9: More than 50 people
+
+    These options can be found in recipes.models.ServingSize. People using the
+    search will not have to enter these numbers manually, as the form provides
+    a dropdown with the appropriate options.
+:dfn:`order`
+    Order that the tags should be returned. The options currently are:
+
+    * popularity
+    * newest
+    * alphabeta (alphabetical ordering A-Z)
+    * alphabetz (alphabetical ordering Z-A)
+
+    These options can be found in recipes.forms.RecipeSearchForm.
+
+Currently all searches are 'AND' searches (i.e., they must match all parameters
+in the search box).
+
+.. rubric::Searching from the Home Page
+
+Most pages (including the home page) have a keyword search bar (i.e., the bar
+passes the `q` parameter for anything entered in the search bar).  Clicking the
+search icon next to the bar, with or without keywords entered, will go directly
+to the `search </search/>`_ page. If no search terms are entered, the user will
+see a page all results ordered by popularity; otherwise, the page returns a
+list of any recipes that match the keywords.
+
+The home page has two other ways to access the search page:
+
+* **tag search:** the page sidebar displays a list of tags, organized by the
+type of tag. Clicking on any of these tags will take the user to a list of
+recipes filtered by that tag.
+* **browse link:** under the 'Newest Recipes' section, is a link to 'Browse',
+which takes the user to a list of recipes ordered by when they were added,
+newest first.
+
+.. rubric::Searching from the Search Page
+
+The search page provides access to all four of the search parameters above:
+
+* **q:** keywordtext field in the search form
+* **tags:** by clicking links in the sidebar or using text field in the search form
+* **order:** dropdown to select popularity, newest, or both types of
+alphabetical search
+* **ss:** dropdown with serving size options
+
+Advanced Search Syntax
+======================
+
+There are two syntax options that can be used with the keyword (`q`) search
+field:
+
+* **quotation marks:** performs a literal search. For example, `"dairy free"`
+(with quotes) would return:
+
+    Dairy Free Mac and Cheese (Title)
+    dairy-free creamer (ingredient)
+    dairy-free (tag)
+
+    Whereas `dairy free` (without quotes) may return results like:
+
+    Dairy Free Mac and Cheese (Title)
+    Fat-Free Mac and Cheese (with 'dairy' tag)
+    dairy-free (tag)
+    Dairy Delight (with 'nut-free' tag)
+
+* **minus sign:** exludes a search term. For example, `peanuts -curry` would
+return any results that had peanuts in the title or ingredients, but not the
+word 'curry'.
+
+links to Celery config
+
+.. seealso::
+
+    `Django-haystack project documention <http://django-haystack.readthedocs.org/en/latest/>`_
+        A general reference for the views and search API
+
+    `Fork of the django-haystack project <https://github.com/kamni/django-haystack>`_
+        The version of django-haystack used for this project
+
+    `Whoosh documentation <http://pythonhosted.org/Whoosh/intro.html>`_
+        Basics of the search engine being used for this project
+
+    `Celery docs for Django <http://celery.readthedocs.org/en/latest/django/index.html>`_
+        More options for configuring Celery
+
