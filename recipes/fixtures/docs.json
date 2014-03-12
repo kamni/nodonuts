@@ -5,7 +5,7 @@
     "fields": {
       "name": "NoDonuts",
       "slug": "nodonuts",
-      "path": "source"
+      "path": "docs"
     }
   }
 ]
