@@ -1,0 +1,29 @@
+.. versionadded: 0.1
+
+Searching Recipes
+=================
+
+NoDonuts uses a plugin called Haystack to manage searches, and a search engine
+called Whoosh to index all of its recipes.
+
+.. note::
+
+    Currently there is a bug in django-haystack that causes errors during
+    update to cascade across all other updates. Until this is fixed in the
+    main version of django-haystack, this project uses a custom fork of the
+    project.  Please see references below for a link to the forked project.
+
+
+
+
+.. seealso::
+
+    `Django-haystack project documention <http://django-haystack.readthedocs.org/en/latest/>`_
+        A general reference for the views and search API
+
+    `Fork of the django-haystack project <https://github.com/kamni/django-haystack>`_
+        The version of django-haystack used for this project
+
+    `Whoosh documentation <http://pythonhosted.org/Whoosh/intro.html>`_
+        Basics of the search engine being used for this project
+
