@@ -26,10 +26,7 @@ class RecipeSearchView(SearchView):
     
     def get_selected_tags(self):
         """Determines which tags should show up as 'selected' in the view"""
-        selected = []
-        for match in re.finditer(r'".+?"', self.query):
-            selected.append(self.query[match.start()+1:match.end()-1])
-        return selected
+        return self.form.tags
     
     def extra_context(self):
         return {'is_search': True,
