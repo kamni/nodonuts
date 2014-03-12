@@ -1,5 +1,6 @@
+*****************
 Searching Recipes
-=================
+*****************
 
 NoDonuts uses a plugin called Haystack to manage searches, and a search engine
 called Whoosh to index all of its recipes.
@@ -19,14 +20,16 @@ Whoosh generates file-based search indexes that are used to run queries
 without hitting the database. In order for the search to work correctly, the
 search indexes have to be regenerated on a regular basis.
 
-.. rubric::Initial Search Index Creation
+Initial Search Index Creation
+*****************************
 
 Create a folder in ``nodonuts`` called ``whoosh_index`` and run the following
 command to generate the initial set of indexes:
 
     python manage.py rebuild_index
 
-.. rubric::Updating Search Indexes
+Updating Search Indexes
+***********************
 
 The search indexes will need to be updated whenever new recipes/tags are added
 or recipes change.  You can do this manually by running:
@@ -38,7 +41,8 @@ an example entry that updates the recipes once every hour:
 
     0 * * * *  cd <path to project> && <path to venv>/bin/python manage.py update_index recipes
 
-.. rubric::Advanced Update
+Advanced Update
+***************
 
 If you want something more advanced or your hosting provider does not support
 cron jobs, you can also use `Celerybeat <http://celery.readthedocs.org/en/latest/>`_.
@@ -66,7 +70,8 @@ For production, celery should be daemonized. Celery has a
 `tutorial on writing a daemon <http://celery.readthedocs.org/en/latest/tutorials/daemonizing.html?highlight=celerybeat%20daemon>`_
 for celerybeat.
 
-.. rubric::Configuring Number of Search Results Per Page
+Configuring Number of Search Results Per Page
+*********************************************
 
 By default, the search returns 10 results per page. You can change this from
 the `Django admin </site-manager/>`_ by going to `Constance - Config </site-manager/constance/config/>`_
@@ -115,7 +120,8 @@ are four GET parameters that can be used with the search:
 Currently all searches are 'AND' searches (i.e., they must match all parameters
 in the search box).
 
-.. rubric::Searching from the Home Page
+Searching from the Home Page
+****************************
 
 Most pages (including the home page) have a keyword search bar (i.e., the bar
 passes the `q` parameter for anything entered in the search bar).  Clicking the
@@ -133,7 +139,8 @@ recipes filtered by that tag.
 which takes the user to a list of recipes ordered by when they were added,
 newest first.
 
-.. rubric::Searching from the Search Page
+Searching from the Search Page
+******************************
 
 The search page provides access to all four of the search parameters above:
 
