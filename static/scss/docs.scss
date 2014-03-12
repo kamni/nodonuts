@@ -14,6 +14,18 @@
 .note {
   @include card($neutral-color1);
 }
+.seealso {
+
+  p.admonition-title {
+    font-size: 1.5em;
+    border-top: 1px solid $neutral-color2;
+    margin-top: 1.5em;
+    padding-top: 1em;
+  }
+}
+body {
+  color: $neutral-color3;
+}
 dt {
   padding-left: 1em;
   color: $main-color1;

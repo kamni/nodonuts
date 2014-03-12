@@ -149,12 +149,8 @@ list of any recipes that match the keywords.
 
 The home page has two other ways to access the search page:
 
-* **tag search:** the page sidebar displays a list of tags, organized by the
-type of tag. Clicking on any of these tags will take the user to a list of
-recipes filtered by that tag.
-* **browse link:** under the 'Newest Recipes' section, is a link to 'Browse',
-which takes the user to a list of recipes ordered by when they were added,
-newest first.
+* **tag search:** the page sidebar displays a list of tags, organized by the type of tag. Clicking on any of these tags will take the user to a list of recipes filtered by that tag.
+* **browse link:** under the 'Newest Recipes' section, is a link to 'Browse', which takes the user to a list of recipes ordered by when they were added, newest first.
 
 Searching from the Search Page
 ******************************
@@ -163,8 +159,7 @@ The search page provides access to all four of the search parameters above:
 
 * **q:** keywordtext field in the search form
 * **tags:** by clicking links in the sidebar or using text field in the search form
-* **order:** dropdown to select popularity, newest, or both types of
-alphabetical search
+* **order:** dropdown to select popularity, newest, or both types of alphabetical search
 * **ss:** dropdown with serving size options
 
 Advanced Search Syntax
@@ -173,23 +168,26 @@ Advanced Search Syntax
 There are two syntax options that can be used with the keyword (`q`) search
 field:
 
-* **quotation marks:** performs a literal search. For example, `"dairy free"`
-(with quotes) would return:
+* **quotation marks:** performs a literal search. For example, `"dairy free"` (with quotes) would return:
+
 
     Dairy Free Mac and Cheese (Title)
+
     dairy-free creamer (ingredient)
+
     dairy-free (tag)
 
-    Whereas `dairy free` (without quotes) may return results like:
+Whereas `dairy free` (without quotes) may return results like:
 
     Dairy Free Mac and Cheese (Title)
+
     Fat-Free Mac and Cheese (with 'dairy' tag)
+
     dairy-free (tag)
+
     Dairy Delight (with 'nut-free' tag)
 
-* **minus sign:** exludes a search term. For example, `peanuts -curry` would
-return any results that had peanuts in the title or ingredients, but not the
-word 'curry'.
+* **minus sign:** exludes a search term. For example, `peanuts -curry` would return any results that had peanuts in the title or ingredients, but not the word 'curry'.
 
 
 .. seealso::
