@@ -36,7 +36,7 @@ class RecipeSearchForm(SearchForm):
             return query.order_by('title')
         if ordering == 'alphabetz':
             return query.order_by('-title')
-        if ordering == 'popularity' or ordering is None:
+        if ordering == 'popularity' or not ordering:
             return query.order_by('-popularity')
         return query
     
