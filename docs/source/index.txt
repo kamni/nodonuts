@@ -26,7 +26,7 @@ Table of Contents
 .. toctree::
    :maxdepth: 2
 
-   developer_guide/search
+   developer_guide/recipe_search
 
 
 

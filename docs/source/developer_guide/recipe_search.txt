@@ -51,12 +51,12 @@ frequently), you can adjust the `CELERYBEAT_SCHEDULE` setting in your
 you would like it to check for updates. For example, if you want it to run
 every 15 minutes, your config might look like:
 
-    CELERYBEAT_SCHEDULE = {
+    ```CELERYBEAT_SCHEDULE = {
         'update-recipe-search-index': {
             'task': 'recipe.tasks.update_recipe_indices',
             'schedule': datetime.timedelta(minutes=15),
         },
-    }
+    }```
 
 To run celerybeat in a development environment, you can use:
 
@@ -112,29 +112,61 @@ are four GET parameters that can be used with the search:
 
     These options can be found in recipes.forms.RecipeSearchForm.
 
+Currently all searches are 'AND' searches (i.e., they must match all parameters
+in the search box).
+
 .. rubric::Searching from the Home Page
 
 Most pages (including the home page) have a keyword search bar (i.e., the bar
 passes the `q` parameter for anything entered in the search bar).  Clicking the
 search icon next to the bar, with or without keywords entered, will go directly
 to the `search </search/>`_ page. If no search terms are entered, the user will
-see a page with 0 results; otherwise, the page returns a list of any recipes
-that match the keywords.
+see a page all results ordered by popularity; otherwise, the page returns a
+list of any recipes that match the keywords.
 
+The home page has two other ways to access the search page:
 
+* **tag search:** the page sidebar displays a list of tags, organized by the
+type of tag. Clicking on any of these tags will take the user to a list of
+recipes filtered by that tag.
+* **browse link:** under the 'Newest Recipes' section, is a link to 'Browse',
+which takes the user to a list of recipes ordered by when they were added,
+newest first.
 
 .. rubric::Searching from the Search Page
+
+The search page provides access to all four of the search parameters above:
+
+* **q:** keywordtext field in the search form
+* **tags:** by clicking links in the sidebar or using text field in the search form
+* **order:** dropdown to select popularity, newest, or both types of
+alphabetical search
+* **ss:** dropdown with serving size options
 
 Advanced Search Syntax
 ======================
 
+There are two syntax options that can be used with the keyword (`q`) search
+field:
 
+* **quotation marks:** performs a literal search. For example, `"dairy free"`
+(with quotes) would return:
 
+    Dairy Free Mac and Cheese (Title)
+    dairy-free creamer (ingredient)
+    dairy-free (tag)
 
+    Whereas `dairy free` (without quotes) may return results like:
 
-The syntax for the search is fairly straightforward:
+    Dairy Free Mac and Cheese (Title)
+    Fat-Free Mac and Cheese (with 'dairy' tag)
+    dairy-free (tag)
+    Dairy Delight (with 'nut-free' tag)
 
-*
+* **minus sign:** exludes a search term. For example, `peanuts -curry` would
+return any results that had peanuts in the title or ingredients, but not the
+word 'curry'.
+
 links to Celery config
 
 .. seealso::
@@ -147,4 +179,7 @@ links to Celery config
 
     `Whoosh documentation <http://pythonhosted.org/Whoosh/intro.html>`_
         Basics of the search engine being used for this project
+
+    `Celery docs for Django <http://celery.readthedocs.org/en/latest/django/index.html>`_
+        More options for configuring Celery
 

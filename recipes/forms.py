@@ -16,7 +16,7 @@ class RecipeSearchForm(SearchForm):
                        
     q = forms.CharField(required=False, label=_('Search'),
                         widget=forms.TextInput(attrs={'placeholder': 
-                                'Enter search terms, or leave blank to see all recipes'}))
+                                'Enter keywords, or leave blank to see all recipes'}))
     order = forms.ChoiceField(required=False, label="Sort Results By",
                               choices=ORDERING_OPTIONS)
     ss = forms.ChoiceField(required=False, label="Serving Size",
