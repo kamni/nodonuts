@@ -1,7 +1,5 @@
 .. NoDonuts documentation master file, created by
    sphinx-quickstart on Sat Mar  8 09:49:04 2014.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
 
 NoDonuts: Let's get the junk food out of our campaigns!
 =======================================================
@@ -22,17 +20,19 @@ would like to contribute to the project, you can visit the project's
 
 
 
-Table of Contents:
-==================
+Table of Contents
+=================
 
 .. toctree::
    :maxdepth: 2
+
+   developer_guide/searching_recipes
 
 
 
 General References
 ==================
 
-* :ref:`List of all pages in the documentation <genindex>`
+* `Github repository`_
 
 

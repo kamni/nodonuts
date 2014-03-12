@@ -15,8 +15,7 @@
 {% endblock %}
 
 {% block main_content %}
-<div>
-
+<div class="next-previous-doc">
   {% if doc.prev or doc.next %}
     <span>
         {% if doc.prev %}
@@ -35,7 +34,7 @@
     {% endblock %}
 </div>
 
-<div>
+<div class="next-previous-doc">
     {% if doc.prev or doc.next %}
     <span>
         {% if doc.prev %}
@@ -46,8 +45,6 @@
           {% trans "Next:" %} <a href="{{ doc.next.link }}">{{ doc.next.title|safe }}</a>
         {% endif %}</span>
     {% endif %}
-
-
 </div>
 {% endblock %}
 

@@ -4665,3 +4665,8 @@ small > em {
 .meta {
   text-align: center;
   font-size: .8em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/jaylkam\/Workspace\/repos\/nodonuts\/static\/scss\/docs\.scss}line{font-family:\000038}}
+.next-previous-doc {
+  padding-top: 1em;
+  padding-bottom: 1em; }
