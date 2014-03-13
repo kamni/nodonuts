@@ -147,6 +147,9 @@ class RecipeTagTests(TestCase):
         # should not catch self
         rt1.clean()
     
+    def test_get_type_label(self):
+        self.assertTrue(False, "Not Implemented")
+    
     def test_save(self):
         # should lower-case the name
         rt = RecipeTag(name="MMMMM")

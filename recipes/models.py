@@ -154,7 +154,7 @@ class Recipe(NullCheckerModel):
     
     def serving_size_label(self):
         """
-        Returns the correct display label for the serving_size enum
+        Returns the correct display label for serving_size
         
         :return: string
         """
@@ -247,7 +247,11 @@ class RecipeTag(NullCheckerModel):
         return super(RecipeTag, self).clean()
     
     def get_type_label(self):
-        # TODO: docs, tests
+        """
+        Returns the display label for self.type
+        
+        :return: string
+        """
         return TagType.label(self.type)
     
     def save(self, *args, **kwargs):
