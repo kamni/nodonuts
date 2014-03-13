@@ -20,6 +20,7 @@ class RecipeManagerTests(TestCase):
 
 class RecipeTests(TestCase):
     def test_save(self):
+        self.assertTrue(False, "Update Test")
         user = TestUser()
         
         # should create slug if it isn't set
@@ -37,6 +38,7 @@ class RecipeTests(TestCase):
         self.assertEqual('apple-juice', recipe.slug)
     
     def test__init(self):
+        self.assertTrue(False, "Update Test")
         user = TestUser()
         
         # all fields except date_added
@@ -110,6 +112,12 @@ class RecipeTests(TestCase):
             self.assertRaises(IntegrityError, Recipe.objects.create,
                               title="An Orange", short_description="Juicy",
                               ingredients="1 orange", instructions="Peel and eat")
+    
+    def test_serving_size_label(self):
+        self.assertTrue(False, "Not Implemented")
+        
+    def test_summary_id(self):
+        self.assertTrue(False, "Not Implemented")
     
     def test__repr(self):
         user = TestUser()

@@ -81,9 +81,19 @@ class Recipe(NullCheckerModel):
     """
     Stores recipes that users can find on the site.
     
+    The model contains three denormalization fields that store information
+    that normally requires multiple database hits to calculate:
+    
+        popularity - statistical calculation based on likes and dislikes
+        likes - the number of upvote Ratings for this recipe
+        dislikes - the number of downvote Ratings for this recipe
+    
+    
     :field title: CharField, max_length=80, unique=True
     :field slug: SlugField, unique=True, defaults to slugified version of title
     :field short_description: CharField, max_length=200
+    :field serving_size: EnumField for ServingSize, default=2
+    :field tags: ManyToManyField with RecipeTag, nullable
     :field image: ImageField, uploads to 'recipes/images', optional
     :field thumbnail: ImageField, uploads to 'recipes/thumbs', optional
     :field ingredients: TextField
@@ -92,6 +102,9 @@ class Recipe(NullCheckerModel):
     :field is_public: BooleanField, defaults to True
     :field added_by: ForeignKey to User
     :field date_added: DateTimeField, defaults to timezone.now
+    :field popularity: DecimalField, 4 decimal places, defaults to 0
+    :field likes: PositiveIntegerField, defaults to 0
+    :field dislikes: PositiveIntegerField, defaults to 0
     """
     title = NullableCharField(max_length=80, unique=True)
     slug = models.SlugField(max_length=80, unique=True, blank=True, 
@@ -140,11 +153,19 @@ class Recipe(NullCheckerModel):
         super(Recipe, self).save(*args, **kwargs)
     
     def serving_size_label(self):
-        """TODO: docs and tests"""
+        """
+        Returns the correct display label for the serving_size enum
+        
+        :return: string
+        """
         return ServingSize.label(self.serving_size)
     
     def summary_id(self):
-        """TODO: docs and tests"""
+        """
+        Generates a unique id for use in html
+        
+        :return: string
+        """
         return "-".join(("summary", self.slug))
     
     def __repr__(self):
