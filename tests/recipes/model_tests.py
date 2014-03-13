@@ -186,8 +186,13 @@ class RecipeTagTests(TestCase):
             self.assertRaises(IntegrityError, RecipeTag.objects.create)
         
     def test__convert_tag_name(self):
-        self.assertTrue(False, "Not Implemented")
-    
+        rt = RecipeTag()
+        
+        # needs to lowercase tag, strip trailing and leading spaces, and convert
+        # intermediate whitespace to a single hyphen
+        self.assertEquals("really-awesome-tag", 
+                          rt._convert_tag_name("  Really\tAWESOME\n   Tag "))
+
     def test__repr(self):
         rt = RecipeTag(name="yummy1")
         self.assertEqual("<RecipeTag: yummy1>", repr(rt))
