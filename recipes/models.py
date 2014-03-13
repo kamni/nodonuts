@@ -13,7 +13,7 @@ from recipes.utils import wilson_score_interval
 
 
 class ServingSize(enum.Enum):
-    """TODO: docs"""
+    """Tracks how many people should be able to have a full serving of a Recipe"""
     ONE_TO_TWO = 0
     THREE_TO_FOUR = 1
     FIVE_TO_SIX = 2
