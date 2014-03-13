@@ -124,12 +124,6 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = ['-s', '--logging-level=CRITICAL']
 
 
-# Developer settings that won't be available on the live site
-try:
-    from dev_settings import *
-except ImportError:
-    pass
-
 # Production server settings that we don't want to keep in the repository
 try:
     from srv_settings import *
