@@ -241,7 +241,8 @@ class RecipeTag(NullCheckerModel):
         ordering = ('type', 'name')
     
     def clean(self):
-        other_tag = RecipeTag.objects.filter(name=self.name.lower()).exclude(id=self.id)
+        other_tag = RecipeTag.objects.filter(name=self._convert_tag_name(self.name)
+                                    ).exclude(id=self.id)
         if other_tag:
             raise ValidationError("This tag already exists")
         return super(RecipeTag, self).clean()
@@ -256,12 +257,25 @@ class RecipeTag(NullCheckerModel):
     
     def save(self, *args, **kwargs):
         if self.name:
-            self.name = self.name.lower()
+            self.name = self._convert_tag_name(self.name)
         super(RecipeTag, self).save(*args, **kwargs)
     
     def who_added(self):
-        """ Returns a display-friendly version of the user that added the tag """
+        """
+        Returns a display-friendly version of the user that added the tag
+        
+        :return: string
+        """
         return self.added_by.get_full_name() if self.added_by else "System"
+    
+    def _convert_tag_name(self, tag_name):
+        """
+        Converts a tag name to lower case and removes whitespace
+        
+        :param tag_name: string for the tag to be created
+        :return: string
+        """
+        return re.sub("\s+", '-', tag_name.lower().strip())
     
     def __repr__(self):
         return "<RecipeTag: %s>" % self.name

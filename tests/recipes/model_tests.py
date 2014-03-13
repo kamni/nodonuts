@@ -137,6 +137,7 @@ class RecipeTagManagerTests(TestCase):
 class RecipeTagTests(TestCase):
     def test_clean(self):
         rt1 = TestRecipeTag(name="amazing")
+        self.assertFalse(True, "Update test")
         
         # should catch duplicates, case-insensitive
         rt2 = RecipeTag(name="amazing")
@@ -152,6 +153,8 @@ class RecipeTagTests(TestCase):
     
     def test_save(self):
         # should lower-case the name
+        
+        self.assertFalse(True, "Update test")
         rt = RecipeTag(name="MMMMM")
         rt.save()
         self.assertEqual("mmmmm", rt.name)
@@ -182,6 +185,9 @@ class RecipeTagTests(TestCase):
         with transaction.atomic():
             self.assertRaises(IntegrityError, RecipeTag.objects.create)
         
+    def test__convert_tag_name(self):
+        self.assertTrue(False, "Not Implemented")
+    
     def test__repr(self):
         rt = RecipeTag(name="yummy1")
         self.assertEqual("<RecipeTag: yummy1>", repr(rt))
