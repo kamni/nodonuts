@@ -132,6 +132,7 @@ except ImportError:
 
 
 # constance settings
+CONSTANCE_SUPERUSER_ONLY = True
 CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 CONSTANCE_CONFIG = {
     'SITE_NAME': ('NoDonuts', 'The name to display in headers, title bar, ' +
