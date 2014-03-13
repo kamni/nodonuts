@@ -154,5 +154,8 @@ CONSTANCE_CONFIG = {
     'DISPLAY_DOC_LINKS': (INCLUDE_DOC_URLS and DISPLAY_DOC_LINKS, 'Show links ' +
                           'to the project documentation in the nav bar'),
     'SUPERUSER_DOCS_ONLY': (True, 'If documentation links are available, only ' +
-                            'show docs to superusers.')
+                            'show docs to superusers.'),
+    'DISPLAY_TERMS_AND_CONDITIONS': (True, 'Whether to make the terms and ' +
+                                     'conditions page available to users.'),
+    'DISPLAY_PRIVACY_POLICY': (True, 'Make the privacy policy available to users'),
 }  
