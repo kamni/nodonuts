@@ -128,7 +128,12 @@ class RecipeTests(TestCase):
         recipe = Recipe(title="Club Soda")
         self.assertEqual(u"Club Soda", unicode(recipe))
     
-    
+
+class RecipeTagManagerTests(TestCase):
+    def test_filter_list(self):
+        self.assertTrue(False, "Not Implemented")    
+
+
 class RecipeTagTests(TestCase):
     def test_clean(self):
         rt1 = TestRecipeTag(name="amazing")

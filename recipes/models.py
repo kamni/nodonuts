@@ -195,10 +195,22 @@ class TagType(enum.Enum):
 
 class RecipeTagManager(models.Manager):
     """
-    TODO: docs and tests
+    Custom model manager for RecipeTag.
+    
+    Provides the following additional methods:
+    
+        filter_list
     """
     def filter_list(self, exclude_miscellaneous=False):
-        # TODO: docs and tests
+        """
+        Finds all tags that are associated with a recipe.
+        If exclude_miscellaneous is True, only includes tags that have been
+        manually classified into a TagType.
+        
+        :param exclude_miscellaneous: boolean indicating if MISCELLANEOUS type
+            tags should be included in the list
+        :return: queryset of RecipeTags
+        """
         tags = RecipeTag.objects.exclude(recipe__isnull=True)
         if exclude_miscellaneous:
             tags = tags.exclude(type=TagType.MISCELLANEOUS)
