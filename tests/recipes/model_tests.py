@@ -148,7 +148,9 @@ class RecipeTagTests(TestCase):
         rt1.clean()
     
     def test_get_type_label(self):
-        self.assertTrue(False, "Not Implemented")
+        for tag_type in (TagType.INGREDIENTS, TagType.MEALS, TagType.MISCELLANEOUS):
+            rt = RecipeTag(type=tag_type)
+            self.assertEquals(TagType.label(tag_type), rt.get_type_label())
     
     def test_save(self):
         # should convert the name
