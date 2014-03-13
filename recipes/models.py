@@ -41,18 +41,37 @@ class ServingSize(enum.Enum):
 
 class RecipeManager(models.Manager):
     """
-    # TODO: docs, tests
+    Custom model manager for the Recipe class.
+    
+    Provides the following additional methods:
+    
+        filter_featured
+        filter_newest
     """
     def filter_featured(self, limit=None):
-        # TODO: implement and docs
+        """
+        Finds Recipes where the 'featured' flag is set to true.
+        If the limit parameter is specified, only returns that many results. If
+        limit is None, returns all Recipes.
+        
+        :param limit: positive integer indicating the number of results to return
+        :return: queryset of Recipes
+        """
         query = self.filter(featured=True, is_public=True).order_by('-date_added')
         if limit:
             query = query[:limit]
         return query
     
     def filter_newest(self, limit=None):
-        # TODO: implement and docs
-        query = self.order_by('-date_added')
+        """
+        Finds and returns recipes, ordered with the newest recipes first.
+        If the limit parameter is specified, only returns that many results. If
+        limit is None, returns all Recipes.
+        
+        :param limit: positive integer indicating the number of results to return
+        :return: queryset of Recipes
+        """
+        query = self.filter(is_public=True).order_by('-date_added')
         if limit:
             query = query[:limit]
         return query

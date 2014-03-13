@@ -10,6 +10,14 @@ from recipes.models import *
 from recipes.utils import wilson_score_interval
 
 
+class RecipeManagerTests(TestCase):
+    def test_filter_featured(self):
+        self.assertTrue(False, "Not Implemented")
+    
+    def test_filter_newest(self):
+        self.assertTrue(False, "Not Implemented")
+
+
 class RecipeTests(TestCase):
     def test_save(self):
         user = TestUser()
