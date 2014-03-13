@@ -44,6 +44,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    # this project
+    'organizations',
+    'recipes',
+    'site_manager',
+    
     # third-party
     'constance.backends.database',
     'constance',
@@ -55,11 +60,7 @@ INSTALLED_APPS = (
     'social.apps.django_app.default',
     'sphinxdoc',
     'tinymce',
-    
-    # this project
-    'organizations',
-    'recipes',
-    'site_manager',
+    'south',
 )
 
 MIDDLEWARE_CLASSES = (
