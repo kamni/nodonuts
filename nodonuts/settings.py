@@ -28,6 +28,7 @@ TEMPLATE_DIRS = (
 
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     'constance.context_processors.config',
+    'django.core.context_processors.request',
 )
 
 
@@ -48,6 +49,7 @@ INSTALLED_APPS = (
     'djcelery',
     'haystack',
     'kombu.transport.django',
+    'scribbler',
     'social.apps.django_app.default',
     'sphinxdoc',
     'tinymce',
