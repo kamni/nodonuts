@@ -137,12 +137,11 @@ class RecipeTagManagerTests(TestCase):
 class RecipeTagTests(TestCase):
     def test_clean(self):
         rt1 = TestRecipeTag(name="amazing")
-        self.assertFalse(True, "Update test")
         
         # should catch duplicates, case-insensitive
         rt2 = RecipeTag(name="amazing")
         self.assertRaises(ValidationError, rt2.clean)
-        rt3 = RecipeTag(name="AmAzInG")
+        rt3 = RecipeTag(name=" AmAzInG ")
         self.assertRaises(ValidationError, rt3.clean)
         
         # should not catch self
@@ -152,10 +151,9 @@ class RecipeTagTests(TestCase):
         self.assertTrue(False, "Not Implemented")
     
     def test_save(self):
-        # should lower-case the name
+        # should convert the name
         
-        self.assertFalse(True, "Update test")
-        rt = RecipeTag(name="MMMMM")
+        rt = RecipeTag(name="MMMMM  ")
         rt.save()
         self.assertEqual("mmmmm", rt.name)
     
