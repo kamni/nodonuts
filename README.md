@@ -83,6 +83,9 @@ information.
 * DISPLAY_TERMS_AND_CONDITIONS: Set to False if you don't want the a terms page
 * DISPLAY_PRIVACY_POLICY: Set to False if you don't want a privacy policy page
 
+NOTE: The terms and privacy policy pages are incomplete. You will need to add
+your own text for these pages depending on your site's needs.
+
 Depending on your server, you may need to restart it in order for the new
 settings to take effect.
 
