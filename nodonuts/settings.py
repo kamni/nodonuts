@@ -57,6 +57,7 @@ INSTALLED_APPS = (
     # this project
     'organizations',
     'recipes',
+    'site_manager',
 )
 
 MIDDLEWARE_CLASSES = (
