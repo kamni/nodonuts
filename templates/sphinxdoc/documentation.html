@@ -50,10 +50,8 @@
 
 {% block sidebar %}
   {% block doc_toc %}
-    <div>
-      <h2>{% trans "Contents" %}</h2>
-      {{ doc.toc|safe }}
-    </div>
+    <h2>{% trans "Contents" %}</h2>
+    {{ doc.toc|safe }}
   {% endblock %}
 
   {{ block.super }}

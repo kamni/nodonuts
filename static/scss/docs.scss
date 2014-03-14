@@ -14,6 +14,30 @@
 .note {
   @include card($neutral-color1);
 }
+.section-aside {
+  & h1, & h2 {
+    color: $neutral-color3 !important;
+  }
+  ul li {
+    a.reference {
+      font-weight: bold;
+      color: $complement-color1;
+    }
+    ul li {
+
+      a.reference {
+        color: $main-color2;
+      }
+      ul li {
+
+        a.reference {
+          font-weight: normal;
+          color: $complement-color2;
+        }
+      }
+    }
+  }
+}
 .seealso {
 
   p.admonition-title {
@@ -49,26 +73,6 @@ pre {
   @include card(scale-color($neutral-color2, $lightness: 90%));
   color: $neutral-color3;
 }
-ul li {
 
-  a.reference {
-    font-weight: bold;
-    color: $complement-color1;
-  }
-  ul li {
-
-    a.reference {
-      color: $main-color2;
-    }
-    ul li {
-
-      a.reference {
-        font-weight: normal;
-        color: $complement-color2;
-      }
-    }
-  }
-
-}
 
 
