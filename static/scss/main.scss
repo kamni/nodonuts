@@ -41,6 +41,14 @@
 }
 
 /* classes */
+.bar {
+  @extend .top-bar;
+  @include filter-gradient($main-color1, scale-color($main-color1, $lightness: 14%));
+  @include background(linear-gradient(top, $main_color1, scale-color($main-color1, $lightness: 14%)));
+
+  border-top: 1px solid scale-color($main-color1, $lightness: 42%);
+  border-bottom: 1px solid scale-color($main-color1, $lightness: -20%);
+}
 .wrapper {
   @include grid-row();
 }
@@ -124,20 +132,31 @@ small > em {
    padding-top: 2* $topbar-height; // to clear fixed header and search bar
 }
 #footer{
-  @extend .wrapper;
+  @extend .bar;
+  height: 2 * $topbar-height;
+  padding-top: 1rem;
+  padding-bottom: .5rem;
+  margin-bottom: 0;
 
+  .footer-links {
+    @extend .inline-list;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 0 !important;
+    li > a {
+      color: $neutral-color1;
+    }
+    li > a:hover {
+      color: scale-color($neutral-color1, $lightness: -14%);
+    }
+  }
   .footer-text {
-    @extend .text-center;
     @include grid-column(12);
+    text-align: center;
   }
 }
 #header {
-  @extend .top-bar;
-  @include filter-gradient($main-color1, scale-color($main-color1, $lightness: 14%));
-  @include background(linear-gradient(top, $main_color1, scale-color($main-color1, $lightness: 14%)));
-
-  border-top: 1px solid scale-color($main-color1, $lightness: 42%);
-  border-bottom: 1px solid scale-color($main-color1, $lightness: -20%);
+  @extend .bar;
 
   .brand {
     @extend .title-area;
