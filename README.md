@@ -80,6 +80,8 @@ points to.
 * DISPLAY_DOC_LINKS: Whether to show the documentation that is included with
 this project to other users. Please see the section on 'Documentation' for more
 information.
+* DISPLAY_TERMS_AND_CONDITIONS: Set to False if you don't want the a terms page
+* DISPLAY_PRIVACY_POLICY: Set to False if you don't want a privacy policy page
 
 Depending on your server, you may need to restart it in order for the new
 settings to take effect.
