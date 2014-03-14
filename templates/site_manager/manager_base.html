@@ -1,0 +1,19 @@
+{% extends "theme_base.html" %}
+
+{% block content %}
+  <div id="admin-panel">
+    <div id="nav-panel">
+      <h2>Control Panels</h2>
+    </div>
+
+    <div id="main-panel">
+      <h2>Dashboard</h2>
+    </div>
+
+    <div id="aux-panel">
+      <div class="django-admin-link">
+        <a href="{% url "admin:index" %}" class="small button">Django Admin</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

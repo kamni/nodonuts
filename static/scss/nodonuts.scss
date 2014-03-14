@@ -1,4 +1,5 @@
 @import "main";
+@import "compass/css3/box-sizing";
 
 $include-html-classes: false;
 
@@ -153,6 +154,31 @@ $include-html-classes: false;
     display: inline-block;
   }
 }
+#admin-panel {
+  width: 100%;
+  background-color: #fff;
+  color: $neutral-color3;
+
+  .button {
+    background-color: $complement-color1;
+    border: 1px solid scale-color($complement-color1, $lightness: -28%);
+
+    &:hover {
+      background-color: scale-color($complement-color1, $lightness: -14%);
+    }
+  }
+  #nav-panel, #aux-panel, #main-panel {
+    display: inline-block;
+  }
+  #nav-panel, #aux-panel {
+    width: 20%;
+    margin: 0 !important;
+  }
+  #main-panel {
+    width: 58%;
+  }
+}
+
 .recipe-slider {
   @include maintain-ratio($ratio: 7 3);
   overflow: hidden;
