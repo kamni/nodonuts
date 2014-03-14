@@ -49,6 +49,9 @@
   border-top: 1px solid scale-color($main-color1, $lightness: 42%);
   border-bottom: 1px solid scale-color($main-color1, $lightness: -20%);
 }
+.icon {
+  font-size: 1.4rem;
+}
 .wrapper {
   @include grid-row();
 }
