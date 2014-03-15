@@ -12,7 +12,7 @@
   <p class="social-media-login">
     <i class="fi-social-facebook"></i>
     <i class="fi-social-google-plus"></i>
-    <i class="fi-social-twitter"></i>
-    <a href="/social/login/yahoo/"><i class="fi-social-yahoo"></i></a>
+    <a href="{% url "social:begin" "twitter" %}"><i class="fi-social-twitter"></i></a>
+    <a href="{% url "social:begin" "yahoo" %}"><i class="fi-social-yahoo"></i></a>
   </p>
 {% endblock %}
