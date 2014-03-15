@@ -181,15 +181,6 @@ $include-html-classes: false;
 #user-login {
   @extend .card;
 }
-.errorlist {
-  background-color: scale-color($main-color1, $lightness: 56%);
-  color: $complement-color2;
-  padding: 0 1rem;
-
-  li {
-    list-style-type: none !important;
-  }
-}
 .login-form {
   text-align: center;
 
@@ -226,4 +217,25 @@ $include-html-classes: false;
 .rating {
   height: 1.2em;
   display: inline-block !important;
+}
+.social-media-login {
+  font-size: 3rem;
+  text-align: center;
+
+  i {
+    padding: 0 1rem;
+
+    &.fi-social-facebook {
+      color: #4c66a4;
+    }
+    &.fi-social-google-plus {
+      color: #d34836;
+    }
+    &.fi-social-twitter {
+      color: #55acee;
+    }
+    &.fi-social-yahoo {
+      color: #500095;
+    }
+  }
 }

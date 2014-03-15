@@ -49,6 +49,15 @@
   border-top: 1px solid scale-color($main-color1, $lightness: 42%);
   border-bottom: 1px solid scale-color($main-color1, $lightness: -20%);
 }
+.errorlist {
+  background-color: scale-color($main-color1, $lightness: 56%);
+  color: $complement-color2;
+  padding: 0 1rem;
+
+  li {
+    list-style-type: none !important;
+  }
+}
 .icon {
   font-size: 1.4rem;
 }
