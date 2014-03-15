@@ -10,9 +10,13 @@
   <hr>
   <p><strong>Or log in using another site:</strong></p>
   <p class="social-media-login">
-    <a href="{% url "social:begin" "facebook" %}"><i class="fi-social-facebook"></i></a>
+    {% if config.ENABLE_FACEBOOK_LOGIN %}
+      <a href="{% url "social:begin" "facebook" %}"><i class="fi-social-facebook"></i></a>
+    {% endif %}
     <a href="{% url "social:begin" "google" %}"><i class="fi-social-google-plus"></i></a>
-    <a href="{% url "social:begin" "twitter" %}"><i class="fi-social-twitter"></i></a>
+    {% if config.ENABLE_TWITTER_LOGIN %}
+      <a href="{% url "social:begin" "twitter" %}"><i class="fi-social-twitter"></i></a>
+    {% endif %}
     <a href="{% url "social:begin" "yahoo" %}"><i class="fi-social-yahoo"></i></a>
   </p>
 {% endblock %}
