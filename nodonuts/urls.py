@@ -4,10 +4,14 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.views.generic import TemplateView
 
+from organizations.forms import NoDonutsAuthForm
+
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'', include('recipes.urls')),
+    url(r'^auth/login/$', 'django.contrib.auth.views.login', {'authentication_form': NoDonutsAuthForm}, 'login'),
     url(r'^auth/', include('django.contrib.auth.urls')),
     url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}, 'logout'),
     url(r'^site-manager/django/', include(admin.site.urls)),
