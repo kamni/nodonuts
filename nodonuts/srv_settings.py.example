@@ -17,6 +17,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, '..', 'public', 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'public', 'media')
 
 # social media keys
+SOCIAL_AUTH_FACEBOOK_KEY = ''
+SOCIAL_AUTH_FACEBOOK_SECRET = ''
 SOCIAL_AUTH_TWITTER_KEY = ''
 SOCIAL_AUTH_TWITTER_SECRET = ''
 
