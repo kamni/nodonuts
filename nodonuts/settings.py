@@ -103,6 +103,7 @@ LOGIN_REDIRECT_URL = '/'
 # python-social-auth
 AUTHENTICATION_BACKENDS = (
     'social.backends.facebook.FacebookOAuth2',
+    'social.backends.google.GoogleOpenId',
     'social.backends.twitter.TwitterOAuth',
     'social.backends.yahoo.YahooOpenId',
     'django.contrib.auth.backends.ModelBackend',
