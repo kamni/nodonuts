@@ -94,6 +94,8 @@ STATICFILES_DIRS = (
 MEDIA_ROOT = 'uploads'
 MEDIA_URL = '/media/'
 
+LOGIN_URL = '/auth/login/'
+LOGIN_REDIRECT_URL = '/'
 
 # haystack (search) setting
 HAYSTACK_CONNECTIONS = {
