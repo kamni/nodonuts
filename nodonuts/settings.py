@@ -177,4 +177,8 @@ CONSTANCE_CONFIG = {
     'DISPLAY_TERMS_AND_CONDITIONS': (True, 'Whether to make the terms and ' +
                                      'conditions page available to users.'),
     'DISPLAY_PRIVACY_POLICY': (True, 'Make the privacy policy available to users'),
-}  
+    'ENABLE_FACEBOOK_LOGIN': (bool(SOCIAL_AUTH_FACEBOOK_KEY), 'Allow users to ' +
+                              'login with their Facebook accounts.'),
+    'ENABLE_TWITTER_LOGIN': (bool(SOCIAL_AUTH_TWITTER_KEY), 'Allow users to ' +
+                             'log in with their Twitter accounts.'),
+}
