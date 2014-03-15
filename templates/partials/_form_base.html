@@ -1,8 +1,8 @@
 {% block form_text %}{% endblock %}
-<form method="{% block form_method %}post{% endblock %}" action="{% block form_action %}{{ submit_url|default:"."}}{% endblock %}">
+<form class="{% block form_class %}{% endblock %}" method="{% block form_method %}post{% endblock %}" action="{% block form_action %}{{ submit_url|default:"."}}{% endblock %}">
     {% csrf_token %}
     {% block form %}
-    <table>
+    <table class="{% block form_table_class %}{% endblock %}">
         {{ form.as_table }}
     </table>
     {% endblock %}
@@ -13,4 +13,5 @@
 
     {% block form_extra %}{% endblock %}
 </form>
+{% block more_form_text %}{% endblock %}
 {% block form_javascript %}{% endblock %}

@@ -178,7 +178,16 @@ $include-html-classes: false;
     width: 58%;
   }
 }
+#user-login {
+  @extend .card;
+}
+.login-form {
+  text-align: center;
 
+  table {
+    margin: 0 auto;
+  }
+}
 .recipe-slider {
   @include maintain-ratio($ratio: 7 3);
   overflow: hidden;
