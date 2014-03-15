@@ -1,0 +1,26 @@
+{% extends "admin/base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ title }} | {{ site_title }}{% endblock %}
+
+{% block extrastyle %}
+  <link href="{% static "css/admin.css" %}" rel="stylesheet" type="text/css">
+  <link href="{% static "fonts/foundation-icons.css" %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block branding %}
+  <div id="header">
+    <ul class="brand">
+      <li class="name">
+        <h1><a href="{% url "home" %}">
+            {% if config.SHOW_SITE_LOGO %}<img id="logo" src="{% static config.SITE_LOGO %}" alt="logo" />{% endif %}
+            {{ config.SITE_NAME }}
+        </a></h1>
+      </li>
+    </ul>
+
+    {% include "partials/_nav_links.html" %}
+  </div>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

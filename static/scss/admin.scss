@@ -1,0 +1,26 @@
+@import "main";
+
+body {
+  background-color: #fff;
+  font-size: 1rem !important
+}
+caption {
+  font-size: 1.05rem !important;
+}
+td, th {
+  padding: .2rem .2rem;
+}
+#content {
+  padding-top: 0;
+}
+#header {
+  a {
+    text-decoration: none !important;
+  }
+  ul li {
+    list-style-type: none;
+  }
+}
+#user-tools {
+  display: none;
+}
