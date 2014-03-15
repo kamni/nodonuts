@@ -16,9 +16,9 @@ urlpatterns = patterns('',
     url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}, 'logout'),
     url(r'^site-manager/django/', include(admin.site.urls)),
     url(r'^site-manager/', include('site_manager.urls')),
-    url(r'^social/$', include('social.apps.django_app.urls')),
+    url(r'^social/', include('social.apps.django_app.urls', namespace='social')),
     url(r'^textedit/', include('scribbler.urls')),
-    url(r'^tinymce/', include('tinymce.urls')),
+    url(r'^tinymce/', include('tinymce.urls')), 
 )
 
 if settings.INCLUDE_DOC_URLS:
