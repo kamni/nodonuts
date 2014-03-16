@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from social.apps.django_app.default.models import UserSocialAuth
 
 
 class UserProfile(models.Model):
@@ -27,15 +28,26 @@ class UserProfile(models.Model):
         # TODO: implement and test
         return None
     
+    def get_social_logins(self):
+        """
+        Returns a list of names of all social media logins for the user
+        
+        :return: list of strings
+        """
+        return []
+    
     def profile_name(self):
         """
         Returns the name that should be used for the displaying the user.
-        If the user has a social media login, that display name takes priority.
+        If the user has a social media login with Twitter, that display name 
+        need to take priority, as per their developer agreement.
         
         :return: string
         """
-        # TODO: implement and test
-        return None
+        if 'twitter' in self.get_social_logins():
+            return self.user.username
+        
+        return self.nickname or self.user.get_full_name() or self.user.username
     
     def __repr__(self):
         return "<UserProfile: %s>" % self.user
