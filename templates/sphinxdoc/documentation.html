@@ -15,18 +15,7 @@
 {% endblock %}
 
 {% block main_content %}
-<div class="next-previous-doc">
-  {% if doc.prev or doc.next %}
-    <span>
-        {% if doc.prev %}
-          {% trans "Prev:" %} <a href="{{ doc.prev.link }}">{{ doc.prev.title|safe }}</a>
-        {% endif %}</span>
-	<span>
-        {% if doc.next %}
-          {% trans "Next:" %} <a href="{{ doc.next.link }}">{{ doc.next.title|safe }}</a>
-        {% endif %}</span>
-  {% endif %}
-</div>
+{% include "sphinxdoc/partials/_next_previous_links.html" %}
 
 <div class="sphinx-doc">
     {% block doc_body %}
@@ -34,18 +23,7 @@
     {% endblock %}
 </div>
 
-<div class="next-previous-doc">
-    {% if doc.prev or doc.next %}
-    <span>
-        {% if doc.prev %}
-          {% trans "Prev:" %} <a href="{{ doc.prev.link }}">{{ doc.prev.title|safe }}</a>
-        {% endif %}</span>
-	<span>
-        {% if doc.next %}
-          {% trans "Next:" %} <a href="{{ doc.next.link }}">{{ doc.next.title|safe }}</a>
-        {% endif %}</span>
-    {% endif %}
-</div>
+{% include "sphinxdoc/partials/_next_previous_links.html" %}
 {% endblock %}
 
 {% block sidebar %}
