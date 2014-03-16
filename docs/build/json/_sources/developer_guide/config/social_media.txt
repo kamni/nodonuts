@@ -13,11 +13,38 @@ using social media. Currently the project supports the following log-ins:
 This section explains how to configure each of the four types of social media
 log-ins.
 
+Configuring A Dev Environment For Social Auth
+=============================================
+
+Facebook and Twitter both require that you configure the urls that are allowed
+to log in from your app. If you are on a development environment and do not
+have an externally-facing server available, you can still configure social
+media to work with your local environment.
+
+In order to do this, you need to edit your ``/etc/hosts`` file (or
+``%windir%\system32\drivers\etc\hosts`` if on Windows) to have a fake domain
+name point to localhost:
+
+.. image:: /_static/img/etc_hosts.png
+
+In this case, we're using ``local.mydonuts.net``. You should then be able to
+visit your locally-running instance using
+`http://local.mynodonuts.net:8000 <http://local.mynodonuts.net:8000>`_.
+
+.. image:: /_static/img/faked_url.png
+
+Be sure to remember the fake url that you configure and use it in future steps
+where url configuration is required. When you try to log in using Facebook and
+Twitter, they will treat the faked  url the same way they would a normal
+external url.
+
+
 Google and Yahoo
 ================
 
 Google and Yahoo work with an out-of-the box installation of NoDonuts and do
 not require any further configuration.
+
 
 Facebook
 ========
@@ -45,9 +72,44 @@ so at this time.
 Creating a New Facebook App
 ***************************
 
-From the `Facebook App creation page`_, click the 'Create New App' button.
+From the `Facebook App creation page`_, click the 'Create New App' button.  You
+should see a form that looks something like this:
 
 .. image:: /_static/img/facebook_create_app.png
+
+Fill out the form using your own values and click 'Create App'.
+
+At the top of your Dashboard page you should see the name and icon for your
+app, along with two fields, ``App ID`` and ``App Secret``.
+
+.. image:: /_static/img/facebook_dashboard.png
+
+Copy those two values into your ``srv_settings.py`` file:
+
+::
+
+    SOCIAL_AUTH_FACEBOOK_KEY = '...your App ID...'
+    SOCIAL_AUTH_FACEBOOK_SECRET = '...your App Secret..'
+
+Go to the 'Settings' panel and edit the 'Basics' tab.  Enter your email address
+in the ``Contact Email`` field (this is required to be able to use Facebook to
+log in). Click 'Add Platform', choose 'Website', and configure the url where
+your NoDonuts app will be hosted (use the faked url from above if you're in a
+local dev environment).  Don't forget to save.
+
+.. image:: /_static/img/facebook_basic_settings.png
+
+Go to the 'Advanced' tab and look for the 'Security' section. Make sure
+'Client OAuth Login' is set to 'Yes' and add the url of your server (or the
+faked url) to the 'Valid OAuth redirect URIs' field. Save your settings.
+
+.. image:: /_static/img/facebook_advanced_settings.png
+
+Finally, go to the 'Status & Review' tab and make your app public:
+
+.. image:: /_static/img/facebook_make_public.png
+
+Verify that you are able to log in from your NoDonuts app.
 
 
 Twitter
@@ -55,3 +117,11 @@ Twitter
 
 By default, Twitter login is desabled and will not show up as an option for
 users trying to log in.
+
+.. note::
+
+    Please read the developer agreement for Twitter carefully. It has several
+    mandates related to your privacy policy and your terms of service that you
+    must comply with. You should update the privacy and terms statements to
+    fit their minimum requirements.
+
