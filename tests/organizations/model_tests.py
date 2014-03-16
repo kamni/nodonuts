@@ -18,7 +18,17 @@ class UserProfileTests(TestCase):
         self.assertTrue(False, "Not Implemented")
     
     def test_get_social_logins(self):
-        self.assertTrue(False, "Not Implemented")
+        # no social logins
+        profile = TestUserProfile()
+        self.assertEqual([], profile.get_social_logins())
+        
+        # multiple social logins
+        for provider in ('google', 'yahoo'):
+            TestUserSocialAuth(user=profile.user, provider=provider)
+        logins = profile.get_social_logins()
+        self.assertEqual(2, len(logins))
+        self.assertTrue('google' in logins)
+        self.assertTrue('yahoo' in logins)
     
     def test_profile_name(self):
         # should return username if user has a twitter login
