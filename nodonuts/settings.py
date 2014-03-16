@@ -183,4 +183,8 @@ CONSTANCE_CONFIG = {
                               'login with their Facebook accounts.'),
     'ENABLE_TWITTER_LOGIN': (bool(SOCIAL_AUTH_TWITTER_KEY), 'Allow users to ' +
                              'log in with their Twitter accounts.'),
+    'CODE_REPOSITORY': ('https://github.com/kamni/nodonuts/', 'URL where ' +
+                        'other developers can find the code. If you are not ' +
+                        'installing from a fork, please leave this setting as ' +
+                        'it currently is to give credit to the source project.')
 }
