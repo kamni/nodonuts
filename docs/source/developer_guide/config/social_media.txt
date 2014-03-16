@@ -45,9 +45,44 @@ so at this time.
 Creating a New Facebook App
 ***************************
 
-From the `Facebook App creation page`_, click the 'Create New App' button.
+From the `Facebook App creation page`_, click the 'Create New App' button.  You
+should see a form that looks something like this:
 
 .. image:: /_static/img/facebook_create_app.png
+
+Fill out the form using your own values and click 'Create App'.
+
+At the top of your Dashboard page you should see the name and icon for your
+app, along with two fields, ``App ID`` and ``App Secret``.
+
+.. img::/_static/img/facebook_dashboard.png
+
+Copy those two values into your ``srv_settings.py`` file:
+
+::
+
+    SOCIAL_AUTH_FACEBOOK_KEY = '...your App ID...'
+    SOCIAL_AUTH_FACEBOOK_SECRET = '...your App Secret..'
+
+Go to the 'Settings' panel and edit the 'Basics' tab.  Enter your email address
+in the ``Contact Email`` field (this is required to be able to use Facebook to
+log in). Click 'Add Platform', choose 'Website', and configure the url where
+your NoDonuts app will be hosted.  Don't forget to save.
+
+.. img::/_static/img/facebook_settings.png
+
+If you are doing local development and don't have an external server to work
+with, you can fake an external url by editing your ``/etc/hosts`` file:
+
+.. img::/_static/img/etc_hosts.png
+
+.. img:/_static/img/faked_url.png
+
+Facebook will treat the faked url the same way it would a normal external url.
+
+Advanced Tab
+
+Finally, to make your app public,
 
 
 Twitter
@@ -55,3 +90,11 @@ Twitter
 
 By default, Twitter login is desabled and will not show up as an option for
 users trying to log in.
+
+.. note::
+
+    Please read the developer agreement for Twitter carefully. It has several
+    mandates related to your privacy policy and your terms of service that you
+    must comply with. You should update the privacy and terms statements to
+    fit their minimum requirements.
+
