@@ -147,7 +147,7 @@ authentication.
 Once you create your app, go to the 'Settings' tab and check 'Allow this
 application to be used to sign in with Twitter' and save your settings.
 
-..image:: //static/img/docs/twitter_settings.png
+.. image:: //static/img/docs/twitter_settings.png
 
 .. note::
 
