@@ -218,8 +218,14 @@ $include-html-classes: false;
   }
 }
 .rating {
-  height: 1.2em;
   display: inline-block !important;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  .rating-icon {
+    font-size: 2rem;
+    color: $complement-color1;
+  }
 }
 .social-media-login {
   font-size: 3rem;
