@@ -1,0 +1,57 @@
+===================
+Social Media Logins
+===================
+
+NoDonuts allows users to either create a NoDonuts-only account or to log in
+using social media. Currently the project supports the following log-ins:
+
+* Facebook
+* Google OpenId
+* Twitter
+* Yahoo OpenId
+
+This section explains how to configure each of the four types of social media
+log-ins.
+
+Google and Yahoo
+================
+
+Google and Yahoo work with an out-of-the box installation of NoDonuts and do
+not require any further configuration.
+
+Facebook
+========
+
+By default, Facebook is disabled and will not show up as an option for users
+trying to log in. In order to use Facebook for authentication, you need to
+obtain an authorization key and secret using a developer account.
+
+.. note::
+
+Developer accounts on Facebook require a user account that has a confirmed
+unique mobile telephone number. You cannot confirm a Facebook account using a
+land line, a VOIP account, or a mobile phone that is associated with another
+user.
+
+.. _Facebook App creation page: http://developers.facebook.com/setup/
+
+Getting a Developer Account
+***************************
+
+To create a developer account, go to the `Facebook App creation page`_. Click
+'Register Now' and if  you haven't confirmed your phone it will ask you to do
+so at this time.
+
+Creating a New Facebook App
+***************************
+
+From the `Facebook App creation page`_, click the 'Create New App' button.
+
+.. image:: /_static/img/facebook_create_app.png
+
+
+Twitter
+=======
+
+By default, Twitter login is desabled and will not show up as an option for
+users trying to log in.

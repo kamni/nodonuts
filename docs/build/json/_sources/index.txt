@@ -20,18 +20,19 @@ would like to contribute to the project, you can visit the project's
 
 
 
-Table of Contents
-=================
+Developer Guide
+***************
 
 .. toctree::
    :maxdepth: 2
 
+   developer_guide/config/social_media
    developer_guide/recipe_search
 
 
 
 General References
-==================
+******************
 
 * `Github repository`_
 
