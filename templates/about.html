@@ -1,18 +1,19 @@
 {% extends "page_base.html"%}
 
 {% load scribbler_tags %}
-{% load staticfiles %}
 
 {% block fullwidth_content %}
   {% scribble 'about' %}
-    <h2>NoDonuts: Healthy Food, Healthy Campaigns!</h2>
+    {% load staticfiles %}
+
+    <h2>{{ config.SITE_NAME }}: Healthy Food, Healthy Campaigns!</h2>
     <p class="spacer"></p>
     <p class="page-text">
        <img class="recipe-holder" src="{% static "img/large-bowl.png" %}" alt="{{ config.SITE_NAME }}"/>
-       NoDonuts is a site dedicated to providing healthy recipe alternatives for
-       organizations that need to feed their volunteers and participants, and
-       helping those organizations coordinate members who are able to bring
-       food.
+       {{ config.SITE_NAME }} is a site dedicated to providing healthy recipe
+       alternatives for organizations that need to feed their volunteers and
+       participants, and helping those organizations coordinate members who are
+       able to bring food.
     </p>
     <p>This project is open source and free to use for creating your own
        recipe site. If you are a web developer and would like to help build
