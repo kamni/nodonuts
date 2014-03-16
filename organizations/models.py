@@ -35,10 +35,10 @@ class UserProfile(models.Model):
         :return: string
         """
         # TODO: implement and test
-        return ''
+        return None
     
     def __repr__(self):
         return "<UserProfile: %s>" % self.user
     
     def __unicode__(self):
-        return u''
+        return unicode(self.profile_name())

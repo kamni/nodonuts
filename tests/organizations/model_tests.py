@@ -6,6 +6,12 @@ from organizations.models import *
 
 
 class UserProfileTests(TestCase):
+    def test_get_avatar(self):
+        self.assertTrue(False, "Not Implemented")
+    
+    def test_profile_name(self):
+        self.assertTrue(False, "Not Implemented")
+    
     def test__init(self):
         # all fields
         user1 = TestUser()
@@ -30,7 +36,8 @@ class UserProfileTests(TestCase):
         self.assertEquals("<UserProfile: %s>" % user, repr(profile))
     
     def test__unicode(self):
-        self.assertTrue(False, "Not Implemented")
+        profile = TestUserProfile()
+        self.assertEquals(unicode(profile.profile_name()), unicode(profile))
 
 
 def TestUserProfile(user=None, nickname=None, avatar=None):
