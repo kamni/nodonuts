@@ -19,4 +19,8 @@
     {% endif %}
     <a href="{% url "social:begin" "yahoo" %}"><i class="fi-social-yahoo"></i></a>
   </p>
+  <p class="policy-agreement">
+     By logging in, you agree to our <a href="{% url "terms" %}">Terms of Service</a>
+     and our <a href="{% url "privacy" %}">Privacy Policy</a>.
+  </p>
 {% endblock %}
