@@ -69,6 +69,10 @@ h3 {
   color: $complement-color2 !important;
   padding-top: .5rem;
 }
+img {
+  padding-bottom: 1.5rem;
+  padding-top: .5rem
+}
 pre {
   @include card(scale-color($neutral-color2, $lightness: 90%));
   color: $neutral-color3;
