@@ -19,8 +19,16 @@
     {% endif %}
     <a href="{% url "social:begin" "yahoo" %}"><i class="fi-social-yahoo"></i></a>
   </p>
-  <p class="policy-agreement">
-     By logging in, you agree to our <a href="{% url "terms" %}">Terms of Service</a>
-     and our <a href="{% url "privacy" %}">Privacy Policy</a>.
-  </p>
+  {% with config.DISPLAY_TERMS_AND_CONDITIONS as terms %}
+  {% with config.DISPLAY_PRIVACY_POLICY as privacy %}
+    {% if terms or privacy %}
+    <p class="policy-agreement">
+      By logging in, you agree to our
+      {% if terms %}<a href="{% url "terms" %}">Terms of Service</a>{% endif %}
+      {% if terms and privacy %} and our {% endif %}
+      {% if privacy %}<a href="{% url "privacy" %}">Privacy Policy</a>{% endif %}.
+    </p>
+    {% endif %}
+  {% endwith %}
+  {% endwith %}
 {% endblock %}
