@@ -109,6 +109,8 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_FACEBOOK_KEY = ''
+SOCIAL_AUTH_TWITTER_KEY = ''
 
 # haystack (search) setting
 HAYSTACK_CONNECTIONS = {
