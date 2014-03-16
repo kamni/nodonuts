@@ -11,6 +11,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'', include('recipes.urls')),
+    url(r'^about/$', TemplateView.as_view(template_name="about.html"), name="about"),
     url(r'^auth/login/$', 'django.contrib.auth.views.login', {'authentication_form': NoDonutsAuthForm}, 'login'),
     url(r'^auth/', include('django.contrib.auth.urls')),
     url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}, 'logout'),
@@ -25,7 +26,11 @@ if settings.INCLUDE_DOC_URLS:
     urlpatterns += (url(r'^docs/', include('sphinxdoc.urls')),)
 
 if config.DISPLAY_TERMS_AND_CONDITIONS:
-    urlpatterns += (url(r'^terms-and-conditions/$', TemplateView.as_view(template_name="tos.html"), name="terms"),)
+    urlpatterns += (url(r'^terms-and-conditions/$', 
+                        TemplateView.as_view(template_name="tos.html"), 
+                        name="terms"),)
 
 if config.DISPLAY_PRIVACY_POLICY:
-    urlpatterns += (url(r'^privacy-policy/$', TemplateView.as_view(template_name="privacy.html"), name="privacy"),)
+    urlpatterns += (url(r'^privacy-policy/$', 
+                        TemplateView.as_view(template_name="privacy.html"), 
+                        name="privacy"),)
