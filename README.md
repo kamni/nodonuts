@@ -47,6 +47,10 @@ edit to fit your needs (see Django's own documentation regarding settings.py):
     cp nodonuts/srv_settings.py.example nodonuts/srv_settings.py
     vi nodonunts/srv_settings.py # or your editor of choice
 
+If you plan to use the online docs, it's recommended that you don't change the
+`STATIC_URL` setting. The docs are pre-compiled using '/static/' as the
+static html prefix (however, you may change the STATIC_ROOT without issue).
+
 Next, prepare static resources (css/js/images) for being served:
 
     python manage.py collectstatic
