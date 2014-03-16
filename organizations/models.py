@@ -34,7 +34,7 @@ class UserProfile(models.Model):
         
         :return: list of strings
         """
-        return []
+        return [auth['provider'] for auth in UserSocialAuth.objects.filter(user=self.user)]
     
     def profile_name(self):
         """

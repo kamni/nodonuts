@@ -9,6 +9,9 @@ class UserProfileTests(TestCase):
     def test_get_avatar(self):
         self.assertTrue(False, "Not Implemented")
     
+    def test_get_social_logins(self):
+        self.assertTrue(False, "Not Implemented")
+    
     def test_profile_name(self):
         self.assertTrue(False, "Not Implemented")
     
