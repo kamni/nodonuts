@@ -1,0 +1,14 @@
+{% load i18n %}
+
+<div class="next-previous-doc">
+  {% if doc.prev or doc.next %}
+    {% if doc.prev %}
+      {% trans "Prev:" %} <a href="{{ doc.prev.link }}">{{ doc.prev.title|safe }}</a>
+      <br>
+    {% endif %}
+
+    {% if doc.next %}
+      {% trans "Next:" %} <a href="{{ doc.next.link }}">{{ doc.next.title|safe }}</a>
+    {% endif %}
+  {% endif %}
+</div>
