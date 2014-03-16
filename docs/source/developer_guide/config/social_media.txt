@@ -34,9 +34,15 @@ visit your locally-running instance using
 .. image:: /_static/img/faked_url.png
 
 Be sure to remember the fake url that you configured and use it in future steps
-where url configuration is required. When you try to log in using Facebook or
-Twitter, they will treat the faked url the same way they would a normal
-external url.
+where a url is required. When you try to log in using Facebook or Twitter, they
+will treat the faked url the same way they would a normal external url.
+
+.. note::
+
+    If the port that you are using is anything other than ``80`` (the example
+    above uses ``:8000``, the default port for ``runserver``), you must include
+    this port in your url configuration on Facebook and Twitter, or you may
+    receive a 401 error.
 
 
 Google and Yahoo
@@ -55,10 +61,10 @@ obtain an authorization key and secret using a developer account.
 
 .. note::
 
-Developer accounts on Facebook require a user account that has a confirmed
-unique mobile telephone number. You cannot confirm a Facebook account using a
-land line, a VOIP account, or a mobile phone that is associated with another
-user.
+    Developer accounts on Facebook require a user account that has a confirmed
+    unique mobile telephone number. You cannot confirm a Facebook account using
+    a land line, a VOIP account, or a mobile phone that is associated with
+    another user.
 
 .. _Facebook App creation page: http://developers.facebook.com/setup/
 
@@ -165,4 +171,9 @@ Test that you are able to log using Twitter in from your NoDonuts instance.
     You may receive 401 errors if the clock is set incorrectly on your server
     or local machine. Make sure your clock is correct, and consider
     synchronizing it with an external NTP server.
+
+    If your clock is correct and you're still receiving 401 errors, verify that
+    you included the port number in your URL configuration (if you're running
+    on a non-standard port like ``8000``) and that you included the 's' in
+    'https' if you're using SSL.
 
