@@ -1,5 +1,6 @@
 {% extends "theme_base.html" %}
 
+{% load scribbler_tags %}
 {% load staticfiles %}
 
 {% block content %}
@@ -10,6 +11,17 @@
     {% include "recipes/partials/_tags.html" %}
 
     <div class="recipe-list{% if not tags %}-fullwidth{% endif %}">
+      {% scribble 'welcome' %}
+        {% if not user.is_authenticated %}
+        <div class="alert-box" data-alert>
+          <h4>Hello, and Welcome to {{ config.SITE_NAME }}!</h4>
+          <p>If you're new to the site, please check out our
+             <a href="{% url "about" %}">About</a> page to get started.
+          </p>
+        </div>
+        {% endif %}
+      {% endscribble %}
+
       {% if featured_recipes %}
       <div class="wrapper">
         <div id="featured-recipes">

@@ -6,9 +6,11 @@
   "compass/css3/border-radius",
   "compass/css3/box-shadow",
   "compass/css3/images",
-  "compass/css3/opacity";
+  "compass/css3/opacity",
+  "compass/css3/text-shadow";
 
 @import
+   "foundation/components/alert-boxes",
    "foundation/components/block-grid",
    "foundation/components/breadcrumbs",
    "foundation/components/button-groups",
@@ -77,6 +79,14 @@
   padding-right: .75rem;
   margin-left: .1rem;
   margin-right: .1rem;
+}
+.alert-box {
+  background-color: $complement-color1;
+  border-color: $complement-color2;
+
+  & a {
+    font-weight: bold;
+  }
 }
 .card-header {
   @include grid-column(6);
