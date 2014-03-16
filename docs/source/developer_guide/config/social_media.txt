@@ -33,9 +33,9 @@ visit your locally-running instance using
 
 .. image:: /_static/img/faked_url.png
 
-Be sure to remember the fake url that you configure and use it in future steps
-where url configuration is required. When you try to log in using Facebook and
-Twitter, they will treat the faked  url the same way they would a normal
+Be sure to remember the fake url that you configured and use it in future steps
+where url configuration is required. When you try to log in using Facebook or
+Twitter, they will treat the faked url the same way they would a normal
 external url.
 
 
@@ -109,14 +109,27 @@ Finally, go to the 'Status & Review' tab and make your app public:
 
 .. image:: /_static/img/facebook_make_public.png
 
-Verify that you are able to log in from your NoDonuts app.
+Verify that you are able to log in from your NoDonuts app. You should also go
+back and fill in the privacy policy and terms of service urls on the 'App
+Details' page as per the Facebook developer terms, but you do not need this in
+order to run the app in development.
 
 
 Twitter
 =======
 
 By default, Twitter login is desabled and will not show up as an option for
-users trying to log in.
+users trying to log in. In order to use Twitter to login from NoDonuts, you
+must have a Twitter account with a verified email address.
+
+Visit the `Twitter app creation page <https://apps.twitter.com/app/new>`_ and
+fill out the details for your app.
+
+.. image:: /_static/img/twitter_create_app.png
+
+Make sure that you enter a 'Callback URL' (this would be your fake url if doing
+development), even though the field is optional. It's required for
+authentication.
 
 .. note::
 
@@ -124,4 +137,32 @@ users trying to log in.
     mandates related to your privacy policy and your terms of service that you
     must comply with. You should update the privacy and terms statements to
     fit their minimum requirements.
+
+Once you create your app, go to the 'Settings' tab and check 'Allow this
+application to be used to sign in with Twitter' and save your settings.
+
+..image:: /_static/img/twitter_settings.png
+
+.. note::
+
+    The settings form doesn't always save your changes right away (or sometimes
+    undoes changes). Before you leave the page, make sure that the checkmark is
+    checked after you hit save and the Callback URL is still filled in. Refresh
+    the page a few times to make sure the changes have actually taken effect.
+
+Go to the 'API Keys' tab and look for 'API key' and 'API secret' at the top of
+the page. Update your ``srv_settings.py`` file as follows:
+
+::
+
+    SOCIAL_AUTH_TWITTER_KEY = '...your API key...'
+    SOCIAL_AUTH_TWITTER_SECRET = '...your API secret...'
+
+Test that you are able to log using Twitter in from your NoDonuts instance.
+
+.. note::
+
+    You may receive 401 errors if the clock is set incorrectly on your server
+    or local machine. Make sure your clock is correct, and consider
+    synchronizing it with an external NTP server.
 
