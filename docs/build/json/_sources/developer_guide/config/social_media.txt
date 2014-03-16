@@ -31,7 +31,7 @@ In this case, we're using ``local.mydonuts.net``. You should then be able to
 visit your locally-running instance using
 `http://local.mynodonuts.net:8000 <http://local.mynodonuts.net:8000>`_.
 
-.. image:: //static/img/faked_url.png
+.. image:: //static/img/docs/faked_url.png
 
 Be sure to remember the fake url that you configured and use it in future steps
 where a url is required. When you try to log in using Facebook or Twitter, they
@@ -81,14 +81,14 @@ Creating a New Facebook App
 From the `Facebook App creation page`_, click the 'Create New App' button.  You
 should see a form that looks something like this:
 
-.. image:: //static/img/facebook_create_app.png
+.. image:: //static/img/docs/facebook_create_app.png
 
 Fill out the form using your own values and click 'Create App'.
 
 At the top of your Dashboard page you should see the name and icon for your
 app, along with two fields, ``App ID`` and ``App Secret``.
 
-.. image:: //static/img/facebook_dashboard.png
+.. image:: //static/img/docs/facebook_dashboard.png
 
 Copy those two values into your ``srv_settings.py`` file:
 
@@ -103,17 +103,17 @@ log in). Click 'Add Platform', choose 'Website', and configure the url where
 your NoDonuts app will be hosted (use the faked url from above if you're in a
 local dev environment).  Don't forget to save.
 
-.. image:: //static/img/facebook_basic_settings.png
+.. image:: //static/img/docs/facebook_basic_settings.png
 
 Go to the 'Advanced' tab and look for the 'Security' section. Make sure
 'Client OAuth Login' is set to 'Yes' and add the url of your server (or the
 faked url) to the 'Valid OAuth redirect URIs' field. Save your settings.
 
-.. image:: //static/img/facebook_advanced_settings.png
+.. image:: //static/img/docs/facebook_advanced_settings.png
 
 Finally, go to the 'Status & Review' tab and make your app public:
 
-.. image:: //static/img/facebook_make_public.png
+.. image:: //static/img/docs/facebook_make_public.png
 
 Verify that you are able to log in from your NoDonuts app. You should also go
 back and fill in the privacy policy and terms of service urls on the 'App
@@ -131,7 +131,7 @@ must have a Twitter account with a verified email address.
 Visit the `Twitter app creation page <https://apps.twitter.com/app/new>`_ and
 fill out the details for your app.
 
-.. image:: //static/img/twitter_create_app.png
+.. image:: //static/img/docs/twitter_create_app.png
 
 Make sure that you enter a 'Callback URL' (this would be your fake url if doing
 development), even though the field is optional. It's required for
@@ -147,7 +147,7 @@ authentication.
 Once you create your app, go to the 'Settings' tab and check 'Allow this
 application to be used to sign in with Twitter' and save your settings.
 
-..image:: //static/img/twitter_settings.png
+..image:: //static/img/docs/twitter_settings.png
 
 .. note::
 
