@@ -38,7 +38,7 @@ class UserProfile(models.Model):
         return ''
     
     def __repr__(self):
-        return ''
+        return "<UserProfile: %s>" % self.user
     
     def __unicode__(self):
         return u''

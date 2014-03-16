@@ -25,7 +25,15 @@ class UserProfileTests(TestCase):
                               user=user1)
     
     def test__repr(self):
-        self.assertTrue(False, "Not Implemented")
+        user = TestUser()
+        profile = TestUserProfile(user=user)
+        self.assertEquals("<UserProfile: %s>" % user, repr(profile))
     
     def test__unicode(self):
         self.assertTrue(False, "Not Implemented")
+
+
+def TestUserProfile(user=None, nickname=None, avatar=None):
+    return UserProfile.objects.create(user=user or TestUser(),
+                                      nickname=nickname,
+                                      avatar=avatar)
