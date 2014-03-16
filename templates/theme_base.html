@@ -47,19 +47,5 @@ Most templates will extend theme_base.html.
 
   <div class="spacer"><div class="container">&nbsp;</div></div>
 
-  <div id="footer">
-    <div class="footer-text">
-    {% block footer %}
-      <ul class="footer-links">
-        {% if config.DISPLAY_TERMS_AND_CONDITIONS %}
-        <li><a href="{% url "terms" %}">Terms and Conditions</a></li>
-        {% endif %}
-        {% if config.DISPLAY_PRIVACY_POLICY %}
-        <li><a href="{% url "privacy" %}">Privacy Policy</a></li>
-        {% endif %}
-      </ul>
-      <p>{{ config.COPYRIGHT }} &copy; {% now "Y" %} {{ config.SITE_NAME }}. {{ config.COPYRIGHT_MESSAGE }}</p>
-    {% endblock %}
-    </div>
-  </div>
+  {% include "partials/_footer.html" %}
 {% endblock %}
