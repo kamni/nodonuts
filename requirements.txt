@@ -27,6 +27,7 @@ python-social-auth==0.1.21
 pytz==2013.9
 requests==2.2.1
 requests-oauthlib==0.4.0
+simplejson==3.3.3
 six==1.5.2
 static==1.0.2
 wsgiref==0.1.2
