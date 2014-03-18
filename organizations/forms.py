@@ -6,7 +6,7 @@ from django.utils.translation import ugettext, ugettext_lazy as _
 
 class NoDonutsAuthForm(AuthenticationForm):
     """Overrides the parent class 'username' to display as 'email'"""
-    username = forms.CharField(label=_("Email"), max_length=254)
+    username = forms.EmailField()
 
     error_messages = {
         'invalid_login': _("Please enter a correct email and password. "
@@ -22,6 +22,7 @@ class NoDonutsUserCreationForm(UserCreationForm):
     allows setting the display name.
     """
     # username is email field
+    # check for uniqueness of email
     # add a display name
     # create profile
     
