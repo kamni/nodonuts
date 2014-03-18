@@ -25,7 +25,7 @@ class NoDonutsUserCreationForm(UserCreationForm):
     allows setting the display name.
     """
     username = forms.EmailField(label=_('Email'))
-    nickname = forms.CharField(label=_('Email'), required=True,
+    nickname = forms.CharField(label=_('Nickname'), required=True,
                                help_text="(A unique way for other users to identify you)")
     
     error_messages = {

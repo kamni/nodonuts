@@ -7,28 +7,5 @@
 {% block form_class %}login-form{% endblock %}
 
 {% block more_form_text %}
-  <hr>
-  <p><strong>Or log in using another site:</strong></p>
-  <p class="social-media-login">
-    {% if config.ENABLE_FACEBOOK_LOGIN %}
-      <a href="{% url "social:begin" "facebook" %}"><i class="fi-social-facebook"></i></a>
-    {% endif %}
-    <a href="{% url "social:begin" "google" %}"><i class="fi-social-google-plus"></i></a>
-    {% if config.ENABLE_TWITTER_LOGIN %}
-      <a href="{% url "social:begin" "twitter" %}"><i class="fi-social-twitter"></i></a>
-    {% endif %}
-    <a href="{% url "social:begin" "yahoo" %}"><i class="fi-social-yahoo"></i></a>
-  </p>
-  {% with config.DISPLAY_TERMS_AND_CONDITIONS as terms %}
-  {% with config.DISPLAY_PRIVACY_POLICY as privacy %}
-    {% if terms or privacy %}
-    <p class="policy-agreement">
-      By logging in, you agree to our
-      {% if terms %}<a href="{% url "terms" %}">Terms of Service</a>{% endif %}
-      {% if terms and privacy %} and our {% endif %}
-      {% if privacy %}<a href="{% url "privacy" %}">Privacy Policy</a>{% endif %}.
-    </p>
-    {% endif %}
-  {% endwith %}
-  {% endwith %}
+  {% include "partials/_social_logins.html" %}
 {% endblock %}
