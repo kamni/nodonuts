@@ -37,12 +37,11 @@ class NoDonutsUserCreationForm(UserCreationForm):
     def clean_nickname(self):
         """Ensures the nickname is unique"""
         nickname = self.cleaned_data.get('nickname')
-        try:
-            UserProfile.objects.get(nickname=nickname)
-        except UserProfile.DoesNotExist:
-            return nickname
-        raise forms.ValidationError(self.error_messages['duplicate_nickname'],
-                                    code='duplicate_nickname')
+        if (UserProfile.objects.filter(nickname=nickname) or 
+                User.objects.filter(username=nickname)):
+            raise forms.ValidationError(self.error_messages['duplicate_nickname'],
+                                        code='duplicate_nickname')
+        return nickname
     
     def clean_username(self):
         """Overrides parent method to check for email uniqueness instead of username"""
