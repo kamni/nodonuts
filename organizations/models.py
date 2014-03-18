@@ -44,10 +44,17 @@ class UserProfile(models.Model):
         
         :return: string
         """
-        if 'twitter' in self.get_social_logins():
+        social_logins = self.get_social_logins()
+        if 'twitter' in social_logins:
             return self.user.username
+        elif social_logins:
+            return self.nickname or self.user.username
         
-        return self.nickname or self.user.get_full_name() or self.user.username
+        # Users without a social login have a randomly generated, meaningless
+        # username, so if they don't have a nickname then we'll assume they're
+        # either from an older version of NoDonuts or were generated from the
+        # command line and need a user-friendly display name
+        return self.nickname or "User"
     
     def __repr__(self):
         return "<UserProfile: %s>" % self.user

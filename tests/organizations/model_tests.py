@@ -37,27 +37,23 @@ class UserProfileTests(TestCase):
         TestUserSocialAuth(user=user, provider='twitter')
         self.assertEqual("foo_bar_baz", profile.profile_name())
         
-        # if no nickname and no first/last name, return username
-        user = User.objects.create(username="bazbar", email="bazbar@foobar.org")
-        profile = TestUserProfile(user=user)
-        TestUserSocialAuth(user=user, provider="google")
-        self.assertEqual("bazbar", profile.profile_name())
+        # users with another social login should prefer nickname, but have a
+        # username that was imported
+        for social_auth in ('google', 'yahoo', 'facebook'):
+            user = TestUser(username="%s_user" % social_auth)
+            profile = TestUserProfile(user=user)
+            TestUserSocialAuth(user=user, provider=social_auth)
+            self.assertEqual("%s_user" % social_auth, profile.profile_name())
+            
+            profile.nickname = "%sNick" % social_auth
+            self.assertEqual("%sNick" % social_auth, profile.profile_name())
         
-        # if no nickname, return first/last name
-        user = TestUser()
-        profile = TestUserProfile(user=user)
-        TestUserSocialAuth(user=user, provider="facebook")
-        self.assertEqual(user.get_full_name(), profile.profile_name())
-        
-        # return nickname if it exists
-        profile = TestUserProfile(nickname="cowabunga")
-        TestUserSocialAuth(user=profile.user, provider="yahoo")
-        self.assertEqual("cowabunga", profile.profile_name())
-        
-        # shouldn't error if no social auth
+        # for other users, prefer nickname, but return 'User' if no nickname
+        # is set
         profile = TestUserProfile()
-        self.assertFalse(UserSocialAuth.objects.filter(user=profile.user))
-        self.assert_(profile.profile_name())
+        self.assertEqual('User', profile.profile_name())
+        profile.nickname = 'PlainOldUser'
+        self.assertEqual('PlainOldUser', profile.profile_name())
     
     def test__init(self):
         # all fields
