@@ -46,7 +46,7 @@ class NoDonutsUserCreationForm(UserCreationForm):
     
     def clean_username(self):
         """Overrides parent method to check for email uniqueness instead of username"""
-        username = self.cleaned_data.get('username')
+        username = self.cleaned_data.get('username').lower()
         try:
             User._default_manager.get(email=username)
         except User.DoesNotExist:
