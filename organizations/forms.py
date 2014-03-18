@@ -33,10 +33,6 @@ class NoDonutsUserCreationForm(UserCreationForm):
         'duplicate_username': _("Trying to log in? It looks like you already have an account."),
         'password_mismatch': _("The two password fields didn't match."),
     }
-    # username is email field
-    # check for uniqueness of email
-    # add a display name
-    # create profile
     
     def clean_nickname(self):
         """Ensures the nickname is unique"""
