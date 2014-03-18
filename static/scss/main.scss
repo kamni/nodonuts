@@ -104,6 +104,20 @@
 .header-button {
   @include button-style($secondary-color, true);
 }
+.login, .signup {
+  display: inline !important;
+}
+.login {
+  border: 1px solid $main-color2 !important;
+}
+.signup {
+  background-color: scale-color($complement-color1, $lightness: 14%) !important;
+  border: 1px solid $complement-color2 !important;
+
+  &:hover {
+    background-color: scale-color($complement-color1, $lightness: -14%) !important;
+  }
+}
 .section {
   @extend .wrapper;
 
