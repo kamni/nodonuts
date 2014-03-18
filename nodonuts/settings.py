@@ -107,7 +107,7 @@ AUTHENTICATION_BACKENDS = (
     'social.backends.google.GoogleOpenId',
     'social.backends.twitter.TwitterOAuth',
     'social.backends.yahoo.YahooOpenId',
-    'django.contrib.auth.backends.ModelBackend',
+    'organizations.backends.EmailAuthBackend',
 )
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 SOCIAL_AUTH_FACEBOOK_KEY = ''
