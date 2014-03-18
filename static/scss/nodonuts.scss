@@ -184,8 +184,25 @@ $include-html-classes: false;
 .login-form {
   text-align: center;
 
-  table {
+  .login-form-table {
     margin: 0 auto;
+
+    th {
+      text-align: right;
+      padding-right: .5rem;
+      vertical-align: top;
+    }
+    td  {
+      padding-bottom: 1rem;
+
+      br {
+        display: none; // hack to get rid of <br> elements inserted by Django
+      }
+      input {
+        padding-top: 0;
+        margin-bottom: .3rem;
+      }
+    }
   }
 }
 .page-text {

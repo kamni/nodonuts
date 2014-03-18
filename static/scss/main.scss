@@ -120,6 +120,10 @@
 .container {
   @include grid-column(12);
 }
+.helptext {
+  color: $neutral-color2;
+  font-style: italic;
+}
 .spacer {
   @extend .wrapper;
   height: 1rem;
