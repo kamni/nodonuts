@@ -5,14 +5,14 @@
       <li><a href="{% url "home" %}">Home</a></li>
       <li class="divider"></li>
       <li><a href="{% url "about" %}">About</a></li>
-      <li class="divider"></li>
       {% if config.DISPLAY_DOC_LINKS %}
         {% if user.is_superuser or not config.SUPERUSER_DOCS_ONLY %}
+          <li class="divider"></li>
           <li><a href="{% url "doc-index" "nodonuts" %}"><i class="fi-page icon" alt="Admin"></i> Docs</a></li>
         {% endif %}
       {% endif %}
-      <li class="divider"></li>
       {% if user.is_superuser %}
+        <li class="divider"></li>
         <li><a href="{% url "admin_panel" %}"><i class="fi-widget icon" alt="Admin"></i> Admin</a></li>
       {% endif %}
       {% if user.is_authenticated %}
