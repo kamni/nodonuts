@@ -41,7 +41,8 @@ class NoDonutsUserCreationForm(UserCreationForm):
             UserProfile.objects.get(nickname=nickname)
         except UserProfile.DoesNotExist:
             return nickname
-        raise forms.ValidationError(self.error_messages['duplicate_'])
+        raise forms.ValidationError(self.error_messages['duplicate_nickname'],
+                                    code='duplicate_nickname')
     
     def clean_username(self):
         """Overrides parent method to check for email uniqueness instead of username"""
@@ -55,9 +56,8 @@ class NoDonutsUserCreationForm(UserCreationForm):
     
     def save(self, commit=True):
         """Overrides parent method to handle new fields"""
-        username = "user%d" % User.objects.count() + 1
-        user = User.objects.create(username="user%d" % User.objects.count() + 1,
-                                   email=self.cleaned_data.get('username'))
+        user = User.objects.create(username="user%d" % (User.objects.count() + 1),
+                                        email=self.cleaned_data.get('username'))
 
         user.set_password(self.cleaned_data["password1"])
         user.save()
