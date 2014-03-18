@@ -1,7 +1,23 @@
 {% extends "partials/_form_base.html" %}
 
 {% block form_text %}
-<p><strong>Welcome! Please log in to continue.</strong></p>
+
+{% with config.DISPLAY_TERMS_AND_CONDITIONS as terms %}
+{% with config.DISPLAY_PRIVACY_POLICY as privacy %}
+  {% if terms or privacy %}
+    <p class="policy-agreement">
+      <strong>By creating an account or logging in, you agree to be bound by our
+      {% if terms %}<a href="{% url "terms" %}">Terms of Service</a>{% endif %}
+      {% if terms and privacy %} and our {% endif %}
+      {% if privacy %}<a href="{% url "privacy" %}">Privacy Policy</a>{% endif %}.
+      </strong>
+    </p>
+    <hr>
+  {% endif %}
+{% endwith %}
+{% endwith %}
+
+<p><strong>{% block welcome_text %}Welcome! Please log in to continue.{% endblock %}</strong></p>
 {% endblock %}
 
 {% block form_class %}login-form{% endblock %}
