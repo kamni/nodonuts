@@ -19,10 +19,15 @@ class RecipeSearchForm(SearchForm):
                                 'Enter keywords, or leave blank to see all recipes'}))
     order = forms.ChoiceField(required=False, label="Sort Results By",
                               choices=ORDERING_OPTIONS)
-    ss = forms.ChoiceField(required=False, label="Serving Size",
+    ss = forms.ChoiceField(required=False, label=_("Serving Size"),
                            choices=[(None, "-------")] + ServingSize.choices())
-    tags = forms.CharField(required=False, widget=forms.TextInput(attrs = {'placeholder':
-                                'Tags separated by spaces'}))
+    tags = forms.CharField(required=False, label=_("Tags"),
+                           widget=forms.TextInput(attrs={'placeholder':
+                                                  'Tags separated by spaces'}))
+    user_only = forms.BooleanField(label=_("Show Results From"), required=False,
+                                   widget=forms.RadioSelect(attrs={'value': False},
+                                                            choices=((False, "everyone's recipes"),
+                                                                     (True, "my recipes"))))
     
     def base_query_link(self):
         """TODO: docs and tests"""
