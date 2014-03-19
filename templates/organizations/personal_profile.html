@@ -6,6 +6,8 @@
 
 {% block sidebar %}
   <img class="profile-avatar" src="{{ profile.get_avatar }}" />
-  <h4>{{ profile }}</h4>
-  <p>{{ user.email }}</p>
+  <span class="profile-details">
+    <h4>{{ profile }}</h4>
+    <p>{{ user.email }}</p>
+  </span>
 {% endblock %}

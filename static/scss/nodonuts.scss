@@ -223,6 +223,15 @@ $include-html-classes: false;
 .policy-agreement {
   text-align: center;
 }
+.profile-avatar {
+  width: 80%;
+  display: block;
+  margin: 0 auto !important;
+  border: 1px solid scale-color($neutral-color2, $lightness: 50%);
+}
+.profile-details {
+  text-align: center;
+}
 .recipe-slider {
   @include maintain-ratio($ratio: 7 3);
   overflow: hidden;
