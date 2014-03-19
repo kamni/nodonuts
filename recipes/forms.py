@@ -43,8 +43,8 @@ class RecipeSearchForm(SearchForm):
         """TODO: docs and tests"""
         tags = urlquote(' '.join(self.tags)) if self.tags else ''
         ss = self.ss if self.ss else ''
-        return "?q=%s&amp;order=%s&amp;tags=%s&amp;ss=%s" % (self.q, self.order, 
-                                                             tags, ss)
+        return ("?q=%s&amp;order=%s&amp;tags=%s&amp;ss=%s&amp;all=%s" % 
+                (self.q, self.order, tags, ss, ['True', 'False'][bool(self.user)]))
     
     def order_by(self, query, ordering=None):
         # TODO: docs and tests
