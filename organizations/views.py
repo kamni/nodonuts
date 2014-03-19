@@ -1,8 +1,10 @@
+from constance import config
 from django.contrib import auth
 from django.core import urlresolvers
 from django.views.generic import FormView, TemplateView
 
 from organizations.forms import NoDonutsUserCreationForm
+from recipes.models import Recipe
 
 
 class NewUserCreation(FormView):
@@ -28,4 +30,19 @@ class NewUserCreation(FormView):
 class PersonalProfile(TemplateView):
     """The user's view of their own profile"""
     template_name = "organizations/personal_profile.html"
+    
+    def get_context_data(self):
+        # this is following the search page's results so we can reuse
+        # the template
+        return {'page': {'object_list': self._recipe_results()}}
+    
+    def _recipe_results(self):
+        """
+        Returns a list of dictionaries for a filtered search of the user's recipes.
+        
+        :return: list of dictionaries
+        """
+        results = Recipe.objects.filter(added_by=self.request.user
+                               ).order_by('-date_added')[:config.USER_NEWEST_RECIPE_COUNT]
+        return [{'object': result} for result in results]
 

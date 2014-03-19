@@ -172,6 +172,8 @@ CONSTANCE_CONFIG = {
                                    'on the home page.'),
     'NEWEST_RECIPE_COUNT': (8, 'How many of the newest recipes should be ' +
                                'shown on the home page.'),
+    'USER_NEWEST_RECIPE_COUNT': (5, "How many of the user's recipes should " +
+                                 "be shown on their profile page"),
     'SEARCH_RESULTS_PER_PAGE': (10, 'Number of search results to show on ' +
                                     'search page.'),
     'DISPLAY_DOC_LINKS': (INCLUDE_DOC_URLS and DISPLAY_DOC_LINKS, 'Show links ' +
