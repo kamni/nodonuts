@@ -28,15 +28,19 @@ class NewUserCreation(FormView):
         return urlresolvers.reverse('my_profile')
 
 
-class PersonalProfile(TemplateView):
+class PersonalProfile(FormView):
     """The user's view of their own profile"""
     template_name = "organizations/personal_profile.html"
+    form_class = NewRecipeForm
     
-    def get_context_data(self):
+    def get_context_data(self, **kwargs):
         # this is following the search page's results so we can reuse
         # the template
-        return {'page': {'object_list': self._recipe_results()},
-                'new_recipe_form': NewRecipeForm()}
+        kwargs.update({'page': {'object_list': self._recipe_results()}})
+        return kwargs
+    
+    def get_form(self, form_class):
+        return form_class(added_by=self.request.user)
     
     def _recipe_results(self):
         """

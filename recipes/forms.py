@@ -13,6 +13,10 @@ class NewRecipeForm(forms.ModelForm):
         model = Recipe
         fields = ('title', 'short_description', 'image', 'serving_size',
                    'tags', 'ingredients', 'instructions')
+    
+    def __init__(self, added_by, *args, **kwargs):
+        self.added_by = added_by
+        super(NewRecipeForm, self).__init__(*args, **kwargs)
 
 
 class RecipeSearchForm(SearchForm):

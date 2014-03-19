@@ -1,9 +1,7 @@
 {% extends "page_base.html" %}
 
 {% block main_content %}
-  {% with new_recipe_form as form %}
-    {% include "recipes/partials/_new_recipe_form.html" %}
-  {% endwith %}
+  {% include "recipes/partials/_new_recipe_form.html" %}
 
   {% include "organizations/partials/_user_recipes.html" %}
 {% endblock %}
