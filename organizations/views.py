@@ -4,6 +4,7 @@ from django.core import urlresolvers
 from django.views.generic import FormView, TemplateView
 
 from organizations.forms import NoDonutsUserCreationForm
+from recipes.forms import NewRecipeForm
 from recipes.models import Recipe
 
 
@@ -34,7 +35,8 @@ class PersonalProfile(TemplateView):
     def get_context_data(self):
         # this is following the search page's results so we can reuse
         # the template
-        return {'page': {'object_list': self._recipe_results()}}
+        return {'page': {'object_list': self._recipe_results()},
+                'new_recipe_form': NewRecipeForm()}
     
     def _recipe_results(self):
         """

@@ -7,6 +7,13 @@ from haystack.query import SQ
 from recipes.models import Recipe, ServingSize
 
 
+class NewRecipeForm(forms.ModelForm):
+    # TODO: docs and tests
+    class Meta:
+        model = Recipe
+        exclude = ('slug',)
+
+
 class RecipeSearchForm(SearchForm):
     """TODO: docs and tests"""
     ORDERING_OPTIONS = (('popularity', 'popularity'),
