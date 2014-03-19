@@ -16,10 +16,13 @@
           <th><label for="id_ss">{{ form.ss.label }}:</label></th>
           <td>{{ form.ss }}</td>
       </tr>
-      <tr>
-          <th><label for="id_all">{{ form.all.label }}</label></th>
-          <td>{{ form.all }}</td>
-      </tr>
+      {% if user.is_authenticated %}
+      {% coment %}You can't filter by user if they're not logged in{% endcomment %}
+        <tr>
+            <th><label for="id_all">{{ form.all.label }}</label></th>
+            <td>{{ form.all }}</td>
+        </tr>
+      {% endif %}
       <tr><td></td><td><input type="submit" value="Search Recipes"></td></tr>
     </table>
   </form>
