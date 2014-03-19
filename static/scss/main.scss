@@ -89,12 +89,12 @@
   }
 }
 .card-header {
-  @include grid-column(6);
+  @include grid-column(8);
   margin-left: -1rem;
   text-align: left;
 }
 .card-link {
-  @include grid-column(6);
+  @include grid-column(4);
   text-align: right;
   padding-top: 1rem;
 }
