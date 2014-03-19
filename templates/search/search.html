@@ -16,42 +16,7 @@
       <div class="wrapper">
         {% include "search/partials/_search_form.html" %}
 
-        <div class="recipe-list-fullwidth">
-          {% if page.object_list %}
-            <div class="wrapper">
-              <div class="card-header"><h2>Search Results</h2></div>
-              <div class="card-link next-previous">
-                {% if page.has_previous %}<a href="{{ form.base_query_link|safe }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
-                <span class="link-like">|</span>
-                {% if page.has_next %}<a href="{{ form.base_query_link|safe }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
-              </div>
-            </div>
-
-            {% with "recipe-summary" as recipe_div_class %}
-            {% for result in page.object_list %}
-              {% with result.object as recipe %}
-              {% with "recipes/partials/_recipe_summary.html" as template_name %}
-                {% include "recipes/partials/_recipe_wrapper.html" %}
-              {% endwith %}
-              {% endwith %}
-            {% empty %}
-              <p>No results found.</p>
-            {% endfor %}
-            {% endwith %}
-
-            {% if page.has_previous or page.has_next %}
-              <div class="next-previous">
-                {% if page.has_previous %}<a href="{{ form.base_query_link|safe }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
-                                          <span class="link-like">|</span>
-                {% if page.has_next %}<a href="{{ form.base_query_link|safe }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
-              </div>
-            {% endif %}
-          {% else %}
-            <div class="no-results">
-              <p>Enter search words in the form above to start searching.</p>
-            </div>
-          {% endif %}
-        </div>
+        {% include "search/partials/_search_results.html" %}
       </div>
     </div>
   </div>

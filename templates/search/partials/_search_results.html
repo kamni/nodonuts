@@ -1,0 +1,27 @@
+<div class="{% block results_class %}recipe-list-fullwidth{% endblock %}">
+  {% if page.object_list %}
+    <div class="wrapper">
+      <div class="card-header"><h2>{% block results_header %}Search Results{% endblock %}</h2></div>
+
+      {% include "search/partials/_next_previous_links.html" %}
+    </div>
+
+    {% with "recipe-summary" as recipe_div_class %}
+    {% for result in page.object_list %}
+      {% with result.object as recipe %}
+      {% with "recipes/partials/_recipe_summary.html" as template_name %}
+        {% include "recipes/partials/_recipe_wrapper.html" %}
+      {% endwith %}
+      {% endwith %}
+    {% empty %}
+      <p>No results found.</p>
+    {% endfor %}
+    {% endwith %}
+
+    {% include "search/partials/_next_previous_links.html" %}
+  {% else %}
+    <div class="no-results">
+      {% block no_results %}<p>Enter search words in the form above to start searching.</p>{% endblock %}
+    </div>
+  {% endif %}
+</div>
