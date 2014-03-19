@@ -100,7 +100,7 @@ MEDIA_ROOT = 'uploads'
 MEDIA_URL = '/media/'
 
 LOGIN_URL = '/auth/login/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/members/my-profile/'
 
 # python-social-auth
 AUTHENTICATION_BACKENDS = (

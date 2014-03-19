@@ -21,6 +21,7 @@
 {% endblock %}
 
 {% block form_class %}login-form{% endblock %}
+{% block form_action %}.?next={{ request.GET.next }}{% endblock %}
 
 {% block form_table_class %}login-form-table{% endblock %}
 
