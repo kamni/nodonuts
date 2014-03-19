@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
 from social.apps.django_app.default.models import UserSocialAuth
@@ -25,8 +26,10 @@ class UserProfile(models.Model):
         
         :return: string
         """
-        # TODO: implement and test
-        return None
+        # TODO: test
+        if self.avatar:
+            return self.avatar.url
+        return "/".join((settings.STATIC_URL, "img", "avatar.png"))
     
     def get_social_logins(self):
         """
