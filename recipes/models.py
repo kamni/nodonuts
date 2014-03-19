@@ -95,7 +95,6 @@ class Recipe(NullCheckerModel):
     :field serving_size: EnumField for ServingSize, default=2
     :field tags: ManyToManyField with RecipeTag, nullable
     :field image: ImageField, uploads to 'recipes/images', optional
-    :field thumbnail: ImageField, uploads to 'recipes/thumbs', optional
     :field ingredients: TextField
     :field instructions: TextField
     :field featured: BooleanField, defaults to False
@@ -118,9 +117,6 @@ class Recipe(NullCheckerModel):
     image = models.ImageField(upload_to='recipes/images', blank=True, null=True,
                               help_text="Display image for the recipe. The " +
                               "ideal image size is 200x200px.")
-    thumbnail = models.ImageField(upload_to='recipes/thumbs', blank=True, null=True,
-                                  help_text="Smaller image to use for the " +
-                                  "recipe. Ideal image size is 60x60px")
     ingredients = NullableTextField(help_text="Ingredients (with measurements) " +
                                    "for the recipe, one ingredient per line.")
     instructions = NullableTextField(help_text="Instructions for preparing the " +
