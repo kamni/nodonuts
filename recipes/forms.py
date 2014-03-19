@@ -9,15 +9,17 @@ from recipes.models import Recipe, ServingSize
 
 class NewRecipeForm(forms.ModelForm):
     # TODO: docs and tests
+    #added_by = 
     class Meta:
         model = Recipe
         fields = ('title', 'short_description', 'image', 'serving_size',
-                   'tags', 'ingredients', 'instructions')
+                   'tags', 'ingredients', 'instructions', 'added_by')
     
     def __init__(self, added_by, *args, **kwargs):
-        self.added_by = added_by
         super(NewRecipeForm, self).__init__(*args, **kwargs)
-
+        # the form seems to be ignoring the 'initial' param, so we're going to
+        # manually set it
+        self.fields['added_by'].initial = added_by
 
 class RecipeSearchForm(SearchForm):
     """TODO: docs and tests"""
