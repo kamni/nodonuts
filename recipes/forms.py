@@ -32,6 +32,7 @@ class RecipeSearchForm(SearchForm):
                                                              tags, ss)
     
     def order_by(self, query, ordering=None):
+        # TODO: docs and tests
         if ordering == 'newest':
             return query.order_by('-date_added')
         if ordering == 'alphabeta':
@@ -43,6 +44,7 @@ class RecipeSearchForm(SearchForm):
         return query
     
     def search(self):
+        # TODO: docs and tests
         if not self.is_valid():
             return self.no_query_found()
         
