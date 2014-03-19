@@ -3,7 +3,7 @@
     <div class="wrapper">
       <div class="card-header"><h2>{% block results_header %}Search Results{% endblock %}</h2></div>
 
-      {% include "search/partials/_next_previous_links.html" %}
+      {% block next_previous %}{% include "search/partials/_next_previous_links.html" %}{% endblock %}
     </div>
 
     {% with "recipe-summary" as recipe_div_class %}

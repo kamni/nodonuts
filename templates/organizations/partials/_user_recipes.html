@@ -4,6 +4,12 @@
 
 {% block results_header %}Your Most Recent Recipes{% endblock %}
 
+{% block next_previous %}
+  <div class="card-link">
+    <a href="{% url "recipe_search" %}?all=False">All Your Recipes</a>
+  </div>
+{% endblock %}
+
 {% block no_results %}
   {% scribble "no_user_recipes" %}
   <p>It looks like you haven't created any recipes yet. Use the form above
