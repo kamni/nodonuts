@@ -5,5 +5,7 @@
 {% endblock %}
 
 {% block sidebar %}
-<p> hello</p>
+  <img class="profile-avatar" src="{{ profile.get_avatar }}" />
+  <h4>{{ profile }}</h4>
+  <p>{{ user.email }}</p>
 {% endblock %}
