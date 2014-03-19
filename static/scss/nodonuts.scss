@@ -189,6 +189,14 @@ $include-html-classes: false;
 #user-login {
   @extend .card;
 }
+.fullwidth-button {
+  width: 100%;
+  background-color: $complement-color2;
+
+  &:hover {
+    background-color: scale-color($complement-color2, $lightness: -28%);
+  }
+}
 .login-form {
   text-align: center;
 
