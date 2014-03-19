@@ -78,6 +78,14 @@ $include-html-classes: false;
         width: 25%;
         padding-right: 1rem;
       }
+      ul {
+        margin-bottom: 0;
+
+        li {
+          display: inline;
+          margin-right: 1rem;
+        }
+      }
     }
   }
   .recipe-list {
