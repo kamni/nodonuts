@@ -64,6 +64,7 @@ class RecipeSearchForm(SearchForm):
             return self.no_query_found()
         
         self.q = self.cleaned_data.get('q')
+        self.user = self.cleaned_data.get('all') and self.user or None
         self.order = self.cleaned_data.get('order')
         self.tags = [tag.strip() for tag in self.cleaned_data.get('tags').split(' ') if tag.strip()]
         try:
@@ -75,7 +76,10 @@ class RecipeSearchForm(SearchForm):
             query = self.searchqueryset.auto_query(self.q)
         else:
             query = self.searchqueryset.all()
-            
+        
+        if self.user:
+            query = query.filter(added_by=self.user)
+        
         if self.ss is not None:
             query = query.filter(serving_size=self.ss)
             

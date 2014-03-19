@@ -23,6 +23,12 @@ class RecipeSearchView(SearchView):
     """Primary search page for recipes. Uses Haystack."""
     results_per_page = config.SEARCH_RESULTS_PER_PAGE
     
+    def build_form(self, *args, **kwargs):
+        form = super(RecipeSearchView, self).build_form(*args, **kwargs)
+        user = self.request.user
+        form.user = user.id if user.is_authenticated() else None
+        return form
+    
     def get_selected_tags(self):
         """Determines which tags should show up as 'selected' in the view"""
         # TODO: test

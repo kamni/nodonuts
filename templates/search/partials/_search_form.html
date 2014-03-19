@@ -17,7 +17,7 @@
           <td>{{ form.ss }}</td>
       </tr>
       {% if user.is_authenticated %}
-      {% coment %}You can't filter by user if they're not logged in{% endcomment %}
+      {% comment %}You can't filter by user if they're not logged in{% endcomment %}
         <tr>
             <th><label for="id_all">{{ form.all.label }}</label></th>
             <td>{{ form.all }}</td>
