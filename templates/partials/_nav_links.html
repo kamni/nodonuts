@@ -11,13 +11,13 @@
           <li><a href="{% url "doc-index" "nodonuts" %}"><i class="fi-page icon" alt="Admin"></i> Docs</a></li>
         {% endif %}
       {% endif %}
-      {% if user.is_superuser %}
-        <li class="divider"></li>
-        <li><a href="{% url "admin_panel" %}"><i class="fi-widget icon" alt="Admin"></i> Admin</a></li>
-      {% endif %}
       {% if user.is_authenticated %}
         <li class="divider"></li>
         <li><a href="{% url "my_profile" %}"><i class="fi-torsos-female-male"></i> {{ profile }}</a></li>
+      {% endif %}
+      {% if user.is_superuser %}
+        <li class="divider"></li>
+        <li><a href="{% url "admin_panel" %}"><i class="fi-widget icon" alt="Admin"></i> Admin</a></li>
       {% endif %}
       <li class="divider"></li>
       <li class="has-button">
