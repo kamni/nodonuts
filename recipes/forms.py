@@ -26,16 +26,16 @@ class RecipeSearchForm(SearchForm):
                                                   'Tags separated by spaces'}))
     all = forms.BooleanField(label=_("Show Results From"), required=False,
                              widget=forms.RadioSelect(attrs={'value': False},
-                                                      choices=((False, "everyone's recipes"),
-                                                               (True, "my recipes"))))
+                                                      choices=((True, "everyone's recipes"),
+                                                               (False, "my recipes"))))
     
     def __init__(self, *args, **kwargs):
         # TODO: tests
         
-        # Forcing the form to initialize a False value for 'all' if one isn't
+        # Forcing the form to initialize a True value for 'all' if one isn't
         # specified
         post_data = args[0].copy()
-        post_data['all'] = post_data.get('all', False)
+        post_data['all'] = post_data.get('all', True)
         args = (post_data,) + args[1:]
         return super(RecipeSearchForm, self).__init__(*args, **kwargs)
     
@@ -64,7 +64,7 @@ class RecipeSearchForm(SearchForm):
             return self.no_query_found()
         
         self.q = self.cleaned_data.get('q')
-        self.user = self.cleaned_data.get('all') and self.user or None
+        self.user = not self.cleaned_data.get('all') and self.user or None
         self.order = self.cleaned_data.get('order')
         self.tags = [tag.strip() for tag in self.cleaned_data.get('tags').split(' ') if tag.strip()]
         try:
