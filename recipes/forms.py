@@ -24,10 +24,20 @@ class RecipeSearchForm(SearchForm):
     tags = forms.CharField(required=False, label=_("Tags"),
                            widget=forms.TextInput(attrs={'placeholder':
                                                   'Tags separated by spaces'}))
-    user_only = forms.BooleanField(label=_("Show Results From"), required=False,
-                                   widget=forms.RadioSelect(attrs={'value': False},
-                                                            choices=((False, "everyone's recipes"),
-                                                                     (True, "my recipes"))))
+    all = forms.BooleanField(label=_("Show Results From"), required=False,
+                             widget=forms.RadioSelect(attrs={'value': False},
+                                                      choices=((False, "everyone's recipes"),
+                                                               (True, "my recipes"))))
+    
+    def __init__(self, *args, **kwargs):
+        # TODO: tests
+        
+        # Forcing the form to initialize a False value for 'all' if one isn't
+        # specified
+        post_data = args[0].copy()
+        post_data['all'] = post_data.get('all', False)
+        args = (post_data,) + args[1:]
+        return super(RecipeSearchForm, self).__init__(*args, **kwargs)
     
     def base_query_link(self):
         """TODO: docs and tests"""
