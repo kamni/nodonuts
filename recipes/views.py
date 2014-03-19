@@ -8,6 +8,7 @@ from recipes.models import Recipe, RecipeTag
 
 
 class Home(TemplateView):
+    """The first page that users see when they visit the site"""
     template_name = "home.html"
     
     def get_context_data(self, **kwargs):
@@ -19,16 +20,16 @@ class Home(TemplateView):
     
 
 class RecipeSearchView(SearchView):
-    """
-    TODO: docs and tests
-    """
+    """Primary search page for recipes. Uses Haystack."""
     results_per_page = config.SEARCH_RESULTS_PER_PAGE
     
     def get_selected_tags(self):
         """Determines which tags should show up as 'selected' in the view"""
+        # TODO: test
         return self.form.tags
     
     def extra_context(self):
+        # TODO: test
         return {'is_search': True,
                 'tags': RecipeTag.objects.filter_list(exclude_miscellaneous=False),
                 'selected_tags': self.get_selected_tags(),
