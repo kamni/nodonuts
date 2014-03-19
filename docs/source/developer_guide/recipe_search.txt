@@ -104,6 +104,9 @@ are four GET parameters that can be used with the search:
 :dfn:`q`
     Keyword search terms. These will match any recipes that have these terms in
     the title, ingredients, or tags.
+:dfn:`all`
+    If the user is logged in, this parameter will filter results only for that
+    user if set to 'false'. Otherwise returns all recipes matching the query.
 :dfn:`tags`
     Tag literals, separated by spaces. These will match the tags in a recipe
 :dfn:`ss`
@@ -155,12 +158,16 @@ The home page has two other ways to access the search page:
 Searching from the Search Page
 ******************************
 
-The search page provides access to all four of the search parameters above:
+The search page provides access to all of the search parameters above:
 
 * **q:** keywordtext field in the search form
 * **tags:** by clicking links in the sidebar or using text field in the search form
 * **order:** dropdown to select popularity, newest, or both types of alphabetical search
 * **ss:** dropdown with serving size options
+
+If the user is logged in, they will also see an option to filter for 'all':
+
+* **all:** radio button with option to show everyone's recipes (default) or only that user's recipes
 
 Advanced Search Syntax
 ======================
