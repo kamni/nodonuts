@@ -11,7 +11,8 @@ class NewRecipeForm(forms.ModelForm):
     # TODO: docs and tests
     class Meta:
         model = Recipe
-        exclude = ('slug',)
+        fields = ('title', 'short_description', 'image', 'serving_size',
+                   'tags', 'ingredients', 'instructions')
 
 
 class RecipeSearchForm(SearchForm):
