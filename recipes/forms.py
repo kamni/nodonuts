@@ -17,12 +17,21 @@ class NewRecipeForm(forms.ModelForm):
         fields = ('title', 'short_description', 'image', 'serving_size',
                    'tags', 'ingredients', 'instructions', 'added_by')
     
+    def _set_placeholder_text(self, field_dict):
+        for field, placeholder in field_dict.items():
+            self.fields[field].widget.attrs['placeholder'] = placeholder
+    
     def __init__(self, added_by, *args, **kwargs):
         super(NewRecipeForm, self).__init__(*args, **kwargs)
         # the form seems to be ignoring the 'initial' param, so we're going to
         # manually set it
         if not kwargs.get('data'):
             self.fields['added_by'].initial = added_by
+        self._set_placeholder_text({'title': 'Recipe Title',
+                                    'short_description': 'Short Description',
+                                    'ingredients': 'Ingredients with measurements, ' +
+                                                   'one per line',
+                                    'instructions': 'Instructions'})
 
 
 class RecipeSearchForm(SearchForm):

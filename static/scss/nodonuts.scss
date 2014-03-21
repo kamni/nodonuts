@@ -254,7 +254,30 @@ $include-html-classes: false;
 
   .new-recipe-form {
     text-align: center;
+    margin-top: 2rem;
 
+    input:not([type="submit"]), textarea {
+      width: 90%;
+      padding-right: 1rem;
+      display: inline;
+      border: none;
+    }
+    textarea {
+      vertical-align: top;
+    }
+    #id_ingredients {
+      height: 10rem;
+    }
+    #id_instructions {
+      height: 15rem;
+    }
+    #id_title {
+      color: $main-color2;
+      font-weight: bold;
+    }
+    .errorlist {
+      width: 90%;
+    }
   }
   .new-recipe-image {
     margin-bottom: 1rem;

@@ -13,31 +13,20 @@
     {{ form.image }}
   </div>
 
-  <div class="recipe-text">&nbsp;
-    <h3>{{ form.title }}<span class="required">*</span></h3>
+  <div class="recipe-text">
+    {{ form.title.errors }}
+    {{ form.title }}<span class="required">*</span>
 
-    <p>
-      {% if likes or dislikes %}
-        <span class="rating"><i class="fi-like rating-icon"></i> {{ likes }} Yum</span>
-        <span class="rating"><i class="fi-dislike rating-icon"></i> {{ dislikes }} Yuck</span>
-      {% endif %}
-    </p>
+    {{ form.short_description.errors }}
+    {{ form.short_description }}<span class="required">*</span>
 
-    <p>{{ recipe.short_description }}
-      {% if not full_recipe %}<br /><a href="#" data-reveal-id="{{ recipe_id }}">Full Recipe...</a>{% endif %}
-    </p>
+    <p>Tags go here</p>
 
-    <p>{% for tag in tags %}<a href="{% url "recipe_search" %}?q={{ '"'|urlencode }}{{ tag }}{{ '"'|urlencode }}" class="tag">{{ tag }}</a> {% endfor %}</p>
+    {{ form.ingredients.errors }}
+    {{ form.ingredients }}<span class="required">*</span>
 
-    {% if full_recipe %}
-      {{ recipe.ingredients|safe }}
-      <p>&nbsp;</p>
-      {{ recipe.instructions|safe }}
-    {% endif %}
-
-    <p><small><em>Serves {{ recipe.serving_size_label }}</em></small></p>
-      </div>
-    </form>-->
+    {{ form.instructions.errors }}
+    {{ form.instructions }}<span class="required">*</span>
   </div>
 {% endblock %}
 
