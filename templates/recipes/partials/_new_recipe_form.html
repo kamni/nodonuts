@@ -27,6 +27,11 @@
 
     {{ form.instructions.errors }}
     {{ form.instructions }}<span class="required">*</span>
+
+    {{ form.serving_size.errors }}
+    <label for="id_serving_size">{{ form.serving_size.label }}:</label>{{ form.serving_size }}
+
+    {{ form.added_by }}
   </div>
 {% endblock %}
 

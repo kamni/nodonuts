@@ -262,6 +262,16 @@ $include-html-classes: false;
       display: inline;
       border: none;
     }
+    label {
+      display: inline;
+      padding-right: 1rem;
+      text-align: left;
+    }
+    select {
+      width: auto;
+      display: inline;
+      text-align: left;
+    }
     textarea {
       vertical-align: top;
     }
