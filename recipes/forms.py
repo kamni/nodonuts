@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth.models import User
 from django.utils.http import urlquote
 from django.utils.translation import ugettext_lazy as _
 from haystack.forms import SearchForm
@@ -8,8 +9,9 @@ from recipes.models import Recipe, ServingSize
 
 
 class NewRecipeForm(forms.ModelForm):
-    # TODO: docs and tests
-    #added_by = 
+    added_by = forms.ModelChoiceField(queryset=User.objects.all(), 
+                                      widget=forms.HiddenInput)
+    
     class Meta:
         model = Recipe
         fields = ('title', 'short_description', 'image', 'serving_size',
@@ -21,6 +23,7 @@ class NewRecipeForm(forms.ModelForm):
         # manually set it
         if not kwargs.get('data'):
             self.fields['added_by'].initial = added_by
+
 
 class RecipeSearchForm(SearchForm):
     """TODO: docs and tests"""
