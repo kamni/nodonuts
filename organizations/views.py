@@ -1,7 +1,7 @@
 from constance import config
 from django.contrib import auth
 from django.core import urlresolvers
-from django.views.generic import FormView, TemplateView
+from django.views.generic import CreateView, FormView
 
 from organizations.forms import NoDonutsUserCreationForm
 from recipes.forms import NewRecipeForm
@@ -28,19 +28,10 @@ class NewUserCreation(FormView):
         return urlresolvers.reverse('my_profile')
 
 
-class PersonalProfile(FormView):
+class PersonalProfile(CreateView):
     """The user's view of their own profile"""
     template_name = "organizations/personal_profile.html"
     form_class = NewRecipeForm
-    
-    def form_invalid(self, form):
-        import pdb; pdb.set_trace()
-        super(PersonalProfile, self).form_invalid(form)
-    
-    def form_valid(self, form):
-        recipe = form.save()
-        import pdb; pdb.set_trace()
-        super(PersonalProfile, self).form_valid(form)
     
     def get_context_data(self, **kwargs):
         # this is following the search page's results so we can reuse
@@ -50,6 +41,10 @@ class PersonalProfile(FormView):
     
     def get_form(self, form_class):
         return form_class(added_by=self.request.user, **self.get_form_kwargs())
+    
+    def get_success_url(self):
+        # redirect to the same page
+        return urlresolvers.reverse('my_profile')
     
     def _recipe_results(self):
         """
