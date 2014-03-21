@@ -1,1 +1,44 @@
 {% extends "partials/_form_base.html" %}
+
+{% load staticfiles %}
+
+{% block form_class %}new-recipe-form{% endblock %}
+
+{% block form %}
+  <div class="recipe-image">
+    <img src="{% if image_url %}{{ image_url }}{% else %}{% static "img/large-bowl.png" %}{% endif %}" class="new-recipe-image{% if not image_url %} recipe-holder{% endif %}" />
+    {% if not foo %}
+      <label for="id_image">Upload an Image</label><br>
+    {% endif %}
+    {{ form.image }}
+  </div>
+
+  <div class="recipe-text">&nbsp;
+    <h3>{{ form.title }}<span class="required">*</span></h3>
+
+    <p>
+      {% if likes or dislikes %}
+        <span class="rating"><i class="fi-like rating-icon"></i> {{ likes }} Yum</span>
+        <span class="rating"><i class="fi-dislike rating-icon"></i> {{ dislikes }} Yuck</span>
+      {% endif %}
+    </p>
+
+    <p>{{ recipe.short_description }}
+      {% if not full_recipe %}<br /><a href="#" data-reveal-id="{{ recipe_id }}">Full Recipe...</a>{% endif %}
+    </p>
+
+    <p>{% for tag in tags %}<a href="{% url "recipe_search" %}?q={{ '"'|urlencode }}{{ tag }}{{ '"'|urlencode }}" class="tag">{{ tag }}</a> {% endfor %}</p>
+
+    {% if full_recipe %}
+      {{ recipe.ingredients|safe }}
+      <p>&nbsp;</p>
+      {{ recipe.instructions|safe }}
+    {% endif %}
+
+    <p><small><em>Serves {{ recipe.serving_size_label }}</em></small></p>
+      </div>
+    </form>-->
+  </div>
+{% endblock %}
+
+{% block submit_label %}Add Recipe{% endblock %}

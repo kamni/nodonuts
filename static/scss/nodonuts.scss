@@ -252,6 +252,13 @@ $include-html-classes: false;
 
   margin-bottom: 5px;
 
+  .new-recipe-form {
+    text-align: center;
+
+  }
+  .new-recipe-image {
+    margin-bottom: 1rem;
+  }
   .recipe-image {
     @include grid-column(3);
 
@@ -295,5 +302,15 @@ $include-html-classes: false;
     &.fi-social-yahoo {
       color: #500095;
     }
+  }
+}
+.split-form-wrapper {
+  @extend .wrapper;
+
+  .large-partial {
+    @include grid-column(9);
+  }
+  .small-partial {
+    @include grid-column(3);
   }
 }
