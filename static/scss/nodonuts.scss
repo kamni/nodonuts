@@ -282,11 +282,14 @@ $include-html-classes: false;
       height: 15rem;
     }
     #id_title {
-      color: $main-color2;
+      color: $main-color1;
       font-weight: bold;
     }
     .errorlist {
       width: 90%;
+    }
+    .required {
+      color: $main-color2;
     }
   }
   .new-recipe-image {
