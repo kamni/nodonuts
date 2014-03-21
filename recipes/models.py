@@ -141,7 +141,7 @@ class Recipe(NullCheckerModel):
     objects = RecipeManager()
     
     class Meta:
-        ordering = ('-popularity', 'title')
+        ordering = ('title',)
     
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)

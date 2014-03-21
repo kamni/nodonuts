@@ -19,7 +19,8 @@ class NewRecipeForm(forms.ModelForm):
         super(NewRecipeForm, self).__init__(*args, **kwargs)
         # the form seems to be ignoring the 'initial' param, so we're going to
         # manually set it
-        self.fields['added_by'].initial = added_by
+        if not kwargs.get('data'):
+            self.fields['added_by'].initial = added_by
 
 class RecipeSearchForm(SearchForm):
     """TODO: docs and tests"""

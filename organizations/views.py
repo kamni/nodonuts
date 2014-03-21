@@ -33,6 +33,15 @@ class PersonalProfile(FormView):
     template_name = "organizations/personal_profile.html"
     form_class = NewRecipeForm
     
+    def form_invalid(self, form):
+        import pdb; pdb.set_trace()
+        super(PersonalProfile, self).form_invalid(form)
+    
+    def form_valid(self, form):
+        recipe = form.save()
+        import pdb; pdb.set_trace()
+        super(PersonalProfile, self).form_valid(form)
+    
     def get_context_data(self, **kwargs):
         # this is following the search page's results so we can reuse
         # the template
@@ -40,7 +49,7 @@ class PersonalProfile(FormView):
         return kwargs
     
     def get_form(self, form_class):
-        return form_class(added_by=self.request.user)
+        return form_class(added_by=self.request.user, **self.get_form_kwargs())
     
     def _recipe_results(self):
         """
