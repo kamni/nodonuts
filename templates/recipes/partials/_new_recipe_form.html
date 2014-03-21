@@ -21,7 +21,8 @@
     {{ form.short_description.errors }}
     {{ form.short_description }}<span class="required">*</span>
 
-    <p>Tags go here</p>
+    <div class=spacer></div>
+    <p>{{ form.tags }} &nbsp;</p>
 
     {{ form.ingredients.errors }}
     {{ form.ingredients }}<span class="required">*</span>
@@ -30,7 +31,8 @@
     {{ form.instructions }}<span class="required">*</span>
 
     {{ form.serving_size.errors }}
-    <label for="id_serving_size">{{ form.serving_size.label }}:</label>{{ form.serving_size }}
+    <label for="id_serving_size">{{ form.serving_size.label }}:</label>
+    {{ form.serving_size }}<span class="required">*</span>
 
     {{ form.added_by }}
   </div>

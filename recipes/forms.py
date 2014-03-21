@@ -11,6 +11,7 @@ from recipes.models import Recipe, ServingSize
 class NewRecipeForm(forms.ModelForm):
     added_by = forms.ModelChoiceField(queryset=User.objects.all(), 
                                       widget=forms.HiddenInput)
+    tags = forms.CharField(required=False)
     
     class Meta:
         model = Recipe
@@ -29,6 +30,7 @@ class NewRecipeForm(forms.ModelForm):
             self.fields['added_by'].initial = added_by
         self._set_placeholder_text({'title': 'Recipe Title',
                                     'short_description': 'Short Description',
+                                    'tags': 'Tags, separated by spaces',
                                     'ingredients': 'Ingredients with measurements, ' +
                                                    'one per line',
                                     'instructions': 'Instructions'})
