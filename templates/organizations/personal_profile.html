@@ -19,3 +19,9 @@
     <p>{{ user.email }}</p>
   </span>
 {% endblock %}
+
+{% block body_script %}
+  {% if form.errors %}
+    $('#new-recipe-form').foundation('reveal', 'open');
+  {% endif %}
+{% endblock %}
