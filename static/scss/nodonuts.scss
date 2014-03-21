@@ -285,6 +285,13 @@ $include-html-classes: false;
       color: $main-color1;
       font-weight: bold;
     }
+    #tags {
+      border: none;
+      box-shadow: $input-box-shadow;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
     .errorlist {
       width: 90%;
     }
