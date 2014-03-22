@@ -56,3 +56,21 @@
       });
   });
 {% endblock %}
+
+
+{% block body_script %}
+  function updateImage(input) {
+    // when we upload a file, change the image to match
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#img-for-recipe').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#id_image").change(function(){ updateImage(this); });
+{% endblock %}
+
+

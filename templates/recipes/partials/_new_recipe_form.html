@@ -7,7 +7,7 @@
 
 {% block form %}
   <div class="recipe-image">
-    <img src="{% if image_url %}{{ image_url }}{% else %}{% static "img/large-bowl.png" %}{% endif %}" class="new-recipe-image{% if not image_url %} recipe-holder{% endif %}" />
+    <img id="img-for-recipe" src="{% static "img/large-bowl.png" %}" class="new-recipe-image recipe-holder" />
     {% if not foo %}
       <label for="id_image">Upload an Image</label><br>
     {% endif %}
