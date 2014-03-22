@@ -1,6 +1,7 @@
 from constance import config
 from django.contrib import auth
 from django.core import urlresolvers
+from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.views.generic import CreateView, FormView, UpdateView
 
@@ -15,7 +16,12 @@ class EditProfile(UpdateView):
     form_class = EditProfileForm
     
     def get_object(self):
-        return get_object_or_404(UserProfile, user=self.request.user)
+        # TODO: test
+        profile = get_object_or_404(UserProfile, user=self.request.user)
+        if 'twitter' in profile.get_social_logins():
+            # Twitter users need to go to Twitter to edit their own profiles,
+            # as per the Twitter developer agreement
+            raise Http404
 
 
 class NewUserCreation(FormView):
