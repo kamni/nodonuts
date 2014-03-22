@@ -267,7 +267,7 @@ $include-html-classes: false;
       padding-right: 1rem;
       text-align: left;
     }
-    ul {
+    ul:not(.errorlist) {
       width: 90%;
       margin-left: auto;
       margin-right: auto;
@@ -275,6 +275,9 @@ $include-html-classes: false;
       border: none;
       -webkit-box-shadow: $input-box-shadow;
       box-shadow: $input-box-shadow;
+    }
+    ul.errorlist {
+      margin-bottom: 2px !important;
     }
     select {
       width: auto;
