@@ -1,14 +1,25 @@
 from constance import config
 from django.contrib import auth
 from django.core import urlresolvers
-from django.views.generic import CreateView, FormView
+from django.shortcuts import get_object_or_404
+from django.views.generic import CreateView, FormView, UpdateView
 
-from organizations.forms import NoDonutsUserCreationForm
+from organizations.forms import EditProfileForm, NoDonutsUserCreationForm
+from organizations.models import UserProfile
 from recipes.forms import NewRecipeForm
 from recipes.models import Recipe
 
 
+class EditProfile(UpdateView):
+    template_name = "organizations/edit_profile.html"
+    form_class = EditProfileForm
+    
+    def get_object(self):
+        return get_object_or_404(UserProfile, user=self.request.user)
+
+
 class NewUserCreation(FormView):
+    # TODO: docs, tests
     form_class = NoDonutsUserCreationForm
     template_name = "organizations/new_user.html"
     

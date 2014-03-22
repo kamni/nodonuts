@@ -7,6 +7,11 @@ from django.utils.translation import ugettext, ugettext_lazy as _
 from organizations.models import UserProfile
 
 
+class EditProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+
+
 class NoDonutsAuthForm(AuthenticationForm):
     """Overrides the parent class 'username' to display as 'email'"""
     username = forms.EmailField(label=_('Email'))
