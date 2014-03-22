@@ -4,7 +4,7 @@ recipe modal. We want to minimize hits to the database, so we're wrapping
 everything in a single block of 'with' statements.
 {% endcomment %}
 
-{% with recipe.get_image_url as image_url %}
+{% with recipe.display_image as image_url %}
 {% with recipe.summary_id as recipe_id %}
 {% with recipe.likes as likes %}
 {% with recipe.dislikes as dislikes %}

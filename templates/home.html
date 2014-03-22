@@ -49,7 +49,7 @@
           </div>
 
           <ul class="new-recipe-list">
-            {% for recipe in newest_recipes %}
+          {% for recipe in newest_recipes %}
             {% with recipe.summary_id as recipe_id %}
               {% with True as full_recipe %}
               {% with "recipe-full" as recipe_div_class %}
@@ -60,12 +60,12 @@
               {% endwith %}
             <li>
               <p class="small-recipe" data-reveal-id="{{ recipe_id }}">
-                <img src="{% if image_url %}{{ image_url }}{% else %}{% static "img/large-bowl.png" %}{% endif %}" {% if not image_url %}class="recipe-holder" {% endif %}/><br />
-                <a href="">{{ recipe.title }}</a>
+                <img src="{{ recipe.display_image }}" class="recipe-holder"><br>
+                <a href="#">{{ recipe.title }}</a>
               </p>
             </li>
             {% endwith %}
-            {% endfor %}
+          {% endfor %}
           </ul>
         </div>
       </div>

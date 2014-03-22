@@ -1,5 +1,6 @@
 import re
 
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
 from django.core.exceptions import ValidationError
@@ -142,6 +143,12 @@ class Recipe(NullCheckerModel):
     
     class Meta:
         ordering = ('title',)
+    
+    def display_image(self):
+        # TODO: docs and tests
+        if self.image:
+            return self.image.url
+        return "/".join([settings.STATIC_URL, 'img', 'large-bowl.png'])
     
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
