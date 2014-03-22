@@ -23,8 +23,6 @@
     {{ form.short_description }}<span class="required">*</span>
 
     <div class="spacer"></div>
-    {{ form.tags.errors }}
-    {{ form.tags }}
 
     {{ form.ingredients.errors }}
     {{ form.ingredients }}<span class="required">*</span>
@@ -32,11 +30,16 @@
     {{ form.instructions.errors }}
     {{ form.instructions }}<span class="required">*</span>
 
+    <div class="spacer"></div>
+
+    {{ form.added_by }}
+    <label for="id_tags">Tags, separated by spaces (optional)</label>
+    {{ form.tags }}
+
     {{ form.serving_size.errors }}
     <label for="id_serving_size">{{ form.serving_size.label }}:</label>
     {{ form.serving_size }}<span class="required">*</span>
 
-    {{ form.added_by }}
   </div>
 {% endblock %}
 

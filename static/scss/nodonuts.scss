@@ -267,6 +267,15 @@ $include-html-classes: false;
       padding-right: 1rem;
       text-align: left;
     }
+    ul {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #fff;
+      border: none;
+      -webkit-box-shadow: $input-box-shadow;
+      box-shadow: $input-box-shadow;
+    }
     select {
       width: auto;
       display: inline;
@@ -288,6 +297,7 @@ $include-html-classes: false;
     #tags {
       border: none;
       box-shadow: $input-box-shadow;
+      -webkit-box-shadow: $input-box-shadow;
       width: 90%;
       margin-left: auto;
       margin-right: auto;
