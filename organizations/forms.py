@@ -13,6 +13,17 @@ class EditProfileForm(forms.ModelForm):
     
     class Meta:
         model = UserProfile
+    
+    def clean_nickname(self):
+        # TODO: test
+        profile = self.instance
+        nickname = self.cleaned_data.get('nickname')
+        if nickname:
+            if (UserProfile.objects.filter(nickname=nickname).exclude(id=profile.id) or
+                    User.objects.filter(username=nickname).exclude(id=profile.user.id)):
+                raise forms.ValidationError("Another user already has this " +
+                                            "nickname. Please try another nickname.")
+        return nickname
 
 
 class NoDonutsAuthForm(AuthenticationForm):
