@@ -9,7 +9,7 @@
 
   <div class="recipe-image">
     <img src="{{ image_url }}" class="recipe-holder">
-    <p><small><em>Posted {{ recipe.date_added|timesince }} ago</em></small></p>
+    <p><small><em>Posted {{ recipe.date_added|timesince }} ago by {{ recipe.added_by.userprofile_set.all.0|default:recipe.added_by.username }}</em></small></p>
   </div>
 
   <div class="recipe-text">
