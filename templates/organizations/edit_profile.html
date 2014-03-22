@@ -5,7 +5,7 @@
     {% csrf_token %}
 
     <div class="section-aside">
-      <img class="profile-avatar" src="{{ profile.get_avatar }}" />
+      <img id="img-for-profile" class="profile-avatar" src="{{ profile.get_avatar }}" />
       <span class="profile-details">
         {{ form.avatar }}
       </span>
@@ -24,4 +24,18 @@
       </table>
     </div>
   </form>
+{% endblock %}
+
+{% block body_script %}
+  function updateAvatar(input) {
+    // when we upload a file, change the image to match
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#img-for-profile').attr("src", e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#id_avatar").change(function(){ updateAvatar(this); });
 {% endblock %}
