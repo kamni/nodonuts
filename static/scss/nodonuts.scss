@@ -203,11 +203,6 @@ $include-html-classes: false;
   .login-form-table {
     margin: 0 auto;
 
-    th {
-      text-align: right;
-      padding-right: .5rem;
-      vertical-align: top;
-    }
     td  {
       padding-bottom: 1rem;
 
@@ -239,6 +234,11 @@ $include-html-classes: false;
 }
 .profile-details {
   text-align: center;
+
+  input {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 .recipe-slider {
   @include maintain-ratio($ratio: 7 3);
@@ -323,6 +323,9 @@ $include-html-classes: false;
       display: block;
       text-align: center;
       padding-top: .5rem;
+    }
+    input {
+      width: 100% !important;
     }
   }
   .recipe-text {
