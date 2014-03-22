@@ -5,35 +5,60 @@ from django.utils.translation import ugettext_lazy as _
 from haystack.forms import SearchForm
 from haystack.query import SQ
 
-from recipes.models import Recipe, ServingSize
+from recipes.models import Recipe, RecipeTag, ServingSize
 
 
 class NewRecipeForm(forms.ModelForm):
     added_by = forms.ModelChoiceField(queryset=User.objects.all(), 
                                       widget=forms.HiddenInput)
-    tags = forms.CharField(required=False)
+    tags = forms.ModelMultipleChoiceField(queryset=RecipeTag.objects.all(),
+                                          required=False, widget=forms.HiddenInput)
     
     class Meta:
         model = Recipe
         fields = ('title', 'short_description', 'image', 'serving_size',
                    'tags', 'ingredients', 'instructions', 'added_by')
     
-    def _set_placeholder_text(self, field_dict):
-        for field, placeholder in field_dict.items():
-            self.fields[field].widget.attrs['placeholder'] = placeholder
-    
     def __init__(self, added_by, *args, **kwargs):
         super(NewRecipeForm, self).__init__(*args, **kwargs)
+        
         # the form seems to be ignoring the 'initial' param, so we're going to
         # manually set it
         if not kwargs.get('data'):
             self.fields['added_by'].initial = added_by
+
         self._set_placeholder_text({'title': 'Recipe Title',
                                     'short_description': 'Short Description',
-                                    'tags': 'Tags, separated by spaces',
                                     'ingredients': 'Ingredients with measurements, ' +
                                                    'one per line',
                                     'instructions': 'Instructions'})
+    
+    def _set_placeholder_text(self, field_dict):
+        for field, placeholder in field_dict.items():
+            self.fields[field].widget.attrs['placeholder'] = placeholder
+            
+    def clean(self):
+        # We want to keep the tags list as strings instead of IDs as long
+        # as possible so that if there are errors, it doesn't modify the
+        # tag-it widget we're using on the front end. We're going to ignore any 
+        # errors on the tags field for now
+        cleaned_data = super(NewRecipeForm, self).clean()
+        self.errors.pop('tags', None)
+        return cleaned_data
+    
+    def save(self, *args, **kwargs):
+        recipe = super(NewRecipeForm, self).save(*args, **kwargs)
+        
+        # now it's time to convert the tags (we deferred during clean)
+        added_by = self.cleaned_data.get('added_by')
+        tag_list = self.data.get('tags', '').split(',')
+        if tag_list and tag_list[0]:
+            for utag in tag_list:
+                tag = RecipeTag.objects.get_or_create(name=utag, 
+                                                      defaults={'added_by': added_by})[0]
+                recipe.tags.add(tag)
+        
+        return recipe
 
 
 class RecipeSearchForm(SearchForm):

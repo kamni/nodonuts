@@ -22,8 +22,8 @@
     {{ form.short_description }}<span class="required">*</span>
 
     <div class="spacer"></div>
+    {{ form.tags.errors }}
     {{ form.tags }}
-    <ul id="tags"></ul>&nbsp;
 
     {{ form.ingredients.errors }}
     {{ form.ingredients }}<span class="required">*</span>
