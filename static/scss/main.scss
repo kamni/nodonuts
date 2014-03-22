@@ -131,6 +131,14 @@
     @include grid-column(12);
   }
 }
+.button-secondary {
+  border: 1px solid $complement-color1;
+  background-color: $complement-color1;
+
+  &:hover {
+    background-color: scale-color($complement-color1, $lightness: -28%);
+  }
+}
 .container {
   @include grid-column(12);
 }

@@ -22,7 +22,11 @@
             <th><label for="id_nickname">{{ form.nickname.label }}:</label></td>
             <td>{{ form.nickname }}</label>
         <tr>
-            <td></td><td><input type="submit" value="Update Profile"></td>
+            <td></td>
+            <td>
+                <input type="submit" value="Update Profile">
+                <a href="{% url "my_profile" %}" class="button button-secondary tiny">Cancel</a>
+            </td>
         </tr>
       </table>
     </div>
