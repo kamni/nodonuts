@@ -10,6 +10,10 @@ from organizations.models import UserProfile
 class EditProfileForm(forms.ModelForm):
     user = forms.ModelChoiceField(queryset=User.objects.all(),
                                   widget=forms.HiddenInput)
+    email = forms.EmailField(required=False)
+    old_password = forms.CharField(required=False, widget=forms.PasswordInput)
+    new_password1 = forms.CharField(required=False, widget=forms.PasswordInput)
+    new_password2 = forms.CharField(required=False, widget=forms.PasswordInput)
     
     class Meta:
         model = UserProfile
