@@ -1,1 +1,36 @@
 {% extends "page_base.html" %}
+
+{% block all_content %}
+  <form id="edit-profile-form" method="post" action="." enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="section-aside">
+      <img class="profile-avatar" src="{{ profile.get_avatar }}" />
+      <span class="profile-details">
+
+      </span>
+    </div>
+
+    {% block form %}
+    <table class="{% block form_table_class %}{% endblock %}">
+        {{ form.as_table }}
+    </table>
+    {% endblock %}
+
+    {% block form_submit %}
+    <input type="submit" value="{% block submit_label %}Submit{% endblock %}">
+    {% endblock %}
+
+    {% block form_extra %}{% endblock %}
+  </form>
+
+
+
+  <div class="section-main">
+    {% block main_content %}{% endblock %}
+  </div>
+
+  <div class="section-fullwidth">
+    {% block fullwidth_content2 %}{% endblock %}
+  </div>
+{% endblock %}

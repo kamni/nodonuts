@@ -4,6 +4,7 @@
 
 {% block content %}
   <div class="section card">
+    {% block all_content %}
       <div class="section-fullwidth">
         {% block fullwidth_content %}{% endblock %}
       </div>
@@ -19,5 +20,6 @@
       <div class="section-fullwidth">
         {% block fullwidth_content2 %}{% endblock %}
       </div>
+    {% endblock %}
   </div>
 {% endblock %}
