@@ -7,30 +7,21 @@
     <div class="section-aside">
       <img class="profile-avatar" src="{{ profile.get_avatar }}" />
       <span class="profile-details">
-
+        {{ form.avatar }}
       </span>
     </div>
 
-    {% block form %}
-    <table class="{% block form_table_class %}{% endblock %}">
-        {{ form.as_table }}
-    </table>
-    {% endblock %}
-
-    {% block form_submit %}
-    <input type="submit" value="{% block submit_label %}Submit{% endblock %}">
-    {% endblock %}
-
-    {% block form_extra %}{% endblock %}
+    <div class="section-main">
+      <h2>Update Your Profile</h2>
+      <div class="spacer"></div>
+      <table class="{% block form_table_class %}{% endblock %}">
+        <tr>
+            <td><label for="id_nickname">{{ form.nickname.label }}:</label></td>
+            <td>{{ form.nickname }}</label>
+        <tr>
+            <td></td><td><input type="submit" value="Update Profile"></td>
+        </tr>
+      </table>
+    </div>
   </form>
-
-
-
-  <div class="section-main">
-    {% block main_content %}{% endblock %}
-  </div>
-
-  <div class="section-fullwidth">
-    {% block fullwidth_content2 %}{% endblock %}
-  </div>
 {% endblock %}

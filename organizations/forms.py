@@ -10,6 +10,7 @@ from organizations.models import UserProfile
 class EditProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
+        exclude = ('user',)
 
 
 class NoDonutsAuthForm(AuthenticationForm):
