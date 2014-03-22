@@ -15,6 +15,14 @@ class EditProfile(UpdateView):
     template_name = "organizations/edit_profile.html"
     form_class = EditProfileForm
     
+    def post(self, request, *args, **kwargs):
+        try:
+            super(EditProfile, self).post(request, *args, **kwargs)
+        except Exception, e:
+            import logging
+            logging.error(str(e))
+            raise
+    
     def get_object(self):
         # TODO: test
         profile = get_object_or_404(UserProfile, user=self.request.user)
