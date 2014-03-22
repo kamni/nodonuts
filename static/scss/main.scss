@@ -163,6 +163,9 @@ img#logo {
 img.recipe-holder {
   width: 100%;
 }
+input[type="submit"] {
+  @include button($padding:$button-tny);
+}
 small > em {
   color: $neutral-color2;
 }
