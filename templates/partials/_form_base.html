@@ -1,5 +1,5 @@
 {% block form_text %}{% endblock %}
-<form class="{% block form_class %}{% endblock %}" method="{% block form_method %}post{% endblock %}" action="{% block form_action %}{{ submit_url|default:"."}}{% endblock %}" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
+<form id="{% block form_id %}form{% endblock %}" class="{% block form_class %}{% endblock %}" method="{% block form_method %}post{% endblock %}" action="{% block form_action %}{{ submit_url|default:"."}}{% endblock %}" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
     {% csrf_token %}
     {% block form %}
     <table class="{% block form_table_class %}{% endblock %}">

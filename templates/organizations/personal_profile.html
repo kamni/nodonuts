@@ -10,7 +10,7 @@
 {% block main_content %}
   <a class="button fullwidth-button" href="#" data-reveal-id="new-recipe">Add a Recipe</a>
   <div id="new-recipe" class="reveal-modal recipe-full" data-reveal>
-    <a class="close-reveal-modal">Cancel</a>
+    <a id="close-new-recipe-modal" class="close-reveal-modal">Cancel</a>
     {% include "recipes/partials/_new_recipe_form.html" %}
   </div>
 
@@ -36,4 +36,14 @@
     $("#new-recipe").foundation('reveal', 'open');
   {% endif %}
   $("#id_tags").tagit();
+  $("#close-new-recipe-modal").click(
+    function(){
+      $("#new-recipe-form")[0].reset();
+      $("ul.tagit li").each(
+        function() {
+          if (!$(this).hasClass('tagit-new')) {
+            $(this).remove();
+          }
+      });
+  });
 {% endblock %}
