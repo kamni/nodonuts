@@ -8,9 +8,11 @@ from organizations.models import UserProfile
 
 
 class EditProfileForm(forms.ModelForm):
+    user = forms.ModelChoiceField(queryset=User.objects.all(),
+                                  widget=forms.HiddenInput)
+    
     class Meta:
         model = UserProfile
-        exclude = ('user',)
 
 
 class NoDonutsAuthForm(AuthenticationForm):

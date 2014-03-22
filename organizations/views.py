@@ -22,6 +22,10 @@ class EditProfile(UpdateView):
             # Twitter users need to go to Twitter to edit their own profiles,
             # as per the Twitter developer agreement
             raise Http404
+        return profile
+    
+    def get_success_url(self):
+        return urlresolvers.reverse('my_profile')
 
 
 class NewUserCreation(FormView):
