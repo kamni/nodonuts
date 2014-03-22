@@ -31,19 +31,28 @@
   <script src="{% static "tag-it/js/tag-it.min.js" %}" type="text/javascript"></script>
 {% endblock %}
 
-{% block body_script %}
-  {% if form.errors %}
-    $("#new-recipe").foundation('reveal', 'open');
-  {% endif %}
-  $("#id_tags").tagit();
-  $("#close-new-recipe-modal").click(
-    function(){
-      $("#new-recipe-form")[0].reset();
-      $("ul.tagit li").each(
-        function() {
-          if (!$(this).hasClass('tagit-new')) {
-            $(this).remove();
-          }
+{% block foundation_script %}
+  function promisedFoundation() {
+    var d = new $.Deferred();
+    $(document).foundation();
+    return d.promise();
+  }
+
+  promisedFoundation().then(
+    function() {
+      {% if form.errors %}
+        $("#new-recipe").foundation('reveal', 'open');
+      {% endif %}
+      $("#id_tags").tagit();
+      $("#close-new-recipe-modal").click(
+        function(){
+          $("#new-recipe-form")[0].reset();
+          $("ul.tagit li").each(
+            function() {
+              if (!$(this).hasClass('tagit-new')) {
+                $(this).remove();
+              }
+          });
       });
   });
 {% endblock %}
