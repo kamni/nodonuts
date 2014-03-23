@@ -21,6 +21,7 @@ class EditProfile(UpdateView):
             response = super(EditProfile, self).post(request, *args, **kwargs)
             # return HttpResponse('edit-success')
             #return HttpResponseRedirect(urlresolvers.reverse('my_profile'))
+            response = HttpResponseRedirect(urlresolvers.reverse('my_profile'))
             debugging = "<br>".join(["%s:%s" % (attr, str(getattr(response, attr)))
                                      for attr in dir(response)])
             return HttpResponse(debugging)
