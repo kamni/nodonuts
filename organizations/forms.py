@@ -28,9 +28,11 @@ class EditProfileForm(forms.ModelForm):
         model = UserProfile
         
     def __init__(self, *args, **kwargs):
-        super(EditProfileForm, self).__init__(*args, **kwargs)
+        self.instance = kwargs['instance']
         if not kwargs.get('data'):
-            self.fields['email'].initial = self.instance.user.email
+            kwargs['initial'] = {'email': self.instance.user.email,
+                                 'nickname': self.instance.profile_name()}
+        super(EditProfileForm, self).__init__(*args, **kwargs)
     
     def clean_email(self):
         # TODO: test
@@ -67,6 +69,7 @@ class EditProfileForm(forms.ModelForm):
         # TODO: test
         profile = self.instance
         nickname = self.cleaned_data.get('nickname')
+        import pdb; pdb.set_trace()
         if nickname:
             if (UserProfile.objects.filter(nickname=nickname).exclude(id=profile.id) or
                     User.objects.filter(username=nickname).exclude(id=profile.user.id)):
