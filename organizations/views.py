@@ -67,7 +67,6 @@ class PersonalProfile(CreateView):
         from django.http import HttpResponse
         try:
             response = super(PersonalProfile, self).get(request, *args, **kwargs)
-            import pdb; pdb.set_trace()
             return HttpResponse('profile-success')
         except Exception, e:
             #return HttpResponse(str(e))
