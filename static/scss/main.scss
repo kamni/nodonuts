@@ -71,6 +71,17 @@
   margin-right: auto;
   float: none !important;
 }
+.table-divider {
+  background-color: $complement-color1;
+  color: #fff;
+  text-align: center;
+
+   td {
+     padding-top: .4rem;
+     padding-bottom: .4rem;
+     margin-bottom: .4rem;
+   }
+}
 .tag {
   @include border-radius($global-radius, $global-radius);
   background-color: scale-color($main-color1, $lightness: 56%);
