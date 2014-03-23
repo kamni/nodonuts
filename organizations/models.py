@@ -29,6 +29,20 @@ class UserProfile(models.Model):
         # TODO: test
         if self.avatar:
             return self.avatar.url
+        
+        # if the person has a social login, initialize it
+        social = self.get_social_logins()
+        if 'twitter' in social:
+            # twitter icon should always override other, for legal
+            # reasons
+            pass
+        
+        if 'facebook' in social:
+            pass
+        if 'google' in social:
+            pass
+        
+        
         return "/".join((settings.STATIC_URL, "img", "avatar.png"))
     
     def get_social_logins(self):
