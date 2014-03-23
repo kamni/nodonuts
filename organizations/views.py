@@ -15,6 +15,15 @@ class EditProfile(UpdateView):
     template_name = "organizations/edit_profile.html"
     form_class = EditProfileForm
     
+    def post(self, request, *args, **kwargs):
+        from django.http import HttpResponse
+        try:
+            response = super(EditProfile, self).post(request, *args, **kwargs)
+            return HttpResponse('edit-success')
+        except Exception, e:
+            #return HttpResponse(str(e))
+            return HttpResponse('edit-fail')
+    
     def get_object(self):
         # TODO: test
         profile = get_object_or_404(UserProfile, user=self.request.user)
@@ -58,10 +67,11 @@ class PersonalProfile(CreateView):
         from django.http import HttpResponse
         try:
             response = super(PersonalProfile, self).get(request, *args, **kwargs)
-            return HttpResponse('hi')
+            import pdb; pdb.set_trace()
+            return HttpResponse('profile-success')
         except Exception, e:
-            
-            return HttpResponse(str(e))
+            #return HttpResponse(str(e))
+            return HttpResponse('profile-fail')
     
     def get_context_data(self, **kwargs):
         # this is following the search page's results so we can reuse
