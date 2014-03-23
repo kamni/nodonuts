@@ -40,13 +40,13 @@ class EditProfileForm(forms.ModelForm):
         old_password = self.data.get('old_password')
         
         if email and email != self.instance.user.email:
+            if User.objects.filter(email=email).exclude(id=self.instance.user.id):
+                raise forms.ValidationError(self.error_messages['duplicate_email'])
             if not old_password:
                 raise forms.ValidationError(self.error_messages['password_needed'])
             if not self.instance.user.check_password(old_password):
                 raise forms.ValidationError(self.error_messages['wrong_password'])
-            if User.objects.filter(email=email).exclude(id=self.instance.user.id):
-                raise forms.ValidationError(self.error_messages['duplicate_email'])
-        
+
         return email
 
     def clean_new_password1(self):
