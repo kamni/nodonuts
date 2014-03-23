@@ -46,7 +46,6 @@ class RecipeTests(TestCase):
                                        slug="fresh-peaches-ftw",
                                        short_description="Delicious!",
                                        image="nothing.jpg",
-                                       thumbnail="nothing-thumb.jpg",
                                        ingredients="2 peaches",
                                        instructions="Eat peaches, sans pits",
                                        featured=True,
@@ -305,7 +304,7 @@ class RatingTests(TestCase):
 ############# Test Models ################
 
 def TestRecipe(title=None, slug=None, short_description=None, 
-               serving_size=ServingSize.FIVE_TO_SIX, image=None, thumbnail=None, 
+               serving_size=ServingSize.FIVE_TO_SIX, image=None, 
                ingredients=None, instructions=None, featured=False, 
                is_public=True, added_by=None, popularity=None):
     # generating a unique title
@@ -323,7 +322,6 @@ def TestRecipe(title=None, slug=None, short_description=None,
                                  short_description=short_description or lorem_ipsum(3),
                                  serving_size=serving_size,
                                  image=image,
-                                 thumbnail=thumbnail,
                                  ingredients=ingredients or lorem_ipsum(7),
                                  instructions=instructions or lorem_ipsum(7),
                                  featured=featured,
