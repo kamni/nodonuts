@@ -56,7 +56,8 @@ class PersonalProfile(CreateView):
     
     def get(self, request, *args, **kwargs):
         try:
-            return super(PersonalProfile, self).get(request, *args, **kwargs)
+            response = super(PersonalProfile, self).get(request, *args, **kwargs)
+            return HttpResponse('hi')
         except Exception, e:
             from django.http import HttpResponse
             return HttpResponse(str(e))
