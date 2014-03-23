@@ -55,11 +55,12 @@ class PersonalProfile(CreateView):
     form_class = NewRecipeForm
     
     def get(self, request, *args, **kwargs):
+        from django.http import HttpResponse
         try:
             response = super(PersonalProfile, self).get(request, *args, **kwargs)
             return HttpResponse('hi')
         except Exception, e:
-            from django.http import HttpResponse
+            
             return HttpResponse(str(e))
     
     def get_context_data(self, **kwargs):
