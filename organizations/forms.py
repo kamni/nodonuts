@@ -10,7 +10,7 @@ from organizations.models import UserProfile
 class EditProfileForm(forms.ModelForm):
     user = forms.ModelChoiceField(queryset=User.objects.all(),
                                   widget=forms.HiddenInput)
-    email = forms.EmailField(required=False)
+    email = forms.EmailField()
     old_password = forms.CharField(required=False, widget=forms.PasswordInput)
     new_password1 = forms.CharField(required=False, widget=forms.PasswordInput)
     new_password2 = forms.CharField(required=False, widget=forms.PasswordInput)
@@ -36,12 +36,13 @@ class EditProfileForm(forms.ModelForm):
         email = self.cleaned_data.get('email')
         old_password = self.cleaned_data.get('old_password')
         
-        if email and not old_password:
-            raise ValidationError(self.error_messages['password_needed'])
-        if not self.instance.user.check_password(old_password):
-            raise ValidationError(self.error_messages['wrong_password'])
-        if User.objects.filter(email=email).exclude(id=self.instance.user.id):
-            raise ValidationError(self.error_messages['duplicate_email'])
+        if email != self.instance.user.email:
+            if not old_password:
+                raise forms.ValidationError(self.error_messages['password_needed'])
+            if not self.instance.user.check_password(old_password):
+                raise forms.ValidationError(self.error_messages['wrong_password'])
+            if User.objects.filter(email=email).exclude(id=self.instance.user.id):
+                raise forms.ValidationError(self.error_messages['duplicate_email'])
         
         return email
 
@@ -51,12 +52,13 @@ class EditProfileForm(forms.ModelForm):
         new_password2 = self.cleaned_data.get('new_password2')
         old_password = self.cleaned_data.get('old_password')
      
-        if new_password1 and not old_password:
-            raise ValidationError(self.error_messages['password_needed'])
-        if not self.instance.user.check_password(old_password):
-            raise ValidationError(self.error_messages['wrong_password'])
-        if new_password1 != new_password2:
-            raise ValidationError(self.error_messages['password_mismatch'])
+        if new_password1:
+            if not old_password:
+                raise forms.ValidationError(self.error_messages['password_needed'])
+            if not self.instance.user.check_password(old_password):
+                raise forms.ValidationError(self.error_messages['wrong_password'])
+            if new_password1 != new_password2:
+                raise forms.ValidationError(self.error_messages['password_mismatch'])
         
         return new_password1
     
