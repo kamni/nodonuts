@@ -1,0 +1,14 @@
+{% with social.0 as login %}
+  {% if login == "twitter" %}
+    <i class="fi-social-twitter icon"></i>
+  {% else %}{% if login == "facebook" %}
+    <i class="fi-social-facebook icon"></i>
+  {% else %}{% if login == "google" %}
+    <i class="fi-social-google icon"></i>
+  {% else %}{% if login == "yahoo" %}
+    <i class="fi-social-yahoo icon"></i>
+  {% else %}
+    <i class="fi-torsos-female-male icon"></i>
+  {% endif %}{% endif %}{% endif %}{% endif %}
+{% endwith %}
+

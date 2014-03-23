@@ -15,20 +15,8 @@
         <li class="divider"></li>
         <li>
             <a href="{% url "my_profile" %}">
-            {% with profile.get_social_logins as social %}
-            {% if "twitter" in social %}
-              <i class="fi-social-twitter"></i>
-            {% else %}{% if "facebook" in social %}
-              <i class="fi-social-facebook"></i>
-            {% else %}{% if "google" in social %}
-              <i class="fi-social-google-plus"></i>
-            {% else %}{% if "yahoo" in social %}
-              <i class="fi-social-yahoo"></i>
-            {% else %}
-              <i class="fi-torsos-female-male"></i>
-            {% endif %}{% endif %}{% endif %}{% endif %}
+            {% include "partials/_social_icon.html" %}
             {{ profile }}
-            {% endwith %}
             </a>
         </li>
       {% endif %}

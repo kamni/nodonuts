@@ -24,10 +24,14 @@
   <span class="profile-details">
     <h4>{{ profile }}</h4>
     <p>{{ user.email }}</p>
-    {% if not "twitter" in profile.get_social_logins %}
-      <p><a href="{% url "edit_profile" %}" class="button">Edit Profile</a></p>
+    {% if social %}
+      <p>{% include "partials/_social_icon.html" %}</p>
+      <p>
+         Your profile information comes from {{ social.0.capitalize }}. Please
+         visit their site to update your profile information.<br>
+      </p>
     {% else %}
-      <p>Please edit your profile at <a href="http://www.twitter.com">Twitter</a></p>
+      <p><a href="{% url "edit_profile" %}" class="button">Edit Profile</a></p>
     {% endif %}
   </span>
 {% endblock %}

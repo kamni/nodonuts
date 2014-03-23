@@ -12,5 +12,7 @@ def profile(request):
     """
     # TODO: tests
     if request.user.is_authenticated():
-        return {'profile': UserProfile.objects.get_or_create(user=request.user)[0]}
+        profile = UserProfile.objects.get_or_create(user=request.user)[0]
+        return {'profile': profile,
+                'social': profile.get_social_logins()}
     return {}
