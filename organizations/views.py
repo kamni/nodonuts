@@ -15,13 +15,6 @@ class EditProfile(UpdateView):
     template_name = "organizations/edit_profile.html"
     form_class = EditProfileForm
     
-    def post(self, request, *args, **kwargs):
-        try:
-            super(EditProfile, self).post(request, *args, **kwargs)
-        except Exception, e:
-            from django.http import HttpResponse
-            return HttpResponse(str(e))
-    
     def get_object(self):
         # TODO: test
         profile = get_object_or_404(UserProfile, user=self.request.user)
@@ -60,6 +53,13 @@ class PersonalProfile(CreateView):
     """The user's view of their own profile"""
     template_name = "organizations/personal_profile.html"
     form_class = NewRecipeForm
+    
+    def get(self, request, *args, **kwargs):
+        try:
+            super(PersonalProfile, self).get(request, *args, **kwargs)
+        except Exception, e:
+            from django.http import HttpResponse
+            return HttpResponse(str(e))
     
     def get_context_data(self, **kwargs):
         # this is following the search page's results so we can reuse
