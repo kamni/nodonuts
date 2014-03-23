@@ -19,9 +19,8 @@ class EditProfile(UpdateView):
         try:
             super(EditProfile, self).post(request, *args, **kwargs)
         except Exception, e:
-            import logging
-            logging.error(str(e))
-            raise
+            from django.http import HttpResponse
+            return HttpResponse(str(e))
     
     def get_object(self):
         # TODO: test
