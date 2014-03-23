@@ -66,7 +66,23 @@ class EditProfileForm(forms.ModelForm):
                                             "nickname. Please try another nickname.")
         return nickname
     
-    
+    def save(self, *args, **kwargs):
+        # TODO: test
+        profile = super(EditProfileForm, self).save(*args, **kwargs)
+        user = profile.user
+        
+        email = self.cleaned_data.get('email')
+        if email:
+            user.email = email
+        
+        password = self.cleaned_data.get('new_password1')
+        if password:
+            user.set_password(password)
+        
+        if email or password:
+            user.save()
+        
+        return profile
 
 
 class NoDonutsAuthForm(AuthenticationForm):
