@@ -48,9 +48,9 @@ class EditProfileForm(forms.ModelForm):
 
     def clean_new_password1(self):
         # TODO: test
-        new_password1 = self.cleaned_data.get('new_password1')
-        new_password2 = self.cleaned_data.get('new_password2')
-        old_password = self.cleaned_data.get('old_password')
+        new_password1 = self.data.get('new_password1')
+        new_password2 = self.data.get('new_password2')
+        old_password = self.data.get('old_password')
      
         if new_password1:
             if not old_password:
