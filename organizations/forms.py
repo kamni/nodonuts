@@ -37,7 +37,7 @@ class EditProfileForm(forms.ModelForm):
     def clean_email(self):
         # TODO: test
         email = self.cleaned_data.get('email')
-        old_password = self.cleaned_data.get('old_password')
+        old_password = self.data.get('old_password')
         
         if email and email != self.instance.user.email:
             if not old_password:
