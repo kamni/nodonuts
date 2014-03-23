@@ -16,10 +16,11 @@ class EditProfile(UpdateView):
     form_class = EditProfileForm
     
     def post(self, request, *args, **kwargs):
-        from django.http import HttpResponse
+        from django.http import HttpResponse, HttpResponseRedirect
         try:
             response = super(EditProfile, self).post(request, *args, **kwargs)
-            return HttpResponse('edit-success')
+            # return HttpResponse('edit-success')
+            return HttpResponseRedirect(urlresolvers.reverse('my_profile'))
         except Exception, e:
             #return HttpResponse(str(e))
             return HttpResponse('edit-fail')
