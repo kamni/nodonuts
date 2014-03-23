@@ -56,7 +56,7 @@ class PersonalProfile(CreateView):
     
     def get(self, request, *args, **kwargs):
         try:
-            super(PersonalProfile, self).get(request, *args, **kwargs)
+            return super(PersonalProfile, self).get(request, *args, **kwargs)
         except Exception, e:
             from django.http import HttpResponse
             return HttpResponse(str(e))
