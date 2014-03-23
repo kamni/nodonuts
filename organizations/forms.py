@@ -69,7 +69,6 @@ class EditProfileForm(forms.ModelForm):
         # TODO: test
         profile = self.instance
         nickname = self.cleaned_data.get('nickname')
-        import pdb; pdb.set_trace()
         if nickname:
             if (UserProfile.objects.filter(nickname=nickname).exclude(id=profile.id) or
                     User.objects.filter(username=nickname).exclude(id=profile.user.id)):
