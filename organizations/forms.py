@@ -19,7 +19,8 @@ class EditProfileForm(forms.ModelForm):
         'password_needed': _("Please enter your currrent password to change " +
                              "this information"),
         'wrong_password': _("Incorrect password"),
-        'password_mismatch': _("The new passwords don't match")
+        'password_mismatch': _("The new passwords don't match"),
+        'duplicate_email': _("This email address is already taken")
     }
     
     class Meta:
@@ -34,6 +35,10 @@ class EditProfileForm(forms.ModelForm):
             raise ValidationError(self.error_messages['password_needed'])
         if not self.instance.user.check_password(old_password):
             raise ValidationError(self.error_messages['wrong_password'])
+        if User.objects.filter(email=email).exclude(id=self.instance.user.id):
+            raise ValidationError(self.error_messages['duplicate_email'])
+        
+        return email
 
     def clean_new_password1(self):
         # TODO: test
@@ -47,6 +52,8 @@ class EditProfileForm(forms.ModelForm):
             raise ValidationError(self.error_messages['wrong_password'])
         if new_password1 != new_password2:
             raise ValidationError(self.error_messages['password_mismatch'])
+        
+        return new_password1
     
     def clean_nickname(self):
         # TODO: test
@@ -58,6 +65,8 @@ class EditProfileForm(forms.ModelForm):
                 raise forms.ValidationError("Another user already has this " +
                                             "nickname. Please try another nickname.")
         return nickname
+    
+    
 
 
 class NoDonutsAuthForm(AuthenticationForm):
