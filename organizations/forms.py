@@ -26,6 +26,11 @@ class EditProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         
+    def __init__(self, *args, **kwargs):
+        super(EditProfileForm, self).__init__(*args, **kwargs)
+        if not kwargs.get('data'):
+            self.fields['email'].initial = self.instance.user.email
+    
     def clean_email(self):
         # TODO: test
         email = self.cleaned_data.get('email')
