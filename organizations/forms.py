@@ -10,7 +10,7 @@ from organizations.models import UserProfile
 class EditProfileForm(forms.ModelForm):
     user = forms.ModelChoiceField(queryset=User.objects.all(),
                                   widget=forms.HiddenInput)
-    email = forms.EmailField()
+    email = forms.EmailField(required=False)
     old_password = forms.CharField(required=False, widget=forms.PasswordInput)
     new_password1 = forms.CharField(required=False, widget=forms.PasswordInput)
     new_password2 = forms.CharField(required=False, widget=forms.PasswordInput)
@@ -20,7 +20,8 @@ class EditProfileForm(forms.ModelForm):
                              "this information"),
         'wrong_password': _("Incorrect password"),
         'password_mismatch': _("The new passwords don't match"),
-        'duplicate_email': _("This email address is already taken")
+        'duplicate_email': _("This email address is already taken"),
+        'missing_field': _("This field is required")
     }
     
     class Meta:
@@ -36,7 +37,7 @@ class EditProfileForm(forms.ModelForm):
         email = self.cleaned_data.get('email')
         old_password = self.cleaned_data.get('old_password')
         
-        if email != self.instance.user.email:
+        if email and email != self.instance.user.email:
             if not old_password:
                 raise forms.ValidationError(self.error_messages['password_needed'])
             if not self.instance.user.check_password(old_password):
