@@ -234,10 +234,15 @@ $include-html-classes: false;
 }
 .profile-details {
   text-align: center;
+  word-wrap: break-word;
+  overflow: scroll;
 
   input {
     margin-left: auto;
     margin-right: auto;
+  }
+  p {
+    font-size: .9rem;
   }
 }
 .recipe-slider {
