@@ -22,7 +22,8 @@
             <td>{{ form.nickname }}</label>
         </tr>
         <tr class="table-spacer"><td>&nbsp;</td><td></td></tr>
-        {% if not profile.get_social_logins %}
+        {% with profile.get_social_logins as social %}
+        {% if not social %}
           <tr class="table-divider"><td colspan="2">Login Information</td></tr>
           <tr class="table-spacer"><td>&nbsp;</td><td></td></tr>
           <tr><td></td><td>{{ form.email.errors }}</td></tr>
@@ -46,7 +47,19 @@
           </tr>
           <tr class="table-divider"><td colspan="2">&nbsp;</td></tr>
           <tr class="table-spacer"><td>&nbsp;</td><td></td></tr>
+        {% else %}
+          <tr>
+              <td></td>
+              <td>
+                 <em>Note: this changes your information with {{ config.SITE_NAME }}.
+                     To change your information with {{ social.0.capitalize }}, please
+                     log into their site using this profile.
+                 </em>
+              </td>
+          </tr>
+          <tr class="table-spacer"><td>&nbsp;</td><td></td></tr>
         {% endif %}
+        {% endwith %}
         <tr>
             <td></td>
             <td>
