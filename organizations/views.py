@@ -20,7 +20,8 @@ class EditProfile(UpdateView):
         try:
             response = super(EditProfile, self).post(request, *args, **kwargs)
             # return HttpResponse('edit-success')
-            return HttpResponseRedirect(urlresolvers.reverse('my_profile'))
+            #return HttpResponseRedirect(urlresolvers.reverse('my_profile'))
+            return response
         except Exception, e:
             #return HttpResponse(str(e))
             return HttpResponse('edit-fail')
