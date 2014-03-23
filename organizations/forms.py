@@ -15,8 +15,38 @@ class EditProfileForm(forms.ModelForm):
     new_password1 = forms.CharField(required=False, widget=forms.PasswordInput)
     new_password2 = forms.CharField(required=False, widget=forms.PasswordInput)
     
+    error_messages = {
+        'password_needed': _("Please enter your currrent password to change " +
+                             "this information"),
+        'wrong_password': _("Incorrect password"),
+        'password_mismatch': _("The new passwords don't match")
+    }
+    
     class Meta:
         model = UserProfile
+        
+    def clean_email(self):
+        # TODO: test
+        email = self.cleaned_data.get('email')
+        old_password = self.cleaned_data.get('old_password')
+        
+        if email and not old_password:
+            raise ValidationError(self.error_messages['password_needed'])
+        if not self.instance.user.check_password(old_password):
+            raise ValidationError(self.error_messages['wrong_password'])
+
+    def clean_new_password1(self):
+        # TODO: test
+        new_password1 = self.cleaned_data.get('new_password1')
+        new_password2 = self.cleaned_data.get('new_password2')
+        old_password = self.cleaned_data.get('old_password')
+     
+        if new_password1 and not old_password:
+            raise ValidationError(self.error_messages['password_needed'])
+        if not self.instance.user.check_password(old_password):
+            raise ValidationError(self.error_messages['wrong_password'])
+        if new_password1 != new_password2:
+            raise ValidationError(self.error_messages['password_mismatch'])
     
     def clean_nickname(self):
         # TODO: test
@@ -37,8 +67,7 @@ class NoDonutsAuthForm(AuthenticationForm):
     error_messages = {
         'invalid_login': _("Please enter a correct email and password. "
                            "Note that password is case-sensitive."),
-        'inactive': _("This account is inactive."),
-    }  
+        'inactive': _("This account is inactive.")}  
  
     
 class NoDonutsUserCreationForm(UserCreationForm):
@@ -79,7 +108,7 @@ class NoDonutsUserCreationForm(UserCreationForm):
     def save(self, commit=True):
         """Overrides parent method to handle new fields"""
         user = User.objects.create(username="user%d" % (User.objects.count() + 1),
-                                        email=self.cleaned_data.get('username'))
+                                   email=self.cleaned_data.get('username'))
 
         user.set_password(self.cleaned_data["password1"])
         user.save()
