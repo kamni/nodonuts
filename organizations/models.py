@@ -65,7 +65,7 @@ class UserProfile(models.Model):
         if 'twitter' in social_logins:
             return self.user.username
         elif social_logins:
-            return self.nickname or self.user.username
+            return self.user.get_full_name()
         
         # Users without a social login have a randomly generated, meaningless
         # username, so if they don't have a nickname then we'll assume they're
