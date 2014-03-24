@@ -18,7 +18,7 @@ class EditProfile(UpdateView):
     def get_object(self):
         # TODO: test
         profile = get_object_or_404(UserProfile, user=self.request.user)
-        if 'twitter' in profile.get_social_logins():
+        if profile.get_social_logins():
             # Twitter users need to go to Twitter to edit their own profiles,
             # as per the Twitter developer agreement
             raise Http404
