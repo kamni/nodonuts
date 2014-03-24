@@ -231,6 +231,7 @@ $include-html-classes: false;
   display: block;
   margin: 0 auto 1rem auto !important;
   border: 1px solid scale-color($neutral-color2, $lightness: 50%);
+  overflow: hidden;
 }
 .profile-details {
   text-align: center;

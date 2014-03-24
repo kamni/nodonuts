@@ -21,14 +21,23 @@ class UserProfile(models.Model):
     avatar_url = models.URLField(blank=True, null=True,
                                  help_text="Alternative to an uploaded file")
     
-    def get_avatar(self):
+    def get_avatar(self, large=True):
         """
         Retrieves the image url to use for this particular user.
         If avatar is not set, returns a default image.
         
         :return: string
         """
-        return (self.avatar_url or self.avatar.url or 
+        avatar_url = self.avatar_url
+        try:
+            login = self.get_social_logins()[0]
+        except IndexError:
+            login = None
+        if login == 'facebook' and avatar_url:
+            if large:
+                avatar_url += '?type=large'
+        
+        return (avatar_url or self.avatar.url or 
                 "/".join((settings.STATIC_URL, "img", "avatar.png")))
     
     def get_social_logins(self):

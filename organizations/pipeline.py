@@ -11,8 +11,7 @@ def save_profile_image(strategy, user, response, details, *args, **kwargs):
     
     is_new = kwargs.get('is_new', False) or not profile.avatar_url
     if is_new and strategy.backend.name == 'facebook':
-        profile.avatar_url = ('http://graph.facebook.com/{0}/picture'.format(response['id']) +
-                              '?type=large')
+        profile.avatar_url = 'http://graph.facebook.com/{0}/picture'.format(response['id'])
         profile.save()
     else:
         pass
