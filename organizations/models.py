@@ -36,8 +36,9 @@ class UserProfile(models.Model):
         if login == 'facebook' and avatar_url:
             if large:
                 avatar_url += '?type=large'
-        
-        return (avatar_url or self.avatar.url or 
+                
+        avatar = self.avatar.url if self.avatar else None
+        return (avatar_url or avatar or 
                 "/".join((settings.STATIC_URL, "img", "avatar.png")))
     
     def get_social_logins(self):
