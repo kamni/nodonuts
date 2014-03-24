@@ -18,6 +18,8 @@ class UserProfile(models.Model):
     avatar = models.ImageField(upload_to='organizations/avatars', blank=True,
                                null=True, help_text="Image to display for user " +
                                "profile")
+    avatar_url = models.URLField(blank=True, null=True,
+                                 help_text="Alternative to an uploaded file")
     
     def get_avatar(self):
         """
@@ -26,24 +28,8 @@ class UserProfile(models.Model):
         
         :return: string
         """
-        # TODO: test
-        if self.avatar:
-            return self.avatar.url
-        
-        # if the person has a social login, initialize it
-        social = self.get_social_logins()
-        if 'twitter' in social:
-            # twitter icon should always override other, for legal
-            # reasons
-            pass
-        
-        if 'facebook' in social:
-            pass
-        if 'google' in social:
-            pass
-        
-        
-        return "/".join((settings.STATIC_URL, "img", "avatar.png"))
+        return (self.avatar_url or self.avatar.url or 
+                "/".join((settings.STATIC_URL, "img", "avatar.png")))
     
     def get_social_logins(self):
         """
