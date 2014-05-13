@@ -58,6 +58,7 @@ Next, prepare static resources (css/js/images) for being served:
 Sync your db and create a superuser:
 
     python manage.py syncdb
+    python manage.py migrate
 
 Finally, follow any additional instructions for setting up a Django project for
 your particular web host or server. There is a `Procfile.sample` and a
