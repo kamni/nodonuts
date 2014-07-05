@@ -169,8 +169,10 @@ except ImportError:
 CONSTANCE_SUPERUSER_ONLY = True
 CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 CONSTANCE_CONFIG = {
-    'SITE_NAME': ('NoDonuts', 'The name to display in headers, title bar, ' +
+    'SITE_NAME': ('Healthy Campaigns', 'The name to display in headers, title bar, ' +
                   'and copyright notices'),
+    'SHOW_SITE_NAME': (False, 'Name of the site, if configured, should be shown ' +
+                       'in the header area of the pages'),
     'SITE_LOGO': ('img/logo.png', 'The path to the file located in the static folder ' +
                   'that represents the logo. Leave off any starting slash (/)'),
     'SHOW_SITE_LOGO': (True, 'Logo, if configured, should be shown in the ' +

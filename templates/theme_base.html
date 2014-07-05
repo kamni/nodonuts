@@ -16,8 +16,8 @@ Most templates will extend theme_base.html.
       <ul class="brand">
         <li class="name">
           <h1><a href="{% url "home" %}">
-            {% if config.SHOW_SITE_LOGO %}<img id="logo" src="{% static config.SITE_LOGO %}" alt="logo" />{% endif %}
-            {{ config.SITE_NAME }}
+            {% if config.SHOW_SITE_LOGO %}<img id="logo" src="{% static config.SITE_LOGO %}" alt="{{ config.SITE_NAME }}" />{% endif %}
+            {% if config.SHOW_SITE_NAME %}{{ config.SITE_NAME }}{% endif %}
           </a></h1>
         </li>
       </ul>
