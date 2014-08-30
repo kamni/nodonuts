@@ -2,9 +2,13 @@
   <ul class="nav-links">
     {% block nav_bar %}
       <li class="divider"></li>
-      <li><a href="{% url "home" %}">Home</a></li>
+      <li><a href=""><span class="strong">Join</span> a Campaign</a></li>
       <li class="divider"></li>
-      <li><a href="{% url "about" %}">About</a></li>
+      <li><a href=""><span class="strong">Start</span> a Campaign</a></li>
+      {% comment %}
+      ToDo: all docs and admin links should be tucked away in a drop-down menu
+      Add 'About' and 'Home' to theis dropdown menu
+      {% endcomment %}
       {% if config.DISPLAY_DOC_LINKS %}
         {% if user.is_superuser or not config.SUPERUSER_DOCS_ONLY %}
           <li class="divider"></li>
