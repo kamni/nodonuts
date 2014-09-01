@@ -11,18 +11,25 @@ Most templates will extend theme_base.html.
 {% endblock %}
 
 {% block body %}
-  <div class="fixed">
-    <div id="header">
-      <ul class="brand">
-        <li class="name">
-          <h1><a href="{% url "home" %}">
-            {% if config.SHOW_SITE_LOGO %}<img id="logo" src="{% static config.SITE_LOGO %}" alt="{{ config.SITE_NAME }}" />{% endif %}
-            {% if config.SHOW_SITE_NAME %}{{ config.SITE_NAME }}{% endif %}
-          </a></h1>
-        </li>
-      </ul>
 
-      {% include "partials/_nav_links.html" %}
+
+
+
+  {% comment %}
+  <div class="fixed">
+    <div id="header-wrapper">
+      <div id="header">
+        <ul class="brand">
+          <li class="name">
+            <h1><a href="{% url "home" %}">
+              {% if config.SHOW_SITE_LOGO %}<img id="logo" src="{% static config.SITE_LOGO %}" alt="{{ config.SITE_NAME }}" />{% endif %}
+              {% if config.SHOW_SITE_NAME %}{{ config.SITE_NAME }}{% endif %}
+            </a></h1>
+          </li>
+        </ul>
+
+        {% include "partials/_nav_links.html" %}
+      </div>
     </div>
 
     <div id="search">
@@ -47,5 +54,5 @@ Most templates will extend theme_base.html.
 
   <div class="spacer"><div class="container">&nbsp;</div></div>
 
-  {% include "partials/_footer.html" %}
+  {% include "partials/_footer.html" %}{% endcomment %}
 {% endblock %}

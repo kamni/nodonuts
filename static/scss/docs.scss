@@ -12,7 +12,7 @@
   padding-bottom: 1em;
 }
 .note {
-  @include card($neutral-color1);
+  /*@include card($neutral-color1);*/
 }
 .section-aside {
   & h1, & h2 {
@@ -74,7 +74,7 @@ img {
   padding-top: .5rem
 }
 pre {
-  @include card(scale-color($neutral-color2, $lightness: 90%));
+  /*@include card(scale-color($neutral-color2, $lightness: 90%));*/
   color: $neutral-color3;
 }
 
