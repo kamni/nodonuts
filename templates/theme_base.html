@@ -11,7 +11,48 @@ Most templates will extend theme_base.html.
 {% endblock %}
 
 {% block body %}
+<div class="fixed contain-to-grid">
+  <nav class="top-bar" data-topbar role="navigation">
+    <!-- brand -->
+    {% with config.SHOW_SITE_LOGO as show_logo %}
+    {% with config.SHOW_SITE_NAME as show_site_name %}
+    {% if show_logo or show_site_name %}
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="{% url "home" %}">
+          {% if config.SHOW_SITE_LOGO %}<img id="logo" src="{% static config.SITE_LOGO %}" alt="{{ config.SITE_NAME }}" />{% endif %}
+          {% if config.SHOW_SITE_NAME %}{{ config.SITE_NAME }}{% endif %}
+        </a></h1>
+      </li>
+    </ul>
+    {% endif %}
+    {% endwith %}
+    {% endwith %}
 
+    <section class="top-bar-section">
+      <!-- right nav -->
+      <ul class="right">
+        <li><a href="" class="btn primary-btn">Sign Up</a></li>
+        <li><a href="" class="btn">Sign In</a></li>
+        <li class="has-dropdown">
+          <a href="">...</a>
+          <ul class="dropdown">
+            <li><a href="">About Us</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="">Privacy and Terms</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- left nav -->
+      <ul class="left">
+        <li><a href=""><span class="nav-emphasis">Join</span> a Campaign</li>
+        <li><a href=""><span class="nav-emphasis">Start</span> a Campaign</li>
+      </ul>
+    </section>
+
+  </nav>
+</div>
 
 
 
