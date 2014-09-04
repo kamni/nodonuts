@@ -1,8 +1,8 @@
 @import "foundation/functions";
 
-$main-color1: #ffffff;          // white
+$main-color1: #fff;          // white
 $main-color2: #ce6306;          // darker orange
-$complement-color1: #ffffff;    // white
+$complement-color1: #fff;    // white
 $complement-color2: #0f5f8e;    // darker blue
 $neutral-color1: #001200;       // black
 $neutral-color2: #666;          // grey
@@ -16,6 +16,6 @@ $success-color: #43AC6A;
 $warning-color: #f08a24;
 $info-color: #a0d3e8;
 
-$body-bg: $complement-color1;
+$body-bg: $main-color1;
 $body-font-color: $neutral-color2;
 
