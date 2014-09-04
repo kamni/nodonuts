@@ -1,1 +1,14 @@
 @import "main";
+
+.nav-emphasis {
+  color: $main-color2;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+#logo { height: $topbar-height; }
+
+#nav-spacer {
+  height: 1em;
+  border-bottom: 1px solid $neutral-color2;
+}
